@@ -1,0 +1,71 @@
+{
+	"status": 200,
+	"message": "Receipt detail retrieved.",
+	"data": {
+		"amount": "Rp. 520.000",
+		"details": [
+		{
+		  "label": "Jenis Transaksi",
+		  "value": "Pembayaran QRIS"
+		},
+		{
+		  "label": "Tanggal Transaksi",
+		  "value": "2 April 2024 10:22:58"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "Pembayaran Kepada",
+		  "value": "TOKO-DINA-DELANGGU-328-KLATEN"
+		},
+		{
+		  "label": "Lokasi Merchant",
+		  "value": "Delanggu Raya, Klaten"
+		},
+		{
+		  "label": "Pengakuisisi",
+		  "value": "0000"
+		},
+		{
+		  "label": "Merchant PAN",
+		  "value": "30000000000000003"
+		},
+		{
+		  "label": "Terminal ID",
+		  "value": "A01"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "Sumber Dana",
+		  "value": "Super Saver - 1234567890"
+		},
+		{
+		  "label": "Customer PAN",
+		  "value": "20000000000000002"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "Total Bayar",
+		  "value": "Rp. 520.000"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "RRN",
+		  "value": "1000000000000001"
+		},
+		{
+		  "label": "No. Referensi",
+		  "value": "1234000012340000"
+		}
+	  ],
+	  "title": "Pembayaran QRIS",
+	  "transaction_id": "1000000000000001"
+	}
+  }

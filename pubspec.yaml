@@ -1,0 +1,89 @@
+name: mbankingflutter
+description: MBanking-flutter.
+version: 1.0.0+1
+environment: 
+  sdk: '>=2.19.0 <=3.3.2'
+dependencies: 
+  flutter: 
+    sdk: flutter
+  shared_preferences: ^2.1.1
+  cached_network_image: ^3.2.3
+  flutter_svg:
+  intl: ^0.19.0
+  http: ^1.2.0
+  webview_flutter: ^4.4.4
+  qr_flutter: ^4.0.0
+  share_plus: ^7.2.2
+  image_picker: ^1.0.7
+  flutter_secure_storage: ^9.0.0
+  crypto: ^3.0.2
+  encrypt: ^5.0.1
+  xor_cipher: ^1.0.0+1
+  crclib: ^3.0.0
+  connectivity_plus: ^5.0.1
+  get: ^4.6.5
+  flash: ^3.0.5+1
+  image: ^4.0.17
+  font_awesome_flutter: ^10.2.1
+  json_sorter: ^1.0.0
+  path_provider: ^2.0.11
+  path: ^1.8.1
+  mobile_scanner: ^4.0.0
+  hex: ^0.2.0
+  collection: ^1.16.0
+  smooth_page_indicator: ^1.0.0+2
+  file: ^7.0.0
+  fluttertoast: ^8.2.4
+  flutter_jailbreak_detection: ^1.10.0
+  carousel_slider: ^4.2.1
+  sqflite: ^2.3.0
+  fl_chart: ^0.66.2
+  screenshot: ^2.1.0
+  local_auth: ^2.1.8
+  barcode_widget: ^2.0.4
+  pdfx: ^2.6.0
+  package_info_plus: ^4.2.0
+
+
+dev_dependencies: 
+  flutter_test: 
+    sdk: flutter
+flutter: 
+  uses-material-design: true
+  assets: 
+    - lib/assets/
+    - lib/contracts/
+    - lib/images/
+
+  fonts: 
+
+    - family: Roboto
+      fonts:
+        - asset: lib/fonts/Roboto-Thin.ttf
+          weight: 100
+        - asset: lib/fonts/Roboto-ThinItalic.ttf
+          weight: 100
+        - asset: lib/fonts/Roboto-Light.ttf
+          weight: 300
+        - asset: lib/fonts/Roboto-LightItalic.ttf
+          weight: 300
+        - asset: lib/fonts/Roboto-Regular.ttf
+          weight: 400
+        - asset: lib/fonts/Roboto-Italic.ttf
+          weight: 400
+        - asset: lib/fonts/Roboto-Medium.ttf
+          weight: 500
+        - asset: lib/fonts/Roboto-MediumItalic.ttf
+          weight: 500
+        - asset: lib/fonts/Roboto-Bold.ttf
+          weight: 700
+        - asset: lib/fonts/Roboto-BoldItalic.ttf
+          weight: 700
+        - asset: lib/fonts/Roboto-Black.ttf        
+          weight: 900
+        - asset: lib/fonts/Roboto-BlackItalic.ttf
+          weight: 900
+
+
+
+

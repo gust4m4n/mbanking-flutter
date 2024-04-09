@@ -1,0 +1,38 @@
+{
+	"status": 200,
+	"message": "Notification list retrieved.",
+	"data": [
+	  {
+		"created_at": "2024-03-24 12:02:00",
+		"description": "Transfer BI FAST dari BANK ACB - DEWI SRI 60000822233 sebesar Rp. 200.000.",
+		"id": 1,
+		"readed": false,
+		"title": "Transfer Rupiah",
+		"type": "transfer"
+	  },
+	  {
+		"created_at": "2024-03-24 12:02:00",
+		"description": "Transfer BI FAST dari BANK ACB - PT ANGIN 60000333440 sebesar Rp. 15.000.000.000.",
+		"id": 1,
+		"readed": false,
+		"title": "Transfer Rupiah",
+		"type": "transfer"
+	  },
+	  {
+		"created_at": "2024-03-21 16:00:10",
+		"description": "Biaya admin untuk ATM dan kartu debit sebesar Rp 25.000.",
+		"id": 1,
+		"readed": true,
+		"title": "Biaya Admin",
+		"type": "admin-fee"
+	  },
+	  {
+		"created_at": "2024-03-21 16:00:10",
+		"description": "Biaya tahunan untuk kartu kredit sebesar Rp 200.000.",
+		"id": 1,
+		"readed": true,
+		"title": "Biaya Admin",
+		"type": "admin-fee"
+	  }
+	]
+  }

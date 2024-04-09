@@ -1,0 +1,24 @@
+{
+	"status": 200,
+	"message": "Onboarding list retrieved.",
+	"data": [
+	  {
+		"onboarding_id": 1,
+		"image": "https://st.depositphotos.com/1500876/2955/i/600/depositphotos_29554427-stock-photo-inserting-credit-card-into-bank.jpg",
+		"title": "Simpel, Cepat, Aman",
+		"description": "Kenyamanan dan keamanan menjadi prioritas."
+	  },
+	  {
+		"onboarding_id": 2,
+		"image": "https://st2.depositphotos.com/1164721/5862/i/600/depositphotos_58622831-stock-photo-hands-holding-a-credit-card.jpg",
+		"title": "Semua Ada Di sini",
+		"description": "Segala keperluan sehari-hari bisa dilakukan di sini."
+	  },
+	  {
+		"onboarding_id": 3,
+		"image": "https://static9.depositphotos.com/1594308/1117/i/600/depositphotos_11177042-stock-photo-paying-for-goods.jpg",
+		"title": "MBanking-flutter",
+		"description": "Mobile superapps dari Bank XYZ."
+	  }
+	]
+  }

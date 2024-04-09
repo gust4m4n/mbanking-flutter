@@ -1,0 +1,31 @@
+{
+	"message": "Get profile success",
+	"data": {
+	  "accounts": [
+		{
+		  "account": "10002000101",
+		  "balance": 999000000000000,
+		  "id": 1,
+		  "name": "SUPER SAVER"
+		},
+		{
+		  "account": "4000419200",
+		  "balance": 685000,
+		  "id": 2,
+		  "name": "CREDIT CARD"
+		},
+		{
+		  "account": "8000200123",
+		  "balance": 1750000,
+		  "id": 3,
+		  "name": "PERSONAL LOAN"
+		}
+	  ],
+	  "biometric": false,
+	  "email": "juleha@example.com",
+	  "name": "Juleha",
+	  "phone": "0888123456789",
+	  "photo": "https://www.unwomen.org/sites/default/files/Headquarters/Images/Sections/Partnerships/GoodwillAmbassadors/UNwomen_AH_Photo_400px.jpg?h=375&la=en&w=300"
+	},
+	"status": 200
+  }
