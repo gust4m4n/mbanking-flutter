@@ -128,23 +128,18 @@ class MbLoginController extends GetxController {
           LoggerX.log('[PIN] entered: $code');
           Get.loading();
           final resp =
-              await MbxLoginPinVM.request(phone: phone, otp: otp, pin: code);
-          Get.back();
+              await MbxLoginPinVM.request(phone: '', otp: '', pin: code);
           if (resp.status == 200) {
+            LoggerX.log('[PIN] verfied: $code');
+            MbxProfileVM.request().then((resp) {
+              Get.deleteAll();
+              Get.offAll(MbxBottomNavBarScreen());
+            });
             return code;
           } else {
-            return code;
+            Get.back();
+            return '';
           }
-        }).then((code) {
-      if (code != null && (code as String).isNotEmpty) {
-        LoggerX.log('[PIN] verfied: $code');
-        Get.loading();
-        MbxProfileVM.request().then((resp) {
-          Get.back();
-          Get.deleteAll();
-          Get.offAll(MbxBottomNavBarScreen());
         });
-      }
-    });
   }
 }
