@@ -3,6 +3,7 @@ import 'package:mbankingflutter/utils/all_utils.dart';
 import 'package:mbankingflutter/views/mbx_home_page/mbx_account_cell.dart';
 import 'package:mbankingflutter/views/mbx_home_page/mbx_news_cell.dart';
 import 'package:mbankingflutter/views/mbx_home_page/mbx_theme_button.dart';
+
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_home_controller.dart';
@@ -164,14 +165,16 @@ class MbxHomePage extends StatelessWidget {
                                       physics: ClampingScrollPhysics(),
                                       children: [
                                         MbxLauncherCell(
-                                          color: ColorX.green,
-                                          faIcon: FontAwesomeIcons
-                                              .arrowRightArrowLeft,
-                                          title: 'Transfer',
-                                          titleColor: ColorX.white,
-                                          highlightColor:
-                                              ColorX.theme.lighten(0.1),
-                                        ),
+                                            color: ColorX.green,
+                                            faIcon: FontAwesomeIcons
+                                                .arrowRightArrowLeft,
+                                            title: 'Transfer',
+                                            titleColor: ColorX.white,
+                                            highlightColor:
+                                                ColorX.theme.lighten(0.1),
+                                            onClicked: () {
+                                              controller.btnTransferClicked();
+                                            }),
                                         MbxLauncherCell(
                                           color: ColorX.blue,
                                           faIcon: FontAwesomeIcons.sackDollar,

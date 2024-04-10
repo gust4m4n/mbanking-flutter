@@ -1,3 +1,5 @@
+import 'package:mbankingflutter/views/mbx_transfer_screen/mbx_transfer_screen.dart';
+
 import '../../viewmodels/mbx_news_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
@@ -38,6 +40,10 @@ class MbxHomeController extends GetxController {
 
   btnBackClicked() {
     Get.back();
+  }
+
+  btnTransferClicked() {
+    Get.to(MbxTransferScreen());
   }
 
   setPageIndex(int index) {
