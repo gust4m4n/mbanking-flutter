@@ -46,7 +46,7 @@ class MbxHistoryPage extends StatelessWidget {
                                 return Padding(
                                     padding: EdgeInsets.only(left: 50.0),
                                     child: ContainerX(
-                                      height: 1.0,
+                                      height: 0.5,
                                       width: double.infinity,
                                       backgroundColor: ColorX.lightGray,
                                     ));

@@ -67,9 +67,9 @@ class MbxReceiptScreen extends StatelessWidget {
                                           ]),
                                       Padding(
                                           padding: EdgeInsets.only(
-                                              left: 24.0,
+                                              left: 16.0,
                                               top: 8.0,
-                                              right: 24.0,
+                                              right: 16.0,
                                               bottom: 8.0),
                                           child: DashedDividerX(
                                               dashColor: ColorX.gray,
@@ -110,9 +110,9 @@ class MbxReceiptScreen extends StatelessWidget {
                                       ),
                                       Padding(
                                           padding: EdgeInsets.only(
-                                              left: 24.0,
+                                              left: 16.0,
                                               top: 8.0,
-                                              right: 24.0,
+                                              right: 16.0,
                                               bottom: 8.0),
                                           child: DashedDividerX(
                                               dashColor: ColorX.gray,
@@ -133,9 +133,9 @@ class MbxReceiptScreen extends StatelessWidget {
                               )))),
               Padding(
                 padding: EdgeInsets.only(
-                    left: 24.0,
+                    left: 16.0,
                     top: 16.0,
-                    right: 24.0,
+                    right: 16.0,
                     bottom: 16.0 + MediaQuery.of(Get.context!).padding.bottom),
                 child: ButtonX(
                   backgroundColor: ColorX.theme,

@@ -10,7 +10,7 @@ class MbxNewsCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(left: 12.0),
+        padding: EdgeInsets.only(left: 16.0),
         child: InkWellX(
           highlightColor: ColorX.theme.withOpacity(0.1),
           cornerRadius: 12.0,

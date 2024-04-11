@@ -1,4 +1,5 @@
 import 'package:mbankingflutter/utils/all_utils.dart';
+
 import '../../models/mbx_history_model.dart';
 import '../../viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
@@ -12,7 +13,7 @@ class MbxHistoryCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding:
-            EdgeInsets.only(left: 12.0, top: 8.0, right: 12.0, bottom: 8.0),
+            EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

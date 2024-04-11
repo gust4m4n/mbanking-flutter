@@ -107,9 +107,9 @@ class MbxHomePage extends StatelessWidget {
                               children: [
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      left: 12.0,
+                                      left: 16.0,
                                       top: 0.0,
-                                      right: 12.0,
+                                      right: 16.0,
                                       bottom: 4.0),
                                   child: TextX(
                                     'REKENING',
@@ -123,7 +123,7 @@ class MbxHomePage extends StatelessWidget {
                                     height: 84.0,
                                     child: ListView.separated(
                                         padding: EdgeInsets.only(
-                                            left: 12.0, right: 12.0),
+                                            left: 16.0, right: 16.0),
                                         physics: ClampingScrollPhysics(),
                                         scrollDirection: Axis.horizontal,
                                         separatorBuilder: (context, index) {
@@ -151,7 +151,7 @@ class MbxHomePage extends StatelessWidget {
                                 SizedBox(height: 12.0),
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      left: 12.0, top: 4.0, right: 12.0),
+                                      left: 16.0, top: 4.0, right: 16.0),
                                   child: ContainerX(
                                     backgroundColor: ColorX.theme,
                                     cornerRadius: 12.0,
@@ -239,9 +239,9 @@ class MbxHomePage extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(
-                                      left: 12.0,
+                                      left: 16.0,
                                       top: 8.0,
-                                      right: 12.0,
+                                      right: 16.0,
                                       bottom: 4.0),
                                   child: TextX(
                                     'FAVORIT',
@@ -253,7 +253,7 @@ class MbxHomePage extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding:
-                                      EdgeInsets.only(left: 12.0, right: 12.0),
+                                      EdgeInsets.only(left: 16.0, right: 16.0),
                                   child: ContainerX(
                                     backgroundColor: ColorX.theme.darken(0.03),
                                     cornerRadius: 12.0,
@@ -312,9 +312,9 @@ class MbxHomePage extends StatelessWidget {
                                     children: [
                                       Padding(
                                         padding: EdgeInsets.only(
-                                            left: 12.0,
+                                            left: 16.0,
                                             top: 8.0,
-                                            right: 12.0,
+                                            right: 16.0,
                                             bottom: 4.0),
                                         child: TextX(
                                           'BERITA',

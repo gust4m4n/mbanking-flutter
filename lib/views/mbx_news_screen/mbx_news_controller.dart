@@ -1,4 +1,5 @@
 import 'package:mbankingflutter/models/mbx_news_model.dart';
+
 import '../../viewmodels/mbx_news_detail_vm.dart';
 import '../../widgets/all_widgets.dart';
 
@@ -45,7 +46,7 @@ class MbxNewsController extends GetxController {
               ${await addFont(fontFamily: 'Roboto', fontPath: 'lib/fonts/Roboto-Regular.ttf', fontMime: 'font/ttf')}
               </style>              
               </head>
-              <body style='margin:12pt;padding:0pt;'>
+              <body style='margin:16pt;padding:0pt;'>
               ${html}
               </body></html>''';
         return htmlPage;

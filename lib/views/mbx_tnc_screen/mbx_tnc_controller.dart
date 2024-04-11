@@ -7,12 +7,10 @@ class MbxTncController extends GetxController {
 
   @override
   void onReady() {
-  super.onReady();    
-
-
-    update();       
+    super.onReady();
+    update();
     tncVM.request().then((resp) {
-      update();                   
+      update();
       buildHtmlAndFonts('''
           <span style="font-family: 'Roboto'; font-weight: bold; font-size: 24pt; color: #343a40">${tncVM.tnc.title}</span>
           <br><br>
@@ -38,7 +36,7 @@ class MbxTncController extends GetxController {
               ${await addFont(fontFamily: 'Roboto', fontPath: 'lib/fonts/Roboto-Regular.ttf', fontMime: 'font/ttf')}
               </style>              
               </head>
-              <body style='margin:12pt;padding:0pt;'>
+              <body style='margin:16pt;padding:0pt;'>
               ${html}
               </body></html>''';
         return htmlPage;

@@ -1,4 +1,4 @@
-import 'package:mbankingflutter/models/mbx_receipt_detail_model.dart';
+import '../../models/mbx_receipt_detail_model.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
@@ -11,12 +11,12 @@ class MbxReceiptCell extends StatelessWidget {
     return detail.label == '-'
         ? Padding(
             padding:
-                EdgeInsets.only(left: 24.0, top: 8.0, right: 24.0, bottom: 8.0),
+                EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
             child: DashedDividerX(
                 dashColor: ColorX.gray, dashWidth: 6.0, dashHeight: 1.0))
         : Padding(
             padding:
-                EdgeInsets.only(left: 24.0, top: 4.0, right: 24.0, bottom: 4.0),
+                EdgeInsets.only(left: 16.0, top: 4.0, right: 16.0, bottom: 4.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -29,12 +29,12 @@ class MbxReceiptCell extends StatelessWidget {
                           detail.label,
                           color: ColorX.black,
                           fontSize: 15.0,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w600,
                           textAlign: TextAlign.start,
                           maxLines: 8,
                         ),
                       ),
-                      ContainerX(width: 24.0),
+                      ContainerX(width: 16.0),
                       Expanded(
                           child: TextX(
                         detail.value,
