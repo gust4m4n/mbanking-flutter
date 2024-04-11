@@ -1,7 +1,7 @@
-import 'package:mbankingflutter/models/mbx_receipt_model.dart';
+import 'package:mbankingflutter/models/mbx_qris_inquiry_model.dart';
+import 'package:mbankingflutter/views/mbx_qris_amount_screen/mbx_qris_amount_screen.dart';
 
 import '../../widgets/all_widgets.dart';
-import '../mbx_receipt_screen/mbx_receipt_screen.dart';
 import 'mbx_transfer_p2p_controller.dart';
 import 'mbx_transfer_p2p_dest_cell.dart';
 
@@ -97,9 +97,8 @@ class MbxTransferP2PPage extends StatelessWidget {
                           return InkWellX(
                               highlightColor: ColorX.theme.withOpacity(0.1),
                               onClicked: () {
-                                Get.to(MbxReceiptScreen(
-                                    receipt: MbxReceiptModel(),
-                                    backToHome: false));
+                                Get.to(MbxQRISAmountScreen(
+                                    inquiry: MbxQRISInquiryModel()));
                               },
                               child: MbxTransferP2PDestCell(dest));
                         })),
