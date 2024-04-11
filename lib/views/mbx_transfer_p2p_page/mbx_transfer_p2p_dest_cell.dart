@@ -3,9 +3,9 @@ import 'package:mbankingflutter/models/mbx_transfer_p2p_dest_model.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxTransferP2PCell extends StatelessWidget {
+class MbxTransferP2PDestCell extends StatelessWidget {
   final MbxTransferP2PDestModel dest;
-  MbxTransferP2PCell(this.dest);
+  MbxTransferP2PDestCell(this.dest);
 
   @override
   Widget build(BuildContext context) {
