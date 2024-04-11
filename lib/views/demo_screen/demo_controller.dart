@@ -16,7 +16,6 @@ import '../demo_onboarding_screen/demo_onboarding_screen.dart';
 import '../demo_piechart_screen/demo_piechart_screen.dart';
 import '../mbx_profile_page/mbx_profile_page.dart';
 import '../demo_qr_code_screen/demo_qr_code_screen.dart';
-import '../demo_receipt_screen/demo_receipt_screen.dart';
 import '../demo_search_picker/demo_search_picker.dart';
 import '../demo_string_picker/demo_string_picker.dart';
 import '../demo_tabbar_screen/demo_tabbar_screen.dart';
@@ -211,15 +210,6 @@ class DemoController extends SuperController {
   }
 
   btnReceiptClicked() {
-    Get.to(DemoReceiptScreen(
-      details: {
-        'Order ID': 'AB00001',
-        'Total': 'Rp100.000',
-        'Tax (8%)': 'Rp8.000',
-        '-': '',
-        'Grand Total': 'Rp108.000',
-      },
-    ));
   }
 
   btnImagePickerClicked() async {
