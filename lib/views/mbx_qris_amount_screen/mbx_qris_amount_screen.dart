@@ -42,10 +42,10 @@ class MbxQRISAmountScreen extends StatelessWidget {
                                   physics: ClampingScrollPhysics(),
                                   child: Padding(
                                       padding: EdgeInsets.only(
-                                          left: 24.0,
+                                          left: 16.0,
                                           top: 0.0,
-                                          right: 24.0,
-                                          bottom: 24.0),
+                                          right: 16.0,
+                                          bottom: 16.0),
                                       child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -319,9 +319,9 @@ class MbxQRISAmountScreen extends StatelessWidget {
                             ))),
               Padding(
                 padding: EdgeInsets.only(
-                    left: 24.0,
+                    left: 16.0,
                     top: 16.0,
-                    right: 24.0,
+                    right: 16.0,
                     bottom: 16.0 + MediaQuery.of(Get.context!).padding.bottom),
                 child: ButtonX(
                   title: 'Lanjut',

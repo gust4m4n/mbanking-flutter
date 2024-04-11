@@ -23,7 +23,7 @@ class MbxReloginScreen extends StatelessWidget {
                           height: MediaQuery.of(Get.context!).padding.top),
                       ContainerX(
                         padding: EdgeInsets.only(
-                            left: 24.0, top: 12.0, right: 24.0, bottom: 0.0),
+                            left: 16.0, top: 16.0, right: 16.0, bottom: 0.0),
                         child: Row(
                           children: [
                             Spacer(),
@@ -37,7 +37,7 @@ class MbxReloginScreen extends StatelessWidget {
                       ),
                       Expanded(
                         child: ContainerX(
-                            padding: EdgeInsets.all(24.0),
+                            padding: EdgeInsets.all(16.0),
                             width: double.infinity,
                             height: double.infinity,
                             child: Center(
@@ -48,7 +48,7 @@ class MbxReloginScreen extends StatelessWidget {
                                     children: [
                                   ContainerX(
                                       backgroundColor: ColorX.white,
-                                      padding: EdgeInsets.all(12.0),
+                                      padding: EdgeInsets.all(16.0),
                                       cornerRadius: 16.0,
                                       child: Wrap(
                                         crossAxisAlignment:
