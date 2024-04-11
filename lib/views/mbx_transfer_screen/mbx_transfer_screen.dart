@@ -1,3 +1,5 @@
+import 'package:mbankingflutter/views/mbx_transfer_p2p_page/mbx_transfer_p2p_page.dart';
+
 import '../../widgets/all_widgets.dart';
 import 'mbx_transfer_controller.dart';
 
@@ -53,17 +55,8 @@ class MbxTransferScreen extends StatelessWidget {
                   Expanded(
                     child: TabBarView(
                       controller: controller.tabController,
-                      children: const [
-                        Center(
-                          child: const TextX(
-                            'Page 1',
-                            color: ColorX.black,
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.w700,
-                            textAlign: TextAlign.start,
-                            maxLines: 1,
-                          ),
-                        ),
+                      children: [
+                        MbxTransferP2PPage(),
                         Center(
                           child: const TextX(
                             'Page 2',

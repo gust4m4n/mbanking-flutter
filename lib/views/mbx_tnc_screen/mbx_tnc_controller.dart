@@ -7,10 +7,12 @@ class MbxTncController extends GetxController {
 
   @override
   void onReady() {
-    super.onReady();
-    update();
+  super.onReady();    
+
+
+    update();       
     tncVM.request().then((resp) {
-      update();
+      update();                   
       buildHtmlAndFonts('''
           <span style="font-family: 'Roboto'; font-weight: bold; font-size: 24pt; color: #343a40">${tncVM.tnc.title}</span>
           <br><br>

@@ -1,0 +1,30 @@
+{
+	"status": 200,
+	"message": "Get transfer P2P destination success",
+	"data": [
+	  {
+		"name": "AGNES",
+		"account": "500010001"
+	  },
+	  {
+		"name": "ANGELINA",
+		"account": "500010002"
+	  },
+	  {
+		"name": "MIRANDA",
+		"account": "500010003"
+	  },
+	  {
+		"name": "ROBERT",
+		"account": "500010004"
+	  },
+	  {
+		"name": "SUZZANE",
+		"account": "500010005"
+	  },
+	  {
+		"name": "TIMOTHY",
+		"account": "500010006"
+	  }
+	]
+  }
