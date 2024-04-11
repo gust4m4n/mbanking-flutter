@@ -8,12 +8,8 @@ import '../../widgets/all_widgets.dart';
 import '../demo_barcode_screen/demo_barcode_screen.dart';
 import '../demo_pdf_screen/demo_pdf_screen.dart';
 import '../demo_photo_picker/demo_photo_picker.dart';
-import '../demo_bottom_navbar_screen/demo_bottom_navbar_screen.dart';
 import '../demo_carousel_screen/demo_carousel_screen.dart';
-import '../demo_database_screen/demo_database_screen.dart';
 import '../demo_drawer_screen/demo_drawer_screen.dart';
-import '../demo_html_screen/demo_html_screen.dart';
-import '../demo_image_screen/demo_image_screen.dart';
 import '../demo_linechart_screen/demo_linechart_screen.dart';
 import '../demo_login_screen/demo_login_screen.dart';
 import '../demo_onboarding_screen/demo_onboarding_screen.dart';
@@ -86,10 +82,6 @@ class DemoController extends SuperController {
   }
 
   btnImageClicked() {
-    Get.to(DemoImageScreen(
-      url:
-          'https://assets-prd.ignimgs.com/2023/04/27/transformers-rise-of-the-beast-new-button-1682603563738.jpg',
-    ));
   }
 
   btnCarouselClicked() {
@@ -97,7 +89,6 @@ class DemoController extends SuperController {
   }
 
   btnDatabaseClicked() {
-    Get.to(DemoDatabaseScreen());
   }
 
   btnWebViewClicked() {
@@ -105,7 +96,6 @@ class DemoController extends SuperController {
   }
 
   btnHtmlClicked() {
-    Get.to(DemoHtmlScreen());
   }
 
   btnPdfClicked() {
@@ -127,7 +117,6 @@ class DemoController extends SuperController {
   }
 
   btnBottomNavBarClicked() {
-    Get.to(DemoBottomNavBarScreen());
   }
 
   btnLineChartClicked() {

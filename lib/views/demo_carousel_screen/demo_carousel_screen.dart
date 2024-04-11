@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import '../../widgets/all_widgets.dart';
-import '../demo_image_screen/demo_image_screen.dart';
 import 'demo_carousel_controller.dart';
 
 class DemoCarouselScreen extends StatelessWidget {
@@ -50,7 +49,6 @@ class DemoCarouselScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(.0)),
                           highlightColor: ColorX.highlight,
                           onTap: () {
-                            Get.to(DemoImageScreen(url: movie.poster));
                           },
                           child: Padding(
                               padding: EdgeInsets.all(4.0),

@@ -1,6 +1,5 @@
 import '../../models/demo_movie_model.dart';
 import '../../widgets/all_widgets.dart';
-import '../demo_html_screen/demo_html_screen.dart';
 
 // ignore: must_be_immutable
 class MbxPromoCell extends StatelessWidget {
@@ -14,7 +13,6 @@ class MbxPromoCell extends StatelessWidget {
         child: InkWellX(
           cornerRadius: 12.0,
           onClicked: () {
-            Get.to(DemoHtmlScreen());
           },
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
