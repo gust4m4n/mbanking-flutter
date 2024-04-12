@@ -6,12 +6,12 @@ import '../../widgets/all_widgets.dart';
 class MbxSofWidget extends StatelessWidget {
   final MbxAccountModel account;
   final bool borders;
-  final GestureTapCallback? onClicked;
+  final GestureTapCallback? onEyeClicked;
 
   MbxSofWidget(
       {required this.account,
       required bool this.borders,
-      required this.onClicked});
+      required this.onEyeClicked});
 
   @override
   Widget build(BuildContext context) {
@@ -55,12 +55,16 @@ class MbxSofWidget extends StatelessWidget {
                   ),
                 ]),
             Spacer(),
-            ImageX(
+            ButtonX(
               faIcon: account.visible
                   ? FontAwesomeIcons.eyeSlash
                   : FontAwesomeIcons.eye,
-              width: 32.0,
-              height: 20.0,
+              faWidth: 24.0,
+              faHeight: 20.0,
+              width: 50.0,
+              height: 50.0,
+              backgroundColor: ColorX.transparent,
+              onClicked: onEyeClicked,
             )
           ],
         ));

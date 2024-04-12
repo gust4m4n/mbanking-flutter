@@ -1,7 +1,7 @@
+import 'package:intl/intl.dart';
 import 'package:mbankingflutter/viewmodels/mbx_profile_vm.dart';
 import 'package:mbankingflutter/viewmodels/mbx_qris_payment_vm.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
-import 'package:intl/intl.dart';
 
 import '../../models/mbx_account_model.dart';
 import '../../models/mbx_qris_inquiry_model.dart';
@@ -45,6 +45,11 @@ class MbxQRISAmountController extends GetxController {
         update();
       }
     });
+  }
+
+  btnEyeClicked() {
+    account.visible = !account.visible;
+    update();
   }
 
   txtAmountOnChanged(String value) {

@@ -239,9 +239,13 @@ class MbxQRISAmountScreen extends StatelessWidget {
                                                         account:
                                                             controller.account,
                                                         borders: false,
-                                                        onClicked: () {},
+                                                        onEyeClicked: () {
+                                                          controller
+                                                              .btnEyeClicked();
+                                                        },
                                                       ),
-                                                    )
+                                                    ),
+                                                    ContainerX(width: 12.0),
                                                   ],
                                                 )),
                                             Container(height: 8.0),

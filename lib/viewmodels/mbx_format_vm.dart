@@ -6,7 +6,7 @@ class MbxFormatVM {
     final currencyFormatter = NumberFormat('#,##0', 'ID');
     var result = '';
     if (masked) {
-      result = '***.***';
+      result = '******';
     } else {
       if (mutation) {
         result = currencyFormatter.format(value.abs());

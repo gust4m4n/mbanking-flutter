@@ -50,8 +50,8 @@ class MbxSofSheet extends GetWidget<MbxSofSheetController> {
                           child: MbxSofWidget(
                             account: MbxProfileVM.profile.accounts[index],
                             borders: true,
-                            onClicked: () {
-                              //controller.btnEyeClicked(index);
+                            onEyeClicked: () {
+                              controller.btnEyeClicked(index);
                             },
                           ));
                     }),
