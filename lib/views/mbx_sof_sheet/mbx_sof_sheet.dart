@@ -1,4 +1,3 @@
-import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_sof_sheet_controller.dart';
 import 'mbx_sof_widget.dart';
@@ -38,17 +37,16 @@ class MbxSofSheet extends GetWidget<MbxSofSheetController> {
                     separatorBuilder: (context, index) {
                       return ContainerX(height: 12.0);
                     },
-                    itemCount: MbxProfileVM.profile.accounts.length,
+                    itemCount: controller.accounts.length,
                     itemBuilder: (context, index) {
                       return InkWellX(
                           highlightColor: ColorX.theme.withOpacity(0.1),
                           cornerRadius: 12.0,
                           onClicked: () {
-                            Get.back(
-                                result: MbxProfileVM.profile.accounts[index]);
+                            Get.back(result: controller.accounts[index]);
                           },
                           child: MbxSofWidget(
-                            account: MbxProfileVM.profile.accounts[index],
+                            account: controller.accounts[index],
                             borders: true,
                             onEyeClicked: () {
                               controller.btnEyeClicked(index);

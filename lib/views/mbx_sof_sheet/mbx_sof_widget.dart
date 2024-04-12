@@ -27,42 +27,44 @@ class MbxSofWidget extends StatelessWidget {
             : EdgeInsets.zero,
         child: Row(
           children: [
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ContainerX(
-                    backgroundColor: ColorX.theme.darken(0.03),
-                    padding: EdgeInsets.only(
-                        left: 8.0, top: 2.0, right: 8.0, bottom: 2.0),
-                    cornerRadius: 6.0,
-                    child: TextX(
-                      account.name,
-                      color: ColorX.white,
-                      fontSize: 11.0,
-                      fontWeight: FontWeight.w500,
+            Expanded(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ContainerX(
+                      backgroundColor: ColorX.theme.darken(0.03),
+                      padding: EdgeInsets.only(
+                          left: 8.0, top: 2.0, right: 8.0, bottom: 2.0),
+                      cornerRadius: 6.0,
+                      child: TextX(
+                        account.name,
+                        color: ColorX.white,
+                        fontSize: 11.0,
+                        fontWeight: FontWeight.w500,
+                        textAlign: TextAlign.start,
+                      ),
+                    ),
+                    TextX(
+                      account.account,
+                      color: ColorX.black,
+                      fontSize: 13.0,
+                      fontWeight: FontWeight.w600,
                       textAlign: TextAlign.start,
                     ),
-                  ),
-                  TextX(
-                    account.account,
-                    color: ColorX.black,
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.w600,
-                    textAlign: TextAlign.start,
-                  ),
-                  TextX(
-                    MbxFormatVM.currencyRP(account.balance,
-                        prefix: true,
-                        mutation: false,
-                        masked: !account.visible),
-                    color: ColorX.black,
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w700,
-                    textAlign: TextAlign.start,
-                  ),
-                ]),
-            Spacer(),
+                    TextX(
+                      MbxFormatVM.currencyRP(account.balance,
+                          prefix: true,
+                          mutation: false,
+                          masked: !account.visible),
+                      color: ColorX.black,
+                      fontSize: 17.0,
+                      fontWeight: FontWeight.w700,
+                      textAlign: TextAlign.start,
+                    ),
+                  ]),
+            ),
+            ContainerX(width: 12.0),
             ButtonX(
               faIcon: account.visible
                   ? FontAwesomeIcons.eyeSlash
