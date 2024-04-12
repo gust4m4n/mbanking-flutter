@@ -10,7 +10,7 @@ class MbxTransferP2PDestCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding:
-            EdgeInsets.only(left: 12.0, top: 8.0, right: 12.0, bottom: 8.0),
+            EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
         child: Row(
           children: [
             Expanded(
