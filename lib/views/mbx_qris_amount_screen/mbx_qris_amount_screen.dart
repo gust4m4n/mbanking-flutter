@@ -51,7 +51,7 @@ class MbxQRISAmountScreen extends StatelessWidget {
                                               CrossAxisAlignment.start,
                                           children: [
                                             TextX(
-                                              'Pembayaran Kepada',
+                                              'PEMBAYARAN KEPADA',
                                               fontSize: 15.0,
                                               fontWeight: FontWeight.w500,
                                               color: ColorX.black,
