@@ -135,30 +135,15 @@ class MbxHomePage extends StatelessWidget {
                                           return ContainerX(
                                               width: 200.0,
                                               child: MbxSofWidget(
-                                                  account: MbxProfileVM
-                                                      .profile.accounts[index],
-                                                  borders: true,
-                                                  onEyeClicked: () {
-                                                    controller
-                                                        .btnEyeClicked(index);
-                                                  }));
-
-                                          /*
-                                          return InkWellX(
-                                              highlightColor:
-                                                  ColorX.theme.withOpacity(0.1),
-                                              cornerRadius: 12.0,
-                                              onClicked: () {
-                                                controller.btnEyeClicked(index);
-                                              },
-                                              child: MbxAccountCell(
                                                 account: MbxProfileVM
                                                     .profile.accounts[index],
-                                                onClicked: () {
+                                                borders: true,
+                                                onEyeClicked: () {
                                                   controller
                                                       .btnEyeClicked(index);
                                                 },
-                                              )); */
+                                                onClicked: () {},
+                                              ));
                                         })),
                                 SizedBox(height: 12.0),
                                 Padding(

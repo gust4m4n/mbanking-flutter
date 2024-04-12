@@ -39,19 +39,16 @@ class MbxSofSheet extends GetWidget<MbxSofSheetController> {
                     },
                     itemCount: controller.accounts.length,
                     itemBuilder: (context, index) {
-                      return InkWellX(
-                          highlightColor: ColorX.theme.withOpacity(0.1),
-                          cornerRadius: 12.0,
-                          onClicked: () {
-                            Get.back(result: controller.accounts[index]);
-                          },
-                          child: MbxSofWidget(
-                            account: controller.accounts[index],
-                            borders: true,
-                            onEyeClicked: () {
-                              controller.btnEyeClicked(index);
-                            },
-                          ));
+                      return MbxSofWidget(
+                        account: controller.accounts[index],
+                        borders: true,
+                        onEyeClicked: () {
+                          controller.btnEyeClicked(index);
+                        },
+                        onClicked: () {
+                          Get.back(result: controller.accounts[index]);
+                        },
+                      );
                     }),
                 SizedBox(height: 12.0),
                 ContainerX(
