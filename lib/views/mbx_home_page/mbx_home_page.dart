@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mbankingflutter/utils/all_utils.dart';
-import 'package:mbankingflutter/views/mbx_home_page/mbx_account_cell.dart';
 import 'package:mbankingflutter/views/mbx_home_page/mbx_news_cell.dart';
 import 'package:mbankingflutter/views/mbx_home_page/mbx_theme_button.dart';
+import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_widget.dart';
 
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
@@ -132,6 +132,18 @@ class MbxHomePage extends StatelessWidget {
                                         itemCount: MbxProfileVM
                                             .profile.accounts.length,
                                         itemBuilder: (context, index) {
+                                          return ContainerX(
+                                              width: 200.0,
+                                              child: MbxSofWidget(
+                                                  account: MbxProfileVM
+                                                      .profile.accounts[index],
+                                                  borders: true,
+                                                  onEyeClicked: () {
+                                                    controller
+                                                        .btnEyeClicked(index);
+                                                  }));
+
+                                          /*
                                           return InkWellX(
                                               highlightColor:
                                                   ColorX.theme.withOpacity(0.1),
@@ -146,7 +158,7 @@ class MbxHomePage extends StatelessWidget {
                                                   controller
                                                       .btnEyeClicked(index);
                                                 },
-                                              ));
+                                              )); */
                                         })),
                                 SizedBox(height: 12.0),
                                 Padding(

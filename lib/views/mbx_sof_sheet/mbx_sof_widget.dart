@@ -64,15 +64,15 @@ class MbxSofWidget extends StatelessWidget {
                     ),
                   ]),
             ),
-            ContainerX(width: 12.0),
+            ContainerX(width: 8.0),
             ButtonX(
               faIcon: account.visible
                   ? FontAwesomeIcons.eyeSlash
                   : FontAwesomeIcons.eye,
-              faWidth: 24.0,
-              faHeight: 20.0,
-              width: 50.0,
-              height: 50.0,
+              faWidth: 20.0,
+              faHeight: 16.0,
+              width: 38.0,
+              height: 38.0,
               backgroundColor: ColorX.transparent,
               onClicked: onEyeClicked,
             )
