@@ -6,19 +6,22 @@
 		  "account": "10002000101",
 		  "balance": 999000000000000,
 		  "id": 1,
-		  "name": "SUPER SAVER"
+		  "name": "SUPER SAVER",
+		  "sof": true
 		},
 		{
 		  "account": "4000419200",
 		  "balance": 685000,
 		  "id": 2,
-		  "name": "CREDIT CARD"
+		  "name": "CREDIT CARD",
+		  "sof": true
 		},
 		{
 		  "account": "8000200123",
 		  "balance": 1750000,
 		  "id": 3,
-		  "name": "PERSONAL LOAN"
+		  "name": "PERSONAL LOAN",
+		  "sof": false
 		}
 	  ],
 	  "biometric": false,

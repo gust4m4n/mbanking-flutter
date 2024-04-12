@@ -6,9 +6,11 @@ class MbxSofSheetController extends GetxController {
   List<MbxAccountModel> accounts = [];
 
   MbxSofSheetController() {
-    accounts = MbxProfileVM.profile.accounts;
-    for (final account in accounts) {
-      account.visible = false;
+    for (var item in MbxProfileVM.profile.accounts) {
+      if (item.sof) {
+        item.visible = false;
+        accounts.add(item);
+      }
     }
   }
 

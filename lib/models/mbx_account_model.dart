@@ -5,6 +5,7 @@ class MbxAccountModel {
   int balance = 0;
   int id = 0;
   String name = '';
+  bool sof = false;
   bool visible = false;
 
   MbxAccountModel();
@@ -14,6 +15,7 @@ class MbxAccountModel {
     balance = jason['balance'].intValue;
     id = jason['id'].intValue;
     name = jason['name'].stringValue;
+    sof = jason['sof'].boolValue;
   }
 
   Map<String, dynamic> encode() {
@@ -22,6 +24,7 @@ class MbxAccountModel {
     map['balance'] = balance;
     map['id'] = id;
     map['name'] = name;
+    map['sof'] = sof;
     return map;
   }
 }
