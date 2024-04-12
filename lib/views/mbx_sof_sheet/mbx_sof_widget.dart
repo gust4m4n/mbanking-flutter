@@ -15,13 +15,15 @@ class MbxSofWidget extends StatelessWidget {
       {required this.account,
       required bool this.borders,
       required this.onEyeClicked,
-      required this.onClicked});
+      this.onClicked});
 
   @override
   Widget build(BuildContext context) {
     return InkWellX(
-        highlightColor: ColorX.theme.withOpacity(0.1),
-        cornerRadius: 12.0,
+        highlightColor: onClicked != null
+            ? ColorX.theme.withOpacity(0.1)
+            : ColorX.transparent,
+        cornerRadius: onClicked != null ? 12.0 : 0.0,
         onClicked: onClicked,
         child: ContainerX(
             backgroundColor: ColorX.transparent,
