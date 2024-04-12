@@ -15,7 +15,7 @@ class MbxTransferP2PPage extends StatelessWidget {
         builder: (controller) => Column(children: [
               Padding(
                 padding: EdgeInsets.only(
-                    left: 12.0, top: 8.0, right: 12.0, bottom: 8.0),
+                    left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
                 child: TextFieldX(
                   hint: 'Pencarian...',
                   obscureText: false,
@@ -29,7 +29,7 @@ class MbxTransferP2PPage extends StatelessWidget {
               ),
               Padding(
                   padding: EdgeInsets.only(
-                      left: 12.0, top: 0.0, right: 12.0, bottom: 8.0),
+                      left: 16.0, top: 0.0, right: 16.0, bottom: 8.0),
                   child: Row(
                     children: [
                       Expanded(
