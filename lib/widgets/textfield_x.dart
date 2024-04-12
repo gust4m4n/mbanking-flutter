@@ -6,6 +6,8 @@ class TextFieldX extends StatelessWidget {
   final double fontSize;
   final String fontFamily;
   final FontWeight fontWeight;
+  final Color backgroundColor;
+
   final double cornerRadius;
   final double borderWidth;
   final Color borderColor;
@@ -28,6 +30,7 @@ class TextFieldX extends StatelessWidget {
       this.fontSize = 17.0,
       this.fontFamily = 'Roboto',
       this.fontWeight = FontWeight.w400,
+      this.backgroundColor = ColorX.white,
       this.cornerRadius = 8.0,
       this.borderWidth = 1.0,
       this.borderColor = ColorX.lightGray,
@@ -89,10 +92,9 @@ class TextFieldX extends StatelessWidget {
     return ContainerX(
         backgroundColor: (rightIcon != null)
             ? ColorX.white
-            : readOnly == false
-                ? ColorX.white
-                : ColorX.gray,
-        //backgroundColor: ColorX.yellow,
+            : readOnly == true
+                ? ColorX.gray
+                : backgroundColor,
         height: height,
         padding: EdgeInsets.only(
           left: borderWidth > 0.0 ? 12.0 : 0.0,

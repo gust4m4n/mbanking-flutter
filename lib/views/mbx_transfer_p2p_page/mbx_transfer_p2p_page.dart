@@ -97,8 +97,7 @@ class MbxTransferP2PPage extends StatelessWidget {
                           return InkWellX(
                               highlightColor: ColorX.theme.withOpacity(0.1),
                               onClicked: () {
-                                Get.to(MbxQRISAmountScreen(
-                                    inquiry: MbxQRISInquiryModel()));
+                                controller.openDest(dest);
                               },
                               child: MbxTransferP2PDestCell(dest));
                         })),

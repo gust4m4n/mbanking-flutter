@@ -28,6 +28,7 @@ class MbxTransferScreen extends StatelessWidget {
               bottomPadding: false,
               bodyView: Column(
                 children: [
+                  TopContainerX(),
                   TabBar(
                     controller: controller.tabController,
                     indicatorSize: TabBarIndicatorSize.tab,
