@@ -98,11 +98,19 @@ class MbLoginController extends GetxController {
         final resp = await MbxLoginOtpVM.request(phone: phone, otp: code);
         Get.back();
         if (resp.status == 200) {
-          return true;
+          LoggerX.log('[OTP] verfied: $code');
+          Get.back();
+          Get.loading();
+          Future.delayed(const Duration(milliseconds: 500), () {
+            Get.back();
+            askPin(phone, code);
+          });
+          return code;
         } else {
-          return false;
+          return '';
         }
       },
+      /*
       onResend: () async {
         Get.loading();
         MbxLoginPhoneVM.request(phone: txtPhoneController.text).then((resp) {
@@ -111,7 +119,7 @@ class MbLoginController extends GetxController {
             ToastX.snackBar(msg: 'OTP telah dikirim ulang.');
           }
         });
-      },
+      }, */
     ).then((code) {
       if (code != null && (code as String).isNotEmpty) {
         LoggerX.log('[OTP] verfied: $code');

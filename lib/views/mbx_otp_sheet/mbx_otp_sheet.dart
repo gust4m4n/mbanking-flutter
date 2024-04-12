@@ -7,28 +7,22 @@ import 'mbx_otp_sheet_controller.dart';
 class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
   final String title;
   final String description;
-  final Future<bool> Function(String code) onSubmit;
-  final Future<void> Function() onResend;
+  final Future<String> Function(String code) onSubmit;
   TextEditingController pinController = TextEditingController();
 
-  MbxOtpSheet(
-      {required this.title,
-      required this.description,
-      required this.onSubmit,
-      required this.onResend});
+  MbxOtpSheet({
+    required this.title,
+    required this.description,
+    required this.onSubmit,
+  });
 
   static Future<T?> show<T>(
       {required String title,
       required String description,
-      required Future<bool> Function(String code) onSubmit,
-      required Future<void> Function() onResend}) {
+      required Future<String> Function(String code) onSubmit}) {
     FocusManager.instance.primaryFocus?.unfocus();
-    final sheet = MbxOtpSheet(
-      title: title,
-      description: description,
-      onSubmit: onSubmit,
-      onResend: onResend,
-    );
+    final sheet =
+        MbxOtpSheet(title: title, description: description, onSubmit: onSubmit);
     return SheetX.showWithGrip(
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 16.0,
@@ -39,7 +33,7 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxOtpSheetController>(
-        init: MbxOtpSheetController(onSubmit: onSubmit, onResend: onResend),
+        init: MbxOtpSheetController(onSubmit: onSubmit),
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             child: Wrap(alignment: WrapAlignment.center, children: [
@@ -190,7 +184,10 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                     ContainerX(height: 4.0),
                     Row(
                       children: [
-                        MbxOtpButton(),
+                        MbxOtpButton(
+                          title: '',
+                          onClicked: () {},
+                        ),
                         ContainerX(width: 4.0),
                         MbxOtpButton(
                           title: '0',
@@ -209,7 +206,7 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
                     ),
                     ContainerX(height: 4.0),
                     ButtonX(
-                      title: 'Kirim Ulang?',
+                      title: 'Kirim Ulang',
                       titleColor: ColorX.black,
                       fontSize: 15.0,
                       fontWeight: FontWeight.w700,
