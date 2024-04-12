@@ -5,6 +5,7 @@ import 'mbx_preferences_vm+users.dart';
 
 class MbxThemeVM {
   static List<Color> colors = [
+    Color(0xff9268ca),
     Color(0xff673ab7),
     Color(0xff9c27b0),
     Color(0xff4CA735),
@@ -18,6 +19,7 @@ class MbxThemeVM {
     Color(0xffff9800),
     Color(0xff7a5249),
     Color(0xff646d74),
+    Color(0xff3c3c3d),
   ];
 
   static Future<T?> change<T>() async {
