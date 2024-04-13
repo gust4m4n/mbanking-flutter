@@ -1,4 +1,5 @@
-import 'package:mbankingflutter/viewmodels/demo_biometric_vm.dart';
+import 'package:mbankingflutter/viewmodels/mbx_biometric_vm.dart';
+import 'package:mbankingflutter/viewmodels/mbx_preferences_vm+users.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../utils/all_utils.dart';
@@ -57,13 +58,17 @@ class MbxReloginController extends GetxController {
   }
 
   btnBiometricClicked() {
-    DemoBiometricVM.isAvailable().then((available) {
-      if (available) {
-        DemoBiometricVM.request().then((authenticated) {
-          if (authenticated) {
-            MbxProfileVM.request().then((resp) {
-              Get.deleteAll();
-              Get.offAll(MbxBottomNavBarScreen());
+    MbxUserPreferencesVM.getBiometricEnabled().then((value) {
+      if (value) {
+        MbxBiometricVM.isAvailable().then((available) {
+          if (available) {
+            MbxBiometricVM.request().then((authenticated) {
+              if (authenticated) {
+                MbxProfileVM.request().then((resp) {
+                  Get.deleteAll();
+                  Get.offAll(MbxBottomNavBarScreen());
+                });
+              }
             });
           }
         });

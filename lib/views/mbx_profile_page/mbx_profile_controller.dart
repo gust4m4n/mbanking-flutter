@@ -1,26 +1,28 @@
+import 'package:mbankingflutter/viewmodels/mbx_preferences_vm+users.dart';
 import 'package:mbankingflutter/views/mbx_tnc_screen/mbx_tnc_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+
 import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
 
 class MbxProfileController extends GetxController {
+  var biometricEnabled = false;
   var version = '';
 
   @override
-  void onReady() {
+  Future<void> onReady() async {
     super.onReady();
-    PackageInfo.fromPlatform().then((info) {
-      version = 'Version ${info.version}.${info.buildNumber}';
-      update();
-    });
-    MbxProfileVM.request().then((resp) {
-      update();
-    });
+    final info = await PackageInfo.fromPlatform();
+    version = 'Version ${info.version}.${info.buildNumber}';
+    await MbxProfileVM.request();
+    biometricEnabled = await MbxUserPreferencesVM.getBiometricEnabled();
+    update();
   }
 
-  toggleBiometric(bool value) {
+  toggleBiometric(bool value) async {
+    await MbxUserPreferencesVM.setBiometricEnabled(value);
     MbxProfileVM.profile.biometric = value;
     update();
   }

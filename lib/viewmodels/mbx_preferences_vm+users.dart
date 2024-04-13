@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'mbx_preferences_vm.dart';
 
 extension MbxUserPreferencesVM on MbxPreferencesVM {
@@ -24,9 +25,21 @@ extension MbxUserPreferencesVM on MbxPreferencesVM {
         'ffaa1ca7884538c1f480d413a183db1c2df42f8cc5e6b48e791e07549d556796');
   }
 
+  static Future<void> setBiometricEnabled(bool value) async {
+    await MbxPreferencesVM.setBool(
+        'cdf873a5bb54af207213d87f283f433801695066fc4e0c6f9b5c41792214461a',
+        value);
+  }
+
+  static Future<bool> getBiometricEnabled() async {
+    return await MbxPreferencesVM.getBool(
+        'cdf873a5bb54af207213d87f283f433801695066fc4e0c6f9b5c41792214461a');
+  }
+
   static Future<void> resetAll() async {
     await setTheme('');
     await setProfile('');
+    await setBiometricEnabled(false);
     await MbxPreferencesVM.deleteAll();
   }
 }

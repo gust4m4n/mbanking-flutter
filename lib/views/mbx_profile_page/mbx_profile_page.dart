@@ -76,10 +76,11 @@ class MbxProfilePage extends StatelessWidget {
                         faIcon: FontAwesomeIcons.fingerprint,
                         onClicked: () {},
                         toggle: true,
+                        toggleValue: controller.biometricEnabled,
                         onToggleChanged: (value) {
+                          controller.biometricEnabled = value;
                           controller.toggleBiometric(value);
                         },
-                        toggleValue: MbxProfileVM.profile.biometric,
                       ),
                       MbaxProfileMenuButton(
                         title: 'Ganti PIN',

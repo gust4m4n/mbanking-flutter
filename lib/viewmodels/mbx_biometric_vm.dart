@@ -1,7 +1,7 @@
 import 'dart:async';
 import '../widgets/all_widgets.dart';
 
-class DemoBiometricVM {
+class MbxBiometricVM {
   static Future<bool> isAvailable() async {
     final LocalAuthentication auth = LocalAuthentication();
     final bool canAuthenticateWithBiometrics = await auth.canCheckBiometrics;

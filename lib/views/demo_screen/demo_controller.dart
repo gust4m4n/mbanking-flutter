@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:intl/intl.dart';
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_anti_jailbreak_vm.dart';
-import '../../viewmodels/demo_biometric_vm.dart';
+import '../../viewmodels/mbx_biometric_vm.dart';
 import '../../viewmodels/mbx_security_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../demo_barcode_screen/demo_barcode_screen.dart';
@@ -67,8 +67,8 @@ class DemoController extends SuperController {
   btnPinSheetClicked() {}
 
   btnBiometricClicked() {
-    DemoBiometricVM.isAvailable().then((available) {
-      DemoBiometricVM.request().then((authenticated) {});
+    MbxBiometricVM.isAvailable().then((available) {
+      MbxBiometricVM.request().then((authenticated) {});
     });
   }
 
@@ -80,22 +80,19 @@ class DemoController extends SuperController {
     Get.to(DemoDrawerScreen());
   }
 
-  btnImageClicked() {
-  }
+  btnImageClicked() {}
 
   btnCarouselClicked() {
     Get.to(DemoCarouselScreen());
   }
 
-  btnDatabaseClicked() {
-  }
+  btnDatabaseClicked() {}
 
   btnWebViewClicked() {
     Get.to(DemoWebViewScreen());
   }
 
-  btnHtmlClicked() {
-  }
+  btnHtmlClicked() {}
 
   btnPdfClicked() {
     Get.to(DemoPdfScreen());
@@ -115,8 +112,7 @@ class DemoController extends SuperController {
     Get.to(DemoTabBarScreen());
   }
 
-  btnBottomNavBarClicked() {
-  }
+  btnBottomNavBarClicked() {}
 
   btnLineChartClicked() {
     Get.to(DemoLineChartScreen());
@@ -209,8 +205,7 @@ class DemoController extends SuperController {
     }
   }
 
-  btnReceiptClicked() {
-  }
+  btnReceiptClicked() {}
 
   btnImagePickerClicked() async {
     final imagePicker = ImagePicker();
