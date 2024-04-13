@@ -1,12 +1,21 @@
-import '../../utils/all_utils.dart';
+import '../../viewmodels/mbx_biometric_vm.dart';
+import '../../viewmodels/mbx_preferences_vm+users.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxPinSheetController extends GetxController {
-  final Future<String> Function(String code) onSubmit;
+  final Future<String> Function(String code, bool biometricAuthenticated)
+      onSubmit;
   String code = '';
   String error = '';
+  bool biometricEnabled = false;
 
   MbxPinSheetController({required this.onSubmit});
+
+  @override
+  void onReady() {
+    super.onReady();
+    btnBiometricClicked();
+  }
 
   btnCloseClicked() {
     Get.back();
@@ -15,16 +24,30 @@ class MbxPinSheetController extends GetxController {
   btnKeypadClicked(String digit) {
     if (code.length < 6) {
       code = code + digit;
-      LoggerX.log('[PIN] typed: $code');
-
       update();
       if (code.length == 6) {
-        onSubmit(code);
+        onSubmit(code, false);
       }
     }
   }
 
-  btnFingerprintClicked() {}
+  btnBiometricClicked() {
+    MbxUserPreferencesVM.getBiometricEnabled().then((value) {
+      biometricEnabled = value;
+      update();
+      if (value) {
+        MbxBiometricVM.isAvailable().then((available) {
+          if (available) {
+            MbxBiometricVM.request().then((authenticated) {
+              if (authenticated == true) {
+                onSubmit('', true);
+              }
+            });
+          }
+        });
+      }
+    });
+  }
 
   btnBackspaceClicked() {
     if (code.length > 0) {

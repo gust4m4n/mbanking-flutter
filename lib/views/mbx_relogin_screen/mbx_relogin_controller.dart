@@ -1,5 +1,3 @@
-import 'package:mbankingflutter/viewmodels/mbx_biometric_vm.dart';
-import 'package:mbankingflutter/viewmodels/mbx_preferences_vm+users.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../utils/all_utils.dart';
@@ -37,11 +35,9 @@ class MbxReloginController extends GetxController {
     MbxPinSheet.show(
         title: 'PIN',
         description: 'Masukkan nomor pin m-banking atau ATM anda.',
-        onBiometricClicked: () {
-          btnBiometricClicked();
-        },
-        onSubmit: (code) async {
-          LoggerX.log('[PIN] entered: $code');
+        onSubmit: (code, biometricAuthenticated) async {
+          LoggerX.log(
+              '[PIN] entered: $code biometricAuthenticated; $biometricAuthenticated');
           Get.loading();
           final resp =
               await MbxLoginPinVM.request(phone: '', otp: '', pin: code);
@@ -57,26 +53,6 @@ class MbxReloginController extends GetxController {
             return '';
           }
         });
-    btnBiometricClicked();
-  }
-
-  btnBiometricClicked() {
-    MbxUserPreferencesVM.getBiometricEnabled().then((value) {
-      if (value) {
-        MbxBiometricVM.isAvailable().then((available) {
-          if (available) {
-            MbxBiometricVM.request().then((authenticated) {
-              if (authenticated) {
-                MbxProfileVM.request().then((resp) {
-                  Get.deleteAll();
-                  Get.offAll(MbxBottomNavBarScreen());
-                });
-              }
-            });
-          }
-        });
-      }
-    });
   }
 
   btnSwitchAccountClicked() {

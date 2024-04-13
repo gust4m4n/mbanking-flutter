@@ -7,14 +7,13 @@ import 'mbx_pin_sheet_controller.dart';
 class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   final String title;
   final String description;
-  final GestureTapCallback? onBiometricClicked;
-  final Future<String> Function(String code) onSubmit;
+  final Future<String> Function(String code, bool biometricAuthenticated)
+      onSubmit;
   TextEditingController pinController = TextEditingController();
 
   MbxPinSheet({
     required this.title,
     required this.description,
-    this.onBiometricClicked,
     required this.onSubmit,
   });
 
@@ -22,13 +21,11 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
       {required String title,
       required String description,
       GestureTapCallback? onBiometricClicked,
-      required Future<String> Function(String code) onSubmit}) {
+      required Future<String> Function(String code, bool biometricAuthenticated)
+          onSubmit}) {
     FocusManager.instance.primaryFocus?.unfocus();
-    final sheet = MbxPinSheet(
-        title: title,
-        description: description,
-        onBiometricClicked: onBiometricClicked,
-        onSubmit: onSubmit);
+    final sheet =
+        MbxPinSheet(title: title, description: description, onSubmit: onSubmit);
     return SheetX.showWithGrip(
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 16.0,
@@ -172,10 +169,12 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                     ContainerX(height: 4.0),
                     Row(
                       children: [
-                        onBiometricClicked != null
+                        controller.biometricEnabled == true
                             ? MbxPinButton(
                                 faIcon: FontAwesomeIcons.fingerprint,
-                                onClicked: onBiometricClicked,
+                                onClicked: () {
+                                  controller.btnBiometricClicked();
+                                },
                               )
                             : MbxPinButton(
                                 title: '',
