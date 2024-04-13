@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:mbankingflutter/utils/all_utils.dart';
 import 'package:mbankingflutter/viewmodels/mbx_profile_vm.dart';
 import 'package:mbankingflutter/viewmodels/mbx_qris_payment_vm.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
@@ -7,6 +8,7 @@ import '../../models/mbx_account_model.dart';
 import '../../models/mbx_qris_inquiry_model.dart';
 import '../../viewmodels/mbx_receipt_vm.dart';
 import '../../widgets/all_widgets.dart';
+import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 import '../mbx_receipt_screen/mbx_receipt_screen.dart';
 
 class MbxQRISAmountController extends GetxController {
@@ -70,15 +72,24 @@ class MbxQRISAmountController extends GetxController {
   }
 
   btnNextClicked() {
-    FocusManager.instance.primaryFocus?.unfocus();
-    Get.loading();
-    final qrisPaymentVM = MbxQRISPaymentVM();
-    qrisPaymentVM.request(transaction_i: inquiry.transaction_id).then((resp) {
-      Get.back();
-      if (resp.status == 200) {
-        Get.to((MbxReceiptScreen(
-            receipt: qrisPaymentVM.receipt, backToHome: true)));
-      }
-    });
+    MbxPinSheet.show(
+        title: 'PIN',
+        description: 'Masukkan nomor pin m-banking atau ATM anda.',
+        onSubmit: (code, biometricAuthenticated) async {
+          LoggerX.log(
+              '[PIN] entered: $code biometricAuthenticated; $biometricAuthenticated');
+          Get.loading();
+          final qrisPaymentVM = MbxQRISPaymentVM();
+          qrisPaymentVM
+              .request(transaction_i: inquiry.transaction_id)
+              .then((resp) {
+            Get.back();
+            if (resp.status == 200) {
+              Get.to((MbxReceiptScreen(
+                  receipt: qrisPaymentVM.receipt, backToHome: true)));
+            }
+          });
+          return code;
+        });
   }
 }
