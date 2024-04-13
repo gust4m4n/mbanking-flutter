@@ -37,6 +37,9 @@ class MbxReloginController extends GetxController {
     MbxPinSheet.show(
         title: 'PIN',
         description: 'Masukkan nomor pin m-banking atau ATM anda.',
+        onBiometricClicked: () {
+          btnBiometricClicked();
+        },
         onSubmit: (code) async {
           LoggerX.log('[PIN] entered: $code');
           Get.loading();

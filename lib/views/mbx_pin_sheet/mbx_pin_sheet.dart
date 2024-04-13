@@ -175,9 +175,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                         onBiometricClicked != null
                             ? MbxPinButton(
                                 faIcon: FontAwesomeIcons.fingerprint,
-                                onClicked: () {
-                                  controller.btnFingerprintClicked();
-                                },
+                                onClicked: onBiometricClicked,
                               )
                             : MbxPinButton(
                                 title: '',

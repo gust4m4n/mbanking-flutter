@@ -1,5 +1,4 @@
 import 'package:mbankingflutter/utils/all_utils.dart';
-
 import '../../widgets/all_widgets.dart';
 
 class MbxPinButton extends StatelessWidget {

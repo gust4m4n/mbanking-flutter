@@ -24,8 +24,6 @@ class MbxOtpSheetController extends GetxController {
     }
   }
 
-  btnFingerprintClicked() {}
-
   btnBackspaceClicked() {
     if (code.length > 0) {
       code = code.substring(0, code.length - 1);
