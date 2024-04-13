@@ -7,22 +7,28 @@ import 'mbx_pin_sheet_controller.dart';
 class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   final String title;
   final String description;
+  final GestureTapCallback? onBiometricClicked;
   final Future<String> Function(String code) onSubmit;
   TextEditingController pinController = TextEditingController();
 
   MbxPinSheet({
     required this.title,
     required this.description,
+    this.onBiometricClicked,
     required this.onSubmit,
   });
 
   static Future<T?> show<T>(
       {required String title,
       required String description,
+      GestureTapCallback? onBiometricClicked,
       required Future<String> Function(String code) onSubmit}) {
     FocusManager.instance.primaryFocus?.unfocus();
-    final sheet =
-        MbxPinSheet(title: title, description: description, onSubmit: onSubmit);
+    final sheet = MbxPinSheet(
+        title: title,
+        description: description,
+        onBiometricClicked: onBiometricClicked,
+        onSubmit: onSubmit);
     return SheetX.showWithGrip(
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 16.0,
@@ -91,21 +97,21 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                   children: [
                     Row(
                       children: [
-                        MbxInButton(
+                        MbxPinButton(
                           title: '1',
                           onClicked: () {
                             controller.btnKeypadClicked('1');
                           },
                         ),
                         ContainerX(width: 4.0),
-                        MbxInButton(
+                        MbxPinButton(
                           title: '2',
                           onClicked: () {
                             controller.btnKeypadClicked('2');
                           },
                         ),
                         ContainerX(width: 4.0),
-                        MbxInButton(
+                        MbxPinButton(
                           title: '3',
                           onClicked: () {
                             controller.btnKeypadClicked('3');
@@ -116,21 +122,21 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                     ContainerX(height: 4.0),
                     Row(
                       children: [
-                        MbxInButton(
+                        MbxPinButton(
                           title: '4',
                           onClicked: () {
                             controller.btnKeypadClicked('4');
                           },
                         ),
                         ContainerX(width: 4.0),
-                        MbxInButton(
+                        MbxPinButton(
                           title: '5',
                           onClicked: () {
                             controller.btnKeypadClicked('5');
                           },
                         ),
                         ContainerX(width: 4.0),
-                        MbxInButton(
+                        MbxPinButton(
                           title: '6',
                           onClicked: () {
                             controller.btnKeypadClicked('6');
@@ -141,21 +147,21 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                     ContainerX(height: 4.0),
                     Row(
                       children: [
-                        MbxInButton(
+                        MbxPinButton(
                           title: '7',
                           onClicked: () {
                             controller.btnKeypadClicked('7');
                           },
                         ),
                         ContainerX(width: 4.0),
-                        MbxInButton(
+                        MbxPinButton(
                           title: '8',
                           onClicked: () {
                             controller.btnKeypadClicked('8');
                           },
                         ),
                         ContainerX(width: 4.0),
-                        MbxInButton(
+                        MbxPinButton(
                           title: '9',
                           onClicked: () {
                             controller.btnKeypadClicked('9');
@@ -166,21 +172,26 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                     ContainerX(height: 4.0),
                     Row(
                       children: [
-                        MbxInButton(
-                          faIcon: FontAwesomeIcons.fingerprint,
-                          onClicked: () {
-                            controller.btnFingerprintClicked();
-                          },
-                        ),
+                        onBiometricClicked != null
+                            ? MbxPinButton(
+                                faIcon: FontAwesomeIcons.fingerprint,
+                                onClicked: () {
+                                  controller.btnFingerprintClicked();
+                                },
+                              )
+                            : MbxPinButton(
+                                title: '',
+                                onClicked: () {},
+                              ),
                         ContainerX(width: 4.0),
-                        MbxInButton(
+                        MbxPinButton(
                           title: '0',
                           onClicked: () {
                             controller.btnKeypadClicked('0');
                           },
                         ),
                         ContainerX(width: 4.0),
-                        MbxInButton(
+                        MbxPinButton(
                           faIcon: FontAwesomeIcons.deleteLeft,
                           onClicked: () {
                             controller.btnBackspaceClicked();
