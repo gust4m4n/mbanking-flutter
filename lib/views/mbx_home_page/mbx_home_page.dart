@@ -133,7 +133,7 @@ class MbxHomePage extends StatelessWidget {
                                             .profile.accounts.length,
                                         itemBuilder: (context, index) {
                                           return ContainerX(
-                                              width: 200.0,
+                                              width: 230.0,
                                               child: MbxSofWidget(
                                                 account: MbxProfileVM
                                                     .profile.accounts[index],
