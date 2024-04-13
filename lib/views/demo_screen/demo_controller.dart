@@ -1,25 +1,24 @@
 import 'dart:async';
+
 import 'package:intl/intl.dart';
+
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_anti_jailbreak_vm.dart';
 import '../../viewmodels/mbx_biometric_vm.dart';
 import '../../viewmodels/mbx_security_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../demo_barcode_screen/demo_barcode_screen.dart';
-import '../demo_pdf_screen/demo_pdf_screen.dart';
-import '../demo_photo_picker/demo_photo_picker.dart';
-import '../demo_carousel_screen/demo_carousel_screen.dart';
 import '../demo_drawer_screen/demo_drawer_screen.dart';
 import '../demo_linechart_screen/demo_linechart_screen.dart';
 import '../demo_login_screen/demo_login_screen.dart';
-import '../demo_onboarding_screen/demo_onboarding_screen.dart';
+import '../demo_pdf_screen/demo_pdf_screen.dart';
+import '../demo_photo_picker/demo_photo_picker.dart';
 import '../demo_piechart_screen/demo_piechart_screen.dart';
-import '../mbx_profile_page/mbx_profile_page.dart';
 import '../demo_qr_code_screen/demo_qr_code_screen.dart';
 import '../demo_search_picker/demo_search_picker.dart';
 import '../demo_string_picker/demo_string_picker.dart';
-import '../demo_tabbar_screen/demo_tabbar_screen.dart';
 import '../demo_webview_screen/demo_webview_screen.dart';
+import '../mbx_profile_page/mbx_profile_page.dart';
 
 class DemoController extends SuperController {
   @override
@@ -48,9 +47,7 @@ class DemoController extends SuperController {
     await MbxAntiJailbreakVM.check();
   }
 
-  btnOnboardingClicked() {
-    Get.to(DemoOnboardingScreen());
-  }
+  btnOnboardingClicked() {}
 
   btnLoginClicked() {
     Get.to(DemoLoginScreen());
@@ -83,7 +80,6 @@ class DemoController extends SuperController {
   btnImageClicked() {}
 
   btnCarouselClicked() {
-    Get.to(DemoCarouselScreen());
   }
 
   btnDatabaseClicked() {}
@@ -109,7 +105,6 @@ class DemoController extends SuperController {
   }
 
   btnTabBarClicked() {
-    Get.to(DemoTabBarScreen());
   }
 
   btnBottomNavBarClicked() {}
