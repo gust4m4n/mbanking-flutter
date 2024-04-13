@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+
 import '../models/mbx_profile_model.dart';
 import '../utils/all_utils.dart';
 import '../views/mbx_login_screen/mbx_login_screen.dart';
@@ -44,6 +45,7 @@ class MbxProfileVM {
   static logout() {
     profile = MbxProfileModel();
     save();
+    MbxUserPreferencesVM.resetAll();
     Get.deleteAll();
     Get.offAll(MbxLoginScreen());
     LoggerX.log('[Profile] logout');

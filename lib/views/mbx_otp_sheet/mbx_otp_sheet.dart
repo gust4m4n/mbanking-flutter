@@ -7,7 +7,7 @@ import 'mbx_otp_sheet_controller.dart';
 class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
   final String title;
   final String description;
-  final Future<String> Function(String code) onSubmit;
+  final Function(String code) onSubmit;
   TextEditingController pinController = TextEditingController();
 
   MbxOtpSheet({
@@ -19,7 +19,7 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
   static Future<T?> show<T>(
       {required String title,
       required String description,
-      required Future<String> Function(String code) onSubmit}) {
+      required Function(String code) onSubmit}) {
     FocusManager.instance.primaryFocus?.unfocus();
     final sheet =
         MbxOtpSheet(title: title, description: description, onSubmit: onSubmit);

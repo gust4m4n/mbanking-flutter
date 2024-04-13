@@ -2,7 +2,7 @@ import '../../utils/all_utils.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxOtpSheetController extends GetxController {
-  final Future<String> Function(String code) onSubmit;
+  final Function(String code) onSubmit;
   String code = '';
   String error = '';
 

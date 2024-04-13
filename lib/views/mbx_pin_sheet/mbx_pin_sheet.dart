@@ -7,8 +7,7 @@ import 'mbx_pin_sheet_controller.dart';
 class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   final String title;
   final String description;
-  final Future<String> Function(String code, bool biometricAuthenticated)
-      onSubmit;
+  final Function(String code, bool biometricAuthenticated) onSubmit;
   TextEditingController pinController = TextEditingController();
 
   MbxPinSheet({
@@ -20,9 +19,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   static Future<T?> show<T>(
       {required String title,
       required String description,
-      GestureTapCallback? onBiometricClicked,
-      required Future<String> Function(String code, bool biometricAuthenticated)
-          onSubmit}) {
+      required Function(String code, bool biometricAuthenticated) onSubmit}) {
     FocusManager.instance.primaryFocus?.unfocus();
     final sheet =
         MbxPinSheet(title: title, description: description, onSubmit: onSubmit);
