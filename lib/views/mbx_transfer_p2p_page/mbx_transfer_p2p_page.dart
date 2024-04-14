@@ -1,5 +1,3 @@
-import 'package:mbankingflutter/models/mbx_qris_inquiry_model.dart';
-import 'package:mbankingflutter/views/mbx_qris_amount_screen/mbx_qris_amount_screen.dart';
 
 import '../../widgets/all_widgets.dart';
 import 'mbx_transfer_p2p_controller.dart';

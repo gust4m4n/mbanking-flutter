@@ -1,11 +1,12 @@
 import '../models/mbx_transfer_p2p_dest_model.dart';
+import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
 class MbxTransferP2PDestListVM {
   var loading = false;
   List<MbxTransferP2PDestModel> list = [];
 
-  Future<MbxApiResponse> nextPage() {
+  Future<ApiXResponse> nextPage() {
     loading = true;
     return MbxApi.get(
             endpoint: '/transfer/p2p/dest',

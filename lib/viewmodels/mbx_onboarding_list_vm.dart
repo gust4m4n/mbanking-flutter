@@ -1,5 +1,6 @@
 import 'dart:async';
 import '../models/mbx_onboarding_model.dart';
+import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
 class MbxOnboardingListVM {
@@ -11,7 +12,7 @@ class MbxOnboardingListVM {
     list = [];
   }
 
-  Future<MbxApiResponse> nextPage() {
+  Future<ApiXResponse> nextPage() {
     loading = true;
     return MbxApi.get(
             endpoint: '/movies',

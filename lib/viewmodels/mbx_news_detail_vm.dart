@@ -1,11 +1,12 @@
 import '../models/mbx_news_model.dart';
+import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
 class MbxNewsDetailVM {
   var loading = false;
   var news = MbxNewsModel();
 
-  Future<MbxApiResponse> request() {
+  Future<ApiXResponse> request() {
     loading = true;
     return MbxApi.get(
             endpoint: '/news/detail',

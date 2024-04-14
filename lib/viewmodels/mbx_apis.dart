@@ -2,24 +2,6 @@ import '../utils/api_x.dart';
 import 'mbx_baseurl_vm.dart';
 import 'mbx_profile_vm.dart';
 
-class MbxApiResponse extends ApiXResponse {
-  int status = 0;
-  MbxApiResponse(ApiXResponse resp) {
-    headers = resp.headers;
-    statusCode = resp.statusCode;
-    body = resp.body;
-    jason = resp.jason;
-    status = statusCode;
-    if (jason['status'].intValue != 0) {
-      status = jason['status'].intValue;
-    }
-    message = resp.message;
-    if (jason['message'].stringValue.isNotEmpty) {
-      message = jason['message'].stringValue;
-    }
-  }
-}
-
 class MbxApi {
   static addRequiredHeader(Map<String, Object?> header) async {
     header['X-DEVICE-ID'] = 'deviceid';
@@ -29,7 +11,7 @@ class MbxApi {
     }
   }
 
-  static Future<MbxApiResponse> get(
+  static Future<ApiXResponse> get(
       {required String endpoint,
       Map<String, Object?>? params,
       Map<String, Object?>? headers,
@@ -47,13 +29,12 @@ class MbxApi {
             params: params,
             headers: newHeaders)
         .then((resp) {
-      final response = MbxApiResponse(resp);
-      handleResponse(response);
-      return response;
+      handleResponse(resp);
+      return resp;
     });
   }
 
-  static Future<MbxApiResponse> post(
+  static Future<ApiXResponse> post(
       {required String endpoint,
       Map<String, Object>? params,
       Map<String, Object>? headers,
@@ -73,13 +54,12 @@ class MbxApi {
             headers: newHeaders,
             json: json)
         .then((resp) {
-      final response = MbxApiResponse(resp);
-      handleResponse(response);
-      return response;
+      handleResponse(resp);
+      return resp;
     });
   }
 
-  static Future<MbxApiResponse> delete(
+  static Future<ApiXResponse> delete(
       {required String endpoint,
       Map<String, Object>? params,
       Map<String, Object>? headers,
@@ -97,13 +77,12 @@ class MbxApi {
             params: params,
             headers: newHeaders)
         .then((resp) {
-      final response = MbxApiResponse(resp);
-      handleResponse(response);
-      return response;
+      handleResponse(resp);
+      return resp;
     });
   }
 
-  static Future<MbxApiResponse> put(
+  static Future<ApiXResponse> put(
       {required String endpoint,
       Map<String, Object>? params,
       Map<String, Object>? headers,
@@ -121,13 +100,12 @@ class MbxApi {
             headers: newHeaders,
             json: json)
         .then((resp) {
-      final response = MbxApiResponse(resp);
-      handleResponse(response);
-      return response;
+      handleResponse(resp);
+      return resp;
     });
   }
 
-  static Future<MbxApiResponse> postMultipart(
+  static Future<ApiXResponse> postMultipart(
       {required String endpoint,
       Map<String, String?>? files,
       Map<String, Object?>? params,
@@ -147,13 +125,12 @@ class MbxApi {
             params: params,
             headers: newHeaders)
         .then((resp) {
-      final response = MbxApiResponse(resp);
-      handleResponse(response);
-      return response;
+      handleResponse(resp);
+      return resp;
     });
   }
 
-  static Future<MbxApiResponse> putMultipart(
+  static Future<ApiXResponse> putMultipart(
       {required String endpoint,
       Map<String, String?>? files,
       Map<String, Object?>? params,
@@ -173,13 +150,12 @@ class MbxApi {
             params: params,
             headers: newHeaders)
         .then((resp) {
-      final response = MbxApiResponse(resp);
-      handleResponse(response);
-      return response;
+      handleResponse(resp);
+      return resp;
     });
   }
 
-  static handleResponse(MbxApiResponse resp) async {
+  static handleResponse(ApiXResponse resp) async {
     if (resp.status == 401) {
       await MbxProfileVM.logout();
     }

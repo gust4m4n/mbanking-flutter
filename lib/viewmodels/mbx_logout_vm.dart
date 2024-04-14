@@ -1,8 +1,9 @@
 import 'dart:async';
+import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
 class MbxLogoutVM {
-  static Future<MbxApiResponse> request() {
+  static Future<ApiXResponse> request() {
     return MbxApi.post(
             endpoint: '/logout',
             params: {},

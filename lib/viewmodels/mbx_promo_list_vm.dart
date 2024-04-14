@@ -1,5 +1,6 @@
 import 'dart:async';
 import '../models/demo_movie_model.dart';
+import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
 class MbxPromoListVM {
@@ -11,7 +12,7 @@ class MbxPromoListVM {
     list = [];
   }
 
-  Future<MbxApiResponse> nextPage() {
+  Future<ApiXResponse> nextPage() {
     loading = true;
     return MbxApi.get(
             endpoint: '/movies',

@@ -1,8 +1,9 @@
 import 'dart:async';
+import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
 class MbxLoginPhoneVM {
-  static Future<MbxApiResponse> request({required String phone}) {
+  static Future<ApiXResponse> request({required String phone}) {
     final params = {
       'phone': phone,
     };

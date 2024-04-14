@@ -11,7 +11,7 @@ import 'mbx_preferences_vm+users.dart';
 class MbxProfileVM {
   static var profile = MbxProfileModel();
 
-  static Future<MbxApiResponse> request() {
+  static Future<ApiXResponse> request() {
     return MbxApi.get(
             endpoint: '/profile',
             params: {},

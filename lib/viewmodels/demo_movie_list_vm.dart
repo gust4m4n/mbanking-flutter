@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:mbankingflutter/utils/all_utils.dart';
+
 import '../models/demo_movie_model.dart';
 import 'mbx_apis.dart';
 
@@ -11,7 +13,7 @@ class DemoMovieListVM {
     list = [];
   }
 
-  Future<MbxApiResponse> nextPage() {
+  Future<ApiXResponse> nextPage() {
     loading = true;
     return MbxApi.get(
             endpoint: '/movies',

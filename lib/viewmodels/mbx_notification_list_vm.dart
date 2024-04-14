@@ -1,4 +1,5 @@
 import '../models/mbx_notification_model.dart';
+import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
 class MbxNotificationVM {
@@ -9,7 +10,7 @@ class MbxNotificationVM {
     list = [];
   }
 
-  Future<MbxApiResponse> nextPage() {
+  Future<ApiXResponse> nextPage() {
     loading = true;
     return MbxApi.get(
             endpoint: '/notification',

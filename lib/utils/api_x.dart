@@ -1,21 +1,24 @@
 import 'dart:async';
-import '../utils/all_utils.dart';
+
 import 'package:http/http.dart' as http;
+
+import '../utils/all_utils.dart';
 import '../widgets/all_widgets.dart';
 
 class ApiXResponse {
+  http.Response? response;
   Map headers = {};
   int statusCode = 0;
-  http.Response? response;
   String body = '';
   Jason jason = Jason();
+  int status = 0;
   String title = '';
   String message = '';
 
   fromHttpResponse(http.Response response) {
+    this.response = response;
     headers = response.headers;
     statusCode = response.statusCode;
-    this.response = response;
     body = response.body;
     if (statusCode != 200) {
       if (body.isNotEmpty) {
@@ -30,6 +33,16 @@ class ApiXResponse {
       }
     }
     jason = Jason.decode(body);
+    status = statusCode;
+    if (jason['status'].intValue != 0) {
+      status = jason['status'].intValue;
+    }
+    if (jason['title'].stringValue.isNotEmpty) {
+      title = jason['title'].stringValue;
+    }
+    if (jason['message'].stringValue.isNotEmpty) {
+      message = jason['message'].stringValue;
+    }
   }
 }
 
@@ -60,6 +73,16 @@ class ApiX {
         resp.statusCode = 200;
         resp.body = json;
         resp.jason = Jason.decode(json);
+        resp.status = resp.statusCode;
+        if (resp.jason['status'].intValue != 0) {
+          resp.status = resp.jason['status'].intValue;
+        }
+        if (resp.jason['title'].stringValue.isNotEmpty) {
+          resp.title = resp.jason['title'].stringValue;
+        }
+        if (resp.jason['message'].stringValue.isNotEmpty) {
+          resp.message = resp.jason['message'].stringValue;
+        }
         return resp;
       } catch (_) {
         return null;

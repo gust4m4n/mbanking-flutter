@@ -1,11 +1,12 @@
 import '../models/mbx_tnc_model.dart';
+import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
 class MbxTncVM {
   var loading = false;
   var tnc = MbxTncModel();
 
-  Future<MbxApiResponse> request() {
+  Future<ApiXResponse> request() {
     loading = true;
     return MbxApi.get(
             endpoint: '/tnc',

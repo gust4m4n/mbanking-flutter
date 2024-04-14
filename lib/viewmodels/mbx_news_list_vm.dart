@@ -1,5 +1,6 @@
 import 'dart:async';
 import '../models/mbx_news_model.dart';
+import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
 class MbxNewsListVM {
@@ -11,7 +12,7 @@ class MbxNewsListVM {
     list = [];
   }
 
-  Future<MbxApiResponse> nextPage() {
+  Future<ApiXResponse> nextPage() {
     loading = true;
     return MbxApi.get(
             endpoint: '/news/list',

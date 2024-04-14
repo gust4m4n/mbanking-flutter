@@ -1,9 +1,10 @@
 import 'dart:async';
+import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 import 'mbx_profile_vm.dart';
 
 class MbxLoginPinVM {
-  static Future<MbxApiResponse> request(
+  static Future<ApiXResponse> request(
       {required String phone, required String otp, required String pin}) {
     final params = {
       'phone': phone,
