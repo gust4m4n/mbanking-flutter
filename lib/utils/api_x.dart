@@ -15,7 +15,7 @@ class ApiXResponse {
   String title = '';
   String message = '';
 
-  fromHttpResponse(http.Response response) {
+  decodeHttpResponse(http.Response response) {
     this.response = response;
     headers = response.headers;
     statusCode = response.statusCode;
@@ -32,8 +32,12 @@ class ApiXResponse {
         }
       }
     }
-    jason = Jason.decode(body);
     status = statusCode;
+    decodeBody();
+  }
+
+  decodeBody() {
+    jason = Jason.decode(body);
     if (jason['status'].intValue != 0) {
       status = jason['status'].intValue;
     }
@@ -72,17 +76,7 @@ class ApiX {
         ApiXResponse resp = ApiXResponse();
         resp.statusCode = 200;
         resp.body = json;
-        resp.jason = Jason.decode(json);
-        resp.status = resp.statusCode;
-        if (resp.jason['status'].intValue != 0) {
-          resp.status = resp.jason['status'].intValue;
-        }
-        if (resp.jason['title'].stringValue.isNotEmpty) {
-          resp.title = resp.jason['title'].stringValue;
-        }
-        if (resp.jason['message'].stringValue.isNotEmpty) {
-          resp.message = resp.jason['message'].stringValue;
-        }
+        resp.decodeBody();
         return resp;
       } catch (_) {
         return null;
@@ -157,7 +151,7 @@ class ApiX {
           .get(Uri.parse(finalUrl), headers: newHeaders)
           .timeout(Duration(seconds: timeoutInSecs));
       ApiXResponse resp = ApiXResponse();
-      resp.fromHttpResponse(response);
+      resp.decodeHttpResponse(response);
       LoggerX.logSeparated(
           '[ApiX] ${resp.statusCode} $url\n${resp.jason.encoded()}');
       return resp;
@@ -210,7 +204,7 @@ class ApiX {
               headers: newHeaders)
           .timeout(Duration(seconds: timeoutInSecs));
       ApiXResponse resp = ApiXResponse();
-      resp.fromHttpResponse(response);
+      resp.decodeHttpResponse(response);
       LoggerX.logSeparated(
           '[ApiX] ${resp.statusCode} $url\n${resp.jason.encoded()}');
       return resp;
@@ -261,7 +255,7 @@ class ApiX {
               headers: newHeaders)
           .timeout(Duration(seconds: timeoutInSecs));
       ApiXResponse resp = ApiXResponse();
-      resp.fromHttpResponse(response);
+      resp.decodeHttpResponse(response);
       LoggerX.logSeparated(
           '[ApiX] ${resp.statusCode} $url\n${resp.jason.encoded()}');
       return resp;
@@ -312,7 +306,7 @@ class ApiX {
               headers: newHeaders)
           .timeout(Duration(seconds: timeoutInSecs));
       ApiXResponse resp = ApiXResponse();
-      resp.fromHttpResponse(response);
+      resp.decodeHttpResponse(response);
       LoggerX.logSeparated(
           '[ApiX] ${resp.statusCode} $url\n${resp.jason.encoded()}');
       return resp;
@@ -394,7 +388,7 @@ class ApiX {
     return request.send().then((stremedResponse) async {
       var response = await http.Response.fromStream(stremedResponse);
       ApiXResponse resp = ApiXResponse();
-      resp.fromHttpResponse(response);
+      resp.decodeHttpResponse(response);
       LoggerX.logSeparated(
           '[ApiX] ${resp.statusCode} $url\n${resp.jason.encoded()}');
       return resp;
@@ -468,7 +462,7 @@ class ApiX {
     return request.send().then((stremedResponse) async {
       var response = await http.Response.fromStream(stremedResponse);
       ApiXResponse resp = ApiXResponse();
-      resp.fromHttpResponse(response);
+      resp.decodeHttpResponse(response);
       LoggerX.logSeparated(
           '[ApiX] ${resp.statusCode} $url\n${resp.jason.encoded()}');
       return resp;
@@ -514,7 +508,7 @@ class ApiX {
           .get(Uri.parse(finalUrl), headers: newHeaders)
           .timeout(Duration(seconds: timeoutInSecs));
       ApiXResponse resp = ApiXResponse();
-      resp.fromHttpResponse(response);
+      resp.decodeHttpResponse(response);
       LoggerX.logSeparated(
           '[ApiX] ${resp.statusCode} $url\n${resp.jason.encoded()}');
       return resp;
