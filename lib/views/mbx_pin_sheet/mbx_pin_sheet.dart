@@ -22,8 +22,9 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
       {required String title,
       required String description,
       required bool biometric,
-      required void Function(String code, bool biometric) onSubmit}) {
+      required void Function(String code, bool biometric) onSubmit}) async {
     FocusManager.instance.primaryFocus?.unfocus();
+    await Get.delete<MbxPinSheetController>();
     final sheet = MbxPinSheet(
         title: title,
         description: description,
@@ -33,7 +34,8 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 16.0,
         widget: sheet,
-        title: title);
+        title: title,
+        autoClose: false);
   }
 
   @override

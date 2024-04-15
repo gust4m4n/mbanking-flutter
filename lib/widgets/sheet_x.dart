@@ -150,16 +150,6 @@ class SheetX {
                       ],
                     ),
                   ),
-                  /*
-                  ContainerX(
-                    backgroundColor: ColorX.theme,
-                    width: double.infinity,
-                    height: 16.0,
-                    child: ContainerX(
-                        backgroundColor: ColorX.white,
-                        topLeftRadius: 16.0,
-                        topRightRadius: 16.0),
-                  ), */
                   TopContainerX()
                 ],
               )),

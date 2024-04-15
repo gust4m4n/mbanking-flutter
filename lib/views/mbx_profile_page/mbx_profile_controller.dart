@@ -47,13 +47,35 @@ class MbxProfileController extends GetxController {
 
   btnChangePinClicked() {
     MbxPinSheet.show(
-            title: 'PIN',
-            description: 'Masukkan nomor pin m-banking atau ATM anda.',
-            biometric: false,
-            onSubmit: (code, biometric) async {})
-        .then((value) async {
-      update();
-    });
+        title: 'PIN',
+        description: 'Masukkan nomor pin m-banking atau ATM anda.',
+        biometric: false,
+        onSubmit: (code, biometric) async {
+          Get.back();
+          changePinNew();
+        }).then((value) async {});
+  }
+
+  changePinNew() {
+    MbxPinSheet.show(
+        title: 'PIN Baru',
+        description: 'Masukkan nomor pin m-banking atau ATM anda yang baru.',
+        biometric: false,
+        onSubmit: (code, biometric) async {
+          Get.back();
+          changePinConfirm();
+        }).then((value) async {});
+  }
+
+  changePinConfirm() {
+    MbxPinSheet.show(
+        title: 'Konfirmasi PIN Baru',
+        description:
+            'Masukkan ulang nomor pin m-banking atau ATM anda yang baru.',
+        biometric: false,
+        onSubmit: (code, biometric) async {
+          Get.back();
+        }).then((value) async {});
   }
 
   btnTncClicked() {
