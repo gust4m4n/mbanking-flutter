@@ -3,12 +3,13 @@ import '../../viewmodels/mbx_preferences_vm+users.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxPinSheetController extends GetxController {
+  final bool biometric;
   final void Function(String code, bool biometric) onSubmit;
   String code = '';
   String error = '';
   bool biometricEnabled = false;
 
-  MbxPinSheetController({required this.onSubmit});
+  MbxPinSheetController({required this.biometric, required this.onSubmit});
 
   @override
   void onReady() {
@@ -31,21 +32,23 @@ class MbxPinSheetController extends GetxController {
   }
 
   btnBiometricClicked() {
-    MbxUserPreferencesVM.getBiometricEnabled().then((value) {
-      biometricEnabled = value;
-      update();
-      if (value) {
-        MbxBiometricVM.available().then((available) {
-          if (available) {
-            MbxBiometricVM.authenticate().then((authenticated) {
-              if (authenticated == true) {
-                onSubmit('', true);
-              }
-            });
-          }
-        });
-      }
-    });
+    if (biometric) {
+      MbxUserPreferencesVM.getBiometricEnabled().then((value) {
+        biometricEnabled = value;
+        update();
+        if (value) {
+          MbxBiometricVM.available().then((available) {
+            if (available) {
+              MbxBiometricVM.authenticate().then((authenticated) {
+                if (authenticated == true) {
+                  onSubmit('', true);
+                }
+              });
+            }
+          });
+        }
+      });
+    }
   }
 
   btnBackspaceClicked() {
