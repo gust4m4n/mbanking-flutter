@@ -12,7 +12,7 @@ class MbxNotificationVM {
 
   Future<ApiXResponse> nextPage() {
     loading = true;
-    return MbxApi.get(
+    return MbxApi.post(
             endpoint: '/notification',
             params: {},
             headers: {},

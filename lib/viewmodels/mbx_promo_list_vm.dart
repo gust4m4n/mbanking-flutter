@@ -14,7 +14,7 @@ class MbxPromoListVM {
 
   Future<ApiXResponse> nextPage() {
     loading = true;
-    return MbxApi.get(
+    return MbxApi.post(
             endpoint: '/movies',
             params: {},
             headers: {},

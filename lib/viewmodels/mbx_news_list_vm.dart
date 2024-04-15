@@ -14,7 +14,7 @@ class MbxNewsListVM {
 
   Future<ApiXResponse> nextPage() {
     loading = true;
-    return MbxApi.get(
+    return MbxApi.post(
             endpoint: '/news/list',
             params: {},
             headers: {},

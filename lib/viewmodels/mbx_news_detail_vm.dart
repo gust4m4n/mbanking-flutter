@@ -8,7 +8,7 @@ class MbxNewsDetailVM {
 
   Future<ApiXResponse> request() {
     loading = true;
-    return MbxApi.get(
+    return MbxApi.post(
             endpoint: '/news/detail',
             params: {},
             headers: {},

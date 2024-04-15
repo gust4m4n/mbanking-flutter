@@ -8,7 +8,7 @@ class MbxTransferP2PDestListVM {
 
   Future<ApiXResponse> nextPage() {
     loading = true;
-    return MbxApi.get(
+    return MbxApi.post(
             endpoint: '/transfer/p2p/dest',
             params: {},
             headers: {},

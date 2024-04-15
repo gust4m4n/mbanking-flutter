@@ -1,4 +1,5 @@
 import 'package:mbankingflutter/viewmodels/mbx_preferences_vm+users.dart';
+import 'package:mbankingflutter/viewmodels/mbx_set_biometric_vm.dart';
 import 'package:mbankingflutter/views/mbx_tnc_screen/mbx_tnc_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -27,11 +28,16 @@ class MbxProfileController extends GetxController {
     MbxPinSheet.show(
         title: 'PIN',
         description: 'Masukkan nomor pin m-banking atau ATM anda.',
-        onSubmit: (code, biometricAuthenticated) async {
-          await MbxUserPreferencesVM.setBiometricEnabled(value);
-          MbxProfileVM.profile.biometric = value;
-          update();
-          Get.back();
+        onSubmit: (code, biometric) async {
+          Get.loading();
+          MbxSetBiometricVM.request(pin: code, biometric: biometric)
+              .then((resp) async {
+            Get.back();
+            await MbxUserPreferencesVM.setBiometricEnabled(value);
+            MbxProfileVM.profile.biometric = value;
+            update();
+            Get.back();
+          });
         }).then((value) async {
       biometricEnabled = await MbxUserPreferencesVM.getBiometricEnabled();
       update();

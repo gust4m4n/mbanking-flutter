@@ -8,7 +8,7 @@ class MbxPrivacyPolicyVM {
 
   Future<ApiXResponse> request() {
     loading = true;
-    return MbxApi.get(
+    return MbxApi.post(
             endpoint: '/privacy-policy',
             params: {},
             headers: {},

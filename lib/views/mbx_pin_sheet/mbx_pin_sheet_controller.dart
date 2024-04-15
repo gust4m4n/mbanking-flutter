@@ -3,7 +3,7 @@ import '../../viewmodels/mbx_preferences_vm+users.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxPinSheetController extends GetxController {
-  final void Function(String code, bool biometricAuthenticated) onSubmit;
+  final void Function(String code, bool biometric) onSubmit;
   String code = '';
   String error = '';
   bool biometricEnabled = false;

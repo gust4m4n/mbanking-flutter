@@ -12,7 +12,7 @@ class MbxProfileVM {
   static var profile = MbxProfileModel();
 
   static Future<ApiXResponse> request() {
-    return MbxApi.get(
+    return MbxApi.post(
             endpoint: '/profile',
             params: {},
             headers: {},

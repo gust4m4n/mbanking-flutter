@@ -12,7 +12,7 @@ class MbxHistoryListVM {
 
   Future<ApiXResponse> nextPage() {
     loading = true;
-    return MbxApi.get(
+    return MbxApi.post(
             endpoint: '/history',
             params: {},
             headers: {},

@@ -132,7 +132,7 @@ class MbLoginController extends GetxController {
     MbxPinSheet.show(
         title: 'PIN',
         description: 'Masukkan nomor pin m-banking atau ATM anda.',
-        onSubmit: (code, biometricAuthenticated) async {
+        onSubmit: (code, biometric) async {
           LoggerX.log('[PIN] entered: $code');
           Get.loading();
           final resp =
