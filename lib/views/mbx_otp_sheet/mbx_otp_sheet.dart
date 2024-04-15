@@ -19,8 +19,9 @@ class MbxOtpSheet extends GetWidget<MbxOtpSheetController> {
   static Future<T?> show<T>(
       {required String title,
       required String description,
-      required Function(String code) onSubmit}) {
+      required Function(String code) onSubmit}) async {
     FocusManager.instance.primaryFocus?.unfocus();
+    await Get.delete<MbxOtpSheetController>();
     final sheet =
         MbxOtpSheet(title: title, description: description, onSubmit: onSubmit);
     return SheetX.showWithGrip(
