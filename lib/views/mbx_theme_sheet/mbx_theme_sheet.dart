@@ -43,7 +43,7 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
                   );
                 },
               ),
-              ContainerX(height: 12.0),
+              ContainerX(height: MediaQuery.of(Get.context!).padding.bottom)
             ])));
   }
 }

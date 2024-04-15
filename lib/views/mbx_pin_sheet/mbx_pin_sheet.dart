@@ -216,7 +216,8 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                       },
                     ),
                     ContainerX(
-                        height: MediaQuery.of(Get.context!).padding.bottom)
+                        height:
+                            16.0 + MediaQuery.of(Get.context!).padding.bottom)
                   ],
                 ),
               ),
