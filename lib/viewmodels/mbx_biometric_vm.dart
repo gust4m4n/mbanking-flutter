@@ -2,15 +2,17 @@ import 'dart:async';
 import '../widgets/all_widgets.dart';
 
 class MbxBiometricVM {
-  static Future<bool> isAvailable() async {
+  static Future<bool> available() async {
     final LocalAuthentication auth = LocalAuthentication();
-    final bool canAuthenticateWithBiometrics = await auth.canCheckBiometrics;
-    final bool canAuthenticate =
-        canAuthenticateWithBiometrics || await auth.isDeviceSupported();
-    return canAuthenticate;
+    final supported = await auth.isDeviceSupported();
+    if (!supported) {
+      return false;
+    }
+    final enrolled = await auth.getAvailableBiometrics();
+    return enrolled.isNotEmpty;
   }
 
-  static Future<bool> request() async {
+  static Future<bool> authenticate() async {
     final LocalAuthentication auth = LocalAuthentication();
     try {
       final bool authenticated = await auth.authenticate(

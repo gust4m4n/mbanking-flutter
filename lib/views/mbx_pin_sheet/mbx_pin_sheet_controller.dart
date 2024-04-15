@@ -35,9 +35,9 @@ class MbxPinSheetController extends GetxController {
       biometricEnabled = value;
       update();
       if (value) {
-        MbxBiometricVM.isAvailable().then((available) {
+        MbxBiometricVM.available().then((available) {
           if (available) {
-            MbxBiometricVM.request().then((authenticated) {
+            MbxBiometricVM.authenticate().then((authenticated) {
               if (authenticated == true) {
                 onSubmit('', true);
               }

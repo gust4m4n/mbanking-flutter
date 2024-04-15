@@ -64,8 +64,8 @@ class DemoController extends SuperController {
   btnPinSheetClicked() {}
 
   btnBiometricClicked() {
-    MbxBiometricVM.isAvailable().then((available) {
-      MbxBiometricVM.request().then((authenticated) {});
+    MbxBiometricVM.available().then((available) {
+      MbxBiometricVM.authenticate().then((authenticated) {});
     });
   }
 
@@ -79,8 +79,7 @@ class DemoController extends SuperController {
 
   btnImageClicked() {}
 
-  btnCarouselClicked() {
-  }
+  btnCarouselClicked() {}
 
   btnDatabaseClicked() {}
 
@@ -104,8 +103,7 @@ class DemoController extends SuperController {
     Get.to(DemoBarcodeScreen());
   }
 
-  btnTabBarClicked() {
-  }
+  btnTabBarClicked() {}
 
   btnBottomNavBarClicked() {}
 
