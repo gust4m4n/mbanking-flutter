@@ -1,4 +1,4 @@
-import 'package:client_information/client_information.dart';
+import 'package:mbankingflutter/viewmodels/mbx_device_vm.dart';
 
 import '../utils/api_x.dart';
 import 'mbx_baseurl_vm.dart';
@@ -6,12 +6,12 @@ import 'mbx_profile_vm.dart';
 
 class MbxApi {
   static addRequiredHeader(Map<String, Object?> header) async {
-    ClientInformation info = await ClientInformation.fetch();
-    header['X-DEVICE-ID'] = info.deviceId;
-    header['X-DEVICE-NAME'] = info.deviceName;
-    header['X-DEVICE-OS'] = info.osName;
-    header['X-DEVICE-OS-VERSION'] = info.osVersion;
-    header['X-DEVICE-OS-VERSION-CODE'] = info.osVersionCode;
+    header['X-DEVICE-ID'] = await MbxDeviceVM.deviceId();
+    header['X-DEVICE-NAME'] = await MbxDeviceVM.deviceName();
+    header['X-DEVICE-OS'] = await MbxDeviceVM.deviceOSName();
+    header['X-DEVICE-OS-VERSION'] = await MbxDeviceVM.deviceOSVersion();
+    header['X-DEVICE-OS-VERSION-CODE'] =
+        await MbxDeviceVM.deviceOSVersionCode();
     final token = MbxProfileVM.profile.token;
     if (token.isNotEmpty) {
       header['Authorization'] = 'Bearer $token';
