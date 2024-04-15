@@ -3,6 +3,7 @@ import 'package:mbankingflutter/viewmodels/mbx_set_biometric_vm.dart';
 import 'package:mbankingflutter/views/mbx_tnc_screen/mbx_tnc_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
+import '../../viewmodels/mbx_change_pin_vm.dart';
 import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
@@ -74,7 +75,11 @@ class MbxProfileController extends GetxController {
             'Masukkan ulang nomor pin m-banking atau ATM anda yang baru.',
         biometric: false,
         onSubmit: (code, biometric) async {
-          Get.back();
+          Get.loading();
+          MbxChangePinVM.request(pin: code, newPin: code).then((resp) async {
+            Get.back();
+            Get.back();
+          });
         }).then((value) async {});
   }
 
