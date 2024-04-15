@@ -1,15 +1,16 @@
+import 'package:mbankingflutter/views/mbx_pin_sheet/mbx_pin_sheet.dart';
+
 import '../../viewmodels/mbx_biometric_vm.dart';
 import '../../viewmodels/mbx_preferences_vm+users.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxPinSheetController extends GetxController {
-  final bool biometric;
-  final void Function(String code, bool biometric) onSubmit;
+  final MbxPinSheet widget;
   String code = '';
   String error = '';
   bool biometricEnabled = false;
 
-  MbxPinSheetController({required this.biometric, required this.onSubmit});
+  MbxPinSheetController({required this.widget});
 
   @override
   void onReady() {
@@ -26,13 +27,13 @@ class MbxPinSheetController extends GetxController {
       code = code + digit;
       update();
       if (code.length == 6) {
-        onSubmit(code, false);
+        widget.onSubmit!(code, false);
       }
     }
   }
 
   btnBiometricClicked() {
-    if (biometric) {
+    if (widget!.biometric) {
       MbxUserPreferencesVM.getBiometricEnabled().then((value) {
         biometricEnabled = value;
         update();
@@ -41,7 +42,7 @@ class MbxPinSheetController extends GetxController {
             if (available) {
               MbxBiometricVM.authenticate().then((authenticated) {
                 if (authenticated == true) {
-                  onSubmit('', true);
+                  widget.onSubmit!('', true);
                 }
               });
             }

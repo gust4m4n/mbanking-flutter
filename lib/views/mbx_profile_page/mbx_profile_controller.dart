@@ -26,61 +26,75 @@ class MbxProfileController extends GetxController {
 
   toggleBiometric(bool value) async {
     update();
-    MbxPinSheet.show(
-        title: 'PIN',
-        description: 'Masukkan nomor pin m-banking atau ATM anda.',
-        biometric: false,
-        onSubmit: (code, biometric) async {
-          Get.loading();
-          MbxSetBiometricVM.request(pin: code, biometric: biometric)
-              .then((resp) async {
-            Get.back();
-            await MbxUserPreferencesVM.setBiometricEnabled(value);
-            MbxProfileVM.profile.biometric = value;
-            update();
-            Get.back();
-          });
-        }).then((value) async {
+    final pinSheet = MbxPinSheet();
+    pinSheet
+        .show(
+            title: 'PIN',
+            description: 'Masukkan nomor pin m-banking atau ATM anda.',
+            biometric: false,
+            onSubmit: (code, biometric) async {
+              Get.loading();
+              MbxSetBiometricVM.request(pin: code, biometric: biometric)
+                  .then((resp) async {
+                Get.back();
+                await MbxUserPreferencesVM.setBiometricEnabled(value);
+                MbxProfileVM.profile.biometric = value;
+                update();
+                Get.back();
+              });
+            })
+        .then((value) async {
       biometricEnabled = await MbxUserPreferencesVM.getBiometricEnabled();
       update();
     });
   }
 
   btnChangePinClicked() {
-    MbxPinSheet.show(
-        title: 'PIN',
-        description: 'Masukkan nomor pin m-banking atau ATM anda.',
-        biometric: false,
-        onSubmit: (code, biometric) async {
-          Get.back();
-          changePinNew();
-        }).then((value) async {});
+    final pinSheet = MbxPinSheet();
+    pinSheet
+        .show(
+            title: 'PIN',
+            description: 'Masukkan nomor pin m-banking atau ATM anda.',
+            biometric: false,
+            onSubmit: (code, biometric) async {
+              Get.back();
+              changePinNew();
+            })
+        .then((value) async {});
   }
 
   changePinNew() {
-    MbxPinSheet.show(
-        title: 'PIN Baru',
-        description: 'Masukkan nomor pin m-banking atau ATM anda yang baru.',
-        biometric: false,
-        onSubmit: (code, biometric) async {
-          Get.back();
-          changePinConfirm();
-        }).then((value) async {});
+    final pinSheet = MbxPinSheet();
+    pinSheet
+        .show(
+            title: 'PIN Baru',
+            description:
+                'Masukkan nomor pin m-banking atau ATM anda yang baru.',
+            biometric: false,
+            onSubmit: (code, biometric) async {
+              Get.back();
+              changePinConfirm();
+            })
+        .then((value) async {});
   }
 
   changePinConfirm() {
-    MbxPinSheet.show(
-        title: 'Konfirmasi PIN Baru',
-        description:
-            'Masukkan ulang nomor pin m-banking atau ATM anda yang baru.',
-        biometric: false,
-        onSubmit: (code, biometric) async {
-          Get.loading();
-          MbxChangePinVM.request(pin: code, newPin: code).then((resp) async {
-            Get.back();
-            Get.back();
-          });
-        }).then((value) async {});
+    final pinSheet = MbxPinSheet();
+    pinSheet
+        .show(
+            title: 'Konfirmasi PIN Baru',
+            description:
+                'Masukkan ulang nomor pin m-banking atau ATM anda yang baru.',
+            biometric: false,
+            onSubmit: (code, biometric) async {
+              Get.loading();
+              MbxChangePinVM.request(pin: code, newPin: code)
+                  .then((resp) async {
+                Get.back();
+                Get.back();
+              });
+            })
+        .then((value) async {});
   }
 
   btnTncClicked() {

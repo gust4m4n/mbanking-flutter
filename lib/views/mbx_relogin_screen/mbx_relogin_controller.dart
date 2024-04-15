@@ -32,7 +32,8 @@ class MbxReloginController extends GetxController {
   }
 
   btnLoginClicked() {
-    MbxPinSheet.show(
+    final pinSheet = MbxPinSheet();
+    pinSheet.show(
         title: 'PIN',
         description: 'Masukkan nomor pin m-banking atau ATM anda.',
         biometric: true,

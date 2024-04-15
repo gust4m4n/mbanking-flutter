@@ -5,35 +5,29 @@ import 'mbx_pin_sheet_controller.dart';
 
 // ignore: must_be_immutable
 class MbxPinSheet extends GetWidget<MbxPinSheetController> {
-  final String title;
-  final String description;
-  final bool biometric;
-  final void Function(String code, bool biometric) onSubmit;
+  String title = '';
+  String description = '';
+  bool biometric = false;
+  void Function(String code, bool biometric)? onSubmit = null;
   TextEditingController pinController = TextEditingController();
 
-  MbxPinSheet({
-    required this.title,
-    required this.description,
-    required this.biometric,
-    required this.onSubmit,
-  });
+  MbxPinSheet();
 
-  static Future<T?> show<T>(
+  Future<T?> show<T>(
       {required String title,
       required String description,
       required bool biometric,
       required void Function(String code, bool biometric) onSubmit}) async {
     FocusManager.instance.primaryFocus?.unfocus();
     await Get.delete<MbxPinSheetController>();
-    final sheet = MbxPinSheet(
-        title: title,
-        description: description,
-        biometric: biometric,
-        onSubmit: onSubmit);
+    this.title = title;
+    this.description = description;
+    this.biometric = biometric;
+    this.onSubmit = onSubmit;
     return SheetX.showWithGrip(
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 16.0,
-        widget: sheet,
+        widget: this,
         title: title,
         autoClose: false);
   }
@@ -41,7 +35,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxPinSheetController>(
-        init: MbxPinSheetController(biometric: biometric, onSubmit: onSubmit),
+        init: MbxPinSheetController(widget: this),
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             child: Wrap(alignment: WrapAlignment.center, children: [
