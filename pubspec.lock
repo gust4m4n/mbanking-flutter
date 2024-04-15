@@ -97,6 +97,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.0"
+  client_information:
+    dependency: "direct main"
+    description:
+      name: client_information
+      sha256: "3af34866e7756824044ebb1b15c5df9d0228b1271efb1684599914853c75cc01"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.4"
   clock:
     dependency: transitive
     description:

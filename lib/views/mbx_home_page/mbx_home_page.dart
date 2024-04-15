@@ -51,13 +51,28 @@ class MbxHomePage extends StatelessWidget {
                                 cornerRadius: 20.0,
                               ))),
                           SizedBox(width: 8.0),
-                          TextX(
-                            MbxProfileVM.profile.name.isEmpty
-                                ? '-'
-                                : MbxProfileVM.profile.name,
-                            fontSize: 17.0,
-                            fontWeight: FontWeight.w700,
-                            color: ColorX.white,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              TextX(
+                                MbxProfileVM.profile.name.isEmpty
+                                    ? '-'
+                                    : MbxProfileVM.profile.name,
+                                fontSize: 17.0,
+                                fontWeight: FontWeight.w700,
+                                color: ColorX.white,
+                              ),
+                              ContainerX(height: 2.0),
+                              TextX(
+                                MbxProfileVM.profile.phone.isEmpty
+                                    ? '-'
+                                    : MbxProfileVM.profile.phone,
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w400,
+                                color: ColorX.white,
+                              ),
+                            ],
                           ),
                           Spacer(),
                           Row(

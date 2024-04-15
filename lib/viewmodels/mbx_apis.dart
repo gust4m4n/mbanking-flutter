@@ -1,10 +1,17 @@
+import 'package:client_information/client_information.dart';
+
 import '../utils/api_x.dart';
 import 'mbx_baseurl_vm.dart';
 import 'mbx_profile_vm.dart';
 
 class MbxApi {
   static addRequiredHeader(Map<String, Object?> header) async {
-    header['X-DEVICE-ID'] = 'deviceid';
+    ClientInformation info = await ClientInformation.fetch();
+    header['X-DEVICE-ID'] = info.deviceId;
+    header['X-DEVICE-NAME'] = info.deviceName;
+    header['X-DEVICE-OS'] = info.osName;
+    header['X-DEVICE-OS-VERSION'] = info.osVersion;
+    header['X-DEVICE-OS-VERSION-CODE'] = info.osVersionCode;
     final token = MbxProfileVM.profile.token;
     if (token.isNotEmpty) {
       header['Authorization'] = 'Bearer $token';
