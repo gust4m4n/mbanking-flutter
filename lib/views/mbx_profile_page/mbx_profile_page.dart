@@ -85,7 +85,9 @@ class MbxProfilePage extends StatelessWidget {
                       MbaxProfileMenuButton(
                         title: 'Ganti PIN',
                         faIcon: FontAwesomeIcons.key,
-                        onClicked: () {},
+                        onClicked: () {
+                          controller.btnChangePinClicked();
+                        },
                       ),
                       MbaxProfileMenuButton(
                         title: 'Syarat & Ketentuan',

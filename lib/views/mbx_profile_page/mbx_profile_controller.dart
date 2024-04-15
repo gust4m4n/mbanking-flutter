@@ -45,6 +45,17 @@ class MbxProfileController extends GetxController {
     });
   }
 
+  btnChangePinClicked() {
+    MbxPinSheet.show(
+            title: 'PIN',
+            description: 'Masukkan nomor pin m-banking atau ATM anda.',
+            biometric: false,
+            onSubmit: (code, biometric) async {})
+        .then((value) async {
+      update();
+    });
+  }
+
   btnTncClicked() {
     Get.to(MbxTncScreen());
   }
