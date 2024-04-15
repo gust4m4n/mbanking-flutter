@@ -3,6 +3,17 @@ import 'dart:async';
 import 'mbx_preferences_vm.dart';
 
 extension MbxUserPreferencesVM on MbxPreferencesVM {
+  static Future<void> setDeviceId(String value) async {
+    await MbxPreferencesVM.setString(
+        '827ded2ed0de828e53a430595e079ef19bbe7a1ae72ccb25417cf677e1110f6d',
+        value);
+  }
+
+  static Future<String> getDeviceId() async {
+    return await MbxPreferencesVM.getString(
+        '827ded2ed0de828e53a430595e079ef19bbe7a1ae72ccb25417cf677e1110f6d');
+  }
+
   static Future<void> setTheme(String value) async {
     await MbxPreferencesVM.setString(
         '74a17957b7c7743a8d6111edd891015c3b84d707a04b3bd9afe7c6bb3dbabbda',

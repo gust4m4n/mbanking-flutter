@@ -1,10 +1,21 @@
 import 'dart:async';
+
 import 'package:client_information/client_information.dart';
+import 'package:mbankingflutter/viewmodels/mbx_preferences_vm+users.dart';
+import 'package:uuid/uuid.dart';
 
 class MbxDeviceVM {
   static Future<String> deviceId() async {
-    ClientInformation info = await ClientInformation.fetch();
-    return info.deviceId;
+    var id = await MbxUserPreferencesVM.getDeviceId();
+    if (id.isEmpty) {
+      id = await ClientInformation.fetch().then((info) => info.deviceId);
+      id = id + Uuid().v4();
+      id = id.replaceAll(' ', '');
+      id = id.replaceAll('-', '');
+      id = id.toLowerCase();
+      await MbxUserPreferencesVM.setDeviceId(id);
+    }
+    return id;
   }
 
   static Future<String> deviceName() async {

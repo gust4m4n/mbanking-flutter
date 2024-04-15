@@ -44,6 +44,7 @@ dependencies:
   pdfx: ^2.6.0
   package_info_plus: ^4.2.0
   client_information: ^2.1.4
+  uuid: ^4.4.0
 
 
 dev_dependencies: 
