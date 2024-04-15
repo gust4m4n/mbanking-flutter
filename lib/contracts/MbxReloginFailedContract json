@@ -1,0 +1,7 @@
+{
+	"status": 200,
+	"message": "Relogin success",
+	"data": {
+	  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NfdXVpZCI6ImJjODVjNDNmLWE4ZmEtNDM0YS04ODNiLThkMGU1ZjZkOTcyZSIsImF1dGhvcml6ZWQiOnRydWUsImV4cCI6MTcxMDI1MzY5MCwidXNlcl9pZCI6IjE0OWRjNzg3LTllYTQtNDg0YS1hOTM1LWM3MDQ4ZDdlMjRkZSJ9.1E-OoRgTCvj0iDvps9NUj7D-lPRKnyYz0n5RkqzAL_w"
+	}
+  }

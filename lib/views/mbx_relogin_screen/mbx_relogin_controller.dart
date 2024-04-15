@@ -50,6 +50,7 @@ class MbxReloginController extends GetxController {
             });
           } else {
             Get.back();
+            pinSheet.clear(resp.message);
           }
         });
   }

@@ -32,6 +32,11 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
         autoClose: false);
   }
 
+  clear(String error) {
+    final controller = Get.find<MbxPinSheetController>();
+    controller.clear(error);
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxPinSheetController>(
@@ -70,11 +75,11 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                   MbxPinDot(on: controller.code.length >= 6),
                 ],
               ),
-              ContainerX(height: 16.0),
               Visibility(
                 visible: controller.error.isNotEmpty,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 48.0, right: 48.0),
+                  padding: EdgeInsets.only(
+                      left: 48.0, top: 8.0, right: 48.0, bottom: 8.0),
                   child: TextX(
                     controller.error,
                     color: ColorX.red,
@@ -88,7 +93,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
               ContainerX(
                 backgroundColor: ColorX.transparent,
                 padding: EdgeInsets.only(
-                    left: 16.0, top: 0.0, right: 16.0, bottom: 0.0),
+                    left: 16.0, top: 16.0, right: 16.0, bottom: 0.0),
                 child: Column(
                   children: [
                     Row(
