@@ -14,6 +14,17 @@ extension MbxUserPreferencesVM on MbxPreferencesVM {
         '827ded2ed0de828e53a430595e079ef19bbe7a1ae72ccb25417cf677e1110f6d');
   }
 
+  static Future<void> setToken(String value) async {
+    await MbxPreferencesVM.setString(
+        '1cb9ed62e815e5c8bc0c3862da9a0c70c439df9b4e42a5c7c9fa82847f3b9d48',
+        value);
+  }
+
+  static Future<String> getToken() async {
+    return await MbxPreferencesVM.getString(
+        '1cb9ed62e815e5c8bc0c3862da9a0c70c439df9b4e42a5c7c9fa82847f3b9d48');
+  }
+
   static Future<void> setTheme(String value) async {
     await MbxPreferencesVM.setString(
         '74a17957b7c7743a8d6111edd891015c3b84d707a04b3bd9afe7c6bb3dbabbda',
@@ -48,6 +59,7 @@ extension MbxUserPreferencesVM on MbxPreferencesVM {
   }
 
   static Future<void> resetAll() async {
+    await setToken('');
     await setTheme('');
     await setProfile('');
     await setBiometricEnabled(false);

@@ -1,9 +1,9 @@
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../utils/all_utils.dart';
-import '../../viewmodels/mbx_login_pin_vm.dart';
 import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
+import '../../viewmodels/mbx_relogin_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
@@ -40,7 +40,7 @@ class MbxReloginController extends GetxController {
           LoggerX.log('[PIN] entered: $code biometric; $biometric');
           Get.loading();
           final resp =
-              await MbxLoginPinVM.request(phone: '', otp: '', pin: code);
+              await MbxReloginVM.request(pin: code, biometric: biometric);
           if (resp.status == 200) {
             LoggerX.log('[PIN] verfied: $code');
             MbxProfileVM.request().then((resp) {
