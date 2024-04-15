@@ -143,10 +143,8 @@ class MbLoginController extends GetxController {
               Get.deleteAll();
               Get.offAll(MbxBottomNavBarScreen());
             });
-            return code;
           } else {
             Get.back();
-            return '';
           }
         });
   }

@@ -5,6 +5,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
+import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 import '../mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
 
 class MbxProfileController extends GetxController {
@@ -22,9 +23,19 @@ class MbxProfileController extends GetxController {
   }
 
   toggleBiometric(bool value) async {
-    await MbxUserPreferencesVM.setBiometricEnabled(value);
-    MbxProfileVM.profile.biometric = value;
     update();
+    MbxPinSheet.show(
+        title: 'PIN',
+        description: 'Masukkan nomor pin m-banking atau ATM anda.',
+        onSubmit: (code, biometricAuthenticated) async {
+          await MbxUserPreferencesVM.setBiometricEnabled(value);
+          MbxProfileVM.profile.biometric = value;
+          update();
+          Get.back();
+        }).then((value) async {
+      biometricEnabled = await MbxUserPreferencesVM.getBiometricEnabled();
+      update();
+    });
   }
 
   btnTncClicked() {

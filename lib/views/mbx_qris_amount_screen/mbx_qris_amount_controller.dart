@@ -89,7 +89,6 @@ class MbxQRISAmountController extends GetxController {
                   receipt: qrisPaymentVM.receipt, backToHome: true)));
             }
           });
-          return code;
         });
   }
 }
