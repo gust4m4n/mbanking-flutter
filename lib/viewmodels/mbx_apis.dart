@@ -1,5 +1,5 @@
 import 'package:mbankingflutter/viewmodels/mbx_device_vm.dart';
-
+import 'package:mbankingflutter/viewmodels/mbx_preferences_vm+users.dart';
 import '../utils/api_x.dart';
 import 'mbx_baseurl_vm.dart';
 import 'mbx_profile_vm.dart';
@@ -12,7 +12,7 @@ class MbxApi {
     header['X-DEVICE-OS-VERSION'] = await MbxDeviceVM.deviceOSVersion();
     header['X-DEVICE-OS-VERSION-CODE'] =
         await MbxDeviceVM.deviceOSVersionCode();
-    final token = MbxProfileVM.profile.token;
+    final token = await MbxUserPreferencesVM.getToken();
     if (token.isNotEmpty) {
       header['Authorization'] = 'Bearer $token';
     }

@@ -20,9 +20,7 @@ class MbxProfileVM {
             contract: true)
         .then((resp) async {
       if (resp.status == 200) {
-        final savedToken = profile.token;
         profile.decode(resp.jason['data']);
-        profile.token = savedToken;
         await save();
       }
       return resp;

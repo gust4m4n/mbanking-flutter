@@ -30,7 +30,8 @@ Future<void> main() async {
 
   Widget firstScreen;
 
-  if (MbxProfileVM.profile.token.isEmpty) {
+  final token = await MbxUserPreferencesVM.getToken();
+  if (token.isEmpty) {
     firstScreen = MbxLoginScreen();
   } else {
     firstScreen = MbxReloginScreen();

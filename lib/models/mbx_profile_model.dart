@@ -8,7 +8,6 @@ class MbxProfileModel {
   String name = '';
   String phone = '';
   String photo = '';
-  String token = '';
 
   MbxProfileModel();
 
@@ -22,7 +21,6 @@ class MbxProfileModel {
     name = jason['name'].stringValue;
     phone = jason['phone'].stringValue;
     photo = jason['photo'].stringValue;
-    token = jason['token'].stringValue;
   }
 
   Jason encode() {
@@ -37,7 +35,6 @@ class MbxProfileModel {
     jason['name'] = name;
     jason['phone'] = phone;
     jason['photo'] = photo;
-    jason['token'] = token;
     return jason;
   }
 }
