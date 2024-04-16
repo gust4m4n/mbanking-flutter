@@ -76,6 +76,7 @@ class MbxQRISAmountController extends GetxController {
     pinSheet.show(
         title: 'PIN',
         description: 'Masukkan nomor pin m-banking atau ATM anda.',
+        secure: true,
         biometric: true,
         onSubmit: (code, biometric) async {
           LoggerX.log('[PIN] entered: $code biometric; $biometric');

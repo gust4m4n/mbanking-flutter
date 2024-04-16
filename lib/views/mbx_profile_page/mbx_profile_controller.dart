@@ -31,6 +31,7 @@ class MbxProfileController extends GetxController {
         .show(
             title: 'PIN',
             description: 'Masukkan nomor pin m-banking atau ATM anda.',
+            secure: true,
             biometric: false,
             onSubmit: (code, biometric) async {
               Get.loading();
@@ -55,6 +56,7 @@ class MbxProfileController extends GetxController {
         .show(
             title: 'PIN',
             description: 'Masukkan nomor pin m-banking atau ATM anda.',
+            secure: true,
             biometric: false,
             onSubmit: (code, biometric) async {
               Get.back();
@@ -70,6 +72,7 @@ class MbxProfileController extends GetxController {
             title: 'PIN Baru',
             description:
                 'Masukkan nomor pin m-banking atau ATM anda yang baru.',
+            secure: true,
             biometric: false,
             onSubmit: (code, biometric) async {
               Get.back();
@@ -85,6 +88,7 @@ class MbxProfileController extends GetxController {
             title: 'Konfirmasi PIN Baru',
             description:
                 'Masukkan ulang nomor pin m-banking atau ATM anda yang baru.',
+            secure: true,
             biometric: false,
             onSubmit: (code, biometric) async {
               Get.loading();

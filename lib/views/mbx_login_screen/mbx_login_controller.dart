@@ -10,7 +10,6 @@ import '../../viewmodels/mbx_onboarding_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
 import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
-import '../mbx_otp_sheet/mbx_otp_sheet.dart';
 import 'mbx_login_screen.dart';
 
 class MbLoginController extends GetxController {
@@ -89,10 +88,14 @@ class MbLoginController extends GetxController {
   }
 
   askOtp(String phone) {
-    MbxOtpSheet.show(
+    final pinSheet = MbxPinSheet();
+    pinSheet
+        .show(
       title: 'OTP',
       description: 'Masukkan kode OTP yang anda terima melalui SMS.',
-      onSubmit: (code) async {
+      secure: false,
+      biometric: false,
+      onSubmit: (code, biometric) async {
         LoggerX.log('[OTP] entered: $code');
         Get.loading();
         final resp = await MbxLoginOtpVM.request(phone: phone, otp: code);
@@ -105,10 +108,7 @@ class MbLoginController extends GetxController {
             Get.back();
             askPin(phone, code);
           });
-          return code;
-        } else {
-          return '';
-        }
+        } else {}
       },
       /*
       onResend: () async {
@@ -120,7 +120,8 @@ class MbLoginController extends GetxController {
           }
         });
       }, */
-    ).then((code) {
+    )
+        .then((code) {
       if (code != null && (code as String).isNotEmpty) {
         LoggerX.log('[OTP] verfied: $code');
         askPin(phone, code);
@@ -133,6 +134,7 @@ class MbLoginController extends GetxController {
     pinSheet.show(
         title: 'PIN',
         description: 'Masukkan nomor pin m-banking atau ATM anda.',
+        secure: true,
         biometric: false,
         onSubmit: (code, biometric) async {
           LoggerX.log('[PIN] entered: $code');

@@ -7,23 +7,32 @@ import 'mbx_pin_sheet_controller.dart';
 class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   String title = '';
   String description = '';
+  bool secure = true;
   bool biometric = false;
   void Function(String code, bool biometric)? onSubmit = null;
+  String optionTitle = 'Lupa PIN';
+  Function()? onOption = null;
   TextEditingController pinController = TextEditingController();
 
   MbxPinSheet();
 
-  Future<T?> show<T>(
-      {required String title,
-      required String description,
-      required bool biometric,
-      required void Function(String code, bool biometric) onSubmit}) async {
+  Future<T?> show<T>({
+    required String title,
+    required String description,
+    required bool secure,
+    required bool biometric,
+    required void Function(String code, bool biometric) onSubmit,
+    String optionTitle = 'Lupa PIN',
+    void Function()? onOption = null,
+  }) async {
     FocusManager.instance.primaryFocus?.unfocus();
     await Get.delete<MbxPinSheetController>();
     this.title = title;
     this.description = description;
+    this.secure = secure;
     this.biometric = biometric;
     this.onSubmit = onSubmit;
+    this.optionTitle = optionTitle;
     return SheetX.showWithGrip(
         backgroundColor: const Color.fromARGB(255, 130, 102, 102),
         cornerRadius: 16.0,
@@ -62,17 +71,47 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MbxPinDot(on: controller.code.length >= 1),
+                  MbxPinDot(
+                    on: controller.code.length >= 1,
+                    number:
+                        controller.code.length >= 1 ? controller.code[0] : '',
+                    secure: secure,
+                  ),
                   ContainerX(width: 8.0),
-                  MbxPinDot(on: controller.code.length >= 2),
+                  MbxPinDot(
+                    on: controller.code.length >= 2,
+                    number:
+                        controller.code.length >= 2 ? controller.code[1] : '',
+                    secure: secure,
+                  ),
                   ContainerX(width: 8.0),
-                  MbxPinDot(on: controller.code.length >= 3),
+                  MbxPinDot(
+                    on: controller.code.length >= 3,
+                    number:
+                        controller.code.length >= 3 ? controller.code[2] : '',
+                    secure: secure,
+                  ),
                   ContainerX(width: 8.0),
-                  MbxPinDot(on: controller.code.length >= 4),
+                  MbxPinDot(
+                    on: controller.code.length >= 4,
+                    number:
+                        controller.code.length >= 4 ? controller.code[3] : '',
+                    secure: secure,
+                  ),
                   ContainerX(width: 8.0),
-                  MbxPinDot(on: controller.code.length >= 5),
+                  MbxPinDot(
+                    on: controller.code.length >= 5,
+                    number:
+                        controller.code.length >= 5 ? controller.code[4] : '',
+                    secure: secure,
+                  ),
                   ContainerX(width: 8.0),
-                  MbxPinDot(on: controller.code.length >= 6),
+                  MbxPinDot(
+                    on: controller.code.length >= 6,
+                    number:
+                        controller.code.length >= 6 ? controller.code[5] : '',
+                    secure: secure,
+                  ),
                 ],
               ),
               Visibility(
@@ -202,7 +241,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                     ),
                     ContainerX(height: 4.0),
                     ButtonX(
-                      title: 'Lupa PIN?',
+                      title: optionTitle,
                       titleColor: ColorX.black,
                       fontSize: 15.0,
                       fontWeight: FontWeight.w700,
@@ -211,9 +250,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                       width: 120.0,
                       height: 32.0,
                       cornerRadius: 8.0,
-                      onClicked: () {
-                        controller.btnForgotClicked();
-                      },
+                      onClicked: onOption,
                     ),
                     ContainerX(
                         height:
