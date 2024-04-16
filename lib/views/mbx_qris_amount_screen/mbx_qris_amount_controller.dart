@@ -91,6 +91,9 @@ class MbxQRISAmountController extends GetxController {
                   receipt: qrisPaymentVM.receipt, backToHome: true)));
             }
           });
-        });
+        },
+              optionTitle: 'Lupa PIN',
+      onOption: () {},
+);
   }
 }

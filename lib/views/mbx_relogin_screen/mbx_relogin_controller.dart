@@ -53,7 +53,10 @@ class MbxReloginController extends GetxController {
             Get.back();
             pinSheet.clear(resp.message);
           }
-        });
+        },
+              optionTitle: 'Lupa PIN',
+      onOption: () {},
+);
   }
 
   btnSwitchAccountClicked() {

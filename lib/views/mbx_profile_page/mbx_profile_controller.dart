@@ -29,21 +29,24 @@ class MbxProfileController extends GetxController {
     final pinSheet = MbxPinSheet();
     pinSheet
         .show(
-            title: 'PIN',
-            description: 'Masukkan nomor pin m-banking atau ATM anda.',
-            secure: true,
-            biometric: false,
-            onSubmit: (code, biometric) async {
-              Get.loading();
-              MbxSetBiometricVM.request(pin: code, biometric: biometric)
-                  .then((resp) async {
-                Get.back();
-                await MbxUserPreferencesVM.setBiometricEnabled(value);
-                MbxProfileVM.profile.biometric = value;
-                update();
-                Get.back();
-              });
-            })
+      title: 'PIN',
+      description: 'Masukkan nomor pin m-banking atau ATM anda.',
+      secure: true,
+      biometric: false,
+      onSubmit: (code, biometric) async {
+        Get.loading();
+        MbxSetBiometricVM.request(pin: code, biometric: biometric)
+            .then((resp) async {
+          Get.back();
+          await MbxUserPreferencesVM.setBiometricEnabled(value);
+          MbxProfileVM.profile.biometric = value;
+          update();
+          Get.back();
+        });
+      },
+      optionTitle: 'Lupa PIN',
+      onOption: () {},
+    )
         .then((value) async {
       biometricEnabled = await MbxUserPreferencesVM.getBiometricEnabled();
       update();
@@ -61,7 +64,10 @@ class MbxProfileController extends GetxController {
             onSubmit: (code, biometric) async {
               Get.back();
               changePinNew();
-            })
+            },
+                  optionTitle: 'Lupa PIN',
+      onOption: () {},
+)
         .then((value) async {});
   }
 
@@ -77,7 +83,10 @@ class MbxProfileController extends GetxController {
             onSubmit: (code, biometric) async {
               Get.back();
               changePinConfirm();
-            })
+            },
+                  optionTitle: 'Lupa PIN',
+      onOption: () {},
+)
         .then((value) async {});
   }
 
@@ -97,7 +106,9 @@ class MbxProfileController extends GetxController {
                 Get.back();
                 Get.back();
               });
-            })
+            },      optionTitle: 'Lupa PIN',
+      onOption: () {},
+)
         .then((value) async {});
   }
 

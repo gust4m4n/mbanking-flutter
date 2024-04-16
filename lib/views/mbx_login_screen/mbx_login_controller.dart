@@ -110,16 +110,8 @@ class MbLoginController extends GetxController {
           });
         } else {}
       },
-      /*
-      onResend: () async {
-        Get.loading();
-        MbxLoginPhoneVM.request(phone: txtPhoneController.text).then((resp) {
-          Get.back();
-          if (resp.status == 200) {
-            ToastX.snackBar(msg: 'OTP telah dikirim ulang.');
-          }
-        });
-      }, */
+      optionTitle: 'Kirim Ulang',
+      onOption: () {},
     )
         .then((code) {
       if (code != null && (code as String).isNotEmpty) {
@@ -132,24 +124,26 @@ class MbLoginController extends GetxController {
   askPin(String phone, String otp) {
     final pinSheet = MbxPinSheet();
     pinSheet.show(
-        title: 'PIN',
-        description: 'Masukkan nomor pin m-banking atau ATM anda.',
-        secure: true,
-        biometric: false,
-        onSubmit: (code, biometric) async {
-          LoggerX.log('[PIN] entered: $code');
-          Get.loading();
-          final resp =
-              await MbxLoginPinVM.request(phone: '', otp: '', pin: code);
-          if (resp.status == 200) {
-            LoggerX.log('[PIN] verfied: $code');
-            MbxProfileVM.request().then((resp) {
-              Get.deleteAll();
-              Get.offAll(MbxBottomNavBarScreen());
-            });
-          } else {
-            Get.back();
-          }
-        });
+      title: 'PIN',
+      description: 'Masukkan nomor pin m-banking atau ATM anda.',
+      secure: true,
+      biometric: false,
+      onSubmit: (code, biometric) async {
+        LoggerX.log('[PIN] entered: $code');
+        Get.loading();
+        final resp = await MbxLoginPinVM.request(phone: '', otp: '', pin: code);
+        if (resp.status == 200) {
+          LoggerX.log('[PIN] verfied: $code');
+          MbxProfileVM.request().then((resp) {
+            Get.deleteAll();
+            Get.offAll(MbxBottomNavBarScreen());
+          });
+        } else {
+          Get.back();
+        }
+      },
+      optionTitle: 'Lupa PIN',
+      onOption: () {},
+    );
   }
 }

@@ -11,7 +11,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   bool biometric = false;
   void Function(String code, bool biometric)? onSubmit = null;
   String optionTitle = 'Lupa PIN';
-  Function()? onOption = null;
+  void Function()? onOption = null;
   TextEditingController pinController = TextEditingController();
 
   MbxPinSheet();
@@ -22,8 +22,8 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
     required bool secure,
     required bool biometric,
     required void Function(String code, bool biometric) onSubmit,
-    String optionTitle = 'Lupa PIN',
-    void Function()? onOption = null,
+    required String optionTitle,
+    required void Function()? onOption,
   }) async {
     FocusManager.instance.primaryFocus?.unfocus();
     await Get.delete<MbxPinSheetController>();
