@@ -33,7 +33,7 @@ class MbxPinSheetController extends GetxController {
   }
 
   btnBiometricClicked() {
-    if (widget!.biometric) {
+    if (widget.biometric) {
       MbxUserPreferencesVM.getBiometricEnabled().then((value) {
         biometricEnabled = value;
         update();
