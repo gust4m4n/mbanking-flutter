@@ -25,10 +25,10 @@ class MbxReceiptController extends GetxController {
     }
   }
 
-  btnBackClicked() {
+  btnBackClicked() async {
     if (backToHome) {
-      Get.deleteAll();
-      Get.offAll(MbxBottomNavBarScreen());
+      await Get.deleteAll();
+      await Get.offAll(MbxBottomNavBarScreen());
     } else {
       Get.back();
     }

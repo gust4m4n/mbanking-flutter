@@ -1,3 +1,5 @@
+import 'package:mbankingflutter/utils/all_utils.dart';
+
 import '../views/mbx_bottom_navbar_screen/mbx_bottom_navbar_controller.dart';
 import '../views/mbx_theme_sheet/mbx_theme_sheet.dart';
 import '../widgets/all_widgets.dart';
@@ -28,9 +30,11 @@ class MbxThemeVM {
     try {
       await MbxUserPreferencesVM.setTheme(value);
       ColorX.theme = hexToColor(value);
-      final controller = Get.find<MbxBottomNavBarController>();
+      final controller = await Get.find<MbxBottomNavBarController>();
       controller.update();
-    } catch (e) {}
+    } catch (e) {
+      LoggerX.log(e.toString());
+    }
     return value;
   }
 }
