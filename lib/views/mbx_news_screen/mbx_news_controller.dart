@@ -4,15 +4,14 @@ import '../../viewmodels/mbx_news_detail_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxNewsController extends GetxController {
-  final MbxNewsModel news;
+  var news = MbxNewsModel();
   final newsDetailVM = MbxNewsDetailVM();
   final webController = WebViewController();
-
-  MbxNewsController(this.news);
 
   @override
   void onReady() {
     super.onReady();
+    news = Get.arguments as MbxNewsModel;
     reload();
     newsDetailVM.request().then((resp) {
       news.content = newsDetailVM.news.content;

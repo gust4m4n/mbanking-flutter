@@ -3,14 +3,14 @@ import '../../widgets/all_widgets.dart';
 import 'mbx_news_controller.dart';
 
 class MbxNewsScreen extends StatelessWidget {
-  final MbxNewsModel news;
+//  final MbxNewsModel news;
 
-  MbxNewsScreen({required this.news});
+//MbxNewsScreen({required this.news});
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxNewsController>(
-        init: MbxNewsController(news),
+        init: MbxNewsController(),
         builder: (controller) => ScreenX(
               lightStatusBar: true,
               bottomPadding: false,
@@ -18,7 +18,7 @@ class MbxNewsScreen extends StatelessWidget {
                   backgroundColor: ColorX.white,
                   child: Stack(children: [
                     ImageX(
-                      url: news.image,
+                      url: controller.news.image,
                       width: MediaQuery.of(Get.context!).size.width,
                       height: MediaQuery.of(Get.context!).size.width *
                           MbxNewsModel.imageAspectRatio,
