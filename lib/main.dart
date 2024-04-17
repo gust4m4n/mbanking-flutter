@@ -1,10 +1,12 @@
+import 'package:mbankingflutter/views/mbx_relogin_screen/mbx_relogin_screen.dart';
+
 import 'viewmodels/mbx_anti_jailbreak_vm.dart';
 import 'viewmodels/mbx_preferences_vm+users.dart';
 import 'viewmodels/mbx_preferences_vm.dart';
 import 'viewmodels/mbx_profile_vm.dart';
 import 'viewmodels/mbx_reachability_vm.dart';
+import 'views/mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 import 'views/mbx_login_screen/mbx_login_screen.dart';
-import 'views/mbx_relogin_screen/mbx_relogin_screen.dart';
 import 'widgets/all_widgets.dart';
 
 Future<void> main() async {
@@ -28,13 +30,10 @@ Future<void> main() async {
   }
   await MbxProfileVM.load();
 
-  Widget firstScreen;
-
+  String initialRoute = '/login';
   final token = await MbxUserPreferencesVM.getToken();
-  if (token.isEmpty) {
-    firstScreen = MbxLoginScreen();
-  } else {
-    firstScreen = MbxReloginScreen();
+  if (token.isNotEmpty) {
+    initialRoute = '/home';
   }
 
   SystemChrome.setPreferredOrientations([
@@ -46,7 +45,7 @@ Future<void> main() async {
         child: Center(
           child: Container(
             width: kIsWeb ? 400.0 : double.infinity,
-            child: MyApp(firstScreen),
+            child: MyApp(initialRoute),
           ),
         ),
       ),
@@ -67,8 +66,8 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final Widget firstScreen;
-  MyApp(this.firstScreen);
+  final String initialRoute;
+  MyApp(this.initialRoute);
 
   @override
   Widget build(BuildContext context) {
@@ -76,17 +75,16 @@ class MyApp extends StatelessWidget {
       popGesture: true,
       defaultTransition: Transition.cupertino,
       debugShowCheckedModeBanner: false,
-      locale: Get.deviceLocale, //for setting localization strings
+      locale: Get.deviceLocale,
       fallbackLocale: Locale('en', 'US'),
       scrollBehavior: AppScrollBehavior(),
       title: 'MBanking-flutter',
-      home: firstScreen,
       theme: ThemeData(
           bottomSheetTheme:
               BottomSheetThemeData(surfaceTintColor: Colors.white),
           textSelectionTheme: TextSelectionThemeData(
-            selectionColor: ColorX.lightGray, // Your desired color
-            selectionHandleColor: ColorX.gray, // Your desired color
+            selectionColor: ColorX.lightGray,
+            selectionHandleColor: ColorX.gray,
           ),
           splashColor: Colors.transparent,
           visualDensity: VisualDensity.standard,
@@ -96,6 +94,18 @@ class MyApp extends StatelessWidget {
             TargetPlatform.android: CupertinoPageTransitionsBuilder(),
             TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
           })),
+      initialRoute: initialRoute,
+      getPages: [
+        GetPage(
+            name: '/login',
+            page: () => MbxLoginScreen(),
+            transition: Transition.noTransition),
+        GetPage(
+            name: '/relogin',
+            page: () => MbxReloginScreen(),
+            transition: Transition.noTransition),
+        GetPage(name: '/home', page: () => MbxBottomNavBarScreen()),
+      ],
     );
   }
 }

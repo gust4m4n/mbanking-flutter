@@ -23,7 +23,9 @@ class MbxHomeController extends GetxController {
 
   btnThemeClicked() {
     MbxThemeVM.change().then((value) {
-      update();
+      if (value) {
+        Get.offAllNamed('/home');
+      }
     });
   }
 

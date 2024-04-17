@@ -39,7 +39,9 @@ class MbLoginController extends GetxController {
 
   btnThemeClicked() {
     MbxThemeVM.change().then((value) {
-      update();
+      if (value) {
+        Get.offAllNamed('/login');
+      }
     });
   }
 
