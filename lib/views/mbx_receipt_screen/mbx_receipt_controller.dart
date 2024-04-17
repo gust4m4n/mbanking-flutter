@@ -1,7 +1,6 @@
 import '../../models/mbx_receipt_model.dart';
 import '../../viewmodels/mbx_receipt_vm.dart';
 import '../../widgets/all_widgets.dart';
-import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 
 class MbxReceiptController extends GetxController {
   var receipt = MbxReceiptModel();
@@ -27,8 +26,7 @@ class MbxReceiptController extends GetxController {
 
   btnBackClicked() async {
     if (backToHome) {
-      await Get.deleteAll();
-      await Get.offAll(MbxBottomNavBarScreen());
+      Get.toNamed('/home');
     } else {
       Get.back();
     }

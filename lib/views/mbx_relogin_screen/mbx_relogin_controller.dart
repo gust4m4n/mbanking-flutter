@@ -6,7 +6,6 @@ import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_relogin_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
 import '../../widgets/all_widgets.dart';
-import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
 class MbxReloginController extends GetxController {
@@ -48,8 +47,7 @@ class MbxReloginController extends GetxController {
         if (resp.status == 200) {
           LoggerX.log('[PIN] verfied: $code');
           MbxProfileVM.request().then((resp) {
-            Get.deleteAll();
-            Get.offAll(MbxBottomNavBarScreen());
+            Get.toNamed('/home');
           });
         } else {
           Get.back();

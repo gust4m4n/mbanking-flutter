@@ -1,6 +1,5 @@
 import 'package:mbankingflutter/viewmodels/mbx_preferences_vm+users.dart';
 import 'package:mbankingflutter/viewmodels/mbx_set_biometric_vm.dart';
-import 'package:mbankingflutter/views/mbx_tnc_screen/mbx_tnc_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../viewmodels/mbx_change_pin_vm.dart';
@@ -8,7 +7,6 @@ import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
-import '../mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
 
 class MbxProfileController extends GetxController {
   var biometricEnabled = false;
@@ -57,17 +55,17 @@ class MbxProfileController extends GetxController {
     final pinSheet = MbxPinSheet();
     pinSheet
         .show(
-            title: 'PIN',
-            description: 'Masukkan nomor pin m-banking atau ATM anda.',
-            secure: true,
-            biometric: false,
-            onSubmit: (code, biometric) async {
-              Get.back();
-              changePinNew();
-            },
-                  optionTitle: 'Lupa PIN',
-      onOption: () {},
-)
+          title: 'PIN',
+          description: 'Masukkan nomor pin m-banking atau ATM anda.',
+          secure: true,
+          biometric: false,
+          onSubmit: (code, biometric) async {
+            Get.back();
+            changePinNew();
+          },
+          optionTitle: 'Lupa PIN',
+          onOption: () {},
+        )
         .then((value) async {});
   }
 
@@ -75,18 +73,17 @@ class MbxProfileController extends GetxController {
     final pinSheet = MbxPinSheet();
     pinSheet
         .show(
-            title: 'PIN Baru',
-            description:
-                'Masukkan nomor pin m-banking atau ATM anda yang baru.',
-            secure: true,
-            biometric: false,
-            onSubmit: (code, biometric) async {
-              Get.back();
-              changePinConfirm();
-            },
-                  optionTitle: 'Lupa PIN',
-      onOption: () {},
-)
+          title: 'PIN Baru',
+          description: 'Masukkan nomor pin m-banking atau ATM anda yang baru.',
+          secure: true,
+          biometric: false,
+          onSubmit: (code, biometric) async {
+            Get.back();
+            changePinConfirm();
+          },
+          optionTitle: 'Lupa PIN',
+          onOption: () {},
+        )
         .then((value) async {});
   }
 
@@ -94,30 +91,30 @@ class MbxProfileController extends GetxController {
     final pinSheet = MbxPinSheet();
     pinSheet
         .show(
-            title: 'Konfirmasi PIN Baru',
-            description:
-                'Masukkan ulang nomor pin m-banking atau ATM anda yang baru.',
-            secure: true,
-            biometric: false,
-            onSubmit: (code, biometric) async {
-              Get.loading();
-              MbxChangePinVM.request(pin: code, newPin: code)
-                  .then((resp) async {
-                Get.back();
-                Get.back();
-              });
-            },      optionTitle: 'Lupa PIN',
-      onOption: () {},
-)
+          title: 'Konfirmasi PIN Baru',
+          description:
+              'Masukkan ulang nomor pin m-banking atau ATM anda yang baru.',
+          secure: true,
+          biometric: false,
+          onSubmit: (code, biometric) async {
+            Get.loading();
+            MbxChangePinVM.request(pin: code, newPin: code).then((resp) async {
+              Get.back();
+              Get.back();
+            });
+          },
+          optionTitle: 'Lupa PIN',
+          onOption: () {},
+        )
         .then((value) async {});
   }
 
   btnTncClicked() {
-    Get.to(MbxTncScreen());
+    Get.toNamed('/tnc');
   }
 
   btnPrivacyPolicyClicked() {
-    Get.to(MbxPrivacyPolicyScreen());
+    Get.toNamed('/privacy');
   }
 
   btnLogoutClicked() {

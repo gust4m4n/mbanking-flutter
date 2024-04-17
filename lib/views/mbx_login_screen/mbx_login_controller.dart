@@ -9,7 +9,6 @@ import '../../viewmodels/mbx_login_pin_vm.dart';
 import '../../viewmodels/mbx_onboarding_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
-import '../mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 import 'mbx_login_screen.dart';
 
 class MbLoginController extends GetxController {
@@ -137,8 +136,7 @@ class MbLoginController extends GetxController {
         if (resp.status == 200) {
           LoggerX.log('[PIN] verfied: $code');
           MbxProfileVM.request().then((resp) {
-            Get.deleteAll();
-            Get.offAll(MbxBottomNavBarScreen());
+            Get.toNamed('/home');
           });
         } else {
           Get.back();
