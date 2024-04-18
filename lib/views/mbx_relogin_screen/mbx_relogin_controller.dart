@@ -55,7 +55,10 @@ class MbxReloginController extends GetxController {
         }
       },
       optionTitle: 'Lupa PIN',
-      onOption: () {},
+      onOption: () {
+        pinSheet.clear('');
+        ToastX.snackBar(msg: LoremIpsumX.medium());
+      },
     );
   }
 

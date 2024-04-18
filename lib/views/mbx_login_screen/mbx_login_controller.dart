@@ -112,7 +112,10 @@ class MbLoginController extends GetxController {
         } else {}
       },
       optionTitle: 'Kirim Ulang',
-      onOption: () {},
+      onOption: () {
+        pinSheet.clear('');
+        ToastX.snackBar(msg: LoremIpsumX.medium());
+      },
     )
         .then((code) {
       if (code != null && (code as String).isNotEmpty) {
@@ -143,7 +146,10 @@ class MbLoginController extends GetxController {
         }
       },
       optionTitle: 'Lupa PIN',
-      onOption: () {},
+      onOption: () {
+        pinSheet.clear('');
+        ToastX.snackBar(msg: LoremIpsumX.medium());
+      },
     );
   }
 }
