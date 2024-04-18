@@ -4,14 +4,16 @@ import '../../widgets/all_widgets.dart';
 
 class MbxReceiptController extends GetxController {
   var receipt = MbxReceiptModel();
+  var backToHome = false;
   var loading = false;
-  final bool backToHome;
-
-  MbxReceiptController({required this.receipt, required this.backToHome});
+  ScreenshotController screenshotController = ScreenshotController();
 
   @override
   void onReady() {
     super.onReady();
+    receipt = Get.arguments['receipt'] as MbxReceiptModel;
+    backToHome = Get.arguments['backToHome'] as bool;
+    update();
     if (receipt.transaction_id.isEmpty) {
       loading = true;
       update();
@@ -30,5 +32,24 @@ class MbxReceiptController extends GetxController {
     } else {
       Get.back();
     }
+  }
+
+  btnDownloadClicked() async {
+    final filename = 'RECEIPT-${receipt.transaction_id}.JPG';
+    screenshotController
+        .capture(delay: Duration(milliseconds: 0))
+        .then((capturedImage) async {
+      if (kIsWeb) {
+        XFile.fromData(capturedImage!, mimeType: 'image/jpeg', name: filename)
+            .saveTo(filename)
+            .then((value) {});
+      } else {
+        Share.shareXFiles([
+          XFile.fromData(capturedImage!, mimeType: 'image/jpeg', name: filename)
+        ]);
+      }
+    }).catchError((onError) {
+      print(onError);
+    });
   }
 }

@@ -1,7 +1,6 @@
 import 'package:mbankingflutter/models/mbx_receipt_model.dart';
 
 import '../../widgets/all_widgets.dart';
-import '../mbx_receipt_screen/mbx_receipt_screen.dart';
 import 'mbx_notification_cell.dart';
 import 'mbx_notification_controller.dart';
 
@@ -63,9 +62,10 @@ class MbxNotificationPage extends StatelessWidget {
                               return InkWellX(
                                   highlightColor: ColorX.theme.withOpacity(0.1),
                                   onClicked: () {
-                                    Get.to(MbxReceiptScreen(
-                                        receipt: MbxReceiptModel(),
-                                        backToHome: false));
+                                    Get.toNamed('/receipt', arguments: {
+                                      'receipt': MbxReceiptModel(),
+                                      'backToHome': false
+                                    });
                                   },
                                   child: MbxNotificationCell(history));
                             })),

@@ -38,7 +38,7 @@ dependencies:
   carousel_slider: ^4.2.1
   sqflite: ^2.3.0
   fl_chart: ^0.66.2
-  screenshot: ^2.1.0
+  screenshot: ^2.3.0
   local_auth: ^2.1.8
   barcode_widget: ^2.0.4
   pdfx: ^2.6.0

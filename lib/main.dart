@@ -1,5 +1,6 @@
 import 'package:mbankingflutter/views/mbx_news_screen/mbx_news_screen.dart';
 import 'package:mbankingflutter/views/mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
+import 'package:mbankingflutter/views/mbx_receipt_screen/mbx_receipt_screen.dart';
 import 'package:mbankingflutter/views/mbx_relogin_screen/mbx_relogin_screen.dart';
 import 'package:mbankingflutter/views/mbx_tnc_screen/mbx_tnc_screen.dart';
 
@@ -111,6 +112,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/tnc', page: () => MbxTncScreen()),
         GetPage(name: '/privacy', page: () => MbxPrivacyPolicyScreen()),
         GetPage(name: '/news', page: () => MbxNewsScreen()),
+        GetPage(name: '/receipt', page: () => MbxReceiptScreen()),
       ],
     );
   }
