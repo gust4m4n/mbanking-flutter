@@ -1,3 +1,5 @@
+import 'package:permission_handler/permission_handler.dart';
+
 import '../../models/mbx_receipt_model.dart';
 import '../../viewmodels/mbx_receipt_vm.dart';
 import '../../widgets/all_widgets.dart';
@@ -39,7 +41,7 @@ class MbxReceiptController extends GetxController {
   }
 
   btnDownloadClicked() async {
-//    await Permission.manageExternalStorage.request();
+    await Permission.manageExternalStorage.request();
 
     final filename = 'RECEIPT-${receipt.transaction_id}.JPG';
     screenshotController
@@ -52,15 +54,10 @@ class MbxReceiptController extends GetxController {
       } else {
         /*
         try {
-          await Permission.manageExternalStorage.request();
-          final directory = await getApplicationDocumentsDirectory();
-          final path = directory?.path;
-          final file = await File('$path/$filename').create();
+          final directory = await ExternalPath.getExternalStorageDirectories();
+          final path = directory;
+          final file = await File('$path/$filename');
           await file.writeAsBytes(capturedImage!);
-
-          await XFile.fromData(capturedImage!,
-                  mimeType: 'image/jpeg', name: filename)
-              .saveTo('$path/$filename');
 
           Get.snackbar('Success', 'Receipt has been downloaded');
         } catch (e) {
