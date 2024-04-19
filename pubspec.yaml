@@ -47,6 +47,7 @@ dependencies:
   uuid: ^4.4.0
   permission_handler: ^11.3.1
   external_path: ^1.0.3
+  image_gallery_saver: ^2.0.3
 
 
 dev_dependencies: 

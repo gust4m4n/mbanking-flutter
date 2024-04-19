@@ -18,6 +18,14 @@ Future<void> main() async {
   await MbxAntiJailbreakVM.check();
   MbxReachabilityVM.startListening();
 
+/*
+// TESTXXXX
+  var dir = await getApplicationDocumentsDirectory();
+  dir.createSync(recursive: true);
+  var file = File('${dir.absolute.path}\ZZZ.TXT');
+  file.writeAsStringSync('ABCDEFHJ');
+  */
+
   final freshInstall = await MbxPreferencesVM.getFreshInstall();
   if (freshInstall == true) {
     await MbxPreferencesVM.setFreshInstall(false);
