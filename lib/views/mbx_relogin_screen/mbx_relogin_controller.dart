@@ -1,5 +1,3 @@
-import 'package:package_info_plus/package_info_plus.dart';
-
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_logout_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
@@ -47,7 +45,7 @@ class MbxReloginController extends GetxController {
         if (resp.status == 200) {
           LoggerX.log('[PIN] verfied: $code');
           MbxProfileVM.request().then((resp) {
-            Get.toNamed('/home');
+            Get.offAllNamed('/home');
           });
         } else {
           Get.back();

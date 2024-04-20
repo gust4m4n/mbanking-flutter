@@ -137,7 +137,7 @@ class MbLoginController extends GetxController {
         if (resp.status == 200) {
           LoggerX.log('[PIN] verfied: $code');
           MbxProfileVM.request().then((resp) {
-            Get.toNamed('/home');
+            Get.offAllNamed('/home');
           });
         } else {
           Get.back();

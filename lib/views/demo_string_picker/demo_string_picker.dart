@@ -1,6 +1,6 @@
 import '../../widgets/all_widgets.dart';
-import 'demo_string_picker_widget.dart';
 import 'demo_string_picker_controller.dart';
+import 'demo_string_picker_widget.dart';
 
 // ignore: must_be_immutable
 class DemoStringPicker extends GetWidget<DemoStringPickerController> {
@@ -11,7 +11,7 @@ class DemoStringPicker extends GetWidget<DemoStringPickerController> {
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showWithGrip(
-        backgroundColor: ColorX.white, cornerRadius: 32.0, widget: this);
+        /*backgroundColor: ColorX.white, cornerRadius: 32.0, */ widget: this);
   }
 
   @override

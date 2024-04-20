@@ -79,82 +79,70 @@ class SheetX {
         title: title);
   }
 
-  static Future<T?> show<T>(
-      {required Color backgroundColor,
-      required double cornerRadius,
-      required Widget widget,
-      bool autoClose = true}) {
+  static Future<T?> show<T>({required Widget widget, bool autoClose = true}) {
     FocusManager.instance.primaryFocus?.unfocus();
     return Get.bottomSheet(
         isDismissible: autoClose,
         isScrollControlled: true,
         ignoreSafeArea: false,
-        backgroundColor: ColorX.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(cornerRadius),
-              topRight: Radius.circular(cornerRadius)),
-        ),
+        elevation: 0.0,
         widget);
   }
 
   static Future<T?> showWithGrip<T>(
-      {required Color backgroundColor,
-      required double cornerRadius,
-      required Widget widget,
-      String title = '',
-      bool autoClose = true}) {
+      {required Widget widget, String title = '', bool autoClose = true}) {
     return SheetX.show(
-        backgroundColor: backgroundColor,
-        cornerRadius: cornerRadius,
-        widget: Wrap(children: [
-          ContainerX(
-              backgroundColor: ColorX.theme,
-              width: double.infinity,
-              topLeftRadius: 16.0,
-              topRightRadius: 16.0,
-              child: Wrap(
-                children: [
+        widget: ContainerX(
+            backgroundColor: ColorX.transparent,
+            padding: EdgeInsets.all(16.0),
+            child: ContainerX(
+                backgroundColor: ColorX.white,
+                cornerRadius: 16.0,
+                child: Wrap(children: [
                   ContainerX(
-                    padding: EdgeInsets.only(
-                        left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
-                    child: Row(
-                      children: [
-                        ButtonX(
-                          backgroundColor: ColorX.transparent,
-                          faIcon: FontAwesomeIcons.xmark,
-                          faWidth: 16.0,
-                          faHeight: 16.0,
-                          faColor: ColorX.white,
-                          width: 28.0,
-                          height: 28.0,
-                          cornerRadius: 14.0,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.white,
-                          onClicked: () {
-                            Get.back();
-                          },
-                        ),
-                        ContainerX(width: 8.0),
-                        Expanded(
-                          child: TextX(
-                            title,
-                            color: ColorX.white,
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.w600,
-                            textAlign: TextAlign.center,
+                      padding: EdgeInsets.all(16.0),
+                      child: Wrap(
+                        children: [
+                          ContainerX(
+                            backgroundColor: ColorX.theme.withOpacity(0.1),
+                            cornerRadius: 12.0,
+                            padding: EdgeInsets.only(
+                                left: 8.0, top: 8.0, right: 8.0, bottom: 8.0),
+                            child: Row(
+                              children: [
+                                ButtonX(
+                                  backgroundColor: ColorX.white,
+                                  faIcon: FontAwesomeIcons.xmark,
+                                  faWidth: 16.0,
+                                  faHeight: 16.0,
+                                  faColor: ColorX.black,
+                                  width: 32.0,
+                                  height: 32.0,
+                                  cornerRadius: 16.0,
+                                  onClicked: () {
+                                    Get.back();
+                                  },
+                                ),
+                                ContainerX(width: 8.0),
+                                Expanded(
+                                  child: TextX(
+                                    title,
+                                    color: ColorX.black,
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.w600,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                ContainerX(width: 8.0),
+                                SizedBox(width: 28.0, height: 28.0),
+                              ],
+                            ),
                           ),
-                        ),
-                        ContainerX(width: 8.0),
-                        SizedBox(width: 28.0, height: 28.0),
-                      ],
-                    ),
-                  ),
-                  TopContainerX()
-                ],
-              )),
-          widget
-        ]),
+                          //TopContainerX()
+                        ],
+                      )),
+                  widget
+                ]))),
         autoClose: autoClose);
   }
 
@@ -167,8 +155,6 @@ class SheetX {
       bool autoClose = true,
       String title = ''}) {
     return SheetX.showWithGrip(
-        backgroundColor: ColorX.white,
-        cornerRadius: cornerRadius,
         widget: ContainerX(
             backgroundColor: ColorX.white,
             child: Column(children: [

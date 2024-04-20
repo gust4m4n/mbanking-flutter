@@ -6,7 +6,7 @@ class DemoPhotoPicker extends GetWidget<AppxPhotoPickerController> {
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showWithGrip(
-        backgroundColor: ColorX.white, cornerRadius: 32.0, widget: this);
+        /*backgroundColor: ColorX.white, cornerRadius: 32.0, */ widget: this);
   }
 
   @override

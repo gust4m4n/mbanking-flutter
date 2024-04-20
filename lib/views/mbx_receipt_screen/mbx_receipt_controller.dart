@@ -34,7 +34,7 @@ class MbxReceiptController extends GetxController {
 
   btnBackClicked() async {
     if (backToHome) {
-      Get.toNamed('/home');
+      Get.offAllNamed('/home');
     } else {
       Get.back();
     }

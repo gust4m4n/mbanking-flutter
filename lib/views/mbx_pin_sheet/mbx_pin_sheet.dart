@@ -35,8 +35,8 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
     this.optionTitle = optionTitle;
     this.onOption = onOption;
     return SheetX.showWithGrip(
-        backgroundColor: const Color.fromARGB(255, 130, 102, 102),
-        cornerRadius: 16.0,
+        //backgroundColor: const Color.fromARGB(255, 130, 102, 102),
+        //cornerRadius: 16.0,
         widget: this,
         title: title,
         autoClose: false);

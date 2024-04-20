@@ -10,8 +10,8 @@ class DemoSearchPicker extends GetWidget<DemoSearchPickerController> {
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showWithGrip(
-        backgroundColor: ColorX.white,
-        cornerRadius: 32.0,
+        //backgroundColor: ColorX.white,
+        //cornerRadius: 32.0,
         widget: this);
   }
 
