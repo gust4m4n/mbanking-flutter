@@ -1,9 +1,3 @@
-import 'package:mbankingflutter/views/mbx_news_screen/mbx_news_screen.dart';
-import 'package:mbankingflutter/views/mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
-import 'package:mbankingflutter/views/mbx_receipt_screen/mbx_receipt_screen.dart';
-import 'package:mbankingflutter/views/mbx_relogin_screen/mbx_relogin_screen.dart';
-import 'package:mbankingflutter/views/mbx_tnc_screen/mbx_tnc_screen.dart';
-
 import 'viewmodels/mbx_anti_jailbreak_vm.dart';
 import 'viewmodels/mbx_preferences_vm+users.dart';
 import 'viewmodels/mbx_preferences_vm.dart';
@@ -11,6 +5,12 @@ import 'viewmodels/mbx_profile_vm.dart';
 import 'viewmodels/mbx_reachability_vm.dart';
 import 'views/mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 import 'views/mbx_login_screen/mbx_login_screen.dart';
+import 'views/mbx_news_screen/mbx_news_screen.dart';
+import 'views/mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
+import 'views/mbx_qris_screen/mbx_qris_screen.dart';
+import 'views/mbx_receipt_screen/mbx_receipt_screen.dart';
+import 'views/mbx_relogin_screen/mbx_relogin_screen.dart';
+import 'views/mbx_tnc_screen/mbx_tnc_screen.dart';
 import 'views/mbx_transfer_screen/mbx_transfer_screen.dart';
 import 'widgets/all_widgets.dart';
 
