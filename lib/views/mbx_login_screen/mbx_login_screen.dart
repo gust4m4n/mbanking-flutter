@@ -1,10 +1,12 @@
+import "dart:math" show pi;
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mbankingflutter/views/mbx_login_screen/mbx_onboarding_cell.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 import '../../widgets/all_widgets.dart';
 import '../mbx_home_page/mbx_theme_button.dart';
 import 'mbx_login_controller.dart';
-import "dart:math" show pi;
 
 class MbxLoginScreen extends StatelessWidget {
   MbxLoginScreen({Key? key}) : super(key: key);
@@ -34,7 +36,7 @@ class MbxLoginScreen extends StatelessWidget {
                                     viewportFraction: 1.0,
                                     height: double.infinity,
                                     onPageChanged: (index, reason) {
-                                      controller.setPageIndex(index);
+                                      controller.setOnboardingIndex(index);
                                     },
                                   ),
                                   itemCount:
@@ -56,7 +58,7 @@ class MbxLoginScreen extends StatelessWidget {
                       child: Visibility(
                           visible: controller.onboardingVM.list.length > 0,
                           child: AnimatedSmoothIndicator(
-                            activeIndex: controller.pageIndex,
+                            activeIndex: controller.onboardingIndex,
                             count: controller.onboardingVM.list.length,
                             effect: SlideEffect(
                               dotHeight: 8,

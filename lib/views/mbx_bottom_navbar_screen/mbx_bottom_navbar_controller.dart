@@ -1,7 +1,6 @@
 import '../../../utils/all_utils.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
-import '../mbx_qris_screen/mbx_qris_screen.dart';
 
 class MbxBottomNavBarController extends SuperController {
   int tabBarIndex = 0;
@@ -58,7 +57,8 @@ class MbxBottomNavBarController extends SuperController {
         update();
         break;
       case 2: // QRIS
-        Get.to(MbxQRISScreen());
+        StatusBarX.setLight();
+        update();
         break;
       case 3: // Notifikasi
         StatusBarX.setLight();
@@ -84,9 +84,7 @@ class MbxBottomNavBarController extends SuperController {
   }
 
   btnQRISClicked() {
-    StatusBarX.setLight();
-    Get.to(MbxQRISScreen());
-    update();
+    Get.toNamed('/qris');
   }
 
   btnNotificationsClicked() {

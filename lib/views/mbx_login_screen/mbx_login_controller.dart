@@ -1,7 +1,3 @@
-import 'package:mbankingflutter/views/mbx_pin_sheet/mbx_pin_sheet.dart';
-import 'package:mbankingflutter/widgets/all_widgets.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_login_otp_vm.dart';
 import '../../viewmodels/mbx_login_phone_vm.dart';
@@ -9,6 +5,8 @@ import '../../viewmodels/mbx_login_pin_vm.dart';
 import '../../viewmodels/mbx_onboarding_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
+import '../../widgets/all_widgets.dart';
+import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 import 'mbx_login_screen.dart';
 
 class MbLoginController extends GetxController {
@@ -19,7 +17,7 @@ class MbLoginController extends GetxController {
   var txtPhoneError = '';
   var loginEnabled = false;
   var version = '';
-  var pageIndex = 0;
+  var onboardingIndex = 0;
 
   @override
   void onReady() {
@@ -53,8 +51,8 @@ class MbLoginController extends GetxController {
     Get.to(MbxLoginScreen());
   }
 
-  setPageIndex(int index) {
-    pageIndex = index;
+  setOnboardingIndex(int index) {
+    onboardingIndex = index;
     update();
   }
 

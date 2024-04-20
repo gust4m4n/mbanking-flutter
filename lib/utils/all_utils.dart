@@ -1,4 +1,6 @@
 export 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
+export 'package:package_info_plus/package_info_plus.dart';
+
 export 'aes_utils.dart';
 export 'api_x.dart';
 export 'asset_utils.dart';
@@ -13,11 +15,11 @@ export 'hex_utils.dart';
 export 'jason_x.dart';
 export 'logger_x.dart';
 export 'lorem_ipsum_x.dart';
+export 'map+getter.dart';
+export 'map+json.dart';
 export 'md5_utils.dart';
 export 'reachability_x.dart';
 export 'sha_utils.dart';
 export 'string_utils.dart';
-export 'map+json.dart';
 export 'utf8_utils.dart';
 export 'xor_utils.dart';
-export 'map+getter.dart';

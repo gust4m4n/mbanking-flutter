@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mbankingflutter/utils/all_utils.dart';
+import 'package:mbankingflutter/viewmodels/mbx_news_list_vm.dart';
 import 'package:mbankingflutter/views/mbx_home_page/mbx_news_cell.dart';
 import 'package:mbankingflutter/views/mbx_home_page/mbx_theme_button.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_widget.dart';
@@ -316,8 +317,7 @@ class MbxHomePage extends StatelessWidget {
                                   ),
                                 ),
                                 Visibility(
-                                  visible:
-                                      controller.newsListVM.list.length > 0,
+                                  visible: MbxNewsListVM.list.length > 0,
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -342,16 +342,13 @@ class MbxHomePage extends StatelessWidget {
                                             autoPlay: true,
                                             viewportFraction: 0.70,
                                             height: 150.0,
-                                            onPageChanged: (index, reason) {
-                                              controller.setPageIndex(index);
-                                            },
+                                            onPageChanged: (index, reason) {},
                                           ),
-                                          itemCount:
-                                              controller.newsListVM.list.length,
+                                          itemCount: MbxNewsListVM.list.length,
                                           itemBuilder: (BuildContext context,
                                               int index, int pageViewIndex) {
-                                            return MbxNewsCell(controller
-                                                .newsListVM.list[index]);
+                                            return MbxNewsCell(
+                                                MbxNewsListVM.list[index]);
                                           }),
                                     ],
                                   ),

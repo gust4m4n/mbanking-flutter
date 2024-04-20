@@ -11,6 +11,7 @@ import 'viewmodels/mbx_profile_vm.dart';
 import 'viewmodels/mbx_reachability_vm.dart';
 import 'views/mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
 import 'views/mbx_login_screen/mbx_login_screen.dart';
+import 'views/mbx_transfer_screen/mbx_transfer_screen.dart';
 import 'widgets/all_widgets.dart';
 
 Future<void> main() async {
@@ -121,6 +122,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/privacy', page: () => MbxPrivacyPolicyScreen()),
         GetPage(name: '/news', page: () => MbxNewsScreen()),
         GetPage(name: '/receipt', page: () => MbxReceiptScreen()),
+        GetPage(name: '/transfer', page: () => MbxTransferScreen()),
+        GetPage(name: '/qris', page: () => MbxQRISScreen()),
       ],
     );
   }
