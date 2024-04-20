@@ -11,12 +11,12 @@ class MbxReceiptCell extends StatelessWidget {
     return detail.label == '-'
         ? Padding(
             padding:
-                EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
+                EdgeInsets.only(left: 0.0, top: 4.0, right: 0.0, bottom: 4.0),
             child: DashedDividerX(
                 dashColor: ColorX.gray, dashWidth: 6.0, dashHeight: 1.0))
         : Padding(
             padding:
-                EdgeInsets.only(left: 16.0, top: 4.0, right: 16.0, bottom: 4.0),
+                EdgeInsets.only(left: 0.0, top: 4.0, right: 0.0, bottom: 4.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

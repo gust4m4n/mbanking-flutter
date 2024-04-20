@@ -36,14 +36,13 @@ class MbxReceiptScreen extends StatelessWidget {
             bodyView: ContainerX(
                 backgroundColor: ColorX.theme,
                 child: Column(children: [
-                  //TopContainerX(),
                   Expanded(
                       child: ContainerX(
                           child: controller.loading
                               ? Center(
                                   child: CircularProgressIndicator(
                                       valueColor: AlwaysStoppedAnimation<Color>(
-                                          ColorX.gray)),
+                                          ColorX.white)),
                                 )
                               : Scrollbar(
                                   child: SingleChildScrollView(
@@ -52,22 +51,20 @@ class MbxReceiptScreen extends StatelessWidget {
                                         Screenshot(
                                             controller:
                                                 controller.screenshotController,
-                                            child: Padding(
+                                            child: ContainerX(
+                                                backgroundColor: ColorX.theme,
                                                 padding: EdgeInsets.only(
                                                     left: 16.0,
-                                                    top: 8.0,
+                                                    top: 16.0,
                                                     right: 16.0,
-                                                    bottom: 8.0),
+                                                    bottom: 16.0),
                                                 child: ContainerX(
                                                     backgroundColor:
                                                         ColorX.white,
                                                     cornerRadius: 16.0,
-                                                    padding: EdgeInsets.only(
-                                                        left: 16.0,
-                                                        top: 16.0,
-                                                        right: 16.0,
-                                                        bottom: 16.0),
                                                     child: Container(
+                                                        padding: EdgeInsets.all(
+                                                            32.0),
                                                         decoration:
                                                             BoxDecoration(
                                                           image:
@@ -105,13 +102,12 @@ class MbxReceiptScreen extends StatelessWidget {
                                                           Padding(
                                                               padding: EdgeInsets
                                                                   .only(
-                                                                      left:
-                                                                          16.0,
-                                                                      top: 8.0,
+                                                                      left: 0.0,
+                                                                      top: 4.0,
                                                                       right:
-                                                                          16.0,
+                                                                          0.0,
                                                                       bottom:
-                                                                          8.0),
+                                                                          4.0),
                                                               child: DashedDividerX(
                                                                   dashColor:
                                                                       ColorX
@@ -174,13 +170,12 @@ class MbxReceiptScreen extends StatelessWidget {
                                                           Padding(
                                                               padding: EdgeInsets
                                                                   .only(
-                                                                      left:
-                                                                          16.0,
-                                                                      top: 8.0,
+                                                                      left: 0.0,
+                                                                      top: 4.0,
                                                                       right:
-                                                                          16.0,
+                                                                          0.0,
                                                                       bottom:
-                                                                          8.0),
+                                                                          4.0),
                                                               child: DashedDividerX(
                                                                   dashColor:
                                                                       ColorX
