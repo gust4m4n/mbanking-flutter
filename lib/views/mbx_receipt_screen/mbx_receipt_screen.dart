@@ -21,16 +21,6 @@ class MbxReceiptScreen extends StatelessWidget {
               leftAction: () {
                 controller.btnBackClicked();
               },
-              rightBtn: ImageX(
-                faIcon: FontAwesomeIcons.download,
-                width: 20.0,
-                height: 20.0,
-                color: ColorX.white,
-                fit: BoxFit.contain,
-              ),
-              rightAction: () {
-                controller.btnDownloadClicked();
-              },
             ),
             bottomPadding: false,
             bodyView: ContainerX(
@@ -116,6 +106,8 @@ class MbxReceiptScreen extends StatelessWidget {
                                                                       6.0,
                                                                   dashHeight:
                                                                       1.0)),
+                                                          ContainerX(
+                                                              height: 8.0),
                                                           ContainerX(
                                                             padding:
                                                                 EdgeInsets.all(
@@ -207,6 +199,46 @@ class MbxReceiptScreen extends StatelessWidget {
                                                                     detail);
                                                               }),
                                                         ]))))),
+                                        ContainerX(
+                                          padding: EdgeInsets.only(
+                                              left: 16.0, right: 16.0),
+                                          child: Center(
+                                            child: Wrap(
+                                              ///mainAxisSize: MainAxisSize.min,
+                                              children: <Widget>[
+                                                ButtonX(
+                                                  title: 'Share',
+                                                  fontSize: 13.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  backgroundColor:
+                                                      ColorX.transparent,
+                                                  borderWidth: 1.0,
+                                                  borderColor: ColorX.white,
+                                                  width: 120.0,
+                                                  height: 32.0,
+                                                  cornerRadius: 16.0,
+                                                  onClicked: controller
+                                                      .btnShareClicked,
+                                                ),
+                                                ContainerX(width: 8.0),
+                                                ButtonX(
+                                                  title: 'Download',
+                                                  fontSize: 13.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  backgroundColor:
+                                                      ColorX.transparent,
+                                                  borderWidth: 1.0,
+                                                  borderColor: ColorX.white,
+                                                  width: 120.0,
+                                                  height: 32.0,
+                                                  cornerRadius: 16.0,
+                                                  onClicked: controller
+                                                      .btnDownloadClicked,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
                                         ContainerX(
                                             height: 16.0 +
                                                 MediaQuery.of(context)

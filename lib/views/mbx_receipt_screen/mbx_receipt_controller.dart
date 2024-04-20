@@ -40,6 +40,23 @@ class MbxReceiptController extends GetxController {
     }
   }
 
+  btnShareClicked() {
+    final filename = 'RECEIPT-${receipt.transaction_id}.JPG';
+    screenshotController
+        .capture(delay: Duration(milliseconds: 0))
+        .then((capturedImage) async {
+      if (kIsWeb) {
+        XFile.fromData(capturedImage!, mimeType: 'image/jpeg', name: filename)
+            .saveTo(filename)
+            .then((value) {});
+      } else {
+        Share.shareXFiles([
+          XFile.fromData(capturedImage!, mimeType: 'image/jpeg', name: filename)
+        ]);
+      }
+    }).catchError((onError) {});
+  }
+
   btnDownloadClicked() async {
     final filename = 'RECEIPT-${receipt.transaction_id}.JPG';
     screenshotController
@@ -51,12 +68,7 @@ class MbxReceiptController extends GetxController {
             .then((value) {});
       } else {
         await ImageGallerySaver.saveImage(capturedImage!);
-        Share.shareXFiles([
-          XFile.fromData(capturedImage, mimeType: 'image/jpeg', name: filename)
-        ]);
       }
-    }).catchError((onError) {
-      print(onError);
-    });
+    }).catchError((onError) {});
   }
 }
