@@ -26,6 +26,8 @@ class MbxPrivacyPolicyScreen extends StatelessWidget {
               children: [
                 TopContainerX(),
                 Expanded(
+                    child: ContainerX(
+                  backgroundColor: ColorX.white,
                   child: controller.privacyPolicyVM.loading
                       ? Center(
                           child: CircularProgressIndicator(
@@ -33,7 +35,7 @@ class MbxPrivacyPolicyScreen extends StatelessWidget {
                                   AlwaysStoppedAnimation<Color>(ColorX.gray)),
                         )
                       : WebViewWidget(controller: controller.webController),
-                )
+                ))
               ],
             )));
   }

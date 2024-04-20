@@ -26,14 +26,16 @@ class MbxTncScreen extends StatelessWidget {
               children: [
                 TopContainerX(),
                 Expanded(
-                  child: controller.tncVM.loading
+                  child: ContainerX(
+                          backgroundColor: ColorX.white,
+                          child: controller.tncVM.loading
                       ? Center(
                           child: CircularProgressIndicator(
                               valueColor:
                                   AlwaysStoppedAnimation<Color>(ColorX.gray)),
                         )
                       : WebViewWidget(controller: controller.webController),
-                )
+                )),
               ],
             )));
   }

@@ -58,6 +58,8 @@ class ScreenX extends StatelessWidget {
                   if (headerView != null) headerView!,
                   Expanded(
                       child: ContainerX(
+                          gradientColorBegin: ColorX.theme,
+                          gradientColorEnd: ColorX.white,
                           height: double.infinity,
                           width: double.infinity,
                           clipBehavior: Clip.none,

@@ -31,6 +31,7 @@ class MbxQRISAmountScreen extends StatelessWidget {
               TopContainerX(),
               Expanded(
                   child: ContainerX(
+                      backgroundColor: ColorX.white,
                       child: controller.receiptVM.loading
                           ? Center(
                               child: CircularProgressIndicator(
@@ -321,7 +322,8 @@ class MbxQRISAmountScreen extends StatelessWidget {
                                                 ))
                                           ]))),
                             ))),
-              Padding(
+              ContainerX(
+                backgroundColor: ColorX.white,
                 padding: EdgeInsets.only(
                     left: 16.0,
                     top: 16.0,

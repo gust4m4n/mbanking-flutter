@@ -69,59 +69,61 @@ class MbxProfilePage extends StatelessWidget {
                     child: Column(children: [
                   TopContainerX(),
                   Expanded(
-                      child: Column(
-                    children: [
-                      MbaxProfileMenuButton(
-                        title: 'Aktivasi Biometrik',
-                        faIcon: FontAwesomeIcons.fingerprint,
-                        onClicked: () {},
-                        toggle: true,
-                        toggleValue: controller.biometricEnabled,
-                        onToggleChanged: (value) {
-                          controller.biometricEnabled = value;
-                          controller.toggleBiometric(value);
-                        },
-                      ),
-                      MbaxProfileMenuButton(
-                        title: 'Ganti PIN',
-                        faIcon: FontAwesomeIcons.key,
-                        onClicked: () {
-                          controller.btnChangePinClicked();
-                        },
-                      ),
-                      MbaxProfileMenuButton(
-                        title: 'Syarat & Ketentuan',
-                        faIcon: FontAwesomeIcons.shieldHalved,
-                        onClicked: () {
-                          controller.btnTncClicked();
-                        },
-                      ),
-                      MbaxProfileMenuButton(
-                        title: 'Kebijakan Privasi',
-                        faIcon: FontAwesomeIcons.shieldHalved,
-                        onClicked: () {
-                          controller.btnPrivacyPolicyClicked();
-                        },
-                      ),
-                      MbaxProfileMenuButton(
-                        title: 'Keluar',
-                        faIcon: FontAwesomeIcons.powerOff,
-                        onClicked: () {
-                          controller.btnLogoutClicked();
-                        },
-                      ),
-                      Spacer(),
-                      Padding(
-                        padding: EdgeInsets.all(24.0),
-                        child: TextX(
-                          controller.version,
-                          fontSize: 13.0,
-                          fontWeight: FontWeight.w500,
-                          color: ColorX.black,
-                        ),
-                      ),
-                    ],
-                  ))
+                      child: ContainerX(
+                          backgroundColor: ColorX.white,
+                          child: Column(
+                            children: [
+                              MbaxProfileMenuButton(
+                                title: 'Aktivasi Biometrik',
+                                faIcon: FontAwesomeIcons.fingerprint,
+                                onClicked: () {},
+                                toggle: true,
+                                toggleValue: controller.biometricEnabled,
+                                onToggleChanged: (value) {
+                                  controller.biometricEnabled = value;
+                                  controller.toggleBiometric(value);
+                                },
+                              ),
+                              MbaxProfileMenuButton(
+                                title: 'Ganti PIN',
+                                faIcon: FontAwesomeIcons.key,
+                                onClicked: () {
+                                  controller.btnChangePinClicked();
+                                },
+                              ),
+                              MbaxProfileMenuButton(
+                                title: 'Syarat & Ketentuan',
+                                faIcon: FontAwesomeIcons.shieldHalved,
+                                onClicked: () {
+                                  controller.btnTncClicked();
+                                },
+                              ),
+                              MbaxProfileMenuButton(
+                                title: 'Kebijakan Privasi',
+                                faIcon: FontAwesomeIcons.shieldHalved,
+                                onClicked: () {
+                                  controller.btnPrivacyPolicyClicked();
+                                },
+                              ),
+                              MbaxProfileMenuButton(
+                                title: 'Keluar',
+                                faIcon: FontAwesomeIcons.powerOff,
+                                onClicked: () {
+                                  controller.btnLogoutClicked();
+                                },
+                              ),
+                              Spacer(),
+                              Padding(
+                                padding: EdgeInsets.all(24.0),
+                                child: TextX(
+                                  controller.version,
+                                  fontSize: 13.0,
+                                  fontWeight: FontWeight.w500,
+                                  color: ColorX.black,
+                                ),
+                              ),
+                            ],
+                          )))
                 ]))
               ],
             )));

@@ -32,7 +32,6 @@ class NavigationBarX extends StatelessWidget {
                       children: [
                         leftBtn != null
                             ? InkWellX(
-                                //splashFactory: NoSplash.splashFactory,
                                 onClicked: () =>
                                     leftAction != null ? leftAction!() : null,
                                 child: ContainerX(

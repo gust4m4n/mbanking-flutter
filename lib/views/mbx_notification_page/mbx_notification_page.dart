@@ -17,50 +17,44 @@ class MbxNotificationPage extends StatelessWidget {
               title: 'Notifikasi',
             ),
             bottomPadding: false,
-            bodyView: ContainerX(
-                gradientColorBegin: ColorX.theme,
-                gradientColorEnd: ColorX.white,
-                child: Column(children: [
-                  Expanded(
-                      child: NotificationListener<ScrollNotification>(
-                    onNotification: (ScrollNotification scrollInfo) {
-                      if (controller.notificationListVM.loading == false &&
-                          scrollInfo.metrics.pixels ==
-                              scrollInfo.metrics.maxScrollExtent) {
-                        controller.nextPage();
-                      }
-                      return true;
-                    },
-                    child: Scrollbar(
+            bodyView: Column(children: [
+              Expanded(
+                  child: NotificationListener<ScrollNotification>(
+                onNotification: (ScrollNotification scrollInfo) {
+                  if (controller.notificationListVM.loading == false &&
+                      scrollInfo.metrics.pixels ==
+                          scrollInfo.metrics.maxScrollExtent) {
+                    controller.nextPage();
+                  }
+                  return true;
+                },
+                child: Scrollbar(
+                    controller: controller.scrollController,
+                    child: ListView.builder(
                         controller: controller.scrollController,
-                        child: ListView.builder(
-                            controller: controller.scrollController,
-                            padding: EdgeInsets.only(
-                                bottom:
-                                    MediaQuery.of(Get.context!).padding.bottom +
-                                        100.0),
-                            physics: ClampingScrollPhysics(),
-                            itemCount:
-                                controller.notificationListVM.list.length,
-                            itemBuilder: (context, index) {
-                              if (index ==
-                                  controller.notificationListVM.list.length -
-                                      1) {
-                                controller.nextPage();
-                              }
-                              final history =
-                                  controller.notificationListVM.list[index];
-                              return InkWellX(
-                                  highlightColor: ColorX.theme.withOpacity(0.1),
-                                  onClicked: () {
-                                    Get.toNamed('/receipt', arguments: {
-                                      'receipt': MbxReceiptModel(),
-                                      'backToHome': false
-                                    });
-                                  },
-                                  child: MbxNotificationCell(history));
-                            })),
-                  )),
-                ]))));
+                        padding: EdgeInsets.only(
+                            bottom: MediaQuery.of(Get.context!).padding.bottom +
+                                100.0),
+                        physics: ClampingScrollPhysics(),
+                        itemCount: controller.notificationListVM.list.length,
+                        itemBuilder: (context, index) {
+                          if (index ==
+                              controller.notificationListVM.list.length - 1) {
+                            controller.nextPage();
+                          }
+                          final history =
+                              controller.notificationListVM.list[index];
+                          return InkWellX(
+                              highlightColor: ColorX.theme.withOpacity(0.1),
+                              onClicked: () {
+                                Get.toNamed('/receipt', arguments: {
+                                  'receipt': MbxReceiptModel(),
+                                  'backToHome': false
+                                });
+                              },
+                              child: MbxNotificationCell(history));
+                        })),
+              )),
+            ])));
   }
 }

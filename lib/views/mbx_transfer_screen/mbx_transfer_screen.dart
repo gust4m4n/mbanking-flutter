@@ -29,48 +29,55 @@ class MbxTransferScreen extends StatelessWidget {
               bodyView: Column(
                 children: [
                   TopContainerX(),
-                  TabBar(
-                    controller: controller.tabController,
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    indicatorWeight: 2.0,
-                    indicatorColor: ColorX.theme,
-                    unselectedLabelStyle: TextStyle(
-                      color: ColorX.black,
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Roboto',
-                    ),
-                    labelStyle: TextStyle(
-                      color: ColorX.theme,
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Roboto',
-                    ),
-                    tabs: const [
-                      Tab(
-                        text: 'Antar Rekening',
-                      ),
-                      Tab(text: 'Antar Bank'),
-                    ],
-                  ),
                   Expanded(
-                    child: TabBarView(
-                      controller: controller.tabController,
-                      children: [
-                        MbxTransferP2PPage(),
-                        Center(
-                          child: const TextX(
-                            'Page 2',
-                            color: ColorX.black,
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.w700,
-                            textAlign: TextAlign.start,
-                            maxLines: 1,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
+                      child: ContainerX(
+                          backgroundColor: ColorX.white,
+                          child: Column(
+                            children: [
+                              TabBar(
+                                controller: controller.tabController,
+                                indicatorSize: TabBarIndicatorSize.tab,
+                                indicatorWeight: 2.0,
+                                indicatorColor: ColorX.theme,
+                                unselectedLabelStyle: TextStyle(
+                                  color: ColorX.black,
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'Roboto',
+                                ),
+                                labelStyle: TextStyle(
+                                  color: ColorX.theme,
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'Roboto',
+                                ),
+                                tabs: const [
+                                  Tab(
+                                    text: 'Antar Rekening',
+                                  ),
+                                  Tab(text: 'Antar Bank'),
+                                ],
+                              ),
+                              Expanded(
+                                child: TabBarView(
+                                  controller: controller.tabController,
+                                  children: [
+                                    MbxTransferP2PPage(),
+                                    Center(
+                                      child: const TextX(
+                                        'Page 2',
+                                        color: ColorX.black,
+                                        fontSize: 22.0,
+                                        fontWeight: FontWeight.w700,
+                                        textAlign: TextAlign.start,
+                                        maxLines: 1,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ))),
                 ],
               ),
             ));
