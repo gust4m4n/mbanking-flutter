@@ -18,9 +18,9 @@ class MbxNotificationPage extends StatelessWidget {
             ),
             bottomPadding: false,
             bodyView: ContainerX(
-                backgroundColor: ColorX.white,
+                backgroundColor: ColorX.theme,
                 child: Column(children: [
-                  TopContainerX(),
+                  //TopContainerX(),
                   Expanded(
                       child: NotificationListener<ScrollNotification>(
                     onNotification: (ScrollNotification scrollInfo) {
@@ -33,22 +33,13 @@ class MbxNotificationPage extends StatelessWidget {
                     },
                     child: Scrollbar(
                         controller: controller.scrollController,
-                        child: ListView.separated(
+                        child: ListView.builder(
                             controller: controller.scrollController,
                             padding: EdgeInsets.only(
                                 bottom:
                                     MediaQuery.of(Get.context!).padding.bottom +
                                         100.0),
                             physics: ClampingScrollPhysics(),
-                            separatorBuilder: (context, index) {
-                              return Padding(
-                                  padding: EdgeInsets.only(left: 50.0),
-                                  child: ContainerX(
-                                    height: 0.5,
-                                    width: double.infinity,
-                                    backgroundColor: ColorX.lightGray,
-                                  ));
-                            },
                             itemCount:
                                 controller.notificationListVM.list.length,
                             itemBuilder: (context, index) {
