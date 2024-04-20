@@ -51,7 +51,7 @@ class ContainerX extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   stops: [
-                      0.0,
+                      0.1,
                       1.0
                     ],
                   colors: [
