@@ -2,6 +2,8 @@ import 'all_widgets.dart';
 
 class ContainerX extends StatelessWidget {
   final Color? backgroundColor;
+  final Color? gradientColorBegin;
+  final Color? gradientColorEnd;
   final double? width;
   final double? height;
   final double borderWidth;
@@ -17,6 +19,8 @@ class ContainerX extends StatelessWidget {
   const ContainerX({
     Key? key,
     this.backgroundColor = ColorX.transparent,
+    this.gradientColorBegin = null,
+    this.gradientColorEnd = null,
     this.width,
     this.height,
     this.borderWidth = 0.0,
@@ -39,7 +43,22 @@ class ContainerX extends StatelessWidget {
       margin: margin,
       clipBehavior: clipBehavior,
       decoration: BoxDecoration(
-          color: backgroundColor,
+          color: (gradientColorBegin == null || gradientColorEnd == null)
+              ? backgroundColor
+              : null,
+          gradient: (gradientColorBegin != null && gradientColorEnd != null)
+              ? LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [
+                      0.0,
+                      1.0
+                    ],
+                  colors: [
+                      gradientColorBegin!,
+                      gradientColorEnd!,
+                    ])
+              : null,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(
                   topLeftRadius > 0.0 ? topLeftRadius : cornerRadius),

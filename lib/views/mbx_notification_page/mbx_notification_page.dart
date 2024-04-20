@@ -18,9 +18,9 @@ class MbxNotificationPage extends StatelessWidget {
             ),
             bottomPadding: false,
             bodyView: ContainerX(
-                backgroundColor: ColorX.theme,
+                gradientColorBegin: ColorX.theme,
+                gradientColorEnd: ColorX.white,
                 child: Column(children: [
-                  //TopContainerX(),
                   Expanded(
                       child: NotificationListener<ScrollNotification>(
                     onNotification: (ScrollNotification scrollInfo) {

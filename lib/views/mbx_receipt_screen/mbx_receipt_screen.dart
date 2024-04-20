@@ -43,22 +43,11 @@ class MbxReceiptScreen extends StatelessWidget {
                                           Screenshot(
                                               controller: controller
                                                   .screenshotController,
-                                              child: Container(
-                                                  decoration: BoxDecoration(
-                                                    gradient: LinearGradient(
-                                                        begin:
-                                                            Alignment.topCenter,
-                                                        end: Alignment
-                                                            .bottomCenter,
-                                                        stops: [
-                                                          0.0,
-                                                          1.0
-                                                        ],
-                                                        colors: [
-                                                          ColorX.theme,
-                                                          ColorX.white,
-                                                        ]),
-                                                  ),
+                                              child: ContainerX(
+                                                  gradientColorBegin:
+                                                      ColorX.theme,
+                                                  gradientColorEnd:
+                                                      ColorX.white,
                                                   padding: EdgeInsets.only(
                                                       left: 16.0,
                                                       top: 16.0,
@@ -77,7 +66,7 @@ class MbxReceiptScreen extends StatelessWidget {
                                                           ),
                                                           border: Border.all(
                                                               color:
-                                                                  ColorX.black,
+                                                                  ColorX.gray,
                                                               width: 0.5),
                                                           borderRadius:
                                                               BorderRadius.all(
@@ -219,7 +208,7 @@ class MbxReceiptScreen extends StatelessWidget {
                                                     fontWeight: FontWeight.w600,
                                                     backgroundColor:
                                                         ColorX.transparent,
-                                                    borderWidth: 1.0,
+                                                    borderWidth: 0.5,
                                                     borderColor: ColorX.black,
                                                     width: 120.0,
                                                     height: 32.0,
@@ -235,7 +224,7 @@ class MbxReceiptScreen extends StatelessWidget {
                                                     fontWeight: FontWeight.w600,
                                                     backgroundColor:
                                                         ColorX.transparent,
-                                                    borderWidth: 1.0,
+                                                    borderWidth: 0.5,
                                                     borderColor: ColorX.black,
                                                     width: 120.0,
                                                     height: 32.0,

@@ -1,5 +1,3 @@
-import 'package:mbankingflutter/utils/all_utils.dart';
-
 import '../../models/mbx_notification_model.dart';
 import '../../viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
@@ -16,6 +14,8 @@ class MbxNotificationCell extends StatelessWidget {
             EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
         child: ContainerX(
             backgroundColor: ColorX.white,
+            borderWidth: 0.5,
+            borderColor: ColorX.gray,
             cornerRadius: 16.0,
             padding: EdgeInsets.only(
                 left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
@@ -25,15 +25,10 @@ class MbxNotificationCell extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 6.0),
                   child: ImageX(
-                    backgroundColor: notification.readed
-                        ? ColorX.transparent
-                        : ColorX.theme.darken(0.05),
-                    borderWidth: 1.0,
-                    borderColor: notification.readed
-                        ? ColorX.black
-                        : ColorX.theme.darken(0.05),
-                    faIcon: FontAwesomeIcons.bell,
-                    color: notification.readed ? ColorX.black : ColorX.white,
+                    backgroundColor:
+                        notification.readed ? ColorX.lightGray : ColorX.theme,
+                    faIcon: FontAwesomeIcons.solidBell,
+                    color: notification.readed ? ColorX.white : ColorX.white,
                     width: 24.0,
                     height: 24.0,
                     padding: EdgeInsets.all(4.0),
