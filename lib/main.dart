@@ -123,7 +123,10 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/news', page: () => MbxNewsScreen()),
         GetPage(name: '/receipt', page: () => MbxReceiptScreen()),
         GetPage(name: '/transfer', page: () => MbxTransferScreen()),
-        GetPage(name: '/qris', page: () => MbxQRISScreen()),
+        GetPage(
+            name: '/qris',
+            page: () => MbxQRISScreen(),
+            transition: Transition.noTransition),
       ],
     );
   }

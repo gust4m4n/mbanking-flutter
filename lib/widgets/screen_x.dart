@@ -49,34 +49,49 @@ class ScreenX extends StatelessWidget {
                 floatingActionButton: floatingActionButton,
                 floatingActionButtonLocation: floatingActionButtonLocation,
                 bottomNavigationBar: bottomNavigationBar,
-                body: Column(children: [
-                  SizedBox(
-                    height: topPadding
-                        ? MediaQuery.of(Get.context!).padding.top
-                        : 0.0,
-                  ),
-                  if (headerView != null) headerView!,
-                  Expanded(
-                      child: ContainerX(
-                          gradientColorBegin: ColorX.theme,
-                          gradientColorEnd: ColorX.white,
-                          height: double.infinity,
-                          width: double.infinity,
-                          clipBehavior: Clip.none,
-                          child: loading
-                              ? Center(
-                                  child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                          ColorX.gray)),
-                                )
-                              : bodyView ??
-                                  ContainerX(
-                                      backgroundColor: ColorX.transparent))),
-                  SizedBox(
-                    height: bottomPadding
-                        ? MediaQuery.of(Get.context!).padding.bottom
-                        : 0.0,
-                  ),
-                ]))));
+                body: Stack(
+                  children: [
+                    Column(children: [
+                      ContainerX(backgroundColor: ColorX.theme, height: 50.0),
+                      Expanded(
+                          child: ContainerX(
+                              gradientColorBegin: ColorX.theme,
+                              gradientColorEnd: ColorX.white)),
+                    ]),
+                    Column(children: [
+                      SizedBox(
+                        height: topPadding
+                            ? MediaQuery.of(Get.context!).padding.top
+                            : 0.0,
+                      ),
+                      if (headerView != null)
+                        ContainerX(
+                            height:
+                                MediaQuery.of(Get.context!).padding.top + 50.0,
+                            child: headerView!),
+                      Expanded(
+                          child: ContainerX(
+                              height: double.infinity,
+                              width: double.infinity,
+                              clipBehavior: Clip.none,
+                              child: loading
+                                  ? Center(
+                                      child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                                  ColorX.gray)),
+                                    )
+                                  : bodyView ??
+                                      ContainerX(
+                                          backgroundColor:
+                                              ColorX.transparent))),
+                      SizedBox(
+                        height: bottomPadding
+                            ? MediaQuery.of(Get.context!).padding.bottom
+                            : 0.0,
+                      ),
+                    ])
+                  ],
+                ))));
   }
 }

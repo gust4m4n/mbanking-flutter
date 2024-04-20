@@ -23,7 +23,6 @@ class MbxHomePage extends StatelessWidget {
             bodyView: Column(children: [
               ContainerX(
                   width: double.infinity,
-                  backgroundColor: ColorX.theme,
                   padding: EdgeInsets.only(
                       left: 24.0, top: 12.0, right: 24.0, bottom: 12.0),
                   child: Column(
