@@ -11,7 +11,8 @@ class MbxOnboardingCell extends StatelessWidget {
     return ContainerX(
         padding: EdgeInsets.all(24.0),
         child: Center(
-            child: ListView(
+            child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             ImageX(
               url: onboarding.image,

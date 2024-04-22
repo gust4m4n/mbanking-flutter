@@ -38,7 +38,7 @@ class MbxLoginScreen extends StatelessWidget {
               ),
               Expanded(
                   child: ContainerX(
-                backgroundColor: ColorX.yellow,
+                backgroundColor: ColorX.white,
                 width: double.infinity,
                 child: ContainerX(
                   width: double.infinity,
