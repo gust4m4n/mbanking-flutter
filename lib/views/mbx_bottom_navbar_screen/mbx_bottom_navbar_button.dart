@@ -1,4 +1,3 @@
-import 'package:mbankingflutter/utils/all_utils.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
@@ -21,10 +20,11 @@ class MbxButtonNavBarButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContainerX(
-      backgroundColor:
-          selected ? ColorX.theme.lighten(0.35) : ColorX.theme.lighten(0.45),
+      backgroundColor: selected
+          ? ColorX.theme.withOpacity(0.2)
+          : ColorX.transparent, // ColorX.theme.withOpacity(0.1),
       child: InkWellX(
-          highlightColor: ColorX.theme.lighten(0.40),
+          highlightColor: ColorX.theme.withOpacity(0.2),
           onClicked: () {
             onClicked!();
           },
