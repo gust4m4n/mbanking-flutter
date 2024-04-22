@@ -10,11 +10,7 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
-    return SheetX.showWithGrip(
-        //backgroundColor: ColorX.white,
-        //cornerRadius: 32.0,
-        widget: this,
-        title: 'Pilih Theme');
+    return SheetX.showWithGrip(widget: this, title: 'Pilih Theme');
   }
 
   @override
@@ -22,10 +18,7 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
     return GetBuilder<MbxThemeSheetController>(
         init: MbxThemeSheetController(),
         builder: (controller) => ContainerX(
-            backgroundColor: ColorX.white,
-            topLeftRadius: 32.0,
-            topRightRadius: 32.0,
-            child: Wrap(children: [
+                child: Wrap(children: [
               GridView.builder(
                 shrinkWrap: true,
                 padding: EdgeInsets.all(12.0),
