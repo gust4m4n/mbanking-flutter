@@ -177,6 +177,7 @@ class MbxReceiptScreen extends StatelessWidget {
                               ),
                             ),
                             ContainerX(
+                                backgroundColor: ColorX.white,
                                 height: 16.0 +
                                     MediaQuery.of(context).padding.bottom),
                           ]))))),
