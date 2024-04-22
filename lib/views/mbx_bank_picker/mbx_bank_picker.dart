@@ -1,11 +1,11 @@
 import '../../widgets/all_widgets.dart';
-import 'demo_search_picker_controller.dart';
-import 'demo_search_picker_widget.dart';
+import 'mbx_bank_picker_controller.dart';
+import 'mbx_bank_picker_widget.dart';
 
 // ignore: must_be_immutable
-class DemoSearchPicker extends GetWidget<DemoSearchPickerController> {
+class MbxBankPicker extends GetWidget<MbxBankPickerController> {
   final String title;
-  DemoSearchPicker({required this.title});
+  MbxBankPicker({required this.title});
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
@@ -14,8 +14,8 @@ class DemoSearchPicker extends GetWidget<DemoSearchPickerController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<DemoSearchPickerController>(
-      init: DemoSearchPickerController(),
+    return GetBuilder<MbxBankPickerController>(
+      init: MbxBankPickerController(),
       builder: (controller) => ContainerX(
         backgroundColor: ColorX.white,
         child: Wrap(children: [
@@ -67,7 +67,7 @@ class DemoSearchPicker extends GetWidget<DemoSearchPickerController> {
                                       result: controller
                                           .movieListVM.filtered[index]);
                                 },
-                                child: DemoSearchPickerWidget(
+                                child: MbxBankPickerWidget(
                                     controller.movieListVM.filtered[index])));
                       },
                     )))

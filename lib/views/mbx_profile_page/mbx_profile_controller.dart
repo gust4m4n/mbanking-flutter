@@ -1,6 +1,5 @@
 import 'package:mbankingflutter/viewmodels/mbx_preferences_vm+users.dart';
 import 'package:mbankingflutter/viewmodels/mbx_set_biometric_vm.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_change_pin_vm.dart';

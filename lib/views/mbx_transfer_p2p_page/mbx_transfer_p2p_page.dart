@@ -1,6 +1,6 @@
 import '../../utils/all_utils.dart';
 import '../../widgets/all_widgets.dart';
-import '../demo_search_picker/demo_search_picker.dart';
+import '../mbx_bank_picker/mbx_bank_picker.dart';
 import 'mbx_transfer_p2p_controller.dart';
 import 'mbx_transfer_p2p_dest_cell.dart';
 
@@ -56,8 +56,7 @@ class MbxTransferP2PPage extends StatelessWidget {
                             borderColor: ColorX.lightGray,
                             onClicked: () {
                               //controller.btnCameraClicked();
-                              final sheet =
-                                  DemoSearchPicker(title: 'Search Picker');
+                              final sheet = MbxBankPicker(title: 'Bank Picker');
                               sheet.show().then((value) {
                                 if (value != null) {
                                   LoggerX.log('Selection: ${value.title}');
