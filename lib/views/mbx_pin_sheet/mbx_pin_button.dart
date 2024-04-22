@@ -1,4 +1,3 @@
-import 'package:mbankingflutter/utils/all_utils.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxPinButton extends StatelessWidget {
@@ -21,8 +20,8 @@ class MbxPinButton extends StatelessWidget {
             ? ButtonX(
                 height: 48.0,
                 cornerRadius: 8.0,
-                backgroundColor: ColorX.theme.lighten(0.4),
-                highlightColor: ColorX.theme.lighten(0.3),
+                backgroundColor: ColorX.theme.withOpacity(0.1),
+                highlightColor: ColorX.theme.withOpacity(0.2),
                 titleColor: ColorX.black,
                 title: title,
                 faIcon: faIcon,
