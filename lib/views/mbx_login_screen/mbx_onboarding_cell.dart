@@ -11,8 +11,8 @@ class MbxOnboardingCell extends StatelessWidget {
     return ContainerX(
         padding: EdgeInsets.all(24.0),
         child: Center(
-            child: Column(
-          mainAxisSize: MainAxisSize.min,
+            child: Wrap(
+          alignment: WrapAlignment.center,
           children: [
             ImageX(
               url: onboarding.image,
@@ -21,26 +21,23 @@ class MbxOnboardingCell extends StatelessWidget {
               fit: BoxFit.contain,
             ),
             ContainerX(height: 4.0),
-            ContainerX(
-              child: TextX(
-                onboarding.title,
-                color: ColorX.black,
-                fontSize: 24.0,
-                fontWeight: FontWeight.w700,
-                textAlign: TextAlign.center,
-                maxLines: 8,
-              ),
+            TextX(
+              onboarding.title,
+              color: ColorX.black,
+              fontSize: 24.0,
+              fontWeight: FontWeight.w700,
+              textAlign: TextAlign.center,
+              maxLines: 8,
             ),
             ContainerX(height: 4.0),
-            ContainerX(
-                child: TextX(
+            TextX(
               onboarding.description,
               color: ColorX.gray,
               fontSize: 17.0,
               fontWeight: FontWeight.w500,
               textAlign: TextAlign.center,
               maxLines: 8,
-            )),
+            ),
           ],
         )));
   }

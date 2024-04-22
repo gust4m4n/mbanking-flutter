@@ -67,6 +67,7 @@ class MbxLoginScreen extends StatelessWidget {
                   backgroundColor: ColorX.white,
                   child: Column(
                     children: [
+                      ContainerX(height: 12.0),
                       ContainerX(
                         padding: const EdgeInsets.only(
                             left: 24.0, top: 4.0, right: 24.0, bottom: 4.0),
