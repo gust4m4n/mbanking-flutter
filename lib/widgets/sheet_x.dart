@@ -84,7 +84,7 @@ class SheetX {
     return Get.bottomSheet(
         isDismissible: autoClose,
         isScrollControlled: true,
-        ignoreSafeArea: false,
+        ignoreSafeArea: true,
         elevation: 0.0,
         widget);
   }
@@ -94,7 +94,11 @@ class SheetX {
     return SheetX.show(
         widget: ContainerX(
             backgroundColor: ColorX.transparent,
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.only(
+                left: 16.0,
+                top: 16.0,
+                right: 16.0,
+                bottom: 16.0 + MediaQuery.of(Get.context!).padding.bottom),
             child: ContainerX(
                 backgroundColor: ColorX.white,
                 cornerRadius: 16.0,
@@ -104,41 +108,47 @@ class SheetX {
                       child: Wrap(
                         children: [
                           ContainerX(
-                            backgroundColor: ColorX.theme.withOpacity(0.1),
-                            cornerRadius: 12.0,
-                            padding: EdgeInsets.only(
-                                left: 8.0, top: 8.0, right: 8.0, bottom: 8.0),
+                            height: 40.0,
+                            //backgroundColor: ColorX.yellow,
                             child: Row(
                               children: [
-                                ButtonX(
-                                  backgroundColor: ColorX.white,
-                                  faIcon: FontAwesomeIcons.xmark,
-                                  faWidth: 16.0,
-                                  faHeight: 16.0,
-                                  faColor: ColorX.black,
-                                  width: 32.0,
-                                  height: 32.0,
-                                  cornerRadius: 16.0,
+                                InkWellX(
                                   onClicked: () {
                                     Get.back();
                                   },
+                                  child: ContainerX(
+                                    width: 40.0,
+                                    height: double.infinity,
+                                    child: Center(
+                                        child: ImageX(
+                                      backgroundColor:
+                                          ColorX.black.withOpacity(0.2),
+                                      faIcon: FontAwesomeIcons.xmark,
+                                      width: 32.0,
+                                      height: 32.0,
+                                      cornerRadius: 20.0,
+                                      padding: EdgeInsets.all(8.0),
+                                    )),
+                                  ),
                                 ),
                                 ContainerX(width: 8.0),
                                 Expanded(
                                   child: TextX(
                                     title,
                                     color: ColorX.black,
-                                    fontSize: 15.0,
+                                    fontSize: 17.0,
                                     fontWeight: FontWeight.w600,
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
                                 ContainerX(width: 8.0),
-                                SizedBox(width: 28.0, height: 28.0),
+                                SizedBox(
+                                  width: 40.0,
+                                  height: double.infinity,
+                                ),
                               ],
                             ),
                           ),
-                          //TopContainerX()
                         ],
                       )),
                   widget
