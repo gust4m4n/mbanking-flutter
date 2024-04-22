@@ -9,15 +9,12 @@ class MbxOnboardingCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContainerX(
-        //backgroundColor: ColorX.green,
         padding: EdgeInsets.all(24.0),
         child: Center(
             child: ListView(
-          //mainAxisSize: MainAxisSize.min,
           children: [
             ImageX(
               url: onboarding.image,
-              //backgroundColor: ColorX.blue,
               height: 340.0,
               width: 340.0,
               fit: BoxFit.contain,

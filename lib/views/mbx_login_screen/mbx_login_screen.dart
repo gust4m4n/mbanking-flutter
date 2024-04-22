@@ -1,5 +1,3 @@
-import "dart:math" show pi;
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mbankingflutter/views/mbx_login_screen/mbx_onboarding_cell.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -18,7 +16,7 @@ class MbxLoginScreen extends StatelessWidget {
         builder: (controller) => ScreenX(
             lightStatusBar: false,
             topPadding: false,
-            bottomPadding: true,
+            bottomPadding: false,
             bodyView: Column(children: [
               ContainerX(
                 backgroundColor: ColorX.white,
@@ -40,10 +38,9 @@ class MbxLoginScreen extends StatelessWidget {
               ),
               Expanded(
                   child: ContainerX(
-                backgroundColor: ColorX.white,
+                backgroundColor: ColorX.yellow,
                 width: double.infinity,
                 child: ContainerX(
-                  //backgroundColor: ColorX.red,
                   width: double.infinity,
                   child: controller.onboardingVM.list.length > 0
                       ? CarouselSlider.builder(
@@ -70,7 +67,6 @@ class MbxLoginScreen extends StatelessWidget {
                   backgroundColor: ColorX.white,
                   child: Column(
                     children: [
-                      ContainerX(height: 12.0),
                       ContainerX(
                         padding: const EdgeInsets.only(
                             left: 24.0, top: 4.0, right: 24.0, bottom: 4.0),
@@ -117,7 +113,12 @@ class MbxLoginScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(12.0),
+                        padding: EdgeInsets.only(
+                            left: 16.0,
+                            top: 0.0,
+                            right: 16.0,
+                            bottom: 24.0 +
+                                MediaQuery.of(Get.context!).padding.bottom),
                         child: TextX(
                           controller.version,
                           fontSize: 13.0,
@@ -128,42 +129,5 @@ class MbxLoginScreen extends StatelessWidget {
                     ],
                   ))
             ])));
-  }
-}
-
-class CurvedBottomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    // I've taken approximate height of curved part of view
-    // Change it if you have exact spec for it
-    final roundingHeight = size.height * 1.0 / 10.0;
-
-    // this is top part of path, rectangle without any rounding
-    final filledRectangle =
-        Rect.fromLTRB(0, 0, size.width, size.height - roundingHeight);
-
-    // this is rectangle that will be used to draw arc
-    // arc is drawn from center of this rectangle, so it's height has to be twice roundingHeight
-    // also I made it to go 5 units out of screen on left and right, so curve will have some incline there
-    final roundingRectangle = Rect.fromLTRB(
-        -5, size.height - roundingHeight * 2, size.width + 5, size.height);
-
-    final path = Path();
-    path.addRect(filledRectangle);
-
-    // so as I wrote before: arc is drawn from center of roundingRectangle
-    // 2nd and 3rd arguments are angles from center to arc start and end points
-    // 4th argument is set to true to move path to rectangle center, so we don't have to move it manually
-    path.arcTo(roundingRectangle, pi, -pi, true);
-    path.close();
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // returning fixed 'true' value here for simplicity, it's not the part of actual question, please read docs if you want to dig into it
-    // basically that means that clipping will be redrawn on any changes
-    return true;
   }
 }
