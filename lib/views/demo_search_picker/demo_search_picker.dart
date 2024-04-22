@@ -9,10 +9,7 @@ class DemoSearchPicker extends GetWidget<DemoSearchPickerController> {
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
-    return SheetX.showWithGrip(
-        //backgroundColor: ColorX.white,
-        //cornerRadius: 32.0,
-        widget: this);
+    return SheetX.showWithGrip(title: 'Demo Search Picker', widget: this);
   }
 
   @override
@@ -21,50 +18,14 @@ class DemoSearchPicker extends GetWidget<DemoSearchPickerController> {
       init: DemoSearchPickerController(),
       builder: (controller) => ContainerX(
         backgroundColor: ColorX.white,
-        topLeftRadius: 32.0,
-        topRightRadius: 32.0,
         child: Wrap(children: [
-          ContainerX(height: 8.0),
-          Container(
-            margin: EdgeInsets.only(left: 32.0, right: 32.0),
-            child: Row(
-              children: [
-                ButtonX(
-                  backgroundColor: ColorX.transparent,
-                  faIcon: FontAwesomeIcons.xmark,
-                  faWidth: 16.0,
-                  faHeight: 16.0,
-                  faColor: ColorX.gray,
-                  width: 32.0,
-                  height: 32.0,
-                  cornerRadius: 25.0,
-                  borderWidth: 1.0,
-                  borderColor: ColorX.gray,
-                  onClicked: () {
-                    controller.btnCloseClicked();
-                  },
-                ),
-                Expanded(
-                  child: TextX(
-                    title,
-                    color: ColorX.black,
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w600,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                SizedBox(width: 32.0, height: 32.0),
-              ],
-            ),
-          ),
-          Container(height: 24.0),
           Container(
             height: (MediaQuery.of(Get.context!).size.height -
                 (MediaQuery.of(Get.context!).padding.top +
-                    4.0 + // grip
-                    24.0 +
+                    MediaQuery.of(Get.context!).padding.bottom +
                     16.0 +
-                    50.0 + // navbar
+                    16.0 +
+                    40.0 +
                     16.0)),
             child: controller.movieListVM.loading == true
                 ? Center(
@@ -75,7 +36,7 @@ class DemoSearchPicker extends GetWidget<DemoSearchPickerController> {
                     child: Column(children: [
                     Padding(
                       padding: EdgeInsets.only(
-                          left: 24.0, top: 0.0, right: 24.0, bottom: 12.0),
+                          left: 16.0, top: 0.0, right: 16.0, bottom: 12.0),
                       child: TextFieldX(
                         hint: 'Keyword...',
                         obscureText: false,

@@ -7,7 +7,6 @@ class TextFieldX extends StatelessWidget {
   final String fontFamily;
   final FontWeight fontWeight;
   final Color backgroundColor;
-
   final double cornerRadius;
   final double borderWidth;
   final Color borderColor;
@@ -109,8 +108,6 @@ class TextFieldX extends StatelessWidget {
           Expanded(
               child: TextField(
             inputFormatters: inputFormatters,
-            //cursorColor: ColorX.black,
-            //cursorHeight: height,
             textAlignVertical: TextAlignVertical.center,
             enabled: !this.readOnly,
             controller: controller,
@@ -134,8 +131,6 @@ class TextFieldX extends StatelessWidget {
                     : 1,
             readOnly: readOnly,
             decoration: InputDecoration(
-              //filled: true,
-              //fillColor: ColorX.green,
               isDense: true,
               border: InputBorder.none,
               hintText: hint,
