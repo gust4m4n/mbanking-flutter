@@ -63,7 +63,7 @@ class MbxProfilePage extends StatelessWidget {
                 child: ContainerX(
                   backgroundColor: ColorX.white,
                   cornerRadius: 16.0,
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
                   child: Column(
                     children: [
                       MbaxProfileMenuButton(

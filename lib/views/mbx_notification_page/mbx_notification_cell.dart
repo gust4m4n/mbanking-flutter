@@ -11,7 +11,7 @@ class MbxNotificationCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding:
-            EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
+            EdgeInsets.only(left: 16.0, top: 4.0, right: 16.0, bottom: 4.0),
         child: ContainerX(
             backgroundColor: ColorX.white,
             borderWidth: 0.5,
