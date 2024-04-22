@@ -9,35 +9,40 @@ class MbxOnboardingCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContainerX(
+        //backgroundColor: ColorX.green,
         padding: EdgeInsets.all(24.0),
         child: Center(
-            child: Column(
-          mainAxisSize: MainAxisSize.min,
+            child: ListView(
+          //mainAxisSize: MainAxisSize.min,
           children: [
             ImageX(
               url: onboarding.image,
-              width: 340.0,
+              //backgroundColor: ColorX.blue,
               height: 340.0,
+              width: 340.0,
               fit: BoxFit.contain,
             ),
             ContainerX(height: 4.0),
-            TextX(
-              onboarding.title,
-              color: ColorX.black,
-              fontSize: 24.0,
-              fontWeight: FontWeight.w700,
-              textAlign: TextAlign.center,
-              maxLines: 8,
+            ContainerX(
+              child: TextX(
+                onboarding.title,
+                color: ColorX.black,
+                fontSize: 24.0,
+                fontWeight: FontWeight.w700,
+                textAlign: TextAlign.center,
+                maxLines: 8,
+              ),
             ),
             ContainerX(height: 4.0),
-            TextX(
+            ContainerX(
+                child: TextX(
               onboarding.description,
               color: ColorX.gray,
               fontSize: 17.0,
               fontWeight: FontWeight.w500,
               textAlign: TextAlign.center,
               maxLines: 8,
-            ),
+            )),
           ],
         )));
   }
