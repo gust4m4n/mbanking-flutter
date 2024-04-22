@@ -37,18 +37,19 @@ class DemoDrawer extends StatelessWidget {
             Expanded(
                 child: Scrollbar(
                     child: SingleChildScrollView(
+                        physics: ClampingScrollPhysics(),
                         child: Column(
-              children: [
-                DemoDrawerMenu(
-                    icon: FontAwesomeIcons.addressBook,
-                    title: 'Menu 1',
-                    onClicked: () {}),
-                DemoDrawerMenu(
-                    icon: FontAwesomeIcons.powerOff,
-                    title: 'Menu 2',
-                    onClicked: () {}),
-              ],
-            )))),
+                          children: [
+                            DemoDrawerMenu(
+                                icon: FontAwesomeIcons.addressBook,
+                                title: 'Menu 1',
+                                onClicked: () {}),
+                            DemoDrawerMenu(
+                                icon: FontAwesomeIcons.powerOff,
+                                title: 'Menu 2',
+                                onClicked: () {}),
+                          ],
+                        )))),
           ],
         ),
       ),

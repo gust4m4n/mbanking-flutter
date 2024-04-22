@@ -110,6 +110,7 @@ class DialogX {
             ),
             child: Scrollbar(
                 child: SingleChildScrollView(
+              physics: ClampingScrollPhysics(),
               child: contentWidget,
             )),
           ),

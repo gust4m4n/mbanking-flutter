@@ -16,7 +16,7 @@ class MbxProfileController extends GetxController {
   Future<void> onReady() async {
     super.onReady();
     final info = await PackageInfo.fromPlatform();
-    version = 'Version ${info.version}.${info.buildNumber}';
+    version = 'Version ${info.version}';
     await MbxProfileVM.request();
     biometricEnabled = await MbxUserPreferencesVM.getBiometricEnabled();
     update();

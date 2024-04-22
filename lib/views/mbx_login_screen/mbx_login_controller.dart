@@ -23,7 +23,7 @@ class MbLoginController extends GetxController {
   void onReady() {
     super.onReady();
     PackageInfo.fromPlatform().then((info) {
-      version = 'Version ${info.version}.${info.buildNumber}';
+      version = 'Version ${info.version}';
       update();
     });
 

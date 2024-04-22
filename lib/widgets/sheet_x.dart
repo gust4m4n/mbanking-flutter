@@ -173,6 +173,7 @@ class SheetX {
                 ),
                 child: Scrollbar(
                     child: SingleChildScrollView(
+                  physics: ClampingScrollPhysics(),
                   child: contentWidget,
                 )),
               ),
