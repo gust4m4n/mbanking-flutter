@@ -9,7 +9,7 @@ class DemoSearchPicker extends GetWidget<DemoSearchPickerController> {
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
-    return SheetX.showWithGrip(title: title, widget: this);
+    return SheetX.showFloating(title: title, widget: this);
   }
 
   @override

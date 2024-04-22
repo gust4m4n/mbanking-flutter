@@ -10,7 +10,7 @@ class DemoStringPicker extends GetWidget<DemoStringPickerController> {
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
-    return SheetX.showWithGrip(
+    return SheetX.showFloating(
         /*backgroundColor: ColorX.white, cornerRadius: 32.0, */ widget: this);
   }
 

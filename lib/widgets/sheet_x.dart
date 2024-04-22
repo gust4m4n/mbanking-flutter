@@ -1,6 +1,82 @@
 import 'all_widgets.dart';
 
 class SheetX {
+  static Future<T?> show<T>({required Widget widget, bool autoClose = true}) {
+    FocusManager.instance.primaryFocus?.unfocus();
+    return Get.bottomSheet(
+        isDismissible: autoClose,
+        isScrollControlled: true,
+        ignoreSafeArea: true,
+        elevation: 0.0,
+        widget);
+  }
+
+  static Future<T?> showFloating<T>(
+      {required Widget widget, String title = '', bool autoClose = true}) {
+    return SheetX.show(
+        widget: ContainerX(
+            backgroundColor: ColorX.transparent,
+            padding: EdgeInsets.only(
+                left: 16.0,
+                top: 16.0,
+                right: 16.0,
+                bottom: 16.0 + MediaQuery.of(Get.context!).padding.bottom),
+            child: ContainerX(
+                backgroundColor: ColorX.white,
+                cornerRadius: 16.0,
+                child: Wrap(children: [
+                  ContainerX(
+                      padding: EdgeInsets.all(16.0),
+                      child: Wrap(
+                        children: [
+                          ContainerX(
+                            height: 40.0,
+                            child: Row(
+                              children: [
+                                InkWellX(
+                                  onClicked: () {
+                                    Get.back();
+                                  },
+                                  child: ContainerX(
+                                    width: 40.0,
+                                    height: double.infinity,
+                                    child: Center(
+                                        child: ImageX(
+                                      backgroundColor:
+                                          ColorX.black.withOpacity(0.2),
+                                      faIcon: FontAwesomeIcons.xmark,
+                                      width: 32.0,
+                                      height: 32.0,
+                                      cornerRadius: 20.0,
+                                      padding: EdgeInsets.all(8.0),
+                                    )),
+                                  ),
+                                ),
+                                ContainerX(width: 8.0),
+                                Expanded(
+                                  child: TextX(
+                                    title,
+                                    color: ColorX.black,
+                                    fontSize: 17.0,
+                                    fontWeight: FontWeight.w600,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                ContainerX(width: 8.0),
+                                SizedBox(
+                                  width: 40.0,
+                                  height: double.infinity,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )),
+                  widget
+                ]))),
+        autoClose: autoClose);
+  }
+
   static Future<T?> showMessage<T>(
       {Widget? icon,
       required String title,
@@ -77,82 +153,6 @@ class SheetX {
         title: title);
   }
 
-  static Future<T?> show<T>({required Widget widget, bool autoClose = true}) {
-    FocusManager.instance.primaryFocus?.unfocus();
-    return Get.bottomSheet(
-        isDismissible: autoClose,
-        isScrollControlled: true,
-        ignoreSafeArea: true,
-        elevation: 0.0,
-        widget);
-  }
-
-  static Future<T?> showWithGrip<T>(
-      {required Widget widget, String title = '', bool autoClose = true}) {
-    return SheetX.show(
-        widget: ContainerX(
-            backgroundColor: ColorX.transparent,
-            padding: EdgeInsets.only(
-                left: 16.0,
-                top: 16.0,
-                right: 16.0,
-                bottom: 16.0 + MediaQuery.of(Get.context!).padding.bottom),
-            child: ContainerX(
-                backgroundColor: ColorX.white,
-                cornerRadius: 16.0,
-                child: Wrap(children: [
-                  ContainerX(
-                      padding: EdgeInsets.all(16.0),
-                      child: Wrap(
-                        children: [
-                          ContainerX(
-                            height: 40.0,
-                            child: Row(
-                              children: [
-                                InkWellX(
-                                  onClicked: () {
-                                    Get.back();
-                                  },
-                                  child: ContainerX(
-                                    width: 40.0,
-                                    height: double.infinity,
-                                    child: Center(
-                                        child: ImageX(
-                                      backgroundColor:
-                                          ColorX.black.withOpacity(0.2),
-                                      faIcon: FontAwesomeIcons.xmark,
-                                      width: 32.0,
-                                      height: 32.0,
-                                      cornerRadius: 20.0,
-                                      padding: EdgeInsets.all(8.0),
-                                    )),
-                                  ),
-                                ),
-                                ContainerX(width: 8.0),
-                                Expanded(
-                                  child: TextX(
-                                    title,
-                                    color: ColorX.black,
-                                    fontSize: 17.0,
-                                    fontWeight: FontWeight.w600,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                ContainerX(width: 8.0),
-                                SizedBox(
-                                  width: 40.0,
-                                  height: double.infinity,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      )),
-                  widget
-                ]))),
-        autoClose: autoClose);
-  }
-
   static Future<T?> showContent<T>(
       {required Color backgroundColor,
       required double cornerRadius,
@@ -161,7 +161,7 @@ class SheetX {
       required Widget footerWidget,
       bool autoClose = true,
       String title = ''}) {
-    return SheetX.showWithGrip(
+    return SheetX.showFloating(
         widget: ContainerX(
             backgroundColor: ColorX.white,
             child: Column(children: [

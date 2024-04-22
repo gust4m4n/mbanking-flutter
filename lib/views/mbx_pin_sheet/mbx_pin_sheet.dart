@@ -34,10 +34,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
     this.onSubmit = onSubmit;
     this.optionTitle = optionTitle;
     this.onOption = onOption;
-    return SheetX.showWithGrip(
-        widget: this,
-        title: title,
-        autoClose: false);
+    return SheetX.showFloating(widget: this, title: title, autoClose: false);
   }
 
   clear(String error) {

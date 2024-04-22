@@ -5,7 +5,7 @@ import 'demo_photo_picker_controller.dart';
 class DemoPhotoPicker extends GetWidget<AppxPhotoPickerController> {
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
-    return SheetX.showWithGrip(
+    return SheetX.showFloating(
         /*backgroundColor: ColorX.white, cornerRadius: 32.0, */ widget: this);
   }
 

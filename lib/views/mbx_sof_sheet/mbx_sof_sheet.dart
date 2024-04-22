@@ -13,7 +13,7 @@ class MbxSofSheet extends GetWidget<MbxSofSheetController> {
       required Future<void> Function() onResend}) {
     FocusManager.instance.primaryFocus?.unfocus();
     final sheet = MbxSofSheet();
-    return SheetX.showWithGrip(
+    return SheetX.showFloating(
       //backgroundColor: const Color.fromARGB(255, 130, 102, 102),
       //cornerRadius: 16.0,
       widget: sheet,

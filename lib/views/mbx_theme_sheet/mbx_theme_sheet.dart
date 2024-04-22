@@ -10,7 +10,7 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
-    return SheetX.showWithGrip(widget: this, title: 'Pilih Theme');
+    return SheetX.showFloating(widget: this, title: 'Pilih Theme');
   }
 
   @override
