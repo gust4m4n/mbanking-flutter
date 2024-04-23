@@ -27,7 +27,6 @@ class MbxTransferHistoryWidget extends StatelessWidget {
                     textAlign: TextAlign.start,
                     maxLines: 8,
                   ),
-                  SizedBox(height: 2.0),
                   TextX(
                     '${history.bank} - ${history.account}',
                     color: ColorX.black,
@@ -36,7 +35,6 @@ class MbxTransferHistoryWidget extends StatelessWidget {
                     textAlign: TextAlign.start,
                     maxLines: 8,
                   ),
-                  SizedBox(height: 2.0),
                   Row(children: [
                     TextX(
                       MbxFormatVM.currencyRP(history.amount,
@@ -59,6 +57,21 @@ class MbxTransferHistoryWidget extends StatelessWidget {
                       ),
                     ),
                   ]),
+                  SizedBox(height: 8.0),
+                  ButtonX(
+                    title: 'Transfer Lagi',
+                    titleColor: ColorX.black,
+                    fontSize: 13.0,
+                    fontWeight: FontWeight.w700,
+                    backgroundColor: ColorX.transparent,
+                    borderWidth: 0.5,
+                    borderColor: ColorX.gray,
+                    width: 120.0,
+                    height: 32.0,
+                    cornerRadius: 8.0,
+                    //onClicked: controller.btnShareClicked,
+                  ),
+                  SizedBox(height: 8.0),
                 ],
               ),
             ),

@@ -95,7 +95,7 @@ class MbxTransferScreen extends StatelessWidget {
                     padding: EdgeInsets.only(
                         left: 16.0, top: 0.0, right: 16.0, bottom: 8.0),
                     child: TextX(
-                      'Riwayat Transfer',
+                      'Riwayat',
                       color: ColorX.white,
                       fontSize: 15.0,
                       fontWeight: FontWeight.w500,

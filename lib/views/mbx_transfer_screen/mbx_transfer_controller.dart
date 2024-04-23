@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:mbankingflutter/models/mbx_transfer_history_model.dart';
 import 'package:mbankingflutter/viewmodels/mbx_transfer_history_list_vm.dart';
 
+import '../../models/mbx_receipt_model.dart';
+
 class MbxTransferController extends GetxController {
   final scrollController = ScrollController();
   var historyListVM = MbxTransferHistoryListVM();
@@ -30,6 +32,7 @@ class MbxTransferController extends GetxController {
   }
 
   openHistory(MbxTransferHistoryModel dest) {
-    //Get.to(MbxQRISAmountScreen(inquiry: MbxQRISInquiryModel()));
+    Get.toNamed('/receipt',
+        arguments: {'receipt': MbxReceiptModel(), 'backToHome': false});
   }
 }
