@@ -12,6 +12,7 @@ MBanking-flutter
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_notifications.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_receipt.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_profile.png" width="250">
+  <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_profile_logout.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_history.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_news.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_tnc.png" width="250">
