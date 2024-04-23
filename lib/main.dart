@@ -12,6 +12,7 @@ import 'views/mbx_qris_screen/mbx_qris_screen.dart';
 import 'views/mbx_receipt_screen/mbx_receipt_screen.dart';
 import 'views/mbx_relogin_screen/mbx_relogin_screen.dart';
 import 'views/mbx_tnc_screen/mbx_tnc_screen.dart';
+import 'views/mbx_transfer_p2p_screen/mbx_transfer_p2p_screen.dart';
 import 'views/mbx_transfer_screen/mbx_transfer_screen.dart';
 import 'widgets/all_widgets.dart';
 
@@ -117,6 +118,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/news', page: () => MbxNewsScreen()),
         GetPage(name: '/receipt', page: () => MbxReceiptScreen()),
         GetPage(name: '/transfer', page: () => MbxTransferScreen()),
+        GetPage(name: '/transfer/p2p', page: () => MbxTransferP2PScreen()),
+        GetPage(name: '/transfer/p2bank', page: () => MbxTransferP2PScreen()),
         GetPage(
             name: '/qris',
             page: () => MbxQRISScreen(),

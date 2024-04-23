@@ -57,7 +57,9 @@ class MbxTransferScreen extends StatelessWidget {
                                   ),
                                 ],
                               )),
-                          onClicked: () {},
+                          onClicked: () {
+                            controller.btnP2PClicked();
+                          },
                         ),
                       ),
                       ContainerX(width: 8.0),
@@ -86,16 +88,18 @@ class MbxTransferScreen extends StatelessWidget {
                                   ),
                                 ],
                               )),
-                          onClicked: () {},
+                          onClicked: () {
+                            controller.btnP2BankClicked();
+                          },
                         ),
                       ),
                     ]),
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                        left: 16.0, top: 0.0, right: 16.0, bottom: 8.0),
+                        left: 16.0, top: 0.0, right: 16.0, bottom: 4.0),
                     child: TextX(
-                      'Riwayat',
+                      'RIWAYAT',
                       color: ColorX.white,
                       fontSize: 15.0,
                       fontWeight: FontWeight.w500,

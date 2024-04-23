@@ -26,6 +26,14 @@ class MbxTransferController extends GetxController {
     Get.back();
   }
 
+  btnP2PClicked() {
+    Get.toNamed('/transfer/p2p');
+  }
+
+  btnP2BankClicked() {
+    Get.toNamed('/transfer/p2bank');
+  }
+
   nextPage() {
     if (historyListVM.loading) return;
     historyListVM.nextPage().then((resp) {
