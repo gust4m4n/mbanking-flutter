@@ -1,6 +1,5 @@
-import 'package:mbankingflutter/views/mbx_transfer_p2p_page/mbx_transfer_p2p_page.dart';
-
 import '../../widgets/all_widgets.dart';
+import '../mbx_transfer_p2p_page/mbx_transfer_p2p_dest_cell.dart';
 import 'mbx_transfer_controller.dart';
 
 class MbxTransferScreen extends StatelessWidget {
@@ -27,57 +26,151 @@ class MbxTransferScreen extends StatelessWidget {
               ),
               bottomPadding: false,
               bodyView: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TopContainerX(),
+                  ContainerX(
+                    padding: EdgeInsets.all(16.0),
+                    child: Row(children: [
+                      Expanded(
+                        child: InkWellX(
+                          child: ContainerX(
+                              borderWidth: 1.0,
+                              borderColor: ColorX.white,
+                              padding: EdgeInsets.all(16.0),
+                              cornerRadius: 8.0,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  ImageX(
+                                    faIcon:
+                                        FontAwesomeIcons.arrowRightArrowLeft,
+                                    color: ColorX.white,
+                                    width: 24.0,
+                                    height: 24.0,
+                                  ),
+                                  ContainerX(height: 8.0),
+                                  TextX(
+                                    'Antar Rekening',
+                                    color: ColorX.white,
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ],
+                              )),
+                          onClicked: () {},
+                        ),
+                      ),
+                      ContainerX(width: 8.0),
+                      Expanded(
+                        child: InkWellX(
+                          child: ContainerX(
+                              borderWidth: 1.0,
+                              borderColor: ColorX.white,
+                              padding: EdgeInsets.all(16.0),
+                              cornerRadius: 8.0,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  ImageX(
+                                    faIcon: FontAwesomeIcons.buildingColumns,
+                                    color: ColorX.white,
+                                    width: 24.0,
+                                    height: 24.0,
+                                  ),
+                                  ContainerX(height: 8.0),
+                                  TextX(
+                                    'Antar Bank',
+                                    color: ColorX.white,
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ],
+                              )),
+                          onClicked: () {},
+                        ),
+                      ),
+                    ]),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: 16.0, top: 0.0, right: 16.0, bottom: 8.0),
+                    child: TextX(
+                      'Riwayat Transfer',
+                      color: ColorX.white,
+                      fontSize: 17.0,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                   Expanded(
                       child: ContainerX(
-                          backgroundColor: ColorX.white,
-                          child: Column(
-                            children: [
-                              TabBar(
-                                controller: controller.tabController,
-                                indicatorSize: TabBarIndicatorSize.tab,
-                                indicatorWeight: 2.0,
-                                indicatorColor: ColorX.theme,
-                                unselectedLabelStyle: TextStyle(
-                                  color: ColorX.black,
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'Roboto',
-                                ),
-                                labelStyle: TextStyle(
-                                  color: ColorX.theme,
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'Roboto',
-                                ),
-                                tabs: const [
-                                  Tab(
-                                    text: 'Antar Rekening',
-                                  ),
-                                  Tab(text: 'Antar Bank'),
-                                ],
-                              ),
-                              Expanded(
-                                child: TabBarView(
-                                  controller: controller.tabController,
-                                  children: [
-                                    MbxTransferP2PPage(),
-                                    Center(
-                                      child: const TextX(
-                                        'Page 2',
-                                        color: ColorX.black,
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.w700,
-                                        textAlign: TextAlign.start,
-                                        maxLines: 1,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ))),
+                          padding: EdgeInsets.only(
+                              left: 16.0,
+                              top: 0.0,
+                              right: 16.0,
+                              bottom: 16.0 +
+                                  MediaQuery.of(Get.context!).padding.bottom),
+                          child: ContainerX(
+                              backgroundColor: ColorX.white,
+                              cornerRadius: 16.0,
+                              borderWidth: 0.5,
+                              borderColor: ColorX.gray,
+                              padding: EdgeInsets.only(
+                                  left: 0.0,
+                                  top: 16.0,
+                                  right: 0.0,
+                                  bottom: 16.0),
+                              child: NotificationListener<ScrollNotification>(
+                                onNotification:
+                                    (ScrollNotification scrollInfo) {
+                                  if (controller.destListVM.loading == false &&
+                                      scrollInfo.metrics.pixels ==
+                                          scrollInfo.metrics.maxScrollExtent) {
+                                    controller.nextPage();
+                                  }
+                                  return true;
+                                },
+                                child: Scrollbar(
+                                    controller: controller.scrollController,
+                                    child: ListView.separated(
+                                        controller: controller.scrollController,
+                                        padding: EdgeInsets.only(
+                                            bottom: MediaQuery.of(Get.context!)
+                                                    .padding
+                                                    .bottom +
+                                                100.0),
+                                        physics: ClampingScrollPhysics(),
+                                        separatorBuilder: (context, index) {
+                                          return Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 12.0),
+                                              child: ContainerX(
+                                                height: 0.5,
+                                                width: double.infinity,
+                                                backgroundColor:
+                                                    ColorX.lightGray,
+                                              ));
+                                        },
+                                        itemCount:
+                                            controller.destListVM.list.length,
+                                        itemBuilder: (context, index) {
+                                          if (index ==
+                                              controller
+                                                      .destListVM.list.length -
+                                                  1) {
+                                            controller.nextPage();
+                                          }
+                                          final dest =
+                                              controller.destListVM.list[index];
+                                          return InkWellX(
+                                              highlightColor:
+                                                  ColorX.theme.withOpacity(0.1),
+                                              onClicked: () {
+                                                controller.openDest(dest);
+                                              },
+                                              child:
+                                                  MbxTransferP2PDestCell(dest));
+                                        })),
+                              ))))
                 ],
               ),
             ));

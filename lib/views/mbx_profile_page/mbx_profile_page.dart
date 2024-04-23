@@ -63,6 +63,8 @@ class MbxProfilePage extends StatelessWidget {
                 child: ContainerX(
                   backgroundColor: ColorX.white,
                   cornerRadius: 16.0,
+                  borderWidth: 0.5,
+                  borderColor: ColorX.gray,
                   padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
                   child: Column(
                     children: [
