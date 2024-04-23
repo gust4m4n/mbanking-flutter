@@ -14,12 +14,12 @@ class MbxLoginScreen extends StatelessWidget {
     return GetBuilder<MbLoginController>(
         init: MbLoginController(),
         builder: (controller) => ScreenX(
-            lightStatusBar: false,
+            lightStatusBar: true,
             topPadding: false,
             bottomPadding: false,
             bodyView: Column(children: [
               ContainerX(
-                backgroundColor: ColorX.white,
+                //backgroundColor: ColorX.white,
                 padding: EdgeInsets.only(
                     left: 24.0,
                     top: MediaQuery.of(Get.context!).padding.top + 12.0,
@@ -38,7 +38,7 @@ class MbxLoginScreen extends StatelessWidget {
               ),
               Expanded(
                   child: ContainerX(
-                backgroundColor: ColorX.white,
+                //backgroundColor: ColorX.white,
                 width: double.infinity,
                 child: ContainerX(
                   width: double.infinity,
@@ -65,6 +65,8 @@ class MbxLoginScreen extends StatelessWidget {
               )),
               ContainerX(
                   backgroundColor: ColorX.white,
+                  topLeftRadius: 16.0,
+                  topRightRadius: 16.0,
                   child: Column(
                     children: [
                       ContainerX(height: 12.0),
