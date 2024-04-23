@@ -45,7 +45,7 @@ class MbxProfileController extends GetxController {
       optionTitle: 'Lupa PIN',
       onOption: () {
         pinSheet.clear('');
-        ToastX.snackBar(msg: LoremIpsumX.medium());
+        ToastX.show(msg: 'PIN akan direset, silahkan hubungi CS kami.');
       },
     )
         .then((value) async {
@@ -63,8 +63,12 @@ class MbxProfileController extends GetxController {
           secure: true,
           biometric: false,
           onSubmit: (code, biometric) async {
-            Get.back();
-            changePinNew();
+            Get.loading();
+            Future.delayed(const Duration(milliseconds: 500), () {
+              Get.back();
+              Get.back();
+              changePinNew();
+            });
           },
           optionTitle: 'Lupa PIN',
           onOption: () {},
@@ -81,10 +85,14 @@ class MbxProfileController extends GetxController {
           secure: true,
           biometric: false,
           onSubmit: (code, biometric) async {
-            Get.back();
-            changePinConfirm();
+            Get.loading();
+            Future.delayed(const Duration(milliseconds: 500), () {
+              Get.back();
+              Get.back();
+              changePinConfirm();
+            });
           },
-          optionTitle: 'Lupa PIN',
+          optionTitle: '',
           onOption: () {},
         )
         .then((value) async {});
@@ -104,12 +112,34 @@ class MbxProfileController extends GetxController {
             MbxChangePinVM.request(pin: code, newPin: code).then((resp) async {
               Get.back();
               Get.back();
+              changePinSuccess();
             });
           },
-          optionTitle: 'Lupa PIN',
+          optionTitle: '',
           onOption: () {},
         )
         .then((value) async {});
+  }
+
+  changePinSuccess() {
+    SheetX.showMessage(
+      icon: ImageX(
+        faIcon: FontAwesomeIcons.check,
+        color: ColorX.white,
+        width: 60.0,
+        height: 60.0,
+        cornerRadius: 30.0,
+        backgroundColor: ColorX.green,
+        padding: EdgeInsets.all(12.0),
+      ),
+      title: 'Ganti PIN',
+      message:
+          'PIN telah berhasil diganti, silahkan gunakan PIN yang baru untuk seterusnya.',
+      leftBtnTitle: 'OK',
+      onLeftBtnClicked: () {
+        Get.back();
+      },
+    );
   }
 
   btnTncClicked() {

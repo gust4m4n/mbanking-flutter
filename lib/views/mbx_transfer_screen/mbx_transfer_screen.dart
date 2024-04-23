@@ -37,7 +37,7 @@ class MbxTransferScreen extends StatelessWidget {
                               borderWidth: 1.0,
                               borderColor: ColorX.white,
                               padding: EdgeInsets.all(16.0),
-                              cornerRadius: 8.0,
+                              cornerRadius: 16.0,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
@@ -45,8 +45,8 @@ class MbxTransferScreen extends StatelessWidget {
                                     faIcon:
                                         FontAwesomeIcons.arrowRightArrowLeft,
                                     color: ColorX.white,
-                                    width: 24.0,
-                                    height: 24.0,
+                                    width: 20.0,
+                                    height: 20.0,
                                   ),
                                   ContainerX(height: 8.0),
                                   TextX(
@@ -67,15 +67,15 @@ class MbxTransferScreen extends StatelessWidget {
                               borderWidth: 1.0,
                               borderColor: ColorX.white,
                               padding: EdgeInsets.all(16.0),
-                              cornerRadius: 8.0,
+                              cornerRadius: 16.0,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   ImageX(
                                     faIcon: FontAwesomeIcons.buildingColumns,
                                     color: ColorX.white,
-                                    width: 24.0,
-                                    height: 24.0,
+                                    width: 20.0,
+                                    height: 20.0,
                                   ),
                                   ContainerX(height: 8.0),
                                   TextX(

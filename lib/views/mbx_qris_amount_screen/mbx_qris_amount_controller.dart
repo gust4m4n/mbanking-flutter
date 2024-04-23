@@ -96,7 +96,7 @@ class MbxQRISAmountController extends GetxController {
       optionTitle: 'Lupa PIN',
       onOption: () {
         pinSheet.clear('');
-        ToastX.snackBar(msg: LoremIpsumX.medium());
+        ToastX.show(msg: 'PIN akan direset, silahkan hubungi CS kami.');
       },
     );
   }

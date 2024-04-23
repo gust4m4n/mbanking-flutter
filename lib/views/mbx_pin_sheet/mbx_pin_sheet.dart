@@ -236,19 +236,25 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                       ],
                     ),
                     ContainerX(height: 16.0),
-                    ButtonX(
-                      title: optionTitle,
-                      titleColor: ColorX.black,
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w700,
-                      backgroundColor: ColorX.transparent,
-                      highlightColor: ColorX.theme.withOpacity(0.1),
-                      width: 120.0,
-                      height: 32.0,
-                      cornerRadius: 8.0,
-                      onClicked: onOption,
-                    ),
-                    ContainerX(height: 16.0)
+                    Visibility(
+                        visible: optionTitle.isNotEmpty,
+                        child: Column(
+                          children: [
+                            ButtonX(
+                              title: optionTitle,
+                              titleColor: ColorX.black,
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.w700,
+                              backgroundColor: ColorX.transparent,
+                              highlightColor: ColorX.theme.withOpacity(0.1),
+                              width: 120.0,
+                              height: 32.0,
+                              cornerRadius: 8.0,
+                              onClicked: onOption,
+                            ),
+                            ContainerX(height: 16.0)
+                          ],
+                        ))
                   ],
                 ),
               ),

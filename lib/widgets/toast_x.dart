@@ -62,10 +62,10 @@ class BasicToast extends StatelessWidget {
   Widget build(BuildContext context) {
     return ContainerX(
       backgroundColor: ColorX.transparent,
-      padding: EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(32.0),
       child: Center(
         child: ContainerX(
-          backgroundColor: ColorX.black.withOpacity(0.85),
+          backgroundColor: ColorX.theme.withOpacity(0.85),
           padding: EdgeInsets.all(16.0),
           cornerRadius: 16.0,
           child: Wrap(children: [
@@ -91,7 +91,7 @@ class BasicSnackBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContainerX(
-      backgroundColor: ColorX.theme.withOpacity(0.7),
+      backgroundColor: ColorX.theme,
       padding: EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
       child: Wrap(children: [
         TextX(
