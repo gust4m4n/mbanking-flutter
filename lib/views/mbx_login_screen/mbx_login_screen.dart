@@ -36,53 +36,56 @@ class MbxLoginScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: controller.onboardingVM.list.length > 0
-                    ? CarouselSlider.builder(
-                        options: CarouselOptions(
-                          scrollPhysics: ClampingScrollPhysics(),
-                          padEnds: false,
-                          autoPlay: true,
-                          viewportFraction: 1.0,
-                          height: double.infinity,
-                          onPageChanged: (index, reason) {
-                            controller.setOnboardingIndex(index);
-                          },
-                        ),
-                        itemCount: controller.onboardingVM.list.length,
-                        itemBuilder: (BuildContext context, int index,
-                            int pageViewIndex) {
-                          return MbxOnboardingCell(
-                              controller.onboardingVM.list[index]);
-                        })
-                    : Container(),
-              ),
+                  child: Column(
+                children: [
+                  Expanded(
+                    child: controller.onboardingVM.list.length > 0
+                        ? CarouselSlider.builder(
+                            options: CarouselOptions(
+                              scrollPhysics: ClampingScrollPhysics(),
+                              padEnds: false,
+                              autoPlay: true,
+                              viewportFraction: 1.0,
+                              height: double.infinity,
+                              onPageChanged: (index, reason) {
+                                controller.setOnboardingIndex(index);
+                              },
+                            ),
+                            itemCount: controller.onboardingVM.list.length,
+                            itemBuilder: (BuildContext context, int index,
+                                int pageViewIndex) {
+                              return MbxOnboardingCell(
+                                  controller.onboardingVM.list[index]);
+                            })
+                        : Container(),
+                  ),
+                  ContainerX(
+                    padding: const EdgeInsets.only(
+                        left: 24.0, top: 16.0, right: 24.0, bottom: 16.0),
+                    child: Visibility(
+                        visible: controller.onboardingVM.list.length > 0,
+                        child: AnimatedSmoothIndicator(
+                          activeIndex: controller.onboardingIndex,
+                          count: controller.onboardingVM.list.length,
+                          effect: SlideEffect(
+                            dotHeight: 8,
+                            dotWidth: 8,
+                            dotColor: ColorX.theme.withOpacity(0.2),
+                            activeDotColor: ColorX.theme,
+                          ),
+                        )),
+                  ),
+                ],
+              )),
               ContainerX(
                   backgroundColor: ColorX.white,
                   topLeftRadius: 16.0,
                   topRightRadius: 16.0,
                   child: Column(
                     children: [
-                      ContainerX(height: 12.0),
                       ContainerX(
                         padding: const EdgeInsets.only(
-                            left: 24.0, top: 4.0, right: 24.0, bottom: 4.0),
-                        height: 20.0,
-                        child: Visibility(
-                            visible: controller.onboardingVM.list.length > 0,
-                            child: AnimatedSmoothIndicator(
-                              activeIndex: controller.onboardingIndex,
-                              count: controller.onboardingVM.list.length,
-                              effect: SlideEffect(
-                                dotHeight: 8,
-                                dotWidth: 8,
-                                dotColor: ColorX.theme.withOpacity(0.2),
-                                activeDotColor: ColorX.theme,
-                              ),
-                            )),
-                      ),
-                      ContainerX(
-                        padding: const EdgeInsets.only(
-                            left: 24.0, top: 16.0, right: 24.0, bottom: 16.0),
+                            left: 24.0, top: 24.0, right: 24.0, bottom: 16.0),
                         child: TextFieldX(
                           hint: 'No. HP (08xxxxxxxxx)',
                           obscureText: false,
