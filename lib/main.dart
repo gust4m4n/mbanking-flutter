@@ -1,4 +1,5 @@
 import 'viewmodels/mbx_anti_jailbreak_vm.dart';
+import 'viewmodels/mbx_device_info_vm.dart';
 import 'viewmodels/mbx_preferences_vm+users.dart';
 import 'viewmodels/mbx_preferences_vm.dart';
 import 'viewmodels/mbx_profile_vm.dart';
@@ -17,15 +18,8 @@ import 'widgets/all_widgets.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await MbxAntiJailbreakVM.check();
+  await MbxDeviceInfoVM.request();
   MbxReachabilityVM.startListening();
-
-/*
-// TESTXXXX
-  var dir = await getApplicationDocumentsDirectory();
-  dir.createSync(recursive: true);
-  var file = File('${dir.absolute.path}\ZZZ.TXT');
-  file.writeAsStringSync('ABCDEFHJ');
-  */
 
   final freshInstall = await MbxPreferencesVM.getFreshInstall();
   if (freshInstall == true) {
