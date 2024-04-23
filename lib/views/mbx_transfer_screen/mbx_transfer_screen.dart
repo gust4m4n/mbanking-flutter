@@ -1,6 +1,6 @@
 import '../../widgets/all_widgets.dart';
-import '../mbx_transfer_p2p_page/mbx_transfer_p2p_dest_cell.dart';
 import 'mbx_transfer_controller.dart';
+import 'mbx_transfer_history_widget.dart';
 
 class MbxTransferScreen extends StatelessWidget {
   MbxTransferScreen({Key? key}) : super(key: key);
@@ -97,7 +97,7 @@ class MbxTransferScreen extends StatelessWidget {
                     child: TextX(
                       'Riwayat Transfer',
                       color: ColorX.white,
-                      fontSize: 17.0,
+                      fontSize: 15.0,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -122,7 +122,8 @@ class MbxTransferScreen extends StatelessWidget {
                               child: NotificationListener<ScrollNotification>(
                                 onNotification:
                                     (ScrollNotification scrollInfo) {
-                                  if (controller.destListVM.loading == false &&
+                                  if (controller.historyListVM.loading ==
+                                          false &&
                                       scrollInfo.metrics.pixels ==
                                           scrollInfo.metrics.maxScrollExtent) {
                                     controller.nextPage();
@@ -150,25 +151,25 @@ class MbxTransferScreen extends StatelessWidget {
                                                     ColorX.lightGray,
                                               ));
                                         },
-                                        itemCount:
-                                            controller.destListVM.list.length,
+                                        itemCount: controller
+                                            .historyListVM.list.length,
                                         itemBuilder: (context, index) {
                                           if (index ==
-                                              controller
-                                                      .destListVM.list.length -
+                                              controller.historyListVM.list
+                                                      .length -
                                                   1) {
                                             controller.nextPage();
                                           }
-                                          final dest =
-                                              controller.destListVM.list[index];
+                                          final history = controller
+                                              .historyListVM.list[index];
                                           return InkWellX(
                                               highlightColor:
                                                   ColorX.theme.withOpacity(0.1),
                                               onClicked: () {
-                                                controller.openDest(dest);
+                                                controller.openHistory(history);
                                               },
-                                              child:
-                                                  MbxTransferP2PDestCell(dest));
+                                              child: MbxTransferHistoryWidget(
+                                                  history));
                                         })),
                               ))))
                 ],

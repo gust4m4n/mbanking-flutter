@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../models/mbx_qris_inquiry_model.dart';
-import '../../models/mbx_transfer_p2p_dest_model.dart';
-import '../../viewmodels/mbx_transfer_p2p_dest_list_vm.dart';
-import '../mbx_qris_amount_screen/mbx_qris_amount_screen.dart';
+import 'package:mbankingflutter/models/mbx_transfer_history_model.dart';
+import 'package:mbankingflutter/viewmodels/mbx_transfer_history_list_vm.dart';
 
 class MbxTransferController extends GetxController {
   final scrollController = ScrollController();
-  var destListVM = MbxTransferP2PDestListVM();
+  var historyListVM = MbxTransferHistoryListVM();
 
   @override
   void onInit() {
@@ -26,13 +23,13 @@ class MbxTransferController extends GetxController {
   }
 
   nextPage() {
-    if (destListVM.loading) return;
-    destListVM.nextPage().then((resp) {
+    if (historyListVM.loading) return;
+    historyListVM.nextPage().then((resp) {
       update();
     });
   }
 
-  openDest(MbxTransferP2PDestModel dest) {
-    Get.to(MbxQRISAmountScreen(inquiry: MbxQRISInquiryModel()));
+  openHistory(MbxTransferHistoryModel dest) {
+    //Get.to(MbxQRISAmountScreen(inquiry: MbxQRISInquiryModel()));
   }
 }

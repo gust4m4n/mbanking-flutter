@@ -1,0 +1,42 @@
+{
+	"status": 200,
+	"message": "Get transfer history success",
+	"data": [
+	  {
+		"transaction_id": "1",
+		"name": "THOMAS",
+		"bank": "BANK ABC",
+		"account": "500011101",
+		"amount": "100000",
+		"type": "P2BANK",
+		"date": "2024-04-22 17:20:01"
+	  },
+	  {
+		"transaction_id": "2",
+		"name": "MARTHA",
+		"bank": "BANK XYZ",
+		"account": "100000022",
+		"amount": "5000000",
+		"type": "P2P",
+		"date": "2024-04-21 10:08:50"
+	  },
+	  {
+		"transaction_id": "3",
+		"name": "LINDA",
+		"bank": "BANK XYZ",
+		"account": "100000022",
+		"amount": "10000000",
+		"type": "P2BANK",
+		"date": "2024-04-09 08:10:11"
+	  },
+	  {
+		"transaction_id": "4",
+		"name": "TAYLOR",
+		"bank": "BANK XYZ",
+		"account": "949922233",
+		"amount": "1250000",
+		"type": "P2P",
+		"date": "2024-04-04 20:08:00"
+	  }
+	]
+  }

@@ -46,7 +46,7 @@ class MbxFormatVM {
 
   static String longDateTime(String dt) {
     DateTime now = DateTime.parse(dt).toLocal();
-    var formatter = DateFormat('dd MMM yyyy hh:mm');
+    var formatter = DateFormat('dd MMMM yyyy HH:mm');
     return formatter.format(now);
   }
 }
