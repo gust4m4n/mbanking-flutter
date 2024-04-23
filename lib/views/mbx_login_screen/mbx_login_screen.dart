@@ -19,7 +19,6 @@ class MbxLoginScreen extends StatelessWidget {
             bottomPadding: false,
             bodyView: Column(children: [
               ContainerX(
-                //backgroundColor: ColorX.white,
                 padding: EdgeInsets.only(
                     left: 24.0,
                     top: MediaQuery.of(Get.context!).padding.top + 12.0,
@@ -37,32 +36,26 @@ class MbxLoginScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                  child: ContainerX(
-                //backgroundColor: ColorX.white,
-                width: double.infinity,
-                child: ContainerX(
-                  width: double.infinity,
-                  child: controller.onboardingVM.list.length > 0
-                      ? CarouselSlider.builder(
-                          options: CarouselOptions(
-                            scrollPhysics: ClampingScrollPhysics(),
-                            padEnds: false,
-                            autoPlay: true,
-                            viewportFraction: 1.0,
-                            height: double.infinity,
-                            onPageChanged: (index, reason) {
-                              controller.setOnboardingIndex(index);
-                            },
-                          ),
-                          itemCount: controller.onboardingVM.list.length,
-                          itemBuilder: (BuildContext context, int index,
-                              int pageViewIndex) {
-                            return MbxOnboardingCell(
-                                controller.onboardingVM.list[index]);
-                          })
-                      : Container(),
-                ),
-              )),
+                child: controller.onboardingVM.list.length > 0
+                    ? CarouselSlider.builder(
+                        options: CarouselOptions(
+                          scrollPhysics: ClampingScrollPhysics(),
+                          padEnds: false,
+                          autoPlay: true,
+                          viewportFraction: 1.0,
+                          height: double.infinity,
+                          onPageChanged: (index, reason) {
+                            controller.setOnboardingIndex(index);
+                          },
+                        ),
+                        itemCount: controller.onboardingVM.list.length,
+                        itemBuilder: (BuildContext context, int index,
+                            int pageViewIndex) {
+                          return MbxOnboardingCell(
+                              controller.onboardingVM.list[index]);
+                        })
+                    : Container(),
+              ),
               ContainerX(
                   backgroundColor: ColorX.white,
                   topLeftRadius: 16.0,
