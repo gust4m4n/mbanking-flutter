@@ -1,7 +1,6 @@
 # mbanking-flutter
-MBanking-flutter
 
-[Download APK](https://github.com/gust4m4n/mbanking-flutter/blob/main/distrib/mbanking-flutter.apk](https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter.apk)
+[Download APK](https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter.apk)
 <p/>
 
 <p float="left">
