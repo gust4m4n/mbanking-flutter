@@ -1,5 +1,4 @@
-import 'package:mbankingflutter/viewmodels/mbx_theme_vm.dart';
-
+import '../../viewmodels/mbx_theme_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_theme_cell.dart';
 import 'mbx_theme_sheet_controller.dart';
@@ -36,7 +35,6 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
                   );
                 },
               ),
-              ContainerX(height: MediaQuery.of(Get.context!).padding.bottom)
             ])));
   }
 }
