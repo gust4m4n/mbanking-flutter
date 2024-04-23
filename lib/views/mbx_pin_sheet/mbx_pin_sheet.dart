@@ -235,7 +235,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                         ),
                       ],
                     ),
-                    ContainerX(height: 4.0),
+                    ContainerX(height: 16.0),
                     ButtonX(
                       title: optionTitle,
                       titleColor: ColorX.black,
@@ -248,9 +248,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                       cornerRadius: 8.0,
                       onClicked: onOption,
                     ),
-                    ContainerX(
-                        height:
-                            16.0 + MediaQuery.of(Get.context!).padding.bottom)
+                    ContainerX(height: 16.0)
                   ],
                 ),
               ),

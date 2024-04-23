@@ -17,10 +17,7 @@ class MbxHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<MbxHomeController>(
         init: MbxHomeController(),
-        builder: (controller) => ScreenX(
-            lightStatusBar: true,
-            bottomPadding: false,
-            bodyView: Column(children: [
+        builder: (controller) => Column(children: [
               ContainerX(
                   width: double.infinity,
                   padding: EdgeInsets.only(
@@ -364,6 +361,6 @@ class MbxHomePage extends StatelessWidget {
                           ])),
                 ),
               )
-            ])));
+            ]));
   }
 }

@@ -176,7 +176,6 @@ class SheetX {
                 )),
               ),
               footerWidget,
-              SizedBox(height: MediaQuery.of(Get.context!).padding.bottom)
             ])),
         title: title,
         autoClose: autoClose);
