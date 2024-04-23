@@ -8,6 +8,7 @@ import '../../models/mbx_receipt_model.dart';
 class MbxTransferController extends GetxController {
   final scrollController = ScrollController();
   var historyListVM = MbxTransferHistoryListVM();
+  var loading = true;
 
   @override
   void onInit() {
@@ -17,6 +18,7 @@ class MbxTransferController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    update();
     nextPage();
   }
 
@@ -27,6 +29,7 @@ class MbxTransferController extends GetxController {
   nextPage() {
     if (historyListVM.loading) return;
     historyListVM.nextPage().then((resp) {
+      loading = false;
       update();
     });
   }

@@ -119,59 +119,77 @@ class MbxTransferScreen extends StatelessWidget {
                                   top: 16.0,
                                   right: 0.0,
                                   bottom: 16.0),
-                              child: NotificationListener<ScrollNotification>(
-                                onNotification:
-                                    (ScrollNotification scrollInfo) {
-                                  if (controller.historyListVM.loading ==
-                                          false &&
-                                      scrollInfo.metrics.pixels ==
-                                          scrollInfo.metrics.maxScrollExtent) {
-                                    controller.nextPage();
-                                  }
-                                  return true;
-                                },
-                                child: Scrollbar(
-                                    controller: controller.scrollController,
-                                    child: ListView.separated(
-                                        controller: controller.scrollController,
-                                        padding: EdgeInsets.only(
-                                            bottom: MediaQuery.of(Get.context!)
-                                                    .padding
-                                                    .bottom +
-                                                100.0),
-                                        physics: ClampingScrollPhysics(),
-                                        separatorBuilder: (context, index) {
-                                          return Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 12.0),
-                                              child: ContainerX(
-                                                height: 0.5,
-                                                width: double.infinity,
-                                                backgroundColor:
-                                                    ColorX.lightGray,
-                                              ));
-                                        },
-                                        itemCount: controller
-                                            .historyListVM.list.length,
-                                        itemBuilder: (context, index) {
-                                          if (index ==
-                                              controller.historyListVM.list
-                                                      .length -
-                                                  1) {
-                                            controller.nextPage();
-                                          }
-                                          final history = controller
-                                              .historyListVM.list[index];
-                                          return InkWellX(
-                                              highlightColor:
-                                                  ColorX.theme.withOpacity(0.1),
-                                              onClicked: () {
-                                                controller.openHistory(history);
+                              child: controller.loading == true
+                                  ? Center(
+                                      child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                                  ColorX.gray)),
+                                    )
+                                  : NotificationListener<ScrollNotification>(
+                                      onNotification:
+                                          (ScrollNotification scrollInfo) {
+                                        if (controller.historyListVM.loading ==
+                                                false &&
+                                            scrollInfo.metrics.pixels ==
+                                                scrollInfo
+                                                    .metrics.maxScrollExtent) {
+                                          controller.nextPage();
+                                        }
+                                        return true;
+                                      },
+                                      child: Scrollbar(
+                                          controller:
+                                              controller.scrollController,
+                                          child: ListView.separated(
+                                              controller:
+                                                  controller.scrollController,
+                                              padding: EdgeInsets.only(
+                                                  bottom: MediaQuery.of(
+                                                              Get.context!)
+                                                          .padding
+                                                          .bottom +
+                                                      100.0),
+                                              physics: ClampingScrollPhysics(),
+                                              separatorBuilder:
+                                                  (context, index) {
+                                                return Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 12.0),
+                                                    child: ContainerX(
+                                                      height: 0.5,
+                                                      width: double.infinity,
+                                                      backgroundColor:
+                                                          ColorX.lightGray,
+                                                    ));
                                               },
-                                              child: MbxTransferHistoryWidget(
-                                                  history));
-                                        })),
-                              ))))
+                                              itemCount: controller
+                                                  .historyListVM.list.length,
+                                              itemBuilder: (context, index) {
+                                                if (index ==
+                                                    controller.historyListVM
+                                                            .list.length -
+                                                        1) {
+                                                  Future.delayed(
+                                                      const Duration(
+                                                          milliseconds: 0), () {
+                                                    controller.nextPage();
+                                                  });
+                                                }
+                                                final history = controller
+                                                    .historyListVM.list[index];
+                                                return InkWellX(
+                                                    highlightColor: ColorX.theme
+                                                        .withOpacity(0.1),
+                                                    onClicked: () {
+                                                      controller
+                                                          .openHistory(history);
+                                                    },
+                                                    child:
+                                                        MbxTransferHistoryWidget(
+                                                            history));
+                                              })),
+                                    ))))
                 ],
               ),
             ));
