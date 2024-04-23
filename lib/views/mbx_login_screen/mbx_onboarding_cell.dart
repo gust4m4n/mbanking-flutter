@@ -16,15 +16,15 @@ class MbxOnboardingCell extends StatelessWidget {
           children: [
             ImageX(
               url: onboarding.image,
-              height: 340.0,
-              width: 340.0,
+              height: 320.0,
+              width: 320.0,
               fit: BoxFit.contain,
             ),
-            ContainerX(height: 4.0),
+            ContainerX(height: 16.0),
             TextX(
               onboarding.title,
               color: ColorX.black,
-              fontSize: 24.0,
+              fontSize: 22.0,
               fontWeight: FontWeight.w700,
               textAlign: TextAlign.center,
               maxLines: 8,
@@ -32,9 +32,9 @@ class MbxOnboardingCell extends StatelessWidget {
             ContainerX(height: 4.0),
             TextX(
               onboarding.description,
-              color: ColorX.gray,
+              color: ColorX.black,
               fontSize: 17.0,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w400,
               textAlign: TextAlign.center,
               maxLines: 8,
             ),
