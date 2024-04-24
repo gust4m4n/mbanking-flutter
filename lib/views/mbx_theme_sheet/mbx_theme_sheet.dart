@@ -9,7 +9,7 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
-    return SheetX.showFloating(widget: this, title: 'Pilih Theme');
+    return SheetX.showCustom(widget: this, title: 'Pilih Theme');
   }
 
   @override
@@ -20,7 +20,8 @@ class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
                 child: Wrap(children: [
               GridView.builder(
                 shrinkWrap: true,
-                padding: EdgeInsets.all(12.0),
+                padding: EdgeInsets.only(
+                    left: 12.0, top: 0.0, right: 12.0, bottom: 12.0),
                 physics: ClampingScrollPhysics(),
                 itemCount: MbxThemeVM.colors.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

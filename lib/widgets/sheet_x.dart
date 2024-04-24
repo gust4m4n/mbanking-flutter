@@ -1,16 +1,6 @@
 import 'all_widgets.dart';
 
 class SheetX {
-  static Future<T?> show<T>({required Widget widget, bool autoClose = true}) {
-    FocusManager.instance.primaryFocus?.unfocus();
-    return Get.bottomSheet(
-        isDismissible: autoClose,
-        isScrollControlled: true,
-        ignoreSafeArea: true,
-        elevation: 0.0,
-        widget);
-  }
-
   static double widgetMaxHeight() {
     return MediaQuery.of(Get.context!).size.height -
         (MediaQuery.of(Get.context!).padding.top +
@@ -18,91 +8,97 @@ class SheetX {
             16.0 +
             40.0 +
             16.0 +
+            // widget height
             16.0 +
             MediaQuery.of(Get.context!).padding.bottom);
   }
 
-  static Future<T?> showFloating<T>({
+  static Future<T?> showCustom<T>({
     required Widget widget,
     double percentHeight = 0.0,
     String title = '',
     bool autoClose = true,
   }) {
-    return SheetX.show(
-        widget: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(Get.context!).size.height -
-                  (MediaQuery.of(Get.context!).padding.top +
-                      MediaQuery.of(Get.context!).padding.bottom),
-            ),
-            child: ContainerX(
-                backgroundColor: ColorX.transparent,
-                padding: EdgeInsets.only(
-                    left: 16.0,
-                    top: 16.0,
-                    right: 16.0,
-                    bottom: 16.0 + MediaQuery.of(Get.context!).padding.bottom),
-                child: ContainerX(
-                    backgroundColor: ColorX.white,
-                    cornerRadius: 16.0,
-                    child: Wrap(children: [
-                      ContainerX(
-                          padding: EdgeInsets.all(16.0),
-                          child: Wrap(
-                            children: [
-                              ContainerX(
-                                height: 40.0,
-                                child: Row(
-                                  children: [
-                                    InkWellX(
-                                      onClicked: () {
-                                        Get.back();
-                                      },
-                                      child: ContainerX(
-                                        width: 40.0,
-                                        height: double.infinity,
-                                        child: Center(
-                                            child: ImageX(
-                                          backgroundColor:
-                                              ColorX.black.withOpacity(0.2),
-                                          faIcon: FontAwesomeIcons.xmark,
-                                          width: 32.0,
-                                          height: 32.0,
-                                          cornerRadius: 20.0,
-                                          padding: EdgeInsets.all(8.0),
-                                        )),
-                                      ),
-                                    ),
-                                    ContainerX(width: 8.0),
-                                    Expanded(
-                                      child: TextX(
-                                        title,
-                                        color: ColorX.black,
-                                        fontSize: 17.0,
-                                        fontWeight: FontWeight.w600,
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                    ContainerX(width: 8.0),
-                                    SizedBox(
+    FocusManager.instance.primaryFocus?.unfocus();
+
+    return Get.bottomSheet(
+      isDismissible: autoClose,
+      isScrollControlled: true,
+      ignoreSafeArea: true,
+      elevation: 0.0,
+      ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(Get.context!).size.height -
+                (MediaQuery.of(Get.context!).padding.top),
+          ),
+          child: ContainerX(
+              backgroundColor: ColorX.transparent,
+              padding: EdgeInsets.only(
+                  left: 16.0,
+                  top: 16.0,
+                  right: 16.0,
+                  bottom: 16.0 + MediaQuery.of(Get.context!).padding.bottom),
+              child: ContainerX(
+                  backgroundColor: ColorX.white,
+                  cornerRadius: 16.0,
+                  child: Wrap(children: [
+                    ContainerX(
+                        padding: EdgeInsets.all(16.0),
+                        child: Wrap(
+                          children: [
+                            ContainerX(
+                              height: 40.0,
+                              child: Row(
+                                children: [
+                                  InkWellX(
+                                    onClicked: () {
+                                      Get.back();
+                                    },
+                                    child: ContainerX(
                                       width: 40.0,
                                       height: double.infinity,
+                                      child: Center(
+                                          child: ImageX(
+                                        backgroundColor:
+                                            ColorX.black.withOpacity(0.2),
+                                        faIcon: FontAwesomeIcons.xmark,
+                                        width: 32.0,
+                                        height: 32.0,
+                                        cornerRadius: 20.0,
+                                        padding: EdgeInsets.all(8.0),
+                                      )),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  ContainerX(width: 8.0),
+                                  Expanded(
+                                    child: TextX(
+                                      title,
+                                      color: ColorX.black,
+                                      fontSize: 17.0,
+                                      fontWeight: FontWeight.w600,
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  ContainerX(width: 8.0),
+                                  SizedBox(
+                                    width: 40.0,
+                                    height: double.infinity,
+                                  ),
+                                ],
                               ),
-                            ],
-                          )),
-                      percentHeight == 0.0
-                          ? widget
-                          : percentHeight == 1.0
-                              ? ContainerX(
-                                  height: widgetMaxHeight(), child: widget)
-                              : ContainerX(
-                                  height: widgetMaxHeight() * percentHeight,
-                                  child: widget)
-                    ])))),
-        autoClose: autoClose);
+                            ),
+                          ],
+                        )),
+                    percentHeight == 0.0
+                        ? widget
+                        : percentHeight == 1.0
+                            ? ContainerX(
+                                height: widgetMaxHeight(), child: widget)
+                            : ContainerX(
+                                height: widgetMaxHeight() * percentHeight,
+                                child: widget)
+                  ])))),
+    );
   }
 
   static Future<T?> showMessage<T>(
@@ -189,7 +185,7 @@ class SheetX {
       required Widget footerWidget,
       bool autoClose = true,
       String title = ''}) {
-    return SheetX.showFloating(
+    return SheetX.showCustom(
         widget: ContainerX(
             backgroundColor: ColorX.white,
             child: Column(children: [

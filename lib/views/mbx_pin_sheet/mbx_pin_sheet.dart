@@ -34,7 +34,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
     this.onSubmit = onSubmit;
     this.optionTitle = optionTitle;
     this.onOption = onOption;
-    return SheetX.showFloating(widget: this, title: title, autoClose: false);
+    return SheetX.showCustom(widget: this, title: title, autoClose: false);
   }
 
   clear(String error) {

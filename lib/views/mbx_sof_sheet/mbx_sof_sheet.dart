@@ -13,7 +13,7 @@ class MbxSofSheet extends GetWidget<MbxSofSheetController> {
       required Future<void> Function() onResend}) {
     FocusManager.instance.primaryFocus?.unfocus();
     final sheet = MbxSofSheet();
-    return SheetX.showFloating(
+    return SheetX.showCustom(
       widget: sheet,
       title: 'Sumber Dana',
     );

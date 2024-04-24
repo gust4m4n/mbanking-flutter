@@ -9,7 +9,7 @@ class MbxBankPicker extends GetWidget<MbxBankPickerController> {
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
-    return SheetX.showFloating(title: title, widget: this, percentHeight: 1.0);
+    return SheetX.showCustom(title: title, widget: this, percentHeight: 1.0);
   }
 
   @override
