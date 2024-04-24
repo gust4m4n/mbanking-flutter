@@ -53,7 +53,7 @@ class MbxQRISAmountController extends GetxController {
     update();
   }
 
-  txtAmountOnChanged(String value) {
+  txtAmountChanged(String value) {
     String newValue = value.replaceAll('.', '');
     int? intValue = int.tryParse(newValue);
     if (intValue != null) {

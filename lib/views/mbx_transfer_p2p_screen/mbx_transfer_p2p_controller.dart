@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:mbankingflutter/views/mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
 
 import '../../models/mbx_receipt_model.dart';
@@ -10,6 +11,7 @@ class MbxTransfeP2PrController extends GetxController {
   final txtAmountNode = FocusNode();
   final txtMessageController = TextEditingController();
   final txtMessageNode = FocusNode();
+  int amount = 0;
 
   @override
   void onInit() {
@@ -31,6 +33,23 @@ class MbxTransfeP2PrController extends GetxController {
     picker.show().then((value) {
       if (value != null) {}
     });
+  }
+
+  txtAmountChanged(String value) {
+    String newValue = value.replaceAll('.', '');
+    int? intValue = int.tryParse(newValue);
+    if (intValue != null) {
+      amount = intValue;
+      final formatter = NumberFormat('#,###');
+      String formatted = formatter.format(intValue).replaceAll(',', '.');
+      txtAmountController.text = formatted;
+      txtAmountController.selection =
+          TextSelection.fromPosition(TextPosition(offset: formatted.length));
+    } else {
+      amount = 0;
+      txtAmountController.text = '';
+    }
+    update();
   }
 
   btnNextClicked() {

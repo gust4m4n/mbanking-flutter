@@ -312,7 +312,7 @@ class MbxQRISAmountScreen extends StatelessWidget {
                                                         ],
                                                         onChanged: (value) {
                                                           controller
-                                                              .txtAmountOnChanged(
+                                                              .txtAmountChanged(
                                                                   value);
                                                         },
                                                       ),

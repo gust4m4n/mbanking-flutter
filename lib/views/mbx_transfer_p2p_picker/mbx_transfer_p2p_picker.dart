@@ -41,6 +41,7 @@ class MbxTransferP2PPicker extends GetWidget<MbxTransferP2PPickerController> {
                           )
                         : Scrollbar(
                             child: ListView.separated(
+                            padding: EdgeInsets.zero,
                             physics: ClampingScrollPhysics(),
                             separatorBuilder: (context, index) {
                               return Padding(
@@ -63,10 +64,25 @@ class MbxTransferP2PPicker extends GetWidget<MbxTransferP2PPickerController> {
                                                 .destListVM.filtered[index]);
                                       },
                                       child: MbxTransferP2PPickerWidget(
-                                          controller
-                                              .destListVM.filtered[index])));
+                                        dest: controller
+                                            .destListVM.filtered[index],
+                                        onDeleteClicked: () {
+                                          controller.onDeleteClicked(controller
+                                              .destListVM.filtered[index]);
+                                        },
+                                      )));
                             },
-                          )))
+                          ))),
+                Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: ButtonX(
+                    backgroundColor: ColorX.theme,
+                    title: 'Tutup',
+                    onClicked: () {
+                      controller.btnCloseClicked();
+                    },
+                  ),
+                ),
               ])),
             ));
   }

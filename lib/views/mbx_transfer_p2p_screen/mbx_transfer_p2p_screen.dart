@@ -28,7 +28,12 @@ class MbxTransferP2PScreen extends StatelessWidget {
                 child: SingleChildScrollView(
               physics: ClampingScrollPhysics(),
               child: Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.only(
+                      left: 16.0,
+                      top: 16.0,
+                      right: 16.0,
+                      bottom:
+                          16.0 + MediaQuery.of(Get.context!).padding.bottom),
                   child: ContainerX(
                       backgroundColor: ColorX.white,
                       cornerRadius: 16.0,
@@ -65,39 +70,17 @@ class MbxTransferP2PScreen extends StatelessWidget {
                             }),
                           ),
                           ContainerX(height: 8.0),
-                          Row(
-                            children: [
-                              Expanded(
-                                  child: ButtonX(
-                                title: 'Tujuan Baru',
-                                titleColor: ColorX.black,
-                                fontSize: 13.0,
-                                fontWeight: FontWeight.w600,
-                                backgroundColor: ColorX.transparent,
-                                borderWidth: 0.5,
-                                borderColor: ColorX.gray,
-                                width: 120.0,
-                                height: 32.0,
-                                cornerRadius: 8.0,
-                                //onClicked: controller.btnShareClicked,
-                              )),
-                              ContainerX(width: 8.0),
-                              Expanded(
-                                child: ButtonX(
-                                  title: 'Pendaftaran',
-                                  titleColor: ColorX.black,
-                                  fontSize: 13.0,
-                                  fontWeight: FontWeight.w600,
-                                  backgroundColor: ColorX.transparent,
-                                  borderWidth: 0.5,
-                                  borderColor: ColorX.gray,
-                                  width: 120.0,
-                                  height: 32.0,
-                                  cornerRadius: 8.0,
-                                  //onClicked: controller.btnShareClicked,
-                                ),
-                              ),
-                            ],
+                          ButtonX(
+                            title: 'Tambah Tujuan Transfer',
+                            titleColor: ColorX.black,
+                            fontSize: 13.0,
+                            fontWeight: FontWeight.w600,
+                            backgroundColor: ColorX.transparent,
+                            borderWidth: 0.5,
+                            borderColor: ColorX.gray,
+                            height: 32.0,
+                            cornerRadius: 8.0,
+                            //onClicked: controller.btnShareClicked,
                           ),
                           ContainerX(height: 12.0),
                           TextX(
@@ -115,6 +98,9 @@ class MbxTransferP2PScreen extends StatelessWidget {
                             readOnly: false,
                             controller: controller.txtAmountController,
                             focusNode: controller.txtAmountNode,
+                            onChanged: (value) {
+                              controller.txtAmountChanged(value);
+                            },
                           ),
                           ContainerX(height: 12.0),
                           TextX(
