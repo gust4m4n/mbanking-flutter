@@ -18,6 +18,7 @@ class SheetX {
             16.0 +
             40.0 +
             16.0 +
+            16.0 +
             MediaQuery.of(Get.context!).padding.bottom);
   }
 
