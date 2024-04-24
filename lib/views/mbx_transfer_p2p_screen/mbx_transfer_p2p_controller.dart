@@ -1,4 +1,4 @@
-import 'package:mbankingflutter/views/mbx_bank_picker/mbx_bank_picker.dart';
+import 'package:mbankingflutter/views/mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
 
 import '../../models/mbx_receipt_model.dart';
 import '../../widgets/all_widgets.dart';
@@ -27,7 +27,7 @@ class MbxTransfeP2PrController extends GetxController {
   }
 
   btnPickDestinationClicked() {
-    final picker = MbxBankPicker(title: 'DAFTAR REKENING TUJUAN');
+    final picker = MbxTransferP2PPicker();
     picker.show().then((value) {
       if (value != null) {}
     });

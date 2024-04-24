@@ -5,6 +5,11 @@ import 'mbx_apis.dart';
 class MbxTransferP2PDestListVM {
   var loading = false;
   List<MbxTransferP2PDestModel> list = [];
+  List<MbxTransferP2PDestModel> filtered = [];
+
+  clear() {
+    list = [];
+  }
 
   Future<ApiXResponse> nextPage() {
     loading = true;
@@ -24,5 +29,23 @@ class MbxTransferP2PDestListVM {
       }
       return resp;
     });
+  }
+
+  sort() {
+    list.sort((a, b) => a.name.compareTo(b.name));
+  }
+
+  setFilter(String keyword) {
+    filtered = [];
+    for (var item in list) {
+      if (keyword.isEmpty) {
+        filtered.add(item);
+      } else {
+        if (item.name.toLowerCase().contains(keyword.toLowerCase()) ||
+            item.account.toLowerCase().contains(keyword.toLowerCase())) {
+          filtered.add(item);
+        }
+      }
+    }
   }
 }
