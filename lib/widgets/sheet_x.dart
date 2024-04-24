@@ -11,8 +11,22 @@ class SheetX {
         widget);
   }
 
-  static Future<T?> showFloating<T>(
-      {required Widget widget, String title = '', bool autoClose = true}) {
+  static double widgetMaxHeight() {
+    return MediaQuery.of(Get.context!).size.height -
+        (MediaQuery.of(Get.context!).padding.top +
+            16.0 +
+            16.0 +
+            40.0 +
+            16.0 +
+            MediaQuery.of(Get.context!).padding.bottom);
+  }
+
+  static Future<T?> showFloating<T>({
+    required Widget widget,
+    double percentHeight = 0.0,
+    String title = '',
+    bool autoClose = true,
+  }) {
     return SheetX.show(
         widget: ContainerX(
             backgroundColor: ColorX.transparent,
@@ -72,7 +86,13 @@ class SheetX {
                           ),
                         ],
                       )),
-                  widget
+                  percentHeight == 0.0
+                      ? widget
+                      : percentHeight == 1.0
+                          ? ContainerX(height: widgetMaxHeight(), child: widget)
+                          : ContainerX(
+                              height: widgetMaxHeight() * percentHeight,
+                              child: widget)
                 ]))),
         autoClose: autoClose);
   }
@@ -99,7 +119,7 @@ class SheetX {
                 visible: icon != null,
                 child: Column(children: [
                   icon ?? Container(),
-                  const SizedBox(height: 12.0),
+                  const SizedBox(height: 16.0),
                 ]),
               ),
               const SizedBox(height: 8.0),
