@@ -46,4 +46,8 @@ class MbxTransferController extends GetxController {
     Get.toNamed('/receipt',
         arguments: {'receipt': MbxReceiptModel(), 'backToHome': false});
   }
+
+  onTransferClicked(MbxTransferHistoryModel history) {
+    Get.toNamed('/transfer/p2p');
+  }
 }

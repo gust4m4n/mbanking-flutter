@@ -191,7 +191,13 @@ class MbxTransferScreen extends StatelessWidget {
                                                     },
                                                     child:
                                                         MbxTransferHistoryWidget(
-                                                            history));
+                                                      history: history,
+                                                      onTransferClicked: () {
+                                                        controller
+                                                            .onTransferClicked(
+                                                                history);
+                                                      },
+                                                    ));
                                               })),
                                     ))))
                 ],

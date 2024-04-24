@@ -5,7 +5,10 @@ import '../../widgets/all_widgets.dart';
 // ignore: must_be_immutable
 class MbxTransferHistoryWidget extends StatelessWidget {
   final MbxTransferHistoryModel history;
-  MbxTransferHistoryWidget(this.history);
+  final GestureTapCallback? onTransferClicked;
+
+  MbxTransferHistoryWidget(
+      {required this.history, required this.onTransferClicked});
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +72,7 @@ class MbxTransferHistoryWidget extends StatelessWidget {
                     width: 100.0,
                     height: 32.0,
                     cornerRadius: 8.0,
-                    //onClicked: controller.btnShareClicked,
+                    onClicked: onTransferClicked,
                   ),
                   SizedBox(height: 8.0),
                 ],
