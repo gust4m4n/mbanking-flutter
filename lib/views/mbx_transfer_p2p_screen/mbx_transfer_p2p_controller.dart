@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:mbankingflutter/models/mbx_transfer_p2p_dest_model.dart';
 import 'package:mbankingflutter/views/mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
 
 import '../../models/mbx_receipt_model.dart';
@@ -11,6 +12,7 @@ class MbxTransfeP2PrController extends GetxController {
   final txtAmountNode = FocusNode();
   final txtMessageController = TextEditingController();
   final txtMessageNode = FocusNode();
+  var dest = MbxTransferP2PDestModel();
   int amount = 0;
 
   @override
@@ -31,8 +33,16 @@ class MbxTransfeP2PrController extends GetxController {
   btnPickDestinationClicked() {
     final picker = MbxTransferP2PPicker();
     picker.show().then((value) {
-      if (value != null) {}
+      if (value != null) {
+        dest = value;
+        update();
+      }
     });
+  }
+
+  btnClearClicked() {
+    dest = MbxTransferP2PDestModel();
+    update();
   }
 
   txtAmountChanged(String value) {

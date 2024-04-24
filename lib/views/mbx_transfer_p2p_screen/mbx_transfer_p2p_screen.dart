@@ -51,36 +51,83 @@ class MbxTransferP2PScreen extends StatelessWidget {
                             textAlign: TextAlign.start,
                           ),
                           ContainerX(height: 4.0),
-                          TextFieldX(
-                            hint: '',
-                            obscureText: false,
-                            keyboardType: TextInputType.number,
-                            readOnly: false,
-                            controller: controller.txtAccountController,
-                            focusNode: controller.txtAccountNode,
-                            rightIcon: ImageX(
-                              faIcon: FontAwesomeIcons.chevronDown,
-                              width: 16.0,
-                              height: 16.0,
-                              color: ColorX.gray,
-                              fit: BoxFit.contain,
-                            ),
-                            rightAction: (() {
-                              controller.btnPickDestinationClicked();
-                            }),
-                          ),
+                          ContainerX(
+                              width: double.infinity,
+                              padding: EdgeInsets.only(
+                                  left: 12.0,
+                                  top: 8.0,
+                                  right: 12.0,
+                                  bottom: 8.0),
+                              borderWidth: 1.0,
+                              borderColor: ColorX.lightGray,
+                              cornerRadius: 8.0,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  TextX(
+                                    controller.dest.name.isNotEmpty
+                                        ? controller.dest.name
+                                        : '-',
+                                    color: ColorX.black,
+                                    fontSize: 17.0,
+                                    fontWeight: FontWeight.w400,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.only(top: 6.0, bottom: 6.0),
+                                    child: ContainerX(
+                                        height: 0.5,
+                                        backgroundColor: ColorX.lightGray),
+                                  ),
+                                  TextX(
+                                    controller.dest.account.isNotEmpty
+                                        ? controller.dest.account
+                                        : '-',
+                                    color: ColorX.black,
+                                    fontSize: 17.0,
+                                    fontWeight: FontWeight.w400,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ],
+                              )),
                           ContainerX(height: 8.0),
-                          ButtonX(
-                            title: 'Tambah Tujuan Transfer',
-                            titleColor: ColorX.black,
-                            fontSize: 13.0,
-                            fontWeight: FontWeight.w600,
-                            backgroundColor: ColorX.transparent,
-                            borderWidth: 0.5,
-                            borderColor: ColorX.gray,
-                            height: 32.0,
-                            cornerRadius: 8.0,
-                            //onClicked: controller.btnShareClicked,
+                          Row(
+                            children: [
+                              Expanded(
+                                  child: ButtonX(
+                                title: 'Pilih Tujuan',
+                                titleColor: ColorX.black,
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w600,
+                                backgroundColor: ColorX.transparent,
+                                borderWidth: 0.5,
+                                borderColor: ColorX.gray,
+                                width: 120.0,
+                                height: 32.0,
+                                cornerRadius: 8.0,
+                                onClicked: () {
+                                  controller.btnPickDestinationClicked();
+                                },
+                              )),
+                              ContainerX(width: 8.0),
+                              Expanded(
+                                child: ButtonX(
+                                    title: 'Tujuan Baru',
+                                    titleColor: ColorX.black,
+                                    fontSize: 13.0,
+                                    fontWeight: FontWeight.w600,
+                                    backgroundColor: ColorX.transparent,
+                                    borderWidth: 0.5,
+                                    borderColor: ColorX.gray,
+                                    width: 120.0,
+                                    height: 32.0,
+                                    cornerRadius: 8.0,
+                                    onClicked: () {
+                                      controller.btnClearClicked();
+                                    }),
+                              ),
+                            ],
                           ),
                           ContainerX(height: 12.0),
                           TextX(
@@ -92,7 +139,7 @@ class MbxTransferP2PScreen extends StatelessWidget {
                           ),
                           ContainerX(height: 4.0),
                           TextFieldX(
-                            hint: '',
+                            hint: 'Nominal transfer',
                             obscureText: false,
                             keyboardType: TextInputType.number,
                             readOnly: false,
@@ -112,7 +159,7 @@ class MbxTransferP2PScreen extends StatelessWidget {
                           ),
                           ContainerX(height: 4.0),
                           TextFieldX(
-                            hint: '',
+                            hint: 'Pesan untuk penerima transfer',
                             obscureText: false,
                             keyboardType: TextInputType.text,
                             readOnly: false,
@@ -129,7 +176,7 @@ class MbxTransferP2PScreen extends StatelessWidget {
                           ),
                           ContainerX(height: 4.0),
                           TextFieldX(
-                            hint: '',
+                            hint: 'Pilih sumber dana',
                             obscureText: false,
                             keyboardType: TextInputType.text,
                             readOnly: false,
