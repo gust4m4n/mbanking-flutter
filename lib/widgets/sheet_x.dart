@@ -8,7 +8,7 @@ class SheetX {
             16.0 +
             40.0 +
             16.0 +
-            // widget height
+            // widget height here
             16.0 +
             MediaQuery.of(Get.context!).padding.bottom);
   }
@@ -20,7 +20,6 @@ class SheetX {
     bool autoClose = true,
   }) {
     FocusManager.instance.primaryFocus?.unfocus();
-
     return Get.bottomSheet(
       isDismissible: autoClose,
       isScrollControlled: true,
@@ -111,80 +110,6 @@ class SheetX {
       String rightBtnTitle = '',
       VoidCallback? onRightBtnClicked,
       bool autoClose = true}) {
-    return SheetX.showContent(
-        backgroundColor: ColorX.white,
-        cornerRadius: 16.0,
-        contentMaxHeight: MediaQuery.of(Get.context!).size.height * 0.70,
-        contentWidget: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-          child: Column(
-            children: [
-              Visibility(
-                visible: icon != null,
-                child: Column(children: [
-                  icon ?? Container(),
-                  const SizedBox(height: 16.0),
-                ]),
-              ),
-              const SizedBox(height: 8.0),
-              TextX(
-                message,
-                color: ColorX.black,
-                fontSize: 17.0,
-                fontWeight: FontWeight.w400,
-                textAlign: centered ? TextAlign.center : TextAlign.start,
-                maxLines: 2048,
-              ),
-            ],
-          ),
-        ),
-        footerWidget: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            children: <Widget>[
-              Visibility(
-                visible: leftBtnTitle.isNotEmpty,
-                child: Expanded(
-                  child: ButtonX(
-                    title: leftBtnTitle,
-                    titleColor: ColorX.white,
-                    borderWidth: 1.0,
-                    borderColor: ColorX.theme,
-                    backgroundColor: ColorX.theme,
-                    onClicked: onLeftBtnClicked,
-                  ),
-                ),
-              ),
-              Visibility(
-                  visible: leftBtnTitle.isNotEmpty && rightBtnTitle.isNotEmpty,
-                  child: const SizedBox(width: 8.0)),
-              Visibility(
-                visible: rightBtnTitle.isNotEmpty,
-                child: Expanded(
-                  child: ButtonX(
-                    title: rightBtnTitle,
-                    titleColor: ColorX.black,
-                    backgroundColor: ColorX.theme.withOpacity(0.2),
-                    highlightColor: ColorX.theme.withOpacity(0.3),
-                    onClicked: onRightBtnClicked ?? () => {},
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-        autoClose: autoClose,
-        title: title);
-  }
-
-  static Future<T?> showContent<T>(
-      {required Color backgroundColor,
-      required double cornerRadius,
-      required double contentMaxHeight,
-      required Widget contentWidget,
-      required Widget footerWidget,
-      bool autoClose = true,
-      String title = ''}) {
     return SheetX.showCustom(
         widget: ContainerX(
             backgroundColor: ColorX.white,
@@ -196,9 +121,67 @@ class SheetX {
                   child: Scrollbar(
                       child: SingleChildScrollView(
                     physics: ClampingScrollPhysics(),
-                    child: contentWidget,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                      child: Column(
+                        children: [
+                          Visibility(
+                            visible: icon != null,
+                            child: Column(children: [
+                              icon ?? Container(),
+                              const SizedBox(height: 16.0),
+                            ]),
+                          ),
+                          const SizedBox(height: 8.0),
+                          TextX(
+                            message,
+                            color: ColorX.black,
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.w400,
+                            textAlign:
+                                centered ? TextAlign.center : TextAlign.start,
+                            maxLines: 2048,
+                          ),
+                        ],
+                      ),
+                    ),
                   ))),
-              footerWidget,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: <Widget>[
+                    Visibility(
+                      visible: leftBtnTitle.isNotEmpty,
+                      child: Expanded(
+                        child: ButtonX(
+                          title: leftBtnTitle,
+                          titleColor: ColorX.white,
+                          borderWidth: 1.0,
+                          borderColor: ColorX.theme,
+                          backgroundColor: ColorX.theme,
+                          onClicked: onLeftBtnClicked,
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                        visible:
+                            leftBtnTitle.isNotEmpty && rightBtnTitle.isNotEmpty,
+                        child: const SizedBox(width: 8.0)),
+                    Visibility(
+                      visible: rightBtnTitle.isNotEmpty,
+                      child: Expanded(
+                        child: ButtonX(
+                          title: rightBtnTitle,
+                          titleColor: ColorX.black,
+                          backgroundColor: ColorX.theme.withOpacity(0.2),
+                          highlightColor: ColorX.theme.withOpacity(0.3),
+                          onClicked: onRightBtnClicked ?? () => {},
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ])),
         title: title,
         autoClose: autoClose);
