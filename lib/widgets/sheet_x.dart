@@ -1,24 +1,12 @@
 import 'all_widgets.dart';
 
 class SheetX {
-  static double widgetMaxHeight() {
-    return MediaQuery.of(Get.context!).size.height -
-        (MediaQuery.of(Get.context!).padding.top +
-            16.0 +
-            16.0 +
-            40.0 +
-            16.0 +
-            // widget height here
-            16.0 +
-            MediaQuery.of(Get.context!).padding.bottom);
-  }
-
-  static Future<T?> showCustom<T>({
-    required Widget widget,
-    double percentHeight = 0.0,
-    String title = '',
-    bool autoClose = true,
-  }) {
+  static Future<T?> showCustom<T>(
+      {required Widget widget,
+      double percentHeight = 0.0,
+      String title = '',
+      bool autoClose = true,
+      final GestureTapCallback? onAddClicked = null}) {
     FocusManager.instance.primaryFocus?.unfocus();
     return Get.bottomSheet(
       isDismissible: autoClose,
@@ -53,6 +41,7 @@ class SheetX {
                                   child: Row(
                                     children: [
                                       InkWellX(
+                                        cornerRadius: 8.0,
                                         onClicked: () {
                                           Get.back();
                                         },
@@ -82,10 +71,31 @@ class SheetX {
                                         ),
                                       ),
                                       ContainerX(width: 8.0),
-                                      SizedBox(
-                                        width: 40.0,
-                                        height: double.infinity,
-                                      ),
+                                      onAddClicked != null
+                                          ? InkWellX(
+                                              cornerRadius: 8.0,
+                                              onClicked: (() {
+                                                onAddClicked();
+                                              }),
+                                              child: ContainerX(
+                                                width: 40.0,
+                                                height: double.infinity,
+                                                child: Center(
+                                                    child: ImageX(
+                                                  backgroundColor: ColorX.black
+                                                      .withOpacity(0.2),
+                                                  faIcon: FontAwesomeIcons.plus,
+                                                  width: 32.0,
+                                                  height: 32.0,
+                                                  cornerRadius: 20.0,
+                                                  padding: EdgeInsets.all(8.0),
+                                                )),
+                                              ),
+                                            )
+                                          : ContainerX(
+                                              width: 40.0,
+                                              height: double.infinity,
+                                            ),
                                     ],
                                   ),
                                 ),
@@ -188,5 +198,17 @@ class SheetX {
             ])),
         title: title,
         autoClose: autoClose);
+  }
+
+  static double widgetMaxHeight() {
+    return MediaQuery.of(Get.context!).size.height -
+        (MediaQuery.of(Get.context!).padding.top +
+            16.0 +
+            16.0 +
+            40.0 +
+            16.0 +
+            // widget height here
+            16.0 +
+            MediaQuery.of(Get.context!).padding.bottom);
   }
 }

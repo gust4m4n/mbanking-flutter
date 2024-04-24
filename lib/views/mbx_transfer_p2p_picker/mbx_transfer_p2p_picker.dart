@@ -7,7 +7,13 @@ class MbxTransferP2PPicker extends GetWidget<MbxTransferP2PPickerController> {
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showCustom(
-        title: 'Rekening Tujuan', widget: this, percentHeight: 1.0);
+        title: 'Rekening Tujuan',
+        widget: this,
+        percentHeight: 1.0,
+        onAddClicked: (() {
+          final controller = Get.find<MbxTransferP2PPickerController>();
+          controller.onAddClicked();
+        }));
   }
 
   @override

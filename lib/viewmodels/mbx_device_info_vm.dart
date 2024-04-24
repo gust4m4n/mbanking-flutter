@@ -10,7 +10,7 @@ class MbxDeviceInfoVM {
     try {
       DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
       if (kIsWeb == true) {
-        WebBrowserInfo webBrowserInfo = await deviceInfo.webBrowserInfo;
+        //WebBrowserInfo webBrowserInfo = await deviceInfo.webBrowserInfo;
       } else {
         if (Platform.isAndroid) {
           AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;

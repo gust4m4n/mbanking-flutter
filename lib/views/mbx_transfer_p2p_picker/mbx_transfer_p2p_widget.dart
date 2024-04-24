@@ -45,8 +45,8 @@ class MbxTransferP2PPickerWidget extends StatelessWidget {
                 faIcon: FontAwesomeIcons.trashCan,
                 faWidth: 20.0,
                 faHeight: 16.0,
-                width: 38.0,
-                height: 38.0,
+                width: 40.0,
+                height: 40.0,
                 backgroundColor: ColorX.transparent,
                 onClicked: onDeleteClicked)
           ],
