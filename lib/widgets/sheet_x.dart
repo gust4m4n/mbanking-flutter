@@ -29,72 +29,79 @@ class SheetX {
     bool autoClose = true,
   }) {
     return SheetX.show(
-        widget: ContainerX(
-            backgroundColor: ColorX.transparent,
-            padding: EdgeInsets.only(
-                left: 16.0,
-                top: 16.0,
-                right: 16.0,
-                bottom: 16.0 + MediaQuery.of(Get.context!).padding.bottom),
+        widget: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.of(Get.context!).size.height -
+                  (MediaQuery.of(Get.context!).padding.top +
+                      MediaQuery.of(Get.context!).padding.bottom),
+            ),
             child: ContainerX(
-                backgroundColor: ColorX.white,
-                cornerRadius: 16.0,
-                child: Wrap(children: [
-                  ContainerX(
-                      padding: EdgeInsets.all(16.0),
-                      child: Wrap(
-                        children: [
-                          ContainerX(
-                            height: 40.0,
-                            child: Row(
-                              children: [
-                                InkWellX(
-                                  onClicked: () {
-                                    Get.back();
-                                  },
-                                  child: ContainerX(
-                                    width: 40.0,
-                                    height: double.infinity,
-                                    child: Center(
-                                        child: ImageX(
-                                      backgroundColor:
-                                          ColorX.black.withOpacity(0.2),
-                                      faIcon: FontAwesomeIcons.xmark,
-                                      width: 32.0,
-                                      height: 32.0,
-                                      cornerRadius: 20.0,
-                                      padding: EdgeInsets.all(8.0),
-                                    )),
-                                  ),
+                backgroundColor: ColorX.transparent,
+                padding: EdgeInsets.only(
+                    left: 16.0,
+                    top: 16.0,
+                    right: 16.0,
+                    bottom: 16.0 + MediaQuery.of(Get.context!).padding.bottom),
+                child: ContainerX(
+                    backgroundColor: ColorX.white,
+                    cornerRadius: 16.0,
+                    child: Wrap(children: [
+                      ContainerX(
+                          padding: EdgeInsets.all(16.0),
+                          child: Wrap(
+                            children: [
+                              ContainerX(
+                                height: 40.0,
+                                child: Row(
+                                  children: [
+                                    InkWellX(
+                                      onClicked: () {
+                                        Get.back();
+                                      },
+                                      child: ContainerX(
+                                        width: 40.0,
+                                        height: double.infinity,
+                                        child: Center(
+                                            child: ImageX(
+                                          backgroundColor:
+                                              ColorX.black.withOpacity(0.2),
+                                          faIcon: FontAwesomeIcons.xmark,
+                                          width: 32.0,
+                                          height: 32.0,
+                                          cornerRadius: 20.0,
+                                          padding: EdgeInsets.all(8.0),
+                                        )),
+                                      ),
+                                    ),
+                                    ContainerX(width: 8.0),
+                                    Expanded(
+                                      child: TextX(
+                                        title,
+                                        color: ColorX.black,
+                                        fontSize: 17.0,
+                                        fontWeight: FontWeight.w600,
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                    ContainerX(width: 8.0),
+                                    SizedBox(
+                                      width: 40.0,
+                                      height: double.infinity,
+                                    ),
+                                  ],
                                 ),
-                                ContainerX(width: 8.0),
-                                Expanded(
-                                  child: TextX(
-                                    title,
-                                    color: ColorX.black,
-                                    fontSize: 17.0,
-                                    fontWeight: FontWeight.w600,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                ContainerX(width: 8.0),
-                                SizedBox(
-                                  width: 40.0,
-                                  height: double.infinity,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      )),
-                  percentHeight == 0.0
-                      ? widget
-                      : percentHeight == 1.0
-                          ? ContainerX(height: widgetMaxHeight(), child: widget)
-                          : ContainerX(
-                              height: widgetMaxHeight() * percentHeight,
-                              child: widget)
-                ]))),
+                              ),
+                            ],
+                          )),
+                      percentHeight == 0.0
+                          ? widget
+                          : percentHeight == 1.0
+                              ? ContainerX(
+                                  height: widgetMaxHeight(), child: widget)
+                              : ContainerX(
+                                  height: widgetMaxHeight() * percentHeight,
+                                  child: widget)
+                    ])))),
         autoClose: autoClose);
   }
 
@@ -187,15 +194,14 @@ class SheetX {
             backgroundColor: ColorX.white,
             child: Column(children: [
               ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxHeight: contentMaxHeight,
-                ),
-                child: Scrollbar(
-                    child: SingleChildScrollView(
-                  physics: ClampingScrollPhysics(),
-                  child: contentWidget,
-                )),
-              ),
+                  constraints: BoxConstraints(
+                    maxHeight: widgetMaxHeight() * 0.7,
+                  ),
+                  child: Scrollbar(
+                      child: SingleChildScrollView(
+                    physics: ClampingScrollPhysics(),
+                    child: contentWidget,
+                  ))),
               footerWidget,
             ])),
         title: title,
