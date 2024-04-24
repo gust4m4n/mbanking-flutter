@@ -23,17 +23,15 @@ class MbxSofSheet extends GetWidget<MbxSofSheetController> {
   Widget build(BuildContext context) {
     return GetBuilder<MbxSofSheetController>(
         init: MbxSofSheetController(),
-        builder: (controller) => ContainerX(
-            backgroundColor: ColorX.white,
-            child: Column(
+        builder: (controller) => Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 ListView.separated(
                     shrinkWrap: true,
-                    padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                    padding: EdgeInsets.only(left: 16.0, right: 16.0),
                     physics: ClampingScrollPhysics(),
                     separatorBuilder: (context, index) {
-                      return ContainerX(height: 12.0);
+                      return ContainerX(height: 8.0);
                     },
                     itemCount: controller.accounts.length,
                     itemBuilder: (context, index) {
@@ -48,16 +46,17 @@ class MbxSofSheet extends GetWidget<MbxSofSheetController> {
                         },
                       );
                     }),
-                SizedBox(height: 12.0),
+                ContainerX(height: 16.0),
                 ContainerX(
-                    padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                    padding: EdgeInsets.only(left: 16.0, right: 16.0),
                     child: ButtonX(
                         title: 'Batal',
                         backgroundColor: ColorX.theme,
                         onClicked: () {
                           Get.back();
                         })),
+                ContainerX(height: 16.0),
               ],
-            )));
+            ));
   }
 }

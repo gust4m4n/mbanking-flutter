@@ -24,7 +24,10 @@ class MbxQRISController extends GetxController {
   }
 
   btnImageClicked() {
-    QRDetected('');
+    //QRDetected('');
+    Get.to(MbxQRISAmountScreen(inquiry: inquiryVM.inqury))?.then((value) {
+      //scannerController?.start();
+    });
   }
 
   btnFlashlightClicked() {
