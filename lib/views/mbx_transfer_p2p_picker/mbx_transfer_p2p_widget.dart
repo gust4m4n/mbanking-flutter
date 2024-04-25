@@ -18,6 +18,17 @@ class MbxTransferP2PPickerWidget extends StatelessWidget {
             EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
         child: Row(
           children: [
+            ImageX(
+              faIcon: FontAwesomeIcons.solidUser,
+              backgroundColor: ColorX.transparent,
+              width: 50.0,
+              height: 50.0,
+              cornerRadius: 8.0,
+              borderWidth: 0.5,
+              borderColor: ColorX.gray,
+              padding: EdgeInsets.all(16.0),
+            ),
+            ContainerX(width: 8.0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
