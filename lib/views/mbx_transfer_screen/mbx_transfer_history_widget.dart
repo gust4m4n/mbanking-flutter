@@ -42,7 +42,7 @@ class MbxTransferHistoryWidget extends StatelessWidget {
                     TextX(
                       MbxFormatVM.currencyRP(history.amount,
                           prefix: true, mutation: false, masked: false),
-                      color: ColorX.green,
+                      color: ColorX.black,
                       fontSize: 15.0,
                       fontWeight: FontWeight.w700,
                       textAlign: TextAlign.start,
