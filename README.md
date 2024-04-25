@@ -23,4 +23,5 @@
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_change_pin.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_transfer_p2p.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_transfer_p2p_dest.png" width="250">
+  <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_transfer_p2p_sof.png" width="250">
 </p>
