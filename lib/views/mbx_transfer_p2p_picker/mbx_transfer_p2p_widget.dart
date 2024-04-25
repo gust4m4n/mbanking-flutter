@@ -1,3 +1,5 @@
+import 'package:mbankingflutter/viewmodels/mbx_format_vm.dart';
+
 import '../../models/mbx_transfer_p2p_dest_model.dart';
 import '../../widgets/all_widgets.dart';
 
@@ -30,7 +32,7 @@ class MbxTransferP2PPickerWidget extends StatelessWidget {
                   ),
                   ContainerX(height: 2.0),
                   TextX(
-                    dest.account,
+                    MbxFormatVM.formatAccount(dest.account),
                     color: ColorX.black,
                     fontSize: 15.0,
                     fontWeight: FontWeight.w500,

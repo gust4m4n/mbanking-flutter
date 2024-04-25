@@ -1,4 +1,7 @@
+import 'package:mbankingflutter/viewmodels/mbx_format_vm.dart';
+
 import '../../widgets/all_widgets.dart';
+import '../mbx_sof_sheet/mbx_sof_widget.dart';
 import 'mbx_transfer_p2p_controller.dart';
 
 class MbxTransferP2PScreen extends StatelessWidget {
@@ -61,74 +64,59 @@ class MbxTransferP2PScreen extends StatelessWidget {
                               borderWidth: 1.0,
                               borderColor: ColorX.lightGray,
                               cornerRadius: 8.0,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  TextX(
-                                    controller.dest.name.isNotEmpty
-                                        ? controller.dest.name
-                                        : '-',
-                                    color: ColorX.black,
-                                    fontSize: 17.0,
-                                    fontWeight: FontWeight.w400,
-                                    textAlign: TextAlign.start,
+                              child: Row(children: [
+                                ImageX(
+                                  faIcon: FontAwesomeIcons.solidUser,
+                                  backgroundColor: ColorX.transparent,
+                                  width: 50.0,
+                                  height: 50.0,
+                                  cornerRadius: 8.0,
+                                  borderWidth: 0.5,
+                                  borderColor: ColorX.gray,
+                                  padding: EdgeInsets.all(16.0),
+                                ),
+                                ContainerX(width: 8.0),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      TextX(
+                                        controller.dest.name.isNotEmpty
+                                            ? controller.dest.name
+                                            : '-',
+                                        color: ColorX.black,
+                                        fontSize: 17.0,
+                                        fontWeight: FontWeight.w400,
+                                        textAlign: TextAlign.start,
+                                      ),
+                                      TextX(
+                                        controller.dest.account.isNotEmpty
+                                            ? MbxFormatVM.formatAccount(
+                                                controller.dest.account)
+                                            : '-',
+                                        color: ColorX.black,
+                                        fontSize: 17.0,
+                                        fontWeight: FontWeight.w400,
+                                        textAlign: TextAlign.start,
+                                      ),
+                                    ],
                                   ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 6.0, bottom: 6.0),
-                                    child: ContainerX(
-                                        height: 0.5,
-                                        backgroundColor: ColorX.lightGray),
-                                  ),
-                                  TextX(
-                                    controller.dest.account.isNotEmpty
-                                        ? controller.dest.account
-                                        : '-',
-                                    color: ColorX.black,
-                                    fontSize: 17.0,
-                                    fontWeight: FontWeight.w400,
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ],
-                              )),
-                          ContainerX(height: 8.0),
-                          Row(
-                            children: [
-                              Expanded(
-                                  child: ButtonX(
-                                title: 'Pilih Tujuan',
-                                titleColor: ColorX.black,
-                                fontSize: 13.0,
-                                fontWeight: FontWeight.w600,
-                                backgroundColor: ColorX.transparent,
-                                borderWidth: 0.5,
-                                borderColor: ColorX.gray,
-                                width: 120.0,
-                                height: 32.0,
-                                cornerRadius: 8.0,
-                                onClicked: () {
-                                  controller.btnPickDestinationClicked();
-                                },
-                              )),
-                              ContainerX(width: 8.0),
-                              Expanded(
-                                child: ButtonX(
-                                    title: 'Tujuan Baru',
-                                    titleColor: ColorX.black,
-                                    fontSize: 13.0,
-                                    fontWeight: FontWeight.w600,
+                                ),
+                                ContainerX(width: 8.0),
+                                ButtonX(
+                                    faIcon: FontAwesomeIcons.chevronDown,
                                     backgroundColor: ColorX.transparent,
+                                    faWidth: 16.0,
+                                    faHeight: 16.0,
+                                    width: 40.0,
+                                    height: 40.0,
                                     borderWidth: 0.5,
                                     borderColor: ColorX.gray,
-                                    width: 120.0,
-                                    height: 32.0,
-                                    cornerRadius: 8.0,
                                     onClicked: () {
-                                      controller.btnClearClicked();
-                                    }),
-                              ),
-                            ],
-                          ),
+                                      controller.btnPickDestinationClicked();
+                                    })
+                              ])),
                           ContainerX(height: 12.0),
                           TextX(
                             'JUMLAH',
@@ -175,14 +163,40 @@ class MbxTransferP2PScreen extends StatelessWidget {
                             textAlign: TextAlign.start,
                           ),
                           ContainerX(height: 4.0),
-                          TextFieldX(
-                            hint: 'Pilih sumber dana',
-                            obscureText: false,
-                            keyboardType: TextInputType.text,
-                            readOnly: false,
-                            //controller: controller.txtUsernameController,
-                            //focusNode: controller.txtUsernameNode,
-                          ),
+                          ContainerX(
+                              width: double.infinity,
+                              padding: EdgeInsets.only(
+                                  left: 12.0,
+                                  top: 8.0,
+                                  right: 12.0,
+                                  bottom: 8.0),
+                              borderWidth: 1.0,
+                              borderColor: ColorX.lightGray,
+                              cornerRadius: 8.0,
+                              child: Row(children: [
+                                Expanded(
+                                  child: MbxSofWidget(
+                                    account: controller.sof,
+                                    borders: false,
+                                    onEyeClicked: () {
+                                      controller.btnEyeClicked();
+                                    },
+                                  ),
+                                ),
+                                ContainerX(width: 8.0),
+                                ButtonX(
+                                    faIcon: FontAwesomeIcons.chevronDown,
+                                    backgroundColor: ColorX.transparent,
+                                    faWidth: 16.0,
+                                    faHeight: 16.0,
+                                    width: 40.0,
+                                    height: 40.0,
+                                    borderWidth: 0.5,
+                                    borderColor: ColorX.gray,
+                                    onClicked: () {
+                                      controller.btnSofClicked();
+                                    })
+                              ])),
                           ContainerX(height: 12.0),
                           TextX(
                             'PERHATIAN',

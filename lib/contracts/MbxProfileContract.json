@@ -3,23 +3,30 @@
 	"data": {
 	  "accounts": [
 		{
-		  "account": "10002000101",
-		  "balance": 999000000000000,
+		  "account": "123412340001",
+		  "balance": 1500000,
 		  "id": 1,
 		  "name": "SUPER SAVER",
 		  "sof": true
 		},
 		{
-		  "account": "4000419200",
-		  "balance": 685000,
+		  "account": "123412340002",
+		  "balance": 250000000,
 		  "id": 2,
+		  "name": "SUPER SAVER",
+		  "sof": true
+		},
+		{
+		  "account": "444422220001",
+		  "balance": 685000,
+		  "id": 3,
 		  "name": "CREDIT CARD",
 		  "sof": true
 		},
 		{
-		  "account": "8000200123",
+		  "account": "800045678888",
 		  "balance": 1750000,
-		  "id": 3,
+		  "id": 4,
 		  "name": "PERSONAL LOAN",
 		  "sof": false
 		}

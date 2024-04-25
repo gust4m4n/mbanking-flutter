@@ -1,8 +1,11 @@
 import 'package:intl/intl.dart';
+import 'package:mbankingflutter/models/mbx_account_model.dart';
 import 'package:mbankingflutter/models/mbx_transfer_p2p_dest_model.dart';
+import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
 import 'package:mbankingflutter/views/mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
 
 import '../../models/mbx_receipt_model.dart';
+import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxTransfeP2PrController extends GetxController {
@@ -14,6 +17,7 @@ class MbxTransfeP2PrController extends GetxController {
   final txtMessageNode = FocusNode();
   var dest = MbxTransferP2PDestModel();
   int amount = 0;
+  var sof = MbxAccountModel();
 
   @override
   void onInit() {
@@ -23,6 +27,8 @@ class MbxTransfeP2PrController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    sof = MbxProfileVM.profile.accounts[0];
+
     update();
   }
 
@@ -59,6 +65,27 @@ class MbxTransfeP2PrController extends GetxController {
       amount = 0;
       txtAmountController.text = '';
     }
+    update();
+  }
+
+  btnSofClicked() {
+    MbxSofSheet.show(
+      title: 'SUMBER DANA',
+      description: 'Masukkan kode OTP yang anda terima melalui SMS.',
+      onSubmit: (code) {
+        return Future.value(true);
+      },
+      onResend: () async {},
+    ).then((sof) {
+      if (sof != null) {
+        this.sof = sof;
+        update();
+      }
+    });
+  }
+
+  btnEyeClicked() {
+    sof.visible = !sof.visible;
     update();
   }
 

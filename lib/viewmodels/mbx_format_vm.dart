@@ -44,6 +44,16 @@ class MbxFormatVM {
     return '$prefix${account.substring(account.length - visibleDigits)}';
   }
 
+  static String formatAccount(String account) {
+    if (account.isNotEmpty) {
+      return account
+          .replaceAllMapped(RegExp(r'.{4}'), (match) => '${match.group(0)}-')
+          .substring(0, account.length + (account.length / 4).floor() - 1);
+    } else {
+      return '';
+    }
+  }
+
   static String longDateTime(String dt) {
     DateTime now = DateTime.parse(dt).toLocal();
     var formatter = DateFormat('dd MMMM yyyy HH:mm');
