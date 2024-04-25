@@ -1,10 +1,10 @@
 import '../utils/all_utils.dart';
 
-class MbxConfirmModel {
+class MbxLabelValueModel {
   String label = '';
   String value = '';
 
-  MbxConfirmModel(Jason jason) {
+  MbxLabelValueModel(Jason jason) {
     label = jason['label'].stringValue;
     value = jason['value'].stringValue;
   }

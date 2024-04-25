@@ -1,9 +1,9 @@
-import '../../models/mbx_receipt_detail_model.dart';
+import '../../models/mbx_label_value_model.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
 class MbxReceiptCell extends StatelessWidget {
-  final MbxReceiptDetailModel detail;
+  final MbxLabelValueModel detail;
   MbxReceiptCell(this.detail);
 
   @override

@@ -1,10 +1,11 @@
-import '../models/mbx_confirm_model.dart';
+import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
+
 import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
 class MbxTransferP2PInquiryVM {
   var loading = false;
-  List<MbxConfirmModel> list = [];
+  var inquiry = MbxInquiryModel();
 
   Future<ApiXResponse> request() {
     loading = true;
@@ -17,10 +18,7 @@ class MbxTransferP2PInquiryVM {
         .then((resp) {
       loading = false;
       if (resp.status == 200) {
-        for (var item in resp.jason['data'].jasonListValue) {
-          var model = MbxConfirmModel(item);
-          list.add(model);
-        }
+        inquiry = MbxInquiryModel.fromJason(resp.jason['data']);
       }
       return resp;
     });

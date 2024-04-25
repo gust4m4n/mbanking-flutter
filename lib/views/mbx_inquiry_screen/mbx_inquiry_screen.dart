@@ -27,10 +27,10 @@ class MbxInquiryScreen extends GetWidget<MbxInquiryController> {
                       padding: EdgeInsets.zero,
                       physics: ClampingScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: controller.inquiryVM.list.length,
+                      itemCount: controller.inquiryVM.inquiry.details.length,
                       itemBuilder: (BuildContext context, int index) {
                         return MbxInquiryWidget(
-                          dest: controller.inquiryVM.list[index],
+                          dest: controller.inquiryVM.inquiry.details[index],
                           onDeleteClicked: () {},
                         );
                       },

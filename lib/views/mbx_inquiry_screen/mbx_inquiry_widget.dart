@@ -1,10 +1,9 @@
-import 'package:mbankingflutter/models/mbx_confirm_model.dart';
-
+import '../../models/mbx_label_value_model.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
 class MbxInquiryWidget extends StatelessWidget {
-  final MbxConfirmModel dest;
+  final MbxLabelValueModel dest;
   final GestureTapCallback? onDeleteClicked;
 
   MbxInquiryWidget({required this.dest, required this.onDeleteClicked});
