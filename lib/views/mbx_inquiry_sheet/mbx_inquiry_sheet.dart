@@ -1,9 +1,15 @@
+import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
+
 import '../../widgets/all_widgets.dart';
 import 'mbx_inquiry_controller.dart';
 import 'mbx_inquiry_widget.dart';
 
 // ignore: must_be_immutable
-class MbxInquiryScreen extends GetWidget<MbxInquiryController> {
+class MbxInquirySheet extends GetWidget<MbxInquiryController> {
+  final MbxInquiryModel inquiry;
+
+  MbxInquirySheet({required this.inquiry});
+
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showCustom(
@@ -27,10 +33,10 @@ class MbxInquiryScreen extends GetWidget<MbxInquiryController> {
                       padding: EdgeInsets.zero,
                       physics: ClampingScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: controller.inquiryVM.inquiry.details.length,
+                      itemCount: inquiry.details.length,
                       itemBuilder: (BuildContext context, int index) {
                         return MbxInquiryWidget(
-                          dest: controller.inquiryVM.inquiry.details[index],
+                          dest: inquiry.details[index],
                           onDeleteClicked: () {},
                         );
                       },
