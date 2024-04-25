@@ -18,7 +18,7 @@ class MbxConfirmScreen extends GetWidget<MbxConfirmController> {
           child: Column(children: [
         ConstrainedBox(
             constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(Get.context!).size.height * 0.7,
+              maxHeight: widgetMaxHeight(),
             ),
             child: Scrollbar(
                 child: SingleChildScrollView(
@@ -63,5 +63,20 @@ class MbxConfirmScreen extends GetWidget<MbxConfirmController> {
         ),
       ])),
     );
+  }
+
+  static double widgetMaxHeight() {
+    return MediaQuery.of(Get.context!).size.height -
+        (MediaQuery.of(Get.context!).padding.top +
+            16.0 +
+            16.0 +
+            40.0 +
+            16.0 +
+            // widget height here
+            16.0 +
+            48.0 +
+            16.0 +
+            16.0 +
+            MediaQuery.of(Get.context!).padding.bottom);
   }
 }
