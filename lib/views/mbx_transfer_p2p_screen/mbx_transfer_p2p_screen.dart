@@ -87,7 +87,7 @@ class MbxTransferP2PScreen extends StatelessWidget {
                                             : '-',
                                         color: ColorX.black,
                                         fontSize: 17.0,
-                                        fontWeight: FontWeight.w400,
+                                        fontWeight: FontWeight.w500,
                                         textAlign: TextAlign.start,
                                       ),
                                       TextX(
@@ -96,8 +96,8 @@ class MbxTransferP2PScreen extends StatelessWidget {
                                                 controller.dest.account)
                                             : '-',
                                         color: ColorX.black,
-                                        fontSize: 17.0,
-                                        fontWeight: FontWeight.w400,
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.w500,
                                         textAlign: TextAlign.start,
                                       ),
                                     ],
@@ -131,6 +131,8 @@ class MbxTransferP2PScreen extends StatelessWidget {
                             obscureText: false,
                             keyboardType: TextInputType.number,
                             readOnly: false,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w500,
                             controller: controller.txtAmountController,
                             focusNode: controller.txtAmountNode,
                             onChanged: (value) {
