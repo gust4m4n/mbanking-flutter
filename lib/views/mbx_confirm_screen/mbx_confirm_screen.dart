@@ -7,7 +7,7 @@ class MbxConfirmScreen extends GetWidget<MbxConfirmController> {
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showCustom(
-        title: 'Konfirmasi', widget: this, percentHeight: 0.0);
+        title: 'Konfirmasi', widget: this, autoClose: false);
   }
 
   @override
