@@ -1,11 +1,10 @@
 import 'package:intl/intl.dart';
 import 'package:mbankingflutter/models/mbx_account_model.dart';
 import 'package:mbankingflutter/models/mbx_transfer_p2p_dest_model.dart';
-import 'package:mbankingflutter/views/mbx_confirm_screen/mbx_confirm_screen.dart';
+import 'package:mbankingflutter/views/mbx_inquiry_screen/mbx_inquiry_screen.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
 import 'package:mbankingflutter/views/mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
 
-import '../../models/mbx_receipt_model.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 
@@ -91,7 +90,7 @@ class MbxTransfeP2PrController extends GetxController {
   }
 
   btnNextClicked() {
-    final confirm = MbxConfirmScreen();
+    final confirm = MbxInquiryScreen();
     confirm.show().then((value) {
       if (value != null) {
         dest = value;

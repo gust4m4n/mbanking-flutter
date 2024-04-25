@@ -1,18 +1,18 @@
-import 'package:mbankingflutter/viewmodels/mbx_confirm_vm.dart';
+import 'package:mbankingflutter/viewmodels/mbx_transfer_p2p_inquiry_vm.dart';
 
 import '../../models/mbx_receipt_model.dart';
 import '../../widgets/all_widgets.dart';
 
-class MbxConfirmController extends GetxController {
+class MbxInquiryController extends GetxController {
   TextEditingController txtSearch = TextEditingController();
   var loading = true;
-  var destListVM = MbxConfirmVM();
+  var inquiryVM = MbxTransferP2PInquiryVM();
 
   @override
   void onReady() {
     super.onReady();
     update();
-    destListVM.nextPage().then((resp) {
+    inquiryVM.request().then((resp) {
       loading = false;
       update();
     });

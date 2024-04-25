@@ -1,9 +1,9 @@
 import '../../widgets/all_widgets.dart';
-import 'mbx_confirm_controller.dart';
-import 'mbx_confirm_widget.dart';
+import 'mbx_inquiry_controller.dart';
+import 'mbx_inquiry_widget.dart';
 
 // ignore: must_be_immutable
-class MbxConfirmScreen extends GetWidget<MbxConfirmController> {
+class MbxInquiryScreen extends GetWidget<MbxInquiryController> {
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showCustom(
@@ -12,8 +12,8 @@ class MbxConfirmScreen extends GetWidget<MbxConfirmController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxConfirmController>(
-      init: MbxConfirmController(),
+    return GetBuilder<MbxInquiryController>(
+      init: MbxInquiryController(),
       builder: (controller) => ContainerX(
           child: Column(children: [
         ConstrainedBox(
@@ -27,10 +27,10 @@ class MbxConfirmScreen extends GetWidget<MbxConfirmController> {
                       padding: EdgeInsets.zero,
                       physics: ClampingScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: controller.destListVM.list.length,
+                      itemCount: controller.inquiryVM.list.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return MbxConfirmWidget(
-                          dest: controller.destListVM.list[index],
+                        return MbxInquiryWidget(
+                          dest: controller.inquiryVM.list[index],
                           onDeleteClicked: () {},
                         );
                       },

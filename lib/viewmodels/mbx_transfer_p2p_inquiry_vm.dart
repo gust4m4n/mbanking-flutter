@@ -1,23 +1,18 @@
-import 'package:mbankingflutter/models/mbx_confirm_model.dart';
-
+import '../models/mbx_confirm_model.dart';
 import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
-class MbxConfirmVM {
+class MbxTransferP2PInquiryVM {
   var loading = false;
   List<MbxConfirmModel> list = [];
 
-  clear() {
-    list = [];
-  }
-
-  Future<ApiXResponse> nextPage() {
+  Future<ApiXResponse> request() {
     loading = true;
     return MbxApi.post(
-            endpoint: '/transfer/p2p/dest',
+            endpoint: '/transfer/p2p/inquiry',
             params: {},
             headers: {},
-            contractFile: 'lib/contracts/MbxConfirmContract.json',
+            contractFile: 'lib/contracts/MbxTransferP2PInquiryContract.json',
             contract: true)
         .then((resp) {
       loading = false;

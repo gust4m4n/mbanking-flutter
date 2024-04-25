@@ -3,11 +3,11 @@ import 'package:mbankingflutter/models/mbx_confirm_model.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxConfirmWidget extends StatelessWidget {
+class MbxInquiryWidget extends StatelessWidget {
   final MbxConfirmModel dest;
   final GestureTapCallback? onDeleteClicked;
 
-  MbxConfirmWidget({required this.dest, required this.onDeleteClicked});
+  MbxInquiryWidget({required this.dest, required this.onDeleteClicked});
 
   @override
   Widget build(BuildContext context) {
