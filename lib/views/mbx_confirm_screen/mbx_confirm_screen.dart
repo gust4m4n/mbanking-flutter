@@ -7,7 +7,7 @@ class MbxConfirmScreen extends GetWidget<MbxConfirmController> {
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showCustom(
-        title: 'Konfirmasi', widget: this, percentHeight: 1.0);
+        title: 'Konfirmasi', widget: this, percentHeight: 0.0);
   }
 
   @override
@@ -16,36 +16,25 @@ class MbxConfirmScreen extends GetWidget<MbxConfirmController> {
       init: MbxConfirmController(),
       builder: (controller) => ContainerX(
           child: Column(children: [
-        Expanded(
-            child: controller.loading
-                ? Center(
-                    child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(ColorX.gray)),
-                  )
-                : Scrollbar(
-                    child: ListView.builder(
-                    padding: EdgeInsets.zero,
+        ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.of(Get.context!).size.height * 0.7,
+            ),
+            child: Scrollbar(
+                child: SingleChildScrollView(
                     physics: ClampingScrollPhysics(),
-                    itemCount: controller.destListVM.filtered.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Material(
-                          color: ColorX.transparent,
-                          child: InkWell(
-                              highlightColor: ColorX.highlight,
-                              onTap: () {
-                                Get.back(
-                                    result:
-                                        controller.destListVM.filtered[index]);
-                              },
-                              child: MbxConfirmWidget(
-                                dest: controller.destListVM.filtered[index],
-                                onDeleteClicked: () {
-                                  controller.onDeleteClicked(
-                                      controller.destListVM.filtered[index]);
-                                },
-                              )));
-                    },
-                  ))),
+                    child: ListView.builder(
+                      padding: EdgeInsets.zero,
+                      physics: ClampingScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: controller.destListVM.list.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return MbxConfirmWidget(
+                          dest: controller.destListVM.list[index],
+                          onDeleteClicked: () {},
+                        );
+                      },
+                    )))),
         Padding(
           padding: EdgeInsets.all(16.0),
           child: Row(

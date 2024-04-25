@@ -1,0 +1,18 @@
+{
+	"status": 200,
+	"message": "Confirmation detail retrieved.",
+	"data": [
+	  {
+		"label": "Transaksi",
+		"value": "Pembayaran QRIS"
+	  },
+	  {
+		"label": "Total Bayar",
+		"value": "Rp. 520.000"
+	  },
+	  {
+		"label": "No. Referensi",
+		"value": "1234000012340000"
+	  }
+	]
+  }

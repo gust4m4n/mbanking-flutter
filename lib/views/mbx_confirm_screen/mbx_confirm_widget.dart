@@ -1,11 +1,10 @@
-import 'package:mbankingflutter/viewmodels/mbx_format_vm.dart';
+import 'package:mbankingflutter/models/mbx_confirm_model.dart';
 
-import '../../models/mbx_transfer_p2p_dest_model.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
 class MbxConfirmWidget extends StatelessWidget {
-  final MbxTransferP2PDestModel dest;
+  final MbxConfirmModel dest;
   final GestureTapCallback? onDeleteClicked;
 
   MbxConfirmWidget({required this.dest, required this.onDeleteClicked});
@@ -22,7 +21,7 @@ class MbxConfirmWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextX(
-                    dest.name,
+                    dest.label,
                     color: ColorX.black,
                     fontSize: 15.0,
                     fontWeight: FontWeight.w700,
@@ -31,7 +30,7 @@ class MbxConfirmWidget extends StatelessWidget {
                   ),
                   ContainerX(height: 2.0),
                   TextX(
-                    MbxFormatVM.formatAccount(dest.account),
+                    dest.value,
                     color: ColorX.black,
                     fontSize: 15.0,
                     fontWeight: FontWeight.w500,
