@@ -49,7 +49,7 @@ class ButtonX extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-        clipBehavior: Clip.hardEdge,
+        clipBehavior: Clip.antiAlias,
         borderRadius: BorderRadius.all(
           Radius.circular(cornerRadius),
         ),

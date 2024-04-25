@@ -15,75 +15,64 @@ class MbxConfirmScreen extends GetWidget<MbxConfirmController> {
     return GetBuilder<MbxConfirmController>(
       init: MbxConfirmController(),
       builder: (controller) => ContainerX(
-          backgroundColor: ColorX.white,
           child: Column(children: [
-            Expanded(
-                child: controller.loading
-                    ? Center(
-                        child: CircularProgressIndicator(
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(ColorX.gray)),
-                      )
-                    : Scrollbar(
-                        child: ListView.separated(
-                        padding: EdgeInsets.zero,
-                        physics: ClampingScrollPhysics(),
-                        separatorBuilder: (context, index) {
-                          return Padding(
-                              padding: EdgeInsets.only(left: 16.0),
-                              child: ContainerX(
-                                height: 0.5,
-                                width: double.infinity,
-                                backgroundColor: ColorX.lightGray,
-                              ));
-                        },
-                        itemCount: controller.destListVM.filtered.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Material(
-                              color: ColorX.transparent,
-                              child: InkWell(
-                                  highlightColor: ColorX.highlight,
-                                  onTap: () {
-                                    Get.back(
-                                        result: controller
-                                            .destListVM.filtered[index]);
-                                  },
-                                  child: MbxConfirmWidget(
-                                    dest: controller.destListVM.filtered[index],
-                                    onDeleteClicked: () {
-                                      controller.onDeleteClicked(controller
-                                          .destListVM.filtered[index]);
-                                    },
-                                  )));
-                        },
-                      ))),
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Expanded(
-                      child: ButtonX(
-                    backgroundColor: ColorX.theme,
-                    title: 'Transfer',
-                    onClicked: () {
-                      controller.btnNextClicked();
+        Expanded(
+            child: controller.loading
+                ? Center(
+                    child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(ColorX.gray)),
+                  )
+                : Scrollbar(
+                    child: ListView.builder(
+                    padding: EdgeInsets.zero,
+                    physics: ClampingScrollPhysics(),
+                    itemCount: controller.destListVM.filtered.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Material(
+                          color: ColorX.transparent,
+                          child: InkWell(
+                              highlightColor: ColorX.highlight,
+                              onTap: () {
+                                Get.back(
+                                    result:
+                                        controller.destListVM.filtered[index]);
+                              },
+                              child: MbxConfirmWidget(
+                                dest: controller.destListVM.filtered[index],
+                                onDeleteClicked: () {
+                                  controller.onDeleteClicked(
+                                      controller.destListVM.filtered[index]);
+                                },
+                              )));
                     },
-                  )),
-                  ContainerX(width: 8.0),
-                  Expanded(
-                      child: ButtonX(
-                    backgroundColor: ColorX.theme.withOpacity(0.2),
-                    highlightColor: ColorX.theme.withOpacity(0.3),
-                    title: 'Batal',
-                    titleColor: ColorX.black,
-                    onClicked: () {
-                      controller.btnCloseClicked();
-                    },
-                  ))
-                ],
-              ),
-            ),
-          ])),
+                  ))),
+        Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Row(
+            children: [
+              Expanded(
+                  child: ButtonX(
+                backgroundColor: ColorX.theme,
+                title: 'Transfer',
+                onClicked: () {
+                  controller.btnNextClicked();
+                },
+              )),
+              ContainerX(width: 8.0),
+              Expanded(
+                  child: ButtonX(
+                backgroundColor: ColorX.theme.withOpacity(0.2),
+                highlightColor: ColorX.theme.withOpacity(0.3),
+                title: 'Batal',
+                titleColor: ColorX.black,
+                onClicked: () {
+                  controller.btnCloseClicked();
+                },
+              ))
+            ],
+          ),
+        ),
+      ])),
     );
   }
 }

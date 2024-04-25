@@ -125,77 +125,76 @@ class SheetX {
       bool autoClose = true}) {
     return SheetX.showCustom(
         widget: ContainerX(
-            backgroundColor: ColorX.white,
             child: Column(children: [
-              ConstrainedBox(
-                  constraints: BoxConstraints(
-                    maxHeight: widgetMaxHeight() * 0.7,
-                  ),
-                  child: Scrollbar(
-                      child: SingleChildScrollView(
-                    physics: ClampingScrollPhysics(),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                      child: Column(
-                        children: [
-                          Visibility(
-                            visible: icon != null,
-                            child: Column(children: [
-                              icon ?? Container(),
-                              const SizedBox(height: 16.0),
-                            ]),
-                          ),
-                          const SizedBox(height: 8.0),
-                          TextX(
-                            message,
-                            color: ColorX.black,
-                            fontSize: 17.0,
-                            fontWeight: FontWeight.w400,
-                            textAlign:
-                                centered ? TextAlign.center : TextAlign.start,
-                            maxLines: 2048,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ))),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  children: <Widget>[
-                    Visibility(
-                      visible: leftBtnTitle.isNotEmpty,
-                      child: Expanded(
-                        child: ButtonX(
-                          title: leftBtnTitle,
-                          titleColor: ColorX.white,
-                          borderWidth: 1.0,
-                          borderColor: ColorX.theme,
-                          backgroundColor: ColorX.theme,
-                          onClicked: onLeftBtnClicked,
-                        ),
-                      ),
-                    ),
-                    Visibility(
-                        visible:
-                            leftBtnTitle.isNotEmpty && rightBtnTitle.isNotEmpty,
-                        child: const SizedBox(width: 8.0)),
-                    Visibility(
-                      visible: rightBtnTitle.isNotEmpty,
-                      child: Expanded(
-                        child: ButtonX(
-                          title: rightBtnTitle,
-                          titleColor: ColorX.black,
-                          backgroundColor: ColorX.theme.withOpacity(0.2),
-                          highlightColor: ColorX.theme.withOpacity(0.3),
-                          onClicked: onRightBtnClicked ?? () => {},
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+          ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: widgetMaxHeight() * 0.7,
               ),
-            ])),
+              child: Scrollbar(
+                  child: SingleChildScrollView(
+                physics: ClampingScrollPhysics(),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: icon != null,
+                        child: Column(children: [
+                          icon ?? Container(),
+                          const SizedBox(height: 16.0),
+                        ]),
+                      ),
+                      const SizedBox(height: 8.0),
+                      TextX(
+                        message,
+                        color: ColorX.black,
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.w400,
+                        textAlign:
+                            centered ? TextAlign.center : TextAlign.start,
+                        maxLines: 2048,
+                      ),
+                    ],
+                  ),
+                ),
+              ))),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              children: <Widget>[
+                Visibility(
+                  visible: leftBtnTitle.isNotEmpty,
+                  child: Expanded(
+                    child: ButtonX(
+                      title: leftBtnTitle,
+                      titleColor: ColorX.white,
+                      borderWidth: 1.0,
+                      borderColor: ColorX.theme,
+                      backgroundColor: ColorX.theme,
+                      onClicked: onLeftBtnClicked,
+                    ),
+                  ),
+                ),
+                Visibility(
+                    visible:
+                        leftBtnTitle.isNotEmpty && rightBtnTitle.isNotEmpty,
+                    child: const SizedBox(width: 8.0)),
+                Visibility(
+                  visible: rightBtnTitle.isNotEmpty,
+                  child: Expanded(
+                    child: ButtonX(
+                      title: rightBtnTitle,
+                      titleColor: ColorX.black,
+                      backgroundColor: ColorX.theme.withOpacity(0.2),
+                      highlightColor: ColorX.theme.withOpacity(0.3),
+                      onClicked: onRightBtnClicked ?? () => {},
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ])),
         title: title,
         autoClose: autoClose);
   }
