@@ -19,7 +19,10 @@ class MbxReloginController extends GetxController {
     MbxProfileVM.request().then((resp) {
       update();
     });
-    btnLoginClicked();
+    final autologin = Get.arguments['autologin'] as bool;
+    if (autologin == true) {
+      btnLoginClicked();
+    }
   }
 
   btnThemeClicked() {

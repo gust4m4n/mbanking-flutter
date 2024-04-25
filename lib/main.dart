@@ -1,3 +1,5 @@
+import 'package:mbankingflutter/viewmodels/mbx_theme_vm.dart';
+
 import 'viewmodels/mbx_anti_jailbreak_vm.dart';
 import 'viewmodels/mbx_device_info_vm.dart';
 import 'viewmodels/mbx_preferences_vm+users.dart';
@@ -32,7 +34,7 @@ Future<void> main() async {
   if (theme.isNotEmpty) {
     ColorX.theme = hexToColor(await MbxUserPreferencesVM.getTheme());
   } else {
-    ColorX.theme = Color(0xfff44336);
+    ColorX.theme = MbxThemeVM.colors[0];
     final hex = '#${ColorX.theme.value.toRadixString(16)}';
     MbxUserPreferencesVM.setTheme(hex);
   }
@@ -112,7 +114,10 @@ class MyApp extends StatelessWidget {
             name: '/relogin',
             page: () => MbxReloginScreen(),
             transition: Transition.noTransition),
-        GetPage(name: '/home', page: () => MbxBottomNavBarScreen()),
+        GetPage(
+            name: '/home',
+            page: () => MbxBottomNavBarScreen(),
+            transition: Transition.noTransition),
         GetPage(name: '/tnc', page: () => MbxTncScreen()),
         GetPage(name: '/privacy', page: () => MbxPrivacyPolicyScreen()),
         GetPage(name: '/news', page: () => MbxNewsScreen()),

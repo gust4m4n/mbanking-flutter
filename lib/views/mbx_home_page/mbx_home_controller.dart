@@ -25,7 +25,7 @@ class MbxHomeController extends GetxController {
   }
 
   btnLockClicked() {
-    Get.toNamed('/relogin');
+    Get.toNamed('/relogin', arguments: {'autologin': false});
   }
 
   btnEyeClicked(int index) {
