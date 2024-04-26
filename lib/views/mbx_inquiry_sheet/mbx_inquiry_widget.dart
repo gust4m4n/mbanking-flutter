@@ -3,10 +3,9 @@ import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
 class MbxInquiryWidget extends StatelessWidget {
-  final MbxLabelValueModel dest;
-  final GestureTapCallback? onDeleteClicked;
+  final MbxLabelValueModel row;
 
-  MbxInquiryWidget({required this.dest, required this.onDeleteClicked});
+  MbxInquiryWidget({required this.row});
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +19,18 @@ class MbxInquiryWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextX(
-                    dest.label,
+                    row.label,
                     color: ColorX.black,
-                    fontSize: 15.0,
+                    fontSize: 13.0,
                     fontWeight: FontWeight.w400,
                     textAlign: TextAlign.start,
                     maxLines: 8,
                   ),
-                  ContainerX(height: 2.0),
                   TextX(
-                    dest.value,
+                    row.value,
                     color: ColorX.black,
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w500,
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w600,
                     textAlign: TextAlign.start,
                     maxLines: 8,
                   ),

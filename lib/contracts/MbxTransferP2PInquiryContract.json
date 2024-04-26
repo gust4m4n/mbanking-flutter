@@ -4,23 +4,23 @@
 	"data": {
 	  "details": [
 		{
-		  "label": "Transaksi",
+		  "label": "TRANSAKSI",
 		  "value": "Transfer Antar Rekening"
 		},
 		{
-		  "label": "Nominal",
+		  "label": "NOMINAL",
 		  "value": "IDR 150.000"
 		},
 		{
-		  "label": "Nama Penerima",
+		  "label": "NAMA PENERIMA",
 		  "value": "CAROLINE"
 		},
 		{
-		  "label": "Rekening Penerima",
+		  "label": "REKENING PENERIMA",
 		  "value": "3888-111-2333"
 		},
 		{
-		  "label": "Rekening Pengirim",
+		  "label": "REKENING PENGIRIM",
 		  "value": "8222-3833-4888"
 		}
 	  ],

@@ -103,7 +103,10 @@ class MbxTransfeP2PrController extends GetxController {
     inquiryVM.request().then((resp) {
       Get.back();
       if (resp.status == 200) {
-        final sheet = MbxInquirySheet(inquiry: inquiryVM.inquiry);
+        final sheet = MbxInquirySheet(
+            title: 'Konfirmasi',
+            confirmBtnTitle: 'Transfer',
+            inquiry: inquiryVM.inquiry);
         sheet.show().then((value) {
           if (value == true) {
             security(inquiry: inquiryVM.inquiry);

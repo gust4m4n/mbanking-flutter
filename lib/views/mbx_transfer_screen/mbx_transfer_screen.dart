@@ -36,7 +36,11 @@ class MbxTransferScreen extends StatelessWidget {
                           child: ContainerX(
                               borderWidth: 1.0,
                               borderColor: ColorX.white,
-                              padding: EdgeInsets.all(16.0),
+                              padding: EdgeInsets.only(
+                                  left: 16.0,
+                                  top: 12.0,
+                                  right: 16.0,
+                                  bottom: 12.0),
                               cornerRadius: 16.0,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -45,10 +49,10 @@ class MbxTransferScreen extends StatelessWidget {
                                     faIcon:
                                         FontAwesomeIcons.arrowRightArrowLeft,
                                     color: ColorX.white,
-                                    width: 20.0,
-                                    height: 20.0,
+                                    width: 16.0,
+                                    height: 16.0,
                                   ),
-                                  ContainerX(height: 8.0),
+                                  ContainerX(height: 4.0),
                                   TextX(
                                     'Antar Rekening',
                                     color: ColorX.white,
@@ -68,7 +72,11 @@ class MbxTransferScreen extends StatelessWidget {
                           child: ContainerX(
                               borderWidth: 1.0,
                               borderColor: ColorX.white,
-                              padding: EdgeInsets.all(16.0),
+                              padding: EdgeInsets.only(
+                                  left: 16.0,
+                                  top: 12.0,
+                                  right: 16.0,
+                                  bottom: 12.0),
                               cornerRadius: 16.0,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -76,10 +84,10 @@ class MbxTransferScreen extends StatelessWidget {
                                   ImageX(
                                     faIcon: FontAwesomeIcons.buildingColumns,
                                     color: ColorX.white,
-                                    width: 20.0,
-                                    height: 20.0,
+                                    width: 16.0,
+                                    height: 16.0,
                                   ),
-                                  ContainerX(height: 8.0),
+                                  ContainerX(height: 4.0),
                                   TextX(
                                     'Antar Bank',
                                     color: ColorX.white,

@@ -5,14 +5,18 @@ import 'mbx_inquiry_widget.dart';
 
 // ignore: must_be_immutable
 class MbxInquirySheet extends GetWidget<MbxInquiryController> {
+  final String title;
+  final String confirmBtnTitle;
   final MbxInquiryModel inquiry;
 
-  MbxInquirySheet({required this.inquiry});
+  MbxInquirySheet(
+      {required this.title,
+      required this.confirmBtnTitle,
+      required this.inquiry});
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
-    return SheetX.showCustom(
-        title: 'Konfirmasi', widget: this, autoClose: false);
+    return SheetX.showCustom(title: this.title, widget: this, autoClose: false);
   }
 
   @override
@@ -35,8 +39,7 @@ class MbxInquirySheet extends GetWidget<MbxInquiryController> {
                       itemCount: inquiry.details.length,
                       itemBuilder: (BuildContext context, int index) {
                         return MbxInquiryWidget(
-                          dest: inquiry.details[index],
-                          onDeleteClicked: () {},
+                          row: inquiry.details[index],
                         );
                       },
                     )))),
@@ -47,7 +50,7 @@ class MbxInquirySheet extends GetWidget<MbxInquiryController> {
               Expanded(
                   child: ButtonX(
                 backgroundColor: ColorX.theme,
-                title: 'Transfer',
+                title: confirmBtnTitle,
                 onClicked: () {
                   controller.btnNextClicked();
                 },
