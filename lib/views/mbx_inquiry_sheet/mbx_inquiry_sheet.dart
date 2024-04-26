@@ -1,5 +1,4 @@
-import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
-
+import '../../models/mbx_inquiry_model.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_inquiry_controller.dart';
 import 'mbx_inquiry_widget.dart';

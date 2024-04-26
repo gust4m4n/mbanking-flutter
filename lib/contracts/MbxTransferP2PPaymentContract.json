@@ -1,0 +1,72 @@
+{
+	"status": 200,
+	"message": "Transfer P2P success.",
+	"data": {
+	  "details": [
+		{
+		  "label": "Nomor Referensi",
+		  "value": "9501777"
+		},
+		{
+		  "label": "Jenis Transaksi",
+		  "value": "Transfer Antar Rekening"
+		},
+		{
+		  "label": "Tanggal Transaksi",
+		  "value": "2 April 2024"
+		},
+		{
+		  "label": "Waktu Transaksi",
+		  "value": "10:22:58"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "Nama Penerima",
+		  "value": "THOMAS"
+		},
+		{
+		  "label": "Rekening Penerima",
+		  "value": "8125-8272-8333"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "Nama Pengirim",
+		  "value": "WILLIAM"
+		},
+		{
+		  "label": "Rekening Pengirim",
+		  "value": "7629-1000-3333"
+		},
+		{
+		  "label": "Tujuan Transaksi",
+		  "value": "Lainnya"
+		},
+		{
+		  "label": "Berita",
+		  "value": "Buat uang saku dan bayar sekolah"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "Nominal",
+		  "value": "IDR 5.000.000"
+		},
+		{
+		  "label": "Biaya Admin",
+		  "value": "IDR 2.500"
+		},
+		{
+		  "label": "Total",
+		  "value": "IDR 5.002.500"
+		}
+	  ],
+	  "title": "Transfer Berhasil",
+	  "transaction_id": "500001111111111",
+	  "amount": "IDR 5.002.500"
+	}
+  }

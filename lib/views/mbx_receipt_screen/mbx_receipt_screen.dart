@@ -10,7 +10,7 @@ class MbxReceiptScreen extends StatelessWidget {
       builder: (controller) => ScreenX(
           lightStatusBar: true,
           headerView: NavigationBarX(
-            title: 'Receipt',
+            title: '',
             leftBtn: ImageX(
               faIcon: FontAwesomeIcons.arrowLeft,
               width: 20.0,

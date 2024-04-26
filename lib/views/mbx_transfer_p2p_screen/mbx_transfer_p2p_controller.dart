@@ -7,6 +7,7 @@ import 'package:mbankingflutter/views/mbx_transfer_p2p_picker/mbx_transfer_p2p_p
 
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_transfer_p2p_inquiry_vm.dart';
+import '../../viewmodels/mbx_transfer_p2p_payment_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxTransfeP2PrController extends GetxController {
@@ -95,15 +96,28 @@ class MbxTransfeP2PrController extends GetxController {
     Get.loading();
     inquiryVM.request().then((resp) {
       Get.back();
-      final sheet = MbxInquirySheet(
-        inquiry: inquiryVM.inquiry,
-      );
-      sheet.show().then((value) {
-        if (value != null) {
-          Get.offNamed('/receipt',
-              arguments: {'receipt': value, 'backToHome': false});
-        }
-      });
+      if (resp.status == 200) {
+        final sheet = MbxInquirySheet(
+          inquiry: inquiryVM.inquiry,
+        );
+        sheet.show().then((yes) {
+          if (yes == true) {
+            Get.loading();
+            final paymentVM = MbxTransferP2PPaymentVM();
+            paymentVM.request(transaction_id: '').then((resp) {
+              if (resp.status == 200) {
+                Get.back();
+                Get.offNamed('/receipt', arguments: {
+                  'receipt': paymentVM.receipt,
+                  'backToHome': false
+                });
+              }
+            });
+          }
+        });
+      } else {
+        // inquiry request failed
+      }
     });
   }
 }

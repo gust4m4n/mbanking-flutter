@@ -1,4 +1,3 @@
-import '../../models/mbx_receipt_model.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxInquiryController extends GetxController {
@@ -8,11 +7,10 @@ class MbxInquiryController extends GetxController {
   }
 
   btnCloseClicked() {
-    Get.back(result: null);
+    Get.back(result: false);
   }
 
   btnNextClicked() {
-    Get.offNamed('/receipt',
-        arguments: {'receipt': MbxReceiptModel(), 'backToHome': false});
+    Get.back(result: true);
   }
 }
