@@ -75,8 +75,6 @@ class MbxQRISAmountController extends GetxController {
     pinSheet.show(
       title: 'PIN',
       message: 'Masukkan nomor pin m-banking atau ATM anda.',
-            description: '',
-
       secure: true,
       biometric: true,
       onSubmit: (code, biometric) async {

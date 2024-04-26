@@ -92,7 +92,6 @@ class MbLoginController extends GetxController {
         .show(
       title: 'OTP',
       message: 'Masukkan kode OTP yang anda terima melalui SMS.',
-      description: '',
       secure: false,
       biometric: false,
       onSubmit: (code, biometric) async {
@@ -129,7 +128,6 @@ class MbLoginController extends GetxController {
     pinSheet.show(
       title: 'PIN',
       message: 'Masukkan nomor pin m-banking atau ATM anda.',
-      description: '',
       secure: true,
       biometric: false,
       onSubmit: (code, biometric) async {

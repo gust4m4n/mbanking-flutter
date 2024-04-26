@@ -2,7 +2,6 @@
 	"status": 200,
 	"message": "Transfer P2P Inquiry Success",
 	"data": {
-	  "description": "Anda akan mengirimkan uang sebesar IDR 150.000 ke CAROLINE dengan nomor rekening 3888-111-2333.",
 	  "details": [
 		{
 		  "label": "Transaksi",

@@ -2,6 +2,7 @@ import 'package:intl/intl.dart';
 import 'package:mbankingflutter/models/mbx_account_model.dart';
 import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
 import 'package:mbankingflutter/models/mbx_transfer_p2p_dest_model.dart';
+import 'package:mbankingflutter/views/mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
 import 'package:mbankingflutter/views/mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
 
@@ -102,7 +103,12 @@ class MbxTransfeP2PrController extends GetxController {
     inquiryVM.request().then((resp) {
       Get.back();
       if (resp.status == 200) {
-        security(inquiry: inquiryVM.inquiry);
+        final sheet = MbxInquirySheet(inquiry: inquiryVM.inquiry);
+        sheet.show().then((value) {
+          if (value == true) {
+            security(inquiry: inquiryVM.inquiry);
+          }
+        });
       } else {
         // inquiry request failed
       }
@@ -114,7 +120,6 @@ class MbxTransfeP2PrController extends GetxController {
     pinSheet.show(
       title: 'PIN',
       message: 'Masukkan nomor pin m-banking atau ATM anda.',
-      description: inquiry.description,
       secure: true,
       biometric: true,
       onSubmit: (code, biometric) async {

@@ -7,7 +7,6 @@ import 'mbx_pin_sheet_controller.dart';
 class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   String title = '';
   String message = '';
-  String description = '';
   bool secure = true;
   bool biometric = false;
   void Function(String code, bool biometric)? onSubmit = null;
@@ -20,7 +19,6 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   Future<T?> show<T>({
     required String title,
     required String message,
-    required String description,
     required bool secure,
     required bool biometric,
     required void Function(String code, bool biometric) onSubmit,
@@ -31,7 +29,6 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
     await Get.delete<MbxPinSheetController>();
     this.title = title;
     this.message = message;
-    this.description = description;
     this.secure = secure;
     this.biometric = biometric;
     this.onSubmit = onSubmit;
@@ -52,29 +49,6 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
         builder: (controller) => ContainerX(
             backgroundColor: ColorX.white,
             child: Wrap(alignment: WrapAlignment.center, children: [
-              Visibility(
-                  visible: description.isNotEmpty,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: 16.0, top: 0.0, right: 16.0, bottom: 8.0),
-                        child: ContainerX(
-                          backgroundColor: ColorX.theme,
-                          padding: EdgeInsets.all(16.0),
-                          cornerRadius: 8.0,
-                          child: TextX(
-                            description,
-                            color: ColorX.white,
-                            fontSize: 17.0,
-                            fontWeight: FontWeight.w400,
-                            textAlign: TextAlign.center,
-                            maxLines: 16,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )),
               Visibility(
                 visible: message.isNotEmpty,
                 child: Padding(
