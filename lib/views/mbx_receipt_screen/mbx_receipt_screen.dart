@@ -158,17 +158,6 @@ class MbxReceiptScreen extends StatelessWidget {
                                         left: 16.0, right: 16.0),
                                     child: Row(
                                       children: [
-                                        Expanded(
-                                          child: ButtonX(
-                                            title: 'Selesai',
-                                            titleColor: ColorX.white,
-                                            height: 42.0,
-                                            cornerRadius: 8.0,
-                                            onClicked:
-                                                controller.btnBackClicked,
-                                          ),
-                                        ),
-                                        ContainerX(width: 8.0),
                                         ButtonX(
                                           faIcon: FontAwesomeIcons.shareNodes,
                                           faWidth: 16.0,
@@ -194,6 +183,17 @@ class MbxReceiptScreen extends StatelessWidget {
                                           cornerRadius: 8.0,
                                           onClicked:
                                               controller.btnDownloadClicked,
+                                        ),
+                                        ContainerX(width: 8.0),
+                                        Expanded(
+                                          child: ButtonX(
+                                            title: 'Selesai',
+                                            titleColor: ColorX.white,
+                                            height: 42.0,
+                                            cornerRadius: 8.0,
+                                            onClicked:
+                                                controller.btnBackClicked,
+                                          ),
                                         ),
                                       ],
                                     )),
