@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:mbankingflutter/models/mbx_account_model.dart';
+import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
 import 'package:mbankingflutter/models/mbx_transfer_p2p_dest_model.dart';
-import 'package:mbankingflutter/views/mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
 import 'package:mbankingflutter/views/mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
 
@@ -9,6 +9,7 @@ import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_transfer_p2p_inquiry_vm.dart';
 import '../../viewmodels/mbx_transfer_p2p_payment_vm.dart';
 import '../../widgets/all_widgets.dart';
+import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
 class MbxTransfeP2PrController extends GetxController {
   final txtAccountController = TextEditingController();
@@ -92,31 +93,56 @@ class MbxTransfeP2PrController extends GetxController {
   }
 
   btnNextClicked() {
-    final inquiryVM = MbxTransferP2PInquiryVM();
+    inquiry();
+  }
+
+  inquiry() {
     Get.loading();
+    final inquiryVM = MbxTransferP2PInquiryVM();
     inquiryVM.request().then((resp) {
       Get.back();
       if (resp.status == 200) {
-        final sheet = MbxInquirySheet(
-          inquiry: inquiryVM.inquiry,
-        );
-        sheet.show().then((yes) {
-          if (yes == true) {
-            Get.loading();
-            final paymentVM = MbxTransferP2PPaymentVM();
-            paymentVM.request(transaction_id: '').then((resp) {
-              if (resp.status == 200) {
-                Get.back();
-                Get.offNamed('/receipt', arguments: {
-                  'receipt': paymentVM.receipt,
-                  'backToHome': false
-                });
-              }
-            });
-          }
-        });
+        security(inquiry: inquiryVM.inquiry);
       } else {
         // inquiry request failed
+      }
+    });
+  }
+
+  security({required MbxInquiryModel inquiry}) {
+    final pinSheet = MbxPinSheet();
+    pinSheet.show(
+      title: 'PIN',
+      message: 'Masukkan nomor pin m-banking atau ATM anda.',
+      description: inquiry.description,
+      secure: true,
+      biometric: true,
+      onSubmit: (code, biometric) async {
+        payment(transaction_id: code, pin: code, biometric: biometric);
+      },
+      optionTitle: 'Lupa PIN',
+      onOption: () {
+        pinSheet.clear('');
+        ToastX.show(msg: 'PIN akan direset, silahkan hubungi CS kami.');
+      },
+    );
+  }
+
+  payment(
+      {required String transaction_id,
+      required String pin,
+      required bool biometric}) {
+    Get.loading();
+    final paymentVM = MbxTransferP2PPaymentVM();
+    paymentVM
+        .request(transaction_id: transaction_id, pin: pin, biometric: biometric)
+        .then((resp) {
+      if (resp.status == 200) {
+        Get.back();
+        Get.offNamed('/receipt',
+            arguments: {'receipt': paymentVM.receipt, 'backToHome': true});
+      } else {
+        // payment request failed
       }
     });
   }

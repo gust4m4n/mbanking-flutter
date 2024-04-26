@@ -6,6 +6,7 @@ import 'mbx_pin_sheet_controller.dart';
 // ignore: must_be_immutable
 class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   String title = '';
+  String message = '';
   String description = '';
   bool secure = true;
   bool biometric = false;
@@ -18,6 +19,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
 
   Future<T?> show<T>({
     required String title,
+    required String message,
     required String description,
     required bool secure,
     required bool biometric,
@@ -28,6 +30,7 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
     FocusManager.instance.primaryFocus?.unfocus();
     await Get.delete<MbxPinSheetController>();
     this.title = title;
+    this.message = message;
     this.description = description;
     this.secure = secure;
     this.biometric = biometric;
@@ -50,11 +53,34 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
             backgroundColor: ColorX.white,
             child: Wrap(alignment: WrapAlignment.center, children: [
               Visibility(
-                visible: description.isNotEmpty,
+                  visible: description.isNotEmpty,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 16.0, top: 0.0, right: 16.0, bottom: 8.0),
+                        child: ContainerX(
+                          backgroundColor: ColorX.theme,
+                          padding: EdgeInsets.all(16.0),
+                          cornerRadius: 8.0,
+                          child: TextX(
+                            description,
+                            color: ColorX.white,
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.w400,
+                            textAlign: TextAlign.center,
+                            maxLines: 16,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )),
+              Visibility(
+                visible: message.isNotEmpty,
                 child: Padding(
                   padding: EdgeInsets.only(left: 48.0, right: 48.0),
                   child: TextX(
-                    description,
+                    message,
                     color: ColorX.black,
                     fontSize: 17.0,
                     fontWeight: FontWeight.w400,

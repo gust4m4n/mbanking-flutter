@@ -28,7 +28,9 @@ class MbxProfileController extends GetxController {
     pinSheet
         .show(
       title: 'PIN',
-      description: 'Masukkan nomor pin m-banking atau ATM anda.',
+      message: 'Masukkan nomor pin m-banking atau ATM anda.',
+            description: '',
+
       secure: true,
       biometric: false,
       onSubmit: (code, biometric) async {
@@ -59,7 +61,9 @@ class MbxProfileController extends GetxController {
     pinSheet
         .show(
           title: 'PIN',
-          description: 'Masukkan nomor pin m-banking atau ATM anda.',
+          message: 'Masukkan nomor pin m-banking atau ATM anda.',
+                description: '',
+
           secure: true,
           biometric: false,
           onSubmit: (code, biometric) async {
@@ -81,7 +85,9 @@ class MbxProfileController extends GetxController {
     pinSheet
         .show(
           title: 'PIN Baru',
-          description: 'Masukkan nomor pin m-banking atau ATM anda yang baru.',
+          message: 'Masukkan nomor pin m-banking atau ATM anda yang baru.',
+                description: '',
+
           secure: true,
           biometric: false,
           onSubmit: (code, biometric) async {
@@ -103,8 +109,10 @@ class MbxProfileController extends GetxController {
     pinSheet
         .show(
           title: 'Konfirmasi PIN Baru',
-          description:
+          message:
               'Masukkan ulang nomor pin m-banking atau ATM anda yang baru.',
+                    description: '',
+
           secure: true,
           biometric: false,
           onSubmit: (code, biometric) async {
