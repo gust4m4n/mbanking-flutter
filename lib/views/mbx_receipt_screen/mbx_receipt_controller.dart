@@ -68,6 +68,7 @@ class MbxReceiptController extends GetxController {
             .then((value) {});
       } else {
         await ImageGallerySaver.saveImage(capturedImage!);
+        ToastX.show(msg: 'Resi telah disimpan ke gallery.');
       }
     }).catchError((onError) {});
   }

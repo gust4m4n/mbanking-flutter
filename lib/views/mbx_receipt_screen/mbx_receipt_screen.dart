@@ -188,6 +188,7 @@ class MbxReceiptScreen extends StatelessWidget {
                                         Expanded(
                                           child: ButtonX(
                                             title: 'Selesai',
+                                            backgroundColor: ColorX.theme,
                                             titleColor: ColorX.white,
                                             height: 42.0,
                                             cornerRadius: 8.0,

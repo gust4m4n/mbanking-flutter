@@ -67,12 +67,12 @@ class BasicToast extends StatelessWidget {
         child: ContainerX(
           backgroundColor: ColorX.theme.withOpacity(0.85),
           padding: EdgeInsets.all(16.0),
-          cornerRadius: 16.0,
+          cornerRadius: 12.0,
           child: Wrap(children: [
             TextX(
               msg,
               color: ColorX.white,
-              fontSize: 17.0,
+              fontSize: 15.0,
               fontWeight: FontWeight.w500,
               textAlign: TextAlign.center,
               maxLines: 16,
