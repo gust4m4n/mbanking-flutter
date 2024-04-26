@@ -2,71 +2,71 @@
 	"status": 200,
 	"message": "Transfer P2P success.",
 	"data": {
+	  "amount": "IDR 5.002.500",
 	  "details": [
 		{
-		  "label": "Nomor Referensi",
+		  "label": "NOMOR REFERENSI",
 		  "value": "9501777"
 		},
 		{
-		  "label": "Jenis Transaksi",
+		  "label": "JENIS TRANSAKSI",
 		  "value": "Transfer Antar Rekening"
 		},
 		{
-		  "label": "Tanggal Transaksi",
+		  "label": "TANGGAL TRANSAKSI",
 		  "value": "2 April 2024"
 		},
 		{
-		  "label": "Waktu Transaksi",
+		  "label": "WAKTU TRANSAKSI",
 		  "value": "10:22:58"
 		},
 		{
 		  "label": "-"
 		},
 		{
-		  "label": "Nama Penerima",
+		  "label": "NAMA PENERIMA",
 		  "value": "THOMAS"
 		},
 		{
-		  "label": "Rekening Penerima",
+		  "label": "REKENING PENERIMA",
 		  "value": "8125-8272-8333"
 		},
 		{
 		  "label": "-"
 		},
 		{
-		  "label": "Nama Pengirim",
+		  "label": "NAMA PENGIRIM",
 		  "value": "WILLIAM"
 		},
 		{
-		  "label": "Rekening Pengirim",
+		  "label": "REKENING PENGIRIM",
 		  "value": "7629-1000-3333"
 		},
 		{
-		  "label": "Tujuan Transaksi",
+		  "label": "TUJUAN TRANSAKSI",
 		  "value": "Lainnya"
 		},
 		{
-		  "label": "Berita",
+		  "label": "BERITA",
 		  "value": "Buat uang saku dan bayar sekolah"
 		},
 		{
 		  "label": "-"
 		},
 		{
-		  "label": "Nominal",
+		  "label": "NOMINAL",
 		  "value": "IDR 5.000.000"
 		},
 		{
-		  "label": "Biaya Admin",
+		  "label": "BIAYA ADMIN",
 		  "value": "IDR 2.500"
 		},
 		{
-		  "label": "Total",
+		  "label": "TOTAL",
 		  "value": "IDR 5.002.500"
 		}
 	  ],
 	  "title": "Transfer Berhasil",
-	  "transaction_id": "500001111111111",
-	  "amount": "IDR 5.002.500"
+	  "transaction_id": "500001111111111"
 	}
   }

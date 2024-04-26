@@ -21,7 +21,7 @@ class MbxInquiryWidget extends StatelessWidget {
                   TextX(
                     row.label,
                     color: ColorX.black,
-                    fontSize: 13.0,
+                    fontSize: 14.0,
                     fontWeight: FontWeight.w400,
                     textAlign: TextAlign.start,
                     maxLines: 8,

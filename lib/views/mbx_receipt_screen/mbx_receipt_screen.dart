@@ -1,5 +1,5 @@
 import '../../widgets/all_widgets.dart';
-import 'mbx_receipt_cell.dart';
+import 'mbx_receipt_widget.dart';
 import 'mbx_receipt_controller.dart';
 
 class MbxReceiptScreen extends StatelessWidget {
@@ -136,7 +136,7 @@ class MbxReceiptScreen extends StatelessWidget {
                                               itemBuilder: (context, index) {
                                                 final detail = controller
                                                     .receipt.details[index];
-                                                return MbxReceiptCell(detail);
+                                                return MbxReceiptWidget(detail);
                                               }),
                                         ])))),
                             ContainerX(

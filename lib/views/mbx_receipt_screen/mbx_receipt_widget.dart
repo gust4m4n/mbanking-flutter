@@ -2,13 +2,13 @@ import '../../models/mbx_label_value_model.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxReceiptCell extends StatelessWidget {
-  final MbxLabelValueModel detail;
-  MbxReceiptCell(this.detail);
+class MbxReceiptWidget extends StatelessWidget {
+  final MbxLabelValueModel row;
+  MbxReceiptWidget(this.row);
 
   @override
   Widget build(BuildContext context) {
-    return detail.label == '-'
+    return row.label == '-'
         ? Padding(
             padding:
                 EdgeInsets.only(left: 0.0, top: 4.0, right: 0.0, bottom: 4.0),
@@ -26,10 +26,10 @@ class MbxReceiptCell extends StatelessWidget {
                     children: [
                       Expanded(
                         child: TextX(
-                          detail.label,
+                          row.label,
                           color: ColorX.black,
                           fontSize: 15.0,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w400,
                           textAlign: TextAlign.start,
                           maxLines: 8,
                         ),
@@ -37,10 +37,10 @@ class MbxReceiptCell extends StatelessWidget {
                       ContainerX(width: 16.0),
                       Expanded(
                           child: TextX(
-                        detail.value,
+                        row.value,
                         color: ColorX.black,
                         fontSize: 15.0,
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w600,
                         textAlign: TextAlign.end,
                         maxLines: 8,
                       )),
