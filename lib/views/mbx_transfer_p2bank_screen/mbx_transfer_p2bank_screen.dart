@@ -1,5 +1,3 @@
-import 'package:mbankingflutter/viewmodels/mbx_format_vm.dart';
-
 import '../../widgets/all_widgets.dart';
 import '../mbx_sof_sheet/mbx_sof_widget.dart';
 import 'mbx_transfer_p2bank_controller.dart';
@@ -66,14 +64,14 @@ class MbxTransferP2BankScreen extends StatelessWidget {
                               cornerRadius: 8.0,
                               child: Row(children: [
                                 ImageX(
-                                  faIcon: FontAwesomeIcons.solidUser,
+                                  url: controller.dest.bank_icon,
                                   backgroundColor: ColorX.transparent,
                                   width: 50.0,
                                   height: 50.0,
                                   cornerRadius: 8.0,
                                   borderWidth: 0.5,
                                   borderColor: ColorX.gray,
-                                  padding: EdgeInsets.all(16.0),
+                                  fit: BoxFit.contain,
                                 ),
                                 ContainerX(width: 8.0),
                                 Expanded(
@@ -92,12 +90,20 @@ class MbxTransferP2BankScreen extends StatelessWidget {
                                       ),
                                       TextX(
                                         controller.dest.account.isNotEmpty
-                                            ? MbxFormatVM.formatAccount(
-                                                controller.dest.account)
+                                            ? controller.dest.account
                                             : '-',
                                         color: ColorX.black,
                                         fontSize: 15.0,
                                         fontWeight: FontWeight.w500,
+                                        textAlign: TextAlign.start,
+                                      ),
+                                      TextX(
+                                        controller.dest.account.isNotEmpty
+                                            ? controller.dest.bank
+                                            : '-',
+                                        color: ColorX.black,
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.w400,
                                         textAlign: TextAlign.start,
                                       ),
                                     ],

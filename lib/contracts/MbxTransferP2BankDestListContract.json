@@ -15,24 +15,34 @@
 		"name": "ANGELINA"
 	  },
 	  {
-		"name": "BRIAN",
-		"account": "900012345678"
+		"account": "900012345678",
+		"bank": "Bank Rakyat Indonesia (BRI)",
+		"bank_icon": "lib/images/mbx_bank_bri.png",
+		"name": "BRIAN"
 	  },
 	  {
-		"name": "CAROLINE",
-		"account": "123412341234"
+		"account": "123412341234",
+		"bank": "Bank CIMB Niaga",
+		"bank_icon": "lib/images/mbx_bank_cimb_niaga.png",
+		"name": "CAROLINE"
 	  },
 	  {
-		"name": "HARRY",
-		"account": "123412341234"
+		"account": "123412341234",
+		"bank": "Bank Negara Indonesia (BNI)",
+		"bank_icon": "lib/images/mbx_bank_bni.png",
+		"name": "HARRY"
 	  },
 	  {
 		"name": "LAURA",
+		"bank": "Bank Tabungan Negara (BTN)",
+		"bank_icon": "lib/images/mbx_bank_btn.png",
 		"account": "123412341234"
 	  },
 	  {
-		"name": "MIRANDA",
-		"account": "123412341234"
+		"account": "123412341234",
+		"bank": "Bank Syariah Indonesia (BSI)",
+		"bank_icon": "lib/images/mbx_bank_bsi.png",
+		"name": "MIRANDA"
 	  },
 	  {
 		"name": "ROBERT",

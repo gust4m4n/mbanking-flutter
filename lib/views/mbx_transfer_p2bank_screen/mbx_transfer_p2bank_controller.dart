@@ -1,11 +1,11 @@
 import 'package:intl/intl.dart';
 import 'package:mbankingflutter/models/mbx_account_model.dart';
 import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
-import 'package:mbankingflutter/models/mbx_transfer_p2p_dest_model.dart';
 import 'package:mbankingflutter/views/mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
 import 'package:mbankingflutter/views/mbx_transfer_p2bank_picker/mbx_transfer_p2bank_picker.dart';
 
+import '../../models/mbx_transfer_p2bank_dest_model.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_transfer_p2p_inquiry_vm.dart';
 import '../../viewmodels/mbx_transfer_p2p_payment_vm.dart';
@@ -19,7 +19,7 @@ class MbxTransfeP2BankController extends GetxController {
   final txtAmountNode = FocusNode();
   final txtMessageController = TextEditingController();
   final txtMessageNode = FocusNode();
-  var dest = MbxTransferP2PDestModel();
+  var dest = MbxTransferP2BankDestModel();
   int amount = 0;
   var sof = MbxAccountModel();
 
@@ -51,7 +51,7 @@ class MbxTransfeP2BankController extends GetxController {
   }
 
   btnClearClicked() {
-    dest = MbxTransferP2PDestModel();
+    dest = MbxTransferP2BankDestModel();
     update();
   }
 
