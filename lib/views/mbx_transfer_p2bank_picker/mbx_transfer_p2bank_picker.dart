@@ -1,9 +1,10 @@
 import '../../widgets/all_widgets.dart';
-import 'mbx_transfer_p2p_picker_controller.dart';
-import 'mbx_transfer_p2p_picker_widget.dart';
+import 'mbx_transfer_p2bank_picker_controller.dart';
+import 'mbx_transfer_p2bank_picker_widget.dart';
 
 // ignore: must_be_immutable
-class MbxTransferP2PPicker extends GetWidget<MbxTransferP2PPickerController> {
+class MbxTransferP2BankPicker
+    extends GetWidget<MbxTransferP2BankPickerController> {
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showCustom(
@@ -11,15 +12,15 @@ class MbxTransferP2PPicker extends GetWidget<MbxTransferP2PPickerController> {
         widget: this,
         percentHeight: 1.0,
         onAddClicked: (() {
-          final controller = Get.find<MbxTransferP2PPickerController>();
+          final controller = Get.find<MbxTransferP2BankPickerController>();
           controller.onAddClicked();
         }));
   }
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxTransferP2PPickerController>(
-      init: MbxTransferP2PPickerController(),
+    return GetBuilder<MbxTransferP2BankPickerController>(
+      init: MbxTransferP2BankPickerController(),
       builder: (controller) => ContainerX(
           backgroundColor: ColorX.white,
           child: Column(children: [
@@ -68,7 +69,7 @@ class MbxTransferP2PPicker extends GetWidget<MbxTransferP2PPickerController> {
                                         result: controller
                                             .destListVM.filtered[index]);
                                   },
-                                  child: MbxTransferP2PPickerWidget(
+                                  child: MbxTransferP2BankPickerWidget(
                                     dest: controller.destListVM.filtered[index],
                                     onDeleteClicked: () {
                                       controller.onDeleteClicked(controller

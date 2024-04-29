@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'all_widgets.dart';
 
 class ImageX extends StatelessWidget {
@@ -42,36 +43,51 @@ class ImageX extends StatelessWidget {
     if (url.trim().toLowerCase().startsWith('http://') ||
         url.trim().toLowerCase().startsWith('https://')) {
       return ContainerX(
-        padding: padding,
-        backgroundColor: backgroundColor,
-        borderWidth: borderWidth,
-        borderColor: borderColor,
-        cornerRadius: cornerRadius,
-        child:
-            url.isNotEmpty ? imageNetwork(context) : imagePlaceholder(context),
-      );
+          padding: padding,
+          backgroundColor: backgroundColor,
+          borderWidth: borderWidth,
+          borderColor: borderColor,
+          cornerRadius: cornerRadius,
+          child: Padding(
+              padding: EdgeInsets.all(borderWidth),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
+                child: url.isNotEmpty
+                    ? imageNetwork(context)
+                    : imagePlaceholder(context),
+              )));
     } else if (url.trim().toLowerCase().startsWith('file:')) {
       return ContainerX(
-        padding: padding,
-        backgroundColor: backgroundColor,
-        borderWidth: borderWidth,
-        borderColor: borderColor,
-        cornerRadius: cornerRadius,
-        child: url.isNotEmpty ? imageFile(context) : imagePlaceholder(context),
-      );
+          padding: padding,
+          backgroundColor: backgroundColor,
+          borderWidth: borderWidth,
+          borderColor: borderColor,
+          cornerRadius: cornerRadius,
+          child: Padding(
+              padding: EdgeInsets.all(borderWidth),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
+                child: url.isNotEmpty
+                    ? imageFile(context)
+                    : imagePlaceholder(context),
+              )));
     } else {
       return ContainerX(
-        padding: padding,
-        backgroundColor: backgroundColor,
-        borderWidth: borderWidth,
-        borderColor: borderColor,
-        cornerRadius: cornerRadius,
-        child: url.isNotEmpty
-            ? imageAsset(context, url)
-            : faIcon != null
-                ? imageAwesome(context, faIcon!)
-                : imagePlaceholder(context),
-      );
+          padding: padding,
+          backgroundColor: backgroundColor,
+          borderWidth: borderWidth,
+          borderColor: borderColor,
+          cornerRadius: cornerRadius,
+          child: Padding(
+              padding: EdgeInsets.all(borderWidth),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
+                child: url.isNotEmpty
+                    ? imageAsset(context, url)
+                    : faIcon != null
+                        ? imageAwesome(context, faIcon!)
+                        : imagePlaceholder(context),
+              )));
     }
   }
 

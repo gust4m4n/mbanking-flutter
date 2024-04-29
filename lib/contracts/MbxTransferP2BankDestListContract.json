@@ -1,0 +1,62 @@
+{
+	"status": 200,
+	"message": "Get transfer P2Bank destination success",
+	"data": [
+	  {
+		"account": "12345678123",
+		"bank": "Bank Mandiri",
+		"bank_icon": "lib/images/mbx_bank_mandiri.png",
+		"name": "AGNES"
+	  },
+	  {
+		"account": "111122223333",
+		"bank": "Bank Central Asia (BCA)",
+		"bank_icon": "lib/images/mbx_bank_bca.png",
+		"name": "ANGELINA"
+	  },
+	  {
+		"name": "BRIAN",
+		"account": "900012345678"
+	  },
+	  {
+		"name": "CAROLINE",
+		"account": "123412341234"
+	  },
+	  {
+		"name": "HARRY",
+		"account": "123412341234"
+	  },
+	  {
+		"name": "LAURA",
+		"account": "123412341234"
+	  },
+	  {
+		"name": "MIRANDA",
+		"account": "123412341234"
+	  },
+	  {
+		"name": "ROBERT",
+		"account": "123412341234"
+	  },
+	  {
+		"name": "SUZZANE",
+		"account": "123412341234"
+	  },
+	  {
+		"name": "THOMAS",
+		"account": "123412341234"
+	  },
+	  {
+		"name": "TIMOTHY",
+		"account": "123412341234"
+	  },
+	  {
+		"name": "WILLIAM",
+		"account": "123412341234"
+	  },
+	  {
+		"name": "ZACK",
+		"account": "123412341234"
+	  }
+	]
+  }

@@ -1,4 +1,3 @@
-import 'package:mbankingflutter/utils/all_utils.dart';
 import 'package:mbankingflutter/viewmodels/mbx_device_info_vm.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
@@ -34,25 +33,24 @@ class MbxQRISScreen extends StatelessWidget {
               ContainerX(
                   child: Center(
                 child: ContainerX(
-                    width: MediaQuery.of(Get.context!).size.width - 48.0,
-                    height: MediaQuery.of(Get.context!).size.width - 48.0,
+                    width: MediaQuery.of(Get.context!).size.width - 32.0,
+                    height: MediaQuery.of(Get.context!).size.width - 32.0,
                     borderWidth: 1.0,
                     borderColor: ColorX.white),
               )),
               Positioned(
-                left: 0.0,
-                right: 0.0,
-                bottom: 0.0,
+                left: 16.0,
+                right: 16.0,
+                bottom: 16.0,
                 child: ContainerX(
-                    backgroundColor:
-                        ColorX.theme.lighten(0.45).withOpacity(0.5),
-                    padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                    backgroundColor: ColorX.white,
+                    cornerRadius: 16.0,
+                    padding: EdgeInsets.only(
+                        left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
                     width: double.infinity,
                     child: Row(
                       children: [
                         ButtonX(
-                          borderWidth: 2.0,
-                          borderColor: ColorX.theme.lighten(0.45),
                           backgroundColor: ColorX.theme,
                           width: 40.0,
                           height: 40.0,
@@ -65,10 +63,8 @@ class MbxQRISScreen extends StatelessWidget {
                             controller.btnBackClicked();
                           },
                         ),
-                        SizedBox(width: 8.0),
+                        ContainerX(width: 8.0),
                         ButtonX(
-                          borderWidth: 2.0,
-                          borderColor: ColorX.theme.lighten(0.45),
                           backgroundColor: ColorX.theme,
                           width: 40.0,
                           height: 40.0,
@@ -81,10 +77,8 @@ class MbxQRISScreen extends StatelessWidget {
                             controller.btnImageClicked();
                           },
                         ),
-                        SizedBox(width: 8.0),
+                        ContainerX(width: 8.0),
                         ButtonX(
-                          borderWidth: 2.0,
-                          borderColor: ColorX.theme.lighten(0.45),
                           backgroundColor: controller.flashlight
                               ? ColorX.white
                               : ColorX.theme,
@@ -101,6 +95,7 @@ class MbxQRISScreen extends StatelessWidget {
                             controller.btnFlashlightClicked();
                           },
                         ),
+                        ContainerX(width: 8.0),
                         Expanded(
                           child: ImageX(
                             url: 'lib/images/mbx_qris.png',

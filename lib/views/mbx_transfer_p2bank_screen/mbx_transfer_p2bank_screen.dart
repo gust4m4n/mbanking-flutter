@@ -2,19 +2,19 @@ import 'package:mbankingflutter/viewmodels/mbx_format_vm.dart';
 
 import '../../widgets/all_widgets.dart';
 import '../mbx_sof_sheet/mbx_sof_widget.dart';
-import 'mbx_transfer_p2p_controller.dart';
+import 'mbx_transfer_p2bank_controller.dart';
 
-class MbxTransferP2PScreen extends StatelessWidget {
-  MbxTransferP2PScreen({Key? key}) : super(key: key);
+class MbxTransferP2BankScreen extends StatelessWidget {
+  MbxTransferP2BankScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxTransfeP2PrController>(
-        init: MbxTransfeP2PrController(),
+    return GetBuilder<MbxTransfeP2BankController>(
+        init: MbxTransfeP2BankController(),
         builder: (controller) => ScreenX(
             lightStatusBar: true,
             headerView: NavigationBarX(
-              title: 'Transfer Antar Rekening',
+              title: 'Transfer Antar Bank',
               leftBtn: ImageX(
                 faIcon: FontAwesomeIcons.arrowLeft,
                 width: 20.0,

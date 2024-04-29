@@ -19,7 +19,7 @@ class MbxInquiryWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextX(
-                    row.label,
+                    row.label.toUpperCase(),
                     color: ColorX.black,
                     fontSize: 14.0,
                     fontWeight: FontWeight.w400,

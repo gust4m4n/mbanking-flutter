@@ -26,7 +26,7 @@ class MbxReceiptWidget extends StatelessWidget {
                     children: [
                       Expanded(
                         child: TextX(
-                          row.label,
+                          row.label.toUpperCase(),
                           color: ColorX.black,
                           fontSize: 15.0,
                           fontWeight: FontWeight.w400,
