@@ -145,6 +145,51 @@ class MbxTransferP2BankScreen extends StatelessWidget {
                           ),
                           ContainerX(height: 12.0),
                           TextX(
+                            'LAYANAN TRANSFER',
+                            color: ColorX.black,
+                            fontSize: 13.0,
+                            fontWeight: FontWeight.w500,
+                            textAlign: TextAlign.start,
+                          ),
+                          ContainerX(height: 4.0),
+                          ContainerX(
+                              width: double.infinity,
+                              padding: EdgeInsets.only(
+                                  left: 12.0,
+                                  top: 8.0,
+                                  right: 12.0,
+                                  bottom: 8.0),
+                              borderWidth: 1.0,
+                              borderColor: ColorX.lightGray,
+                              cornerRadius: 8.0,
+                              child: Row(children: [
+                                Expanded(
+                                  child: TextX(
+                                    controller.sof.name.isNotEmpty
+                                        ? controller.sof.name
+                                        : '-',
+                                    color: ColorX.black,
+                                    fontSize: 13.0,
+                                    fontWeight: FontWeight.w500,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ),
+                                ContainerX(width: 8.0),
+                                ButtonX(
+                                    faIcon: FontAwesomeIcons.chevronDown,
+                                    backgroundColor: ColorX.transparent,
+                                    faWidth: 16.0,
+                                    faHeight: 16.0,
+                                    width: 40.0,
+                                    height: 40.0,
+                                    borderWidth: 0.5,
+                                    borderColor: ColorX.gray,
+                                    onClicked: () {
+                                      controller.btnSofClicked();
+                                    })
+                              ])),
+                          ContainerX(height: 12.0),
+                          TextX(
                             'BERITA',
                             color: ColorX.black,
                             fontSize: 13.0,

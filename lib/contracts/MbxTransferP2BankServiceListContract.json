@@ -1,0 +1,16 @@
+{
+	"status": 200,
+	"message": "Transfer P2Bank service success",
+	"data": [
+	  {
+		"name": "BI-FAST",
+		"code": "bi-fast",
+		"fee": 2500
+	  },
+	  {
+		"name": "Realtime Online",
+		"code": "online",
+		"fee": 6000
+	  }
+	]
+  }
