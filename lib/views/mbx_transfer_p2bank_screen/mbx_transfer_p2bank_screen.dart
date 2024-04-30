@@ -185,7 +185,7 @@ class MbxTransferP2BankScreen extends StatelessWidget {
                                     borderWidth: 0.5,
                                     borderColor: ColorX.gray,
                                     onClicked: () {
-                                      controller.btnSofClicked();
+                                      controller.btnTransferServiceClicked();
                                     })
                               ])),
                           ContainerX(height: 12.0),

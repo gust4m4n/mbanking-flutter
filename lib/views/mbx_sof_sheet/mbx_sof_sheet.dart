@@ -6,11 +6,7 @@ import 'mbx_sof_widget.dart';
 class MbxSofSheet extends GetWidget<MbxSofSheetController> {
   MbxSofSheet();
 
-  static Future<T?> show<T>(
-      {required String title,
-      required String description,
-      required Function(String code) onSubmit,
-      required Future<void> Function() onResend}) {
+  static Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     final sheet = MbxSofSheet();
     return SheetX.showCustom(

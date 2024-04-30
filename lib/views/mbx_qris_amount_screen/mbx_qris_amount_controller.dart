@@ -33,14 +33,7 @@ class MbxQRISAmountController extends GetxController {
   }
 
   btnSofClicked() {
-    MbxSofSheet.show(
-      title: 'SUMBER DANA',
-      description: 'Masukkan kode OTP yang anda terima melalui SMS.',
-      onSubmit: (code) {
-        return Future.value(true);
-      },
-      onResend: () async {},
-    ).then((account) {
+    MbxSofSheet.show().then((account) {
       if (account != null) {
         this.account = account;
         update();

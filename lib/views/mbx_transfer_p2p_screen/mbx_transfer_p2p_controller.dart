@@ -73,14 +73,7 @@ class MbxTransfeP2PrController extends GetxController {
   }
 
   btnSofClicked() {
-    MbxSofSheet.show(
-      title: 'SUMBER DANA',
-      description: 'Masukkan kode OTP yang anda terima melalui SMS.',
-      onSubmit: (code) {
-        return Future.value(true);
-      },
-      onResend: () async {},
-    ).then((sof) {
+    MbxSofSheet.show().then((sof) {
       if (sof != null) {
         this.sof = sof;
         update();
