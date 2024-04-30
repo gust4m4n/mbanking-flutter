@@ -1,0 +1,76 @@
+{
+	"status": 200,
+	"message": "Transfer P2Bank success.",
+	"data": {
+	  "amount": "IDR 5.002.500",
+	  "details": [
+		{
+		  "label": "NOMOR REFERENSI",
+		  "value": "9501777"
+		},
+		{
+		  "label": "JENIS TRANSAKSI",
+		  "value": "Transfer Antar Bank"
+		},
+		{
+		  "label": "TANGGAL TRANSAKSI",
+		  "value": "2 April 2024"
+		},
+		{
+		  "label": "WAKTU TRANSAKSI",
+		  "value": "10:22:58"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NAMA PENERIMA",
+		  "value": "THOMAS"
+		},
+		{
+		  "label": "REKENING PENERIMA",
+		  "value": "000000000000"
+		},
+		{
+		  "label": "BANK PENERIMA",
+		  "value": "Bank Central Asia (BCA)"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NAMA PENGIRIM",
+		  "value": "WILLIAM"
+		},
+		{
+		  "label": "REKENING PENGIRIM",
+		  "value": "7629-1000-3333"
+		},
+		{
+		  "label": "TUJUAN TRANSAKSI",
+		  "value": "Lainnya"
+		},
+		{
+		  "label": "BERITA",
+		  "value": "Buat uang saku dan bayar sekolah"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NOMINAL",
+		  "value": "IDR 5.000.000"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 2.500"
+		},
+		{
+		  "label": "TOTAL",
+		  "value": "IDR 5.002.500"
+		}
+	  ],
+	  "title": "Transfer Berhasil",
+	  "transaction_id": "500001111111111"
+	}
+  }

@@ -7,8 +7,8 @@ import 'package:mbankingflutter/views/mbx_transfer_p2bank_picker/mbx_transfer_p2
 
 import '../../models/mbx_transfer_p2bank_dest_model.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
-import '../../viewmodels/mbx_transfer_p2p_inquiry_vm.dart';
-import '../../viewmodels/mbx_transfer_p2p_payment_vm.dart';
+import '../../viewmodels/mbx_transfer_p2bank_inquiry_vm.dart';
+import '../../viewmodels/mbx_transfer_p2bank_payment_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
@@ -99,7 +99,7 @@ class MbxTransfeP2BankController extends GetxController {
 
   inquiry() {
     Get.loading();
-    final inquiryVM = MbxTransferP2PInquiryVM();
+    final inquiryVM = MbxTransferP2BankInquiryVM();
     inquiryVM.request().then((resp) {
       Get.back();
       if (resp.status == 200) {
@@ -141,7 +141,7 @@ class MbxTransfeP2BankController extends GetxController {
       required String pin,
       required bool biometric}) {
     Get.loading();
-    final paymentVM = MbxTransferP2PPaymentVM();
+    final paymentVM = MbxTransferP2BankPaymentVM();
     paymentVM
         .request(transaction_id: transaction_id, pin: pin, biometric: biometric)
         .then((resp) {

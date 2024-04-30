@@ -1,0 +1,33 @@
+{
+	"status": 200,
+	"message": "Transfer P2Bank Inquiry Success",
+	"data": {
+	  "details": [
+		{
+		  "label": "TRANSAKSI",
+		  "value": "Transfer Antar Bank"
+		},
+		{
+		  "label": "NOMINAL",
+		  "value": "IDR 150.000"
+		},
+		{
+		  "label": "NAMA PENERIMA",
+		  "value": "CAROLINE"
+		},
+		{
+		  "label": "REKENING PENERIMA",
+		  "value": "000000000000"
+		},
+		{
+		  "label": "BANK PENERIMA",
+		  "value": "Bank Central Asia (BCA)"
+		},
+		{
+		  "label": "REKENING PENGIRIM",
+		  "value": "8222-3833-4888"
+		}
+	  ],
+	  "transaction_id": "TRID-20210101-0001"
+	}
+  }
