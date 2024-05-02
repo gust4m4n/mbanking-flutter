@@ -1,7 +1,7 @@
 import 'package:mbankingflutter/models/mbx_receipt_model.dart';
 
 import '../../widgets/all_widgets.dart';
-import 'mbx_notification_cell.dart';
+import 'mbx_notification_widget.dart';
 import 'mbx_notification_controller.dart';
 
 class MbxNotificationPage extends StatelessWidget {
@@ -52,7 +52,7 @@ class MbxNotificationPage extends StatelessWidget {
                                   'backToHome': false
                                 });
                               },
-                              child: MbxNotificationCell(history));
+                              child: MbxNotificationWidget(history));
                         })),
               )),
             ])));

@@ -1,0 +1,21 @@
+{
+	"status": 200,
+	"message": "Get foreign exchange success",
+	"data": [
+	  {
+		"currency": "USD",
+		"buy": 14500.50,
+		"sell": 14600.30
+	  },
+	  {
+		"currency": "SGD",
+		"buy": 10200.20,
+		"sell": 10300.10
+	  },
+	  {
+		"currency": "EUR",
+		"buy": 17800.80,
+		"sell": 11920.80
+	  }
+	]
+  }

@@ -3,9 +3,9 @@ import '../../viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxNotificationCell extends StatelessWidget {
+class MbxNotificationWidget extends StatelessWidget {
   final MbxNotificationModel notification;
-  MbxNotificationCell(this.notification);
+  MbxNotificationWidget(this.notification);
 
   @override
   Widget build(BuildContext context) {

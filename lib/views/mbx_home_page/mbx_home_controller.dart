@@ -1,3 +1,4 @@
+import '../../viewmodels/mbx_foreign_exchange_list_vm.dart';
 import '../../viewmodels/mbx_news_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
@@ -5,11 +6,18 @@ import '../../widgets/all_widgets.dart';
 
 class MbxHomeController extends GetxController {
   final scrollController = ScrollController();
+  final foreignExchangeListVM = MbxForeignExchangeListVM();
 
   @override
   void onReady() {
     super.onReady();
     MbxNewsListVM.request().then((resp) {
+      if (resp.status == 200) {
+        update();
+      }
+    });
+
+    foreignExchangeListVM.request().then((resp) {
       if (resp.status == 200) {
         update();
       }

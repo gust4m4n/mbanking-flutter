@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mbankingflutter/utils/all_utils.dart';
 import 'package:mbankingflutter/viewmodels/mbx_news_list_vm.dart';
+import 'package:mbankingflutter/views/mbx_home_page/mbx_foreign_exchange_widget.dart';
 import 'package:mbankingflutter/views/mbx_home_page/mbx_news_cell.dart';
 import 'package:mbankingflutter/views/mbx_home_page/mbx_theme_button.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_widget.dart';
@@ -348,6 +349,85 @@ class MbxHomePage extends StatelessWidget {
                                           }),
                                     ],
                                   ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 16.0,
+                                      top: 8.0,
+                                      right: 16.0,
+                                      bottom: 4.0),
+                                  child: TextX(
+                                    'KURS MATA UANG',
+                                    fontSize: 13.0,
+                                    fontWeight: FontWeight.w700,
+                                    color: ColorX.black,
+                                    textAlign: TextAlign.start,
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 16.0, right: 16.0),
+                                  child: ContainerX(
+                                      backgroundColor: ColorX.white,
+                                      borderColor: ColorX.theme,
+                                      borderWidth: 0.5,
+                                      cornerRadius: 12.0,
+                                      child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                left: 12.0,
+                                                top: 12.0,
+                                                right: 12.0),
+                                            child: Row(
+                                              children: [
+                                                Expanded(
+                                                    child: TextX(
+                                                  'Mata Uang',
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.w700,
+                                                  color: ColorX.black,
+                                                )),
+                                                ContainerX(width: 8.0),
+                                                Expanded(
+                                                    child: TextX(
+                                                  'Beli',
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.w700,
+                                                  color: ColorX.black,
+                                                )),
+                                                ContainerX(width: 8.0),
+                                                Expanded(
+                                                    child: TextX(
+                                                  'Jual',
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.w700,
+                                                  color: ColorX.black,
+                                                )),
+                                              ],
+                                            ),
+                                          ),
+                                          ListView.builder(
+                                            physics: ClampingScrollPhysics(),
+                                            padding: EdgeInsets.only(
+                                                left: 12.0,
+                                                top: 4.0,
+                                                right: 12.0,
+                                                bottom: 12.0),
+                                            shrinkWrap: true,
+                                            itemCount: controller
+                                                .foreignExchangeListVM
+                                                .list
+                                                .length,
+                                            itemBuilder: (context, index) {
+                                              return MbxForeignExchangeWidget(
+                                                  controller
+                                                      .foreignExchangeListVM
+                                                      .list[index]);
+                                            },
+                                          )
+                                        ],
+                                      )),
                                 ),
                                 ContainerX(
                                     height: MediaQuery.of(Get.context!)
