@@ -34,8 +34,7 @@ class MbxTransferP2BankServiceWidget extends StatelessWidget {
                 ? EdgeInsets.only(
                     left: 12.0, top: 8.0, right: 12.0, bottom: 8.0)
                 : EdgeInsets.zero,
-            child: Expanded(
-                child: Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -102,6 +101,6 @@ class MbxTransferP2BankServiceWidget extends StatelessWidget {
                   ],
                 ),
               ],
-            ))));
+            )));
   }
 }
