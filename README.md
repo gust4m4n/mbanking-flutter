@@ -1,6 +1,6 @@
 # mbanking-flutter
 
-[Download APK](https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.1.apk)
+[Download APK](https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.2.apk)
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_login.png" width="250">
