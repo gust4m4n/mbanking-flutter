@@ -165,8 +165,8 @@ class MbxTransferP2BankScreen extends StatelessWidget {
                               child: Row(children: [
                                 Expanded(
                                   child: TextX(
-                                    controller.sof.name.isNotEmpty
-                                        ? controller.sof.name
+                                    controller.service.name.isNotEmpty
+                                        ? controller.service.name
                                         : '-',
                                     color: ColorX.black,
                                     fontSize: 13.0,

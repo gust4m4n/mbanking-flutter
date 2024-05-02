@@ -7,7 +7,7 @@ class MbxTransferP2BankServiceListVM {
   var loading = false;
   List<MbxTransferP2BankServiceModel> list = [];
 
-  Future<ApiXResponse> nextPage() {
+  Future<ApiXResponse> request() {
     loading = true;
     return MbxApi.post(
             endpoint: '/transfer/p2bank/service/list',
