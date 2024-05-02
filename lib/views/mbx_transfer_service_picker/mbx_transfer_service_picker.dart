@@ -1,3 +1,4 @@
+import '../../models/mbx_transfer_p2bank_service_model.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_transfer_service_picker_controller.dart';
 import 'mbx_transfer_service_widget.dart';
@@ -5,11 +6,12 @@ import 'mbx_transfer_service_widget.dart';
 // ignore: must_be_immutable
 class MbxTransferServicePicker
     extends GetWidget<MbxTransferServicePickerController> {
-  MbxTransferServicePicker();
+  final List<MbxTransferP2BankServiceModel> list;
+  MbxTransferServicePicker(this.list);
 
-  Future<T?> show<T>() {
+  static Future<T?> show<T>(List<MbxTransferP2BankServiceModel> list) {
     FocusManager.instance.primaryFocus?.unfocus();
-    final sheet = MbxTransferServicePicker();
+    final sheet = MbxTransferServicePicker(list);
     return SheetX.showCustom(
       widget: sheet,
       title: 'Layanan Transfer',
@@ -19,7 +21,7 @@ class MbxTransferServicePicker
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxTransferServicePickerController>(
-        init: MbxTransferServicePickerController(),
+        init: MbxTransferServicePickerController(list),
         builder: (controller) => Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -30,16 +32,14 @@ class MbxTransferServicePicker
                     separatorBuilder: (context, index) {
                       return ContainerX(height: 8.0);
                     },
-                    itemCount: controller.transferServiceListVM.list.length,
+                    itemCount: controller.list.length,
                     itemBuilder: (context, index) {
                       return MbxTransferServiceWidget(
-                        service: controller.transferServiceListVM.list[index],
+                        service: controller.list[index],
                         borders: true,
                         onEyeClicked: () {},
                         onClicked: () {
-                          Get.back(
-                              result:
-                                  controller.transferServiceListVM.list[index]);
+                          Get.back(result: controller.list[index]);
                         },
                       );
                     }),

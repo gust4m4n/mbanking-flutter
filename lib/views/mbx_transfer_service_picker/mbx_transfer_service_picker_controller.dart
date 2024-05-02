@@ -1,20 +1,14 @@
-import 'package:mbankingflutter/viewmodels/mbx_transfer_p2bank_service_list_vm.dart';
-
+import '../../models/mbx_transfer_p2bank_service_model.dart';
 import '../../widgets/all_widgets.dart';
 
 class MbxTransferServicePickerController extends GetxController {
-  final transferServiceListVM = MbxTransferP2BankServiceListVM();
+  final List<MbxTransferP2BankServiceModel> list;
 
-  MbxTransferServicePickerController() {}
+  MbxTransferServicePickerController(this.list) {}
 
   @override
   void onReady() {
     super.onReady();
-    transferServiceListVM.request().then((resp) {
-      if (resp.status == 200) {
-        update();
-      }
-    });
   }
 
   btnCloseClicked() {

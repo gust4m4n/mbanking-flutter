@@ -11,6 +11,7 @@ import '../../models/mbx_transfer_p2bank_dest_model.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_transfer_p2bank_inquiry_vm.dart';
 import '../../viewmodels/mbx_transfer_p2bank_payment_vm.dart';
+import '../../viewmodels/mbx_transfer_p2bank_service_list_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
@@ -25,7 +26,7 @@ class MbxTransfeP2BankController extends GetxController {
   int amount = 0;
   var service = MbxTransferP2BankServiceModel();
   var sof = MbxAccountModel();
-  final transferServicePicker = MbxTransferServicePicker();
+  final transferServiceListVM = MbxTransferP2BankServiceListVM();
 
   @override
   void onInit() {
@@ -37,6 +38,12 @@ class MbxTransfeP2BankController extends GetxController {
     super.onReady();
     sof = MbxProfileVM.profile.accounts[0];
     update();
+
+    transferServiceListVM.request().then((resp) {
+      if (resp.status == 200) {
+        update();
+      }
+    });
   }
 
   btnBackClicked() {
@@ -76,7 +83,7 @@ class MbxTransfeP2BankController extends GetxController {
   }
 
   btnTransferServiceClicked() {
-    transferServicePicker.show().then((service) {
+    MbxTransferServicePicker.show(transferServiceListVM.list).then((service) {
       if (service != null) {
         this.service = service;
         update();
