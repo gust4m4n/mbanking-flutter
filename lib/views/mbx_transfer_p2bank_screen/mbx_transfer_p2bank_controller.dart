@@ -5,7 +5,7 @@ import 'package:mbankingflutter/models/mbx_transfer_p2bank_service_model.dart';
 import 'package:mbankingflutter/views/mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
 import 'package:mbankingflutter/views/mbx_transfer_p2bank_picker/mbx_transfer_p2bank_picker.dart';
-import 'package:mbankingflutter/views/mbx_transfer_service_picker/mbx_transfer_service_picker.dart';
+import 'package:mbankingflutter/views/mbx_transfer_p2bank_service_picker/mbx_transfer_p2bank_service_picker.dart';
 
 import '../../models/mbx_transfer_p2bank_dest_model.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
@@ -83,7 +83,8 @@ class MbxTransfeP2BankController extends GetxController {
   }
 
   btnTransferServiceClicked() {
-    MbxTransferServicePicker.show(transferServiceListVM.list).then((service) {
+    MbxTransferP2BankServicePicker.show(transferServiceListVM.list)
+        .then((service) {
       if (service != null) {
         this.service = service;
         update();

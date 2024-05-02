@@ -5,13 +5,13 @@ import '../../viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxTransferServiceWidget extends StatelessWidget {
+class MbxTransferP2BankServiceWidget extends StatelessWidget {
   final MbxTransferP2BankServiceModel service;
   final bool borders;
   final GestureTapCallback? onEyeClicked;
   final GestureTapCallback? onClicked;
 
-  MbxTransferServiceWidget(
+  MbxTransferP2BankServiceWidget(
       {required this.service,
       required bool this.borders,
       required this.onEyeClicked,
@@ -52,21 +52,54 @@ class MbxTransferServiceWidget extends StatelessWidget {
                     textAlign: TextAlign.start,
                   ),
                 ),
-                TextX(
-                  MbxFormatVM.currencyRP(service.minimum,
-                      prefix: true, mutation: false, masked: false),
-                  color: ColorX.black,
-                  fontSize: 17.0,
-                  fontWeight: FontWeight.w700,
-                  textAlign: TextAlign.start,
+                ContainerX(height: 8.0),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextX(
+                        'Minimal Transaksi',
+                        color: ColorX.black,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w400,
+                        textAlign: TextAlign.start,
+                      ),
+                    ),
+                    ContainerX(width: 8.0),
+                    Expanded(
+                      child: TextX(
+                        MbxFormatVM.currencyRP(service.minimum,
+                            prefix: true, mutation: false, masked: false),
+                        color: ColorX.black,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w700,
+                        textAlign: TextAlign.end,
+                      ),
+                    )
+                  ],
                 ),
-                TextX(
-                  MbxFormatVM.currencyRP(service.fee,
-                      prefix: true, mutation: false, masked: false),
-                  color: ColorX.black,
-                  fontSize: 17.0,
-                  fontWeight: FontWeight.w700,
-                  textAlign: TextAlign.start,
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextX(
+                        'Biaya',
+                        color: ColorX.black,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w400,
+                        textAlign: TextAlign.start,
+                      ),
+                    ),
+                    ContainerX(width: 8.0),
+                    Expanded(
+                      child: TextX(
+                        MbxFormatVM.currencyRP(service.fee,
+                            prefix: true, mutation: false, masked: false),
+                        color: ColorX.black,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w700,
+                        textAlign: TextAlign.end,
+                      ),
+                    )
+                  ],
                 ),
               ],
             ))));

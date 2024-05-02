@@ -1,17 +1,17 @@
 import '../../models/mbx_transfer_p2bank_service_model.dart';
 import '../../widgets/all_widgets.dart';
-import 'mbx_transfer_service_picker_controller.dart';
-import 'mbx_transfer_service_widget.dart';
+import 'mbx_transfer_p2bank_service_picker_controller.dart';
+import 'mbx_transfer_p2bank_service_widget.dart';
 
 // ignore: must_be_immutable
-class MbxTransferServicePicker
-    extends GetWidget<MbxTransferServicePickerController> {
+class MbxTransferP2BankServicePicker
+    extends GetWidget<MbxTransferP2BankServicePickerController> {
   final List<MbxTransferP2BankServiceModel> list;
-  MbxTransferServicePicker(this.list);
+  MbxTransferP2BankServicePicker(this.list);
 
   static Future<T?> show<T>(List<MbxTransferP2BankServiceModel> list) {
     FocusManager.instance.primaryFocus?.unfocus();
-    final sheet = MbxTransferServicePicker(list);
+    final sheet = MbxTransferP2BankServicePicker(list);
     return SheetX.showCustom(
       widget: sheet,
       title: 'Layanan Transfer',
@@ -20,8 +20,8 @@ class MbxTransferServicePicker
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxTransferServicePickerController>(
-        init: MbxTransferServicePickerController(list),
+    return GetBuilder<MbxTransferP2BankServicePickerController>(
+        init: MbxTransferP2BankServicePickerController(list),
         builder: (controller) => Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -34,7 +34,7 @@ class MbxTransferServicePicker
                     },
                     itemCount: controller.list.length,
                     itemBuilder: (context, index) {
-                      return MbxTransferServiceWidget(
+                      return MbxTransferP2BankServiceWidget(
                         service: controller.list[index],
                         borders: true,
                         onEyeClicked: () {},

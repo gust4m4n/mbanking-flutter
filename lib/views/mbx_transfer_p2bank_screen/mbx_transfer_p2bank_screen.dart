@@ -63,16 +63,27 @@ class MbxTransferP2BankScreen extends StatelessWidget {
                               borderColor: ColorX.lightGray,
                               cornerRadius: 8.0,
                               child: Row(children: [
-                                ImageX(
-                                  url: controller.dest.bank_icon,
-                                  backgroundColor: ColorX.transparent,
-                                  width: 50.0,
-                                  height: 50.0,
-                                  cornerRadius: 8.0,
-                                  borderWidth: 0.5,
-                                  borderColor: ColorX.gray,
-                                  fit: BoxFit.contain,
-                                ),
+                                controller.dest.bank_icon.isEmpty
+                                    ? ImageX(
+                                        faIcon: FontAwesomeIcons.solidUser,
+                                        backgroundColor: ColorX.transparent,
+                                        width: 50.0,
+                                        height: 50.0,
+                                        cornerRadius: 8.0,
+                                        borderWidth: 0.5,
+                                        borderColor: ColorX.gray,
+                                        padding: EdgeInsets.all(16.0),
+                                      )
+                                    : ImageX(
+                                        url: controller.dest.bank_icon,
+                                        backgroundColor: ColorX.transparent,
+                                        width: 50.0,
+                                        height: 50.0,
+                                        cornerRadius: 8.0,
+                                        borderWidth: 0.5,
+                                        borderColor: ColorX.gray,
+                                        fit: BoxFit.contain,
+                                      ),
                                 ContainerX(width: 8.0),
                                 Expanded(
                                   child: Column(

@@ -1,10 +1,10 @@
 import '../../models/mbx_transfer_p2bank_service_model.dart';
 import '../../widgets/all_widgets.dart';
 
-class MbxTransferServicePickerController extends GetxController {
+class MbxTransferP2BankServicePickerController extends GetxController {
   final List<MbxTransferP2BankServiceModel> list;
 
-  MbxTransferServicePickerController(this.list) {}
+  MbxTransferP2BankServicePickerController(this.list) {}
 
   @override
   void onReady() {
