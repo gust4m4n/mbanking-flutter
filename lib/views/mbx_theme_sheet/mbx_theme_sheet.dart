@@ -5,7 +5,6 @@ import 'mbx_theme_sheet_controller.dart';
 
 // ignore: must_be_immutable
 class MbxThemeSheet extends GetWidget<MbxThemeSheetController> {
-  TextEditingController pinController = TextEditingController();
 
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();

@@ -18,24 +18,41 @@ class MbxProfilePage extends StatelessWidget {
                   children: [
                     ContainerX(height: MediaQuery.of(Get.context!).padding.top),
                     ContainerX(
-                        backgroundColor: ColorX.white,
-                        width: 110.0,
-                        height: 110.0,
-                        cornerRadius: 55.0,
                         child: Center(
-                            child: ImageX(
-                          faIcon: MbxProfileVM.profile.photo.isEmpty
-                              ? FontAwesomeIcons.user
-                              : null,
-                          color: MbxProfileVM.profile.photo.isEmpty
-                              ? ColorX.gray
-                              : null,
-                          url: MbxProfileVM.profile.photo,
-                          width:
-                              MbxProfileVM.profile.photo.isEmpty ? 50.0 : 100.0,
-                          height: 100.0,
-                          cornerRadius: 50.0,
-                        ))),
+                            child: Stack(children: [
+                      ImageX(
+                        faIcon: MbxProfileVM.profile.photo.isEmpty
+                            ? FontAwesomeIcons.user
+                            : null,
+                        url: MbxProfileVM.profile.photo,
+                        color: MbxProfileVM.profile.photo.isEmpty
+                            ? ColorX.gray
+                            : null,
+                        width: 100.0,
+                        height: 100.0,
+                        cornerRadius: 50.0,
+                        borderWidth: 4.0,
+                        borderColor: ColorX.white,
+                      ),
+                      Positioned(
+                          right: 0.0,
+                          bottom: 0.0,
+                          child: ButtonX(
+                            onClicked: () {
+                              controller.btnChangeAvatarClicked();
+                            },
+                            backgroundColor: ColorX.white,
+                            borderColor: ColorX.white,
+                            borderWidth: 2.0,
+                            faIcon: FontAwesomeIcons.plus,
+                            faColor: ColorX.theme,
+                            faWidth: 16.0,
+                            faHeight: 16.0,
+                            width: 28.0,
+                            height: 28.0,
+                            cornerRadius: 14.0,
+                          )),
+                    ]))),
                     ContainerX(height: 8.0),
                     TextX(
                       MbxProfileVM.profile.name.isEmpty

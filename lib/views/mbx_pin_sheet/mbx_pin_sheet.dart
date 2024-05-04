@@ -12,7 +12,6 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
   void Function(String code, bool biometric)? onSubmit = null;
   String optionTitle = 'Lupa PIN';
   void Function()? onOption = null;
-  TextEditingController pinController = TextEditingController();
 
   MbxPinSheet();
 
