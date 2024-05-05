@@ -12,6 +12,7 @@ export 'package:local_auth/local_auth.dart';
 export 'package:screenshot/screenshot.dart';
 export 'package:share_plus/share_plus.dart';
 export 'package:webview_flutter/webview_flutter.dart';
+
 export 'button_x.dart';
 export 'colors_x.dart';
 export 'container_x.dart';
@@ -21,6 +22,7 @@ export 'get+loading.dart';
 export 'image_x.dart';
 export 'inkwell_x.dart';
 export 'internet_toasts.dart';
+export 'mbx_screen.dart';
 export 'navigationbar_x.dart';
 export 'screen_x.dart';
 export 'sheet_x.dart';

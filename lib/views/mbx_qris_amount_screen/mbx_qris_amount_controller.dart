@@ -15,15 +15,17 @@ class MbxQRISAmountController extends GetxController {
   final txtAmountController = TextEditingController();
   final txtAmountNode = FocusNode();
   var receiptVM = MbxReceiptVM();
-  var account = MbxAccountModel();
   int amount = 0;
+  var sof = MbxAccountModel();
 
   MbxQRISAmountController({required this.inquiry});
 
   @override
   void onReady() {
     super.onReady();
-    account = MbxProfileVM.profile.accounts[0];
+    sof = MbxProfileVM.profile.accounts[0];
+    update();
+
     update();
     txtAmountNode.requestFocus();
   }
@@ -33,16 +35,16 @@ class MbxQRISAmountController extends GetxController {
   }
 
   btnSofClicked() {
-    MbxSofSheet.show().then((account) {
-      if (account != null) {
-        this.account = account;
+    MbxSofSheet.show().then((sof) {
+      if (sof != null) {
+        this.sof = sof;
         update();
       }
     });
   }
 
-  btnEyeClicked() {
-    account.visible = !account.visible;
+  btnSofEyeClicked() {
+    sof.visible = !sof.visible;
     update();
   }
 

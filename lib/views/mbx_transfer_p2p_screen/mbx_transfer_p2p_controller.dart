@@ -81,7 +81,7 @@ class MbxTransfeP2PrController extends GetxController {
     });
   }
 
-  btnEyeClicked() {
+  btnSofEyeClicked() {
     sof.visible = !sof.visible;
     update();
   }

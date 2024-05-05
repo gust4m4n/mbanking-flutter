@@ -89,7 +89,7 @@ class MbxQRISAmountScreen extends StatelessWidget {
                                                     ),
                                                   ],
                                                 )),
-                                            ContainerX(height: 8.0),
+                                            ContainerX(height: 12.0),
                                             ContainerX(
                                               backgroundColor:
                                                   ColorX.theme.withOpacity(0.1),
@@ -188,138 +188,94 @@ class MbxQRISAmountScreen extends StatelessWidget {
                                                 ),
                                               ]),
                                             ),
-                                            ContainerX(height: 8.0),
-                                            TextX(
-                                              'SUMBER DANA',
-                                              fontSize: 13.0,
-                                              fontWeight: FontWeight.w700,
-                                              color: ColorX.black,
-                                              textAlign: TextAlign.start,
-                                            ),
-                                            ContainerX(height: 4.0),
-                                            ContainerX(
-                                                width: double.infinity,
-                                                height: 80.0,
-                                                borderWidth: 1.0,
-                                                borderColor: ColorX.lightGray,
-                                                cornerRadius: 8.0,
-                                                child: Row(
-                                                  children: [
-                                                    InkWellX(
-                                                      onClicked: () {
-                                                        controller
-                                                            .btnSofClicked();
-                                                      },
-                                                      child: ContainerX(
-                                                        backgroundColor: ColorX
-                                                            .theme
-                                                            .withOpacity(0.1),
-                                                        width: 50.0,
-                                                        child: Center(
-                                                            child: ImageX(
+                                            ContainerX(height: 12.0),
+                                            Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  TextX(
+                                                    'JUMLAH',
+                                                    color: ColorX.black,
+                                                    fontSize: 13.0,
+                                                    fontWeight: FontWeight.w500,
+                                                    textAlign: TextAlign.start,
+                                                  ),
+                                                  ContainerX(height: 4.0),
+                                                  TextFieldX(
+                                                    hint: 'Nominal transfer',
+                                                    obscureText: false,
+                                                    keyboardType:
+                                                        TextInputType.number,
+                                                    readOnly: false,
+                                                    controller: controller
+                                                        .txtAmountController,
+                                                    focusNode: controller
+                                                        .txtAmountNode,
+                                                    onChanged: (value) {
+                                                      controller
+                                                          .txtAmountChanged(
+                                                              value);
+                                                    },
+                                                  ),
+                                                ]),
+                                            ContainerX(height: 12.0),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                TextX(
+                                                  'SUMBER DANA',
+                                                  color: ColorX.black,
+                                                  fontSize: 13.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  textAlign: TextAlign.start,
+                                                ),
+                                                ContainerX(height: 4.0),
+                                                ContainerX(
+                                                    width: double.infinity,
+                                                    padding: EdgeInsets.only(
+                                                        left: 12.0,
+                                                        top: 8.0,
+                                                        right: 12.0,
+                                                        bottom: 8.0),
+                                                    borderWidth: 1.0,
+                                                    borderColor:
+                                                        ColorX.lightGray,
+                                                    cornerRadius: 8.0,
+                                                    child: Row(children: [
+                                                      Expanded(
+                                                        child: MbxSofWidget(
+                                                          account:
+                                                              controller.sof,
+                                                          borders: false,
+                                                          onEyeClicked: () {
+                                                            controller
+                                                                .btnSofEyeClicked();
+                                                          },
+                                                        ),
+                                                      ),
+                                                      ContainerX(width: 8.0),
+                                                      ButtonX(
                                                           faIcon:
                                                               FontAwesomeIcons
                                                                   .chevronDown,
-                                                          color: ColorX.black,
-                                                          width: 24.0,
-                                                          height: 24.0,
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  4.0),
-                                                        )),
-                                                      ),
-                                                    ),
-                                                    ContainerX(
-                                                        width: 1.0,
-                                                        height: 90.0,
-                                                        backgroundColor:
-                                                            ColorX.lightGray),
-                                                    ContainerX(width: 12.0),
-                                                    Expanded(
-                                                      child: MbxSofWidget(
-                                                        account:
-                                                            controller.account,
-                                                        borders: false,
-                                                        onEyeClicked: () {
-                                                          controller
-                                                              .btnEyeClicked();
-                                                        },
-                                                      ),
-                                                    ),
-                                                    ContainerX(width: 12.0),
-                                                  ],
-                                                )),
-                                            Container(height: 8.0),
-                                            TextX(
-                                              'NOMINAL',
-                                              fontSize: 13.0,
-                                              fontWeight: FontWeight.w700,
-                                              color: ColorX.black,
-                                              textAlign: TextAlign.start,
+                                                          backgroundColor:
+                                                              ColorX
+                                                                  .transparent,
+                                                          faWidth: 16.0,
+                                                          faHeight: 16.0,
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          borderWidth: 0.5,
+                                                          borderColor:
+                                                              ColorX.gray,
+                                                          onClicked: () {
+                                                            controller
+                                                                .btnSofClicked();
+                                                          })
+                                                    ])),
+                                              ],
                                             ),
-                                            ContainerX(height: 4.0),
-                                            ContainerX(
-                                                width: double.infinity,
-                                                height: 48.0,
-                                                borderWidth: 1.0,
-                                                borderColor: ColorX.lightGray,
-                                                cornerRadius: 8.0,
-                                                child: Row(
-                                                  children: [
-                                                    ContainerX(
-                                                      backgroundColor: ColorX
-                                                          .theme
-                                                          .withOpacity(0.1),
-                                                      width: 50.0,
-                                                      child: Center(
-                                                          child: TextX(
-                                                        'Rp',
-                                                        fontSize: 20.0,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        color: ColorX.gray,
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                      )),
-                                                    ),
-                                                    ContainerX(
-                                                        width: 1.0,
-                                                        height: 48.0,
-                                                        backgroundColor:
-                                                            ColorX.lightGray),
-                                                    ContainerX(width: 12.0),
-                                                    Expanded(
-                                                      child: TextFieldX(
-                                                        hint: '0',
-                                                        borderWidth: 0.0,
-                                                        borderColor:
-                                                            ColorX.transparent,
-                                                        obscureText: false,
-                                                        fontSize: 24.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        keyboardType:
-                                                            TextInputType
-                                                                .number,
-                                                        readOnly: false,
-                                                        controller: controller
-                                                            .txtAmountController,
-                                                        focusNode: controller
-                                                            .txtAmountNode,
-                                                        inputFormatters: <TextInputFormatter>[
-                                                          FilteringTextInputFormatter
-                                                              .digitsOnly
-                                                        ],
-                                                        onChanged: (value) {
-                                                          controller
-                                                              .txtAmountChanged(
-                                                                  value);
-                                                        },
-                                                      ),
-                                                    ),
-                                                    ContainerX(width: 12.0),
-                                                  ],
-                                                ))
                                           ]))),
                             ))),
               ContainerX(
