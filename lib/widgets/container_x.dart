@@ -31,7 +31,7 @@ class ContainerX extends StatelessWidget {
     this.padding = const EdgeInsets.all(0.0),
     this.margin = const EdgeInsets.all(0.0),
     this.clipBehavior = Clip.antiAlias,
-    this.child,
+    this.child, required ,
   }) : super(key: key);
 
   @override

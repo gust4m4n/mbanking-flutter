@@ -1,24 +1,23 @@
-import 'package:mbankingflutter/utils/all_utils.dart';
-
 import 'all_widgets.dart';
 
 class MbxScreen extends StatelessWidget {
   final String title;
   final GestureTapCallback? backAction;
   final Widget? body;
+  final Widget? scrollingBody;
   const MbxScreen({
     Key? key,
     this.title = '',
     this.backAction,
     this.body,
+    this.scrollingBody,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PopScope(
-        canPop: false, // backAction != null,
+        canPop: false,
         onPopInvoked: (didPop) {
-          LoggerX.log('onPopInvoked: $didPop');
           if (didPop == false) {
             if (backAction != null) {
               backAction!();
@@ -47,15 +46,37 @@ class MbxScreen extends StatelessWidget {
               },
             ),
             bottomPadding: false,
-            bodyView: Column(
-              children: [
-                TopContainerX(),
-                Expanded(
-                    child: ContainerX(
-                  backgroundColor: ColorX.white,
-                  child: body,
-                )),
-              ],
-            )));
+            bodyView: body != null
+                ? Column(
+                    children: [
+                      TopContainerX(),
+                      Expanded(
+                          child: ContainerX(
+                        backgroundColor: ColorX.white,
+                        child: body,
+                      )),
+                    ],
+                  )
+                : scrollingBody != null
+                    ? ContainerX(
+                        child: SingleChildScrollView(
+                            physics: ClampingScrollPhysics(),
+                            child: Padding(
+                                padding: EdgeInsets.only(
+                                    left: 16.0,
+                                    top: 16.0,
+                                    right: 16.0,
+                                    bottom: 16.0 +
+                                        MediaQuery.of(Get.context!)
+                                            .padding
+                                            .bottom),
+                                child: ContainerX(
+                                    backgroundColor: ColorX.white,
+                                    cornerRadius: 16.0,
+                                    borderWidth: 0.5,
+                                    borderColor: ColorX.gray,
+                                    padding: EdgeInsets.all(16.0),
+                                    child: scrollingBody))))
+                    : null));
   }
 }
