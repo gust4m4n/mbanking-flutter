@@ -11,12 +11,9 @@ class MbxReloginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<MbxReloginController>(
         init: MbxReloginController(),
-        builder: (controller) => ScreenX(
-              lightStatusBar: true,
-              topPadding: false,
-              bottomPadding: false,
-              bodyView: ContainerX(
-                  //backgroundColor: ColorX.theme,
+        builder: (controller) => MbxScreen(
+              navigationBarHidden: true,
+              body: ContainerX(
                   child: Column(
                 children: [
                   ContainerX(height: MediaQuery.of(Get.context!).padding.top),
