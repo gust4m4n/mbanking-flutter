@@ -1,10 +1,9 @@
-import 'package:mbankingflutter/views/mbx_bottom_navbar_screen/mbx_bottom_navbar_button.dart';
-import 'package:mbankingflutter/views/mbx_notification_page/mbx_notification_page.dart';
-
 import '../../widgets/all_widgets.dart';
 import '../mbx_history_page/mbx_history_page.dart';
 import '../mbx_home_page/mbx_home_page.dart';
+import '../mbx_notification_page/mbx_notification_page.dart';
 import '../mbx_profile_page/mbx_profile_page.dart';
+import 'mbx_bottom_navbar_button.dart';
 import 'mbx_bottom_navbar_controller.dart';
 
 // ignore: must_be_immutable
@@ -15,8 +14,9 @@ class MbxBottomNavBarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<MbxBottomNavBarController>(
         init: MbxBottomNavBarController(tabBarIndex: tabBarIndex),
-        builder: (controller) => ScreenX(
-              bodyView: IndexedStack(
+        builder: (controller) => MbxScreen(
+              navigationBarHidden: true,
+              body: IndexedStack(
                 index: controller.tabBarIndex,
                 children: <Widget>[
                   MbxHomePage(),

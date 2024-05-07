@@ -7,6 +7,9 @@ class MbxScreen extends StatelessWidget {
   final Widget? curvedBody;
   final Widget? scrollingBody;
   final Widget? scrollingFooter;
+  final Widget? floatingActionButton;
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
+  final Widget? bottomNavigationBar;
   final bool navigationBarHidden;
   final bool backButtonHidden;
   const MbxScreen({
@@ -17,6 +20,9 @@ class MbxScreen extends StatelessWidget {
     this.curvedBody,
     this.scrollingBody,
     this.scrollingFooter,
+    this.floatingActionButton,
+    this.floatingActionButtonLocation,
+    this.bottomNavigationBar,
     this.navigationBarHidden = false,
     this.backButtonHidden = false,
   }) : super(key: key);
@@ -91,6 +97,9 @@ class MbxScreen extends StatelessWidget {
                                     child: scrollingBody))))
                     : body != null
                         ? ContainerX(child: body!)
-                        : null));
+                        : null,
+            floatingActionButton: floatingActionButton,
+            floatingActionButtonLocation: floatingActionButtonLocation,
+            bottomNavigationBar: bottomNavigationBar));
   }
 }
