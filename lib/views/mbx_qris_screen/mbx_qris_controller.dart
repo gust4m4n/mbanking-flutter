@@ -12,10 +12,12 @@ class MbxQRISController extends GetxController {
   final inquiryVM = MbxQRISInquiryVM();
 
   @override
-  void onReady() {
+  Future<void> onReady() async {
     super.onReady();
     if (MbxDeviceInfoVM.simulator == false) {
-      scannerController = MobileScannerController();
+      scannerController = MobileScannerController(
+          autoStart: false, detectionSpeed: DetectionSpeed.noDuplicates);
+      await scannerController?.start();
     }
   }
 
@@ -34,9 +36,8 @@ class MbxQRISController extends GetxController {
     if (pickedFile != null) {
       inquiryVM.request(qr_code: '').then((resp) {
         if (resp.status == 200) {
-          Get.to(MbxQRISAmountScreen(inquiry: inquiryVM.inqury))?.then((value) {
-            scannerController?.start();
-          });
+          Get.to(MbxQRISAmountScreen(inquiry: inquiryVM.inqury))
+              ?.then((value) {});
         }
       });
     }
@@ -48,16 +49,20 @@ class MbxQRISController extends GetxController {
     update();
   }
 
-  QRDetected(String code) {
+  QRDetected(String code) async {
     LoggerX.log('QR Code: $code');
-    scannerController?.stop().then((value) {
-      inquiryVM.request(qr_code: code).then((resp) {
-        if (resp.status == 200) {
-          Get.to(MbxQRISAmountScreen(inquiry: inquiryVM.inqury))?.then((value) {
-            scannerController?.start();
-          });
-        }
-      });
+    await scannerController?.stop();
+    Get.loading();
+    inquiryVM.request(qr_code: code).then((resp) async {
+      Get.back();
+      if (resp.status == 200) {
+        Get.to(MbxQRISAmountScreen(inquiry: inquiryVM.inqury))
+            ?.then((value) async {
+          await scannerController?.start();
+        });
+      } else {
+        await scannerController?.start();
+      }
     });
   }
 }

@@ -204,24 +204,16 @@ class MbxQRISAmountScreen extends StatelessWidget {
                           ])),
                     ],
                   ),
-                  ContainerX(
-                    backgroundColor: ColorX.white,
-                    padding: EdgeInsets.only(
-                        left: 16.0,
-                        top: 16.0,
-                        right: 16.0,
-                        bottom:
-                            16.0 + MediaQuery.of(Get.context!).padding.bottom),
-                    child: ButtonX(
-                      title: 'Lanjut',
-                      backgroundColor: ColorX.theme,
-                      disabledBackgroundColor: ColorX.theme.withOpacity(0.2),
-                      enabled: controller.amount > 0,
-                      onClicked: () {
-                        controller.btnNextClicked();
-                      },
-                    ),
-                  ),
+                  ContainerX(height: 12.0),
+                  ButtonX(
+                    title: 'Lanjut',
+                    backgroundColor: ColorX.theme,
+                    disabledBackgroundColor: ColorX.theme.withOpacity(0.2),
+                    enabled: controller.amount > 0,
+                    onClicked: () {
+                      controller.btnNextClicked();
+                    },
+                  )
                 ])));
   }
 }
