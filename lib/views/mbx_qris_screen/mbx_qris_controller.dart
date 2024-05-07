@@ -34,12 +34,7 @@ class MbxQRISController extends GetxController {
         maxHeight: 1024.0,
         preferredCameraDevice: CameraDevice.front);
     if (pickedFile != null) {
-      inquiryVM.request(qr_code: '').then((resp) {
-        if (resp.status == 200) {
-          Get.to(MbxQRISAmountScreen(inquiry: inquiryVM.inqury))
-              ?.then((value) {});
-        }
-      });
+      QRDetected('');
     }
   }
 
