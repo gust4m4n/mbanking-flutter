@@ -82,7 +82,7 @@ class MbxScreen extends StatelessWidget {
                                     padding: EdgeInsets.all(16.0),
                                     child: scrollingBody))))
                     : body != null
-                        ? Expanded(child: ContainerX(child: body!))
+                        ? ContainerX(child: body!)
                         : null));
   }
 }
