@@ -3,6 +3,7 @@ import 'all_widgets.dart';
 class MbxScreen extends StatelessWidget {
   final String title;
   final GestureTapCallback? backAction;
+  final Widget? body;
   final Widget? curvedBody;
   final Widget? scrollingBody;
   final Widget? scrollingFooter;
@@ -10,6 +11,7 @@ class MbxScreen extends StatelessWidget {
     Key? key,
     this.title = '',
     this.backAction,
+    this.body,
     this.curvedBody,
     this.scrollingBody,
     this.scrollingFooter,
@@ -79,6 +81,8 @@ class MbxScreen extends StatelessWidget {
                                     borderColor: ColorX.gray,
                                     padding: EdgeInsets.all(16.0),
                                     child: scrollingBody))))
-                    : null));
+                    : body != null
+                        ? Expanded(child: ContainerX(child: body!))
+                        : null));
   }
 }
