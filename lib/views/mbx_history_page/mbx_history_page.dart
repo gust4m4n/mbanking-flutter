@@ -11,6 +11,7 @@ class MbxHistoryPage extends StatelessWidget {
     return GetBuilder<MbxHistoryController>(
       init: MbxHistoryController(),
       builder: (controller) => MbxScreen(
+          backButtonHidden: true,
           title: 'Riwayat',
           curvedBody: NotificationListener<ScrollNotification>(
             onNotification: (ScrollNotification scrollInfo) {

@@ -12,6 +12,7 @@ class MbxNotificationPage extends StatelessWidget {
     return GetBuilder<MbxNotificationController>(
       init: MbxNotificationController(),
       builder: (controller) => MbxScreen(
+          backButtonHidden: true,
           title: 'Notifikasi',
           body: NotificationListener<ScrollNotification>(
             onNotification: (ScrollNotification scrollInfo) {

@@ -7,6 +7,8 @@ class MbxScreen extends StatelessWidget {
   final Widget? curvedBody;
   final Widget? scrollingBody;
   final Widget? scrollingFooter;
+  final bool navigationBarHidden;
+  final bool backButtonHidden;
   const MbxScreen({
     Key? key,
     this.title = '',
@@ -15,6 +17,8 @@ class MbxScreen extends StatelessWidget {
     this.curvedBody,
     this.scrollingBody,
     this.scrollingFooter,
+    this.navigationBarHidden = false,
+    this.backButtonHidden = false,
   }) : super(key: key);
 
   @override
@@ -32,23 +36,27 @@ class MbxScreen extends StatelessWidget {
         },
         child: ScreenX(
             lightStatusBar: true,
-            headerView: NavigationBarX(
-              title: title,
-              leftBtn: ImageX(
-                faIcon: FontAwesomeIcons.arrowLeft,
-                width: 20.0,
-                height: 20.0,
-                color: ColorX.white,
-                fit: BoxFit.contain,
-              ),
-              leftAction: () {
-                if (backAction != null) {
-                  backAction!();
-                } else {
-                  Get.back();
-                }
-              },
-            ),
+            headerView: navigationBarHidden == false
+                ? NavigationBarX(
+                    title: title,
+                    leftBtn: backButtonHidden == false
+                        ? ImageX(
+                            faIcon: FontAwesomeIcons.arrowLeft,
+                            width: 20.0,
+                            height: 20.0,
+                            color: ColorX.white,
+                            fit: BoxFit.contain,
+                          )
+                        : null,
+                    leftAction: () {
+                      if (backAction != null) {
+                        backAction!();
+                      } else {
+                        Get.back();
+                      }
+                    },
+                  )
+                : null,
             bottomPadding: false,
             bodyView: curvedBody != null
                 ? Column(
