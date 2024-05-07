@@ -12,7 +12,7 @@ class MbxHistoryPage extends StatelessWidget {
         init: MbxHistoryController(),
         builder: (controller) => MbxScreen(
               title: 'Riwayat',
-              body: Expanded(
+              curvedBody: Expanded(
                   child: NotificationListener<ScrollNotification>(
                 onNotification: (ScrollNotification scrollInfo) {
                   if (controller.historyListVM.loading == false &&

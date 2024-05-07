@@ -7,7 +7,7 @@ class MbxTncScreen extends StatelessWidget {
     return GetBuilder<MbxTncController>(
       init: MbxTncController(),
       builder: (controller) => MbxScreen(
-          body: ContainerX(
+          curvedBody: ContainerX(
         backgroundColor: ColorX.white,
         child: controller.tncVM.loading
             ? Center(

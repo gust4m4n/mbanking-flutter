@@ -7,7 +7,7 @@ class MbxPrivacyPolicyScreen extends StatelessWidget {
     return GetBuilder<MbxPrivacyPolicyController>(
         init: MbxPrivacyPolicyController(),
         builder: (controller) => MbxScreen(
-                body: ContainerX(
+                curvedBody: ContainerX(
               backgroundColor: ColorX.white,
               child: controller.privacyPolicyVM.loading
                   ? Center(

@@ -1,8 +1,8 @@
 import 'package:mbankingflutter/models/mbx_receipt_model.dart';
 
 import '../../widgets/all_widgets.dart';
-import 'mbx_notification_widget.dart';
 import 'mbx_notification_controller.dart';
+import 'mbx_notification_widget.dart';
 
 class MbxNotificationPage extends StatelessWidget {
   MbxNotificationPage({Key? key}) : super(key: key);
