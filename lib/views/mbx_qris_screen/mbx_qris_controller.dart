@@ -34,7 +34,16 @@ class MbxQRISController extends GetxController {
         maxHeight: 1024.0,
         preferredCameraDevice: CameraDevice.front);
     if (pickedFile != null) {
-      QRDetected('');
+      scannerController?.analyzeImage(pickedFile.path).then((cap) {
+        if (cap == null) {
+          return;
+        }
+        final List<Barcode> barcodes = cap!.barcodes;
+        for (final barcode in barcodes) {
+          QRDetected(barcode.rawValue!);
+          break;
+        }
+      });
     }
   }
 
