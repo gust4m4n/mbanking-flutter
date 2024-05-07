@@ -5,12 +5,14 @@ class MbxScreen extends StatelessWidget {
   final GestureTapCallback? backAction;
   final Widget? body;
   final Widget? scrollingBody;
+  final Widget? scrollingFooter;
   const MbxScreen({
     Key? key,
     this.title = '',
     this.backAction,
     this.body,
     this.scrollingBody,
+    this.scrollingFooter,
   }) : super(key: key);
 
   @override
