@@ -7,23 +7,8 @@ class MbxReceiptScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<MbxReceiptController>(
       init: MbxReceiptController(),
-      builder: (controller) => ScreenX(
-          lightStatusBar: true,
-          headerView: NavigationBarX(
-            title: '',
-            leftBtn: ImageX(
-              faIcon: FontAwesomeIcons.arrowLeft,
-              width: 20.0,
-              height: 20.0,
-              color: ColorX.white,
-              fit: BoxFit.contain,
-            ),
-            leftAction: () {
-              controller.btnBackClicked();
-            },
-          ),
-          bottomPadding: false,
-          bodyView: ContainerX(
+      builder: (controller) => MbxScreen(
+          body: ContainerX(
               child: controller.loading
                   ? Center(
                       child: CircularProgressIndicator(

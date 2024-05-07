@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:mbankingflutter/views/mbx_login_screen/mbx_onboarding_cell.dart';
+import 'package:mbankingflutter/views/mbx_login_screen/mbx_onboarding_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../widgets/all_widgets.dart';
@@ -13,11 +13,9 @@ class MbxLoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<MbLoginController>(
         init: MbLoginController(),
-        builder: (controller) => ScreenX(
-            lightStatusBar: true,
-            topPadding: false,
-            bottomPadding: false,
-            bodyView: Column(children: [
+        builder: (controller) => MbxScreen(
+            navigationBarHidden: true,
+            body: Column(children: [
               ContainerX(
                 padding: EdgeInsets.only(
                     left: 24.0,
@@ -54,7 +52,7 @@ class MbxLoginScreen extends StatelessWidget {
                             itemCount: controller.onboardingVM.list.length,
                             itemBuilder: (BuildContext context, int index,
                                 int pageViewIndex) {
-                              return MbxOnboardingCell(
+                              return MbxOnboardingWidget(
                                   controller.onboardingVM.list[index]);
                             })
                         : Container(),
