@@ -11,10 +11,9 @@ class MbxQRISScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<MbxQRISController>(
         init: MbxQRISController(),
-        builder: (controller) => ScreenX(
-            lightStatusBar: true,
-            bottomPadding: true,
-            bodyView: Stack(children: [
+        builder: (controller) => MbxScreen(
+            navigationBarHidden: true,
+            body: Stack(children: [
               MbxDeviceInfoVM.simulator == false
                   ? MobileScanner(
                       controller: controller.scannerController,
@@ -41,7 +40,7 @@ class MbxQRISScreen extends StatelessWidget {
               Positioned(
                 left: 16.0,
                 right: 16.0,
-                bottom: 16.0,
+                bottom: 16.0 + MediaQuery.of(Get.context!).padding.bottom,
                 child: ContainerX(
                     backgroundColor: ColorX.white,
                     cornerRadius: 16.0,
