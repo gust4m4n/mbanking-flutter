@@ -14,7 +14,7 @@ class MbLoginController extends GetxController {
   var onboardingVM = MbxOnboardingListVM();
   final txtPhoneController = TextEditingController();
   final txtPhoneNode = FocusNode();
-  var txtPhoneError = '';
+  var phoneError = '';
   var loginEnabled = false;
   var version = '';
   var onboardingIndex = 0;
@@ -58,11 +58,11 @@ class MbLoginController extends GetxController {
 
   btnLoginClicked() {
     FocusManager.instance.primaryFocus?.unfocus();
-    txtPhoneError = '';
+    phoneError = '';
     update();
 
     if (txtPhoneController.text.trim().isEmpty) {
-      txtPhoneError = 'Nomor handphone tidak boleh kosong.';
+      phoneError = 'Nomor handphone tidak boleh kosong.';
       FocusScope.of(Get.context!).requestFocus(txtPhoneNode);
       update();
       return;

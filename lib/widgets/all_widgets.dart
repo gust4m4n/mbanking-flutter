@@ -15,6 +15,7 @@ export 'package:webview_flutter/webview_flutter.dart';
 
 export 'button_x.dart';
 export 'colors_x.dart';
+export 'container_error.dart';
 export 'container_x.dart';
 export 'dashed_divider_x.dart';
 export 'dialog_x.dart';

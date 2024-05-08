@@ -79,52 +79,50 @@ class MbxLoginScreen extends StatelessWidget {
                   backgroundColor: ColorX.white,
                   topLeftRadius: 16.0,
                   topRightRadius: 16.0,
-                  child: Column(
-                    children: [
-                      ContainerX(
-                        padding: const EdgeInsets.only(
-                            left: 24.0, top: 24.0, right: 24.0, bottom: 16.0),
-                        child: TextFieldX(
-                          hint: 'No. HP (08xxxxxxxxx)',
-                          obscureText: false,
-                          keyboardType: TextInputType.phone,
-                          inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.digitsOnly
-                          ],
-                          readOnly: false,
-                          controller: controller.txtPhoneController,
-                          focusNode: controller.txtPhoneNode,
-                          onChanged: (value) {
-                            controller.txtPhoneOnChanged(value);
-                          },
-                          rightIcon: ImageX(
-                            faIcon: FontAwesomeIcons.arrowRight,
-                            color: ColorX.white,
-                            width: 14.0,
-                            height: 14.0,
-                            backgroundColor: ColorX.theme,
+                  child: Padding(
+                      padding: EdgeInsets.all(24.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ContainerError(
+                            child: TextFieldX(
+                              hint: 'No. HP (08xxxxxxxxx)',
+                              obscureText: false,
+                              keyboardType: TextInputType.phone,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              readOnly: false,
+                              controller: controller.txtPhoneController,
+                              focusNode: controller.txtPhoneNode,
+                              onChanged: (value) {
+                                controller.txtPhoneOnChanged(value);
+                              },
+                              rightIcon: ImageX(
+                                faIcon: FontAwesomeIcons.arrowRight,
+                                color: ColorX.white,
+                                width: 14.0,
+                                height: 14.0,
+                                backgroundColor: ColorX.theme,
+                              ),
+                              rightAction: () {
+                                controller.btnLoginClicked();
+                              },
+                            ),
+                            error: controller.phoneError,
                           ),
-                          rightAction: () {
-                            controller.btnLoginClicked();
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: 16.0,
-                            top: 0.0,
-                            right: 16.0,
-                            bottom: 24.0 +
-                                MediaQuery.of(Get.context!).padding.bottom),
-                        child: TextX(
-                          controller.version,
-                          fontSize: 13.0,
-                          fontWeight: FontWeight.w500,
-                          color: ColorX.black,
-                        ),
-                      ),
-                    ],
-                  ))
+                          ContainerX(height: 24.0),
+                          TextX(
+                            controller.version,
+                            fontSize: 13.0,
+                            fontWeight: FontWeight.w500,
+                            color: ColorX.black,
+                          ),
+                          ContainerX(
+                              height:
+                                  MediaQuery.of(Get.context!).padding.bottom)
+                        ],
+                      )))
             ])));
   }
 }
