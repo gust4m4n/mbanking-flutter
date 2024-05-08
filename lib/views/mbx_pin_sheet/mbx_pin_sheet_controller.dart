@@ -1,8 +1,7 @@
-import 'package:mbankingflutter/views/mbx_pin_sheet/mbx_pin_sheet.dart';
-
 import '../../viewmodels/mbx_biometric_vm.dart';
 import '../../viewmodels/mbx_preferences_vm+users.dart';
 import '../../widgets/all_widgets.dart';
+import 'mbx_pin_sheet.dart';
 
 class MbxPinSheetController extends GetxController {
   final MbxPinSheet widget;

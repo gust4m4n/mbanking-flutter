@@ -63,65 +63,63 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                 ),
               ),
               ContainerX(height: 16.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MbxPinDot(
-                    on: controller.code.length >= 1,
-                    number:
-                        controller.code.length >= 1 ? controller.code[0] : '',
-                    secure: secure,
+              Padding(
+                padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                child: ContainerError(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      MbxPinDot(
+                        on: controller.code.length >= 1,
+                        number: controller.code.length >= 1
+                            ? controller.code[0]
+                            : '',
+                        secure: secure,
+                      ),
+                      ContainerX(width: 8.0),
+                      MbxPinDot(
+                        on: controller.code.length >= 2,
+                        number: controller.code.length >= 2
+                            ? controller.code[1]
+                            : '',
+                        secure: secure,
+                      ),
+                      ContainerX(width: 8.0),
+                      MbxPinDot(
+                        on: controller.code.length >= 3,
+                        number: controller.code.length >= 3
+                            ? controller.code[2]
+                            : '',
+                        secure: secure,
+                      ),
+                      ContainerX(width: 8.0),
+                      MbxPinDot(
+                        on: controller.code.length >= 4,
+                        number: controller.code.length >= 4
+                            ? controller.code[3]
+                            : '',
+                        secure: secure,
+                      ),
+                      ContainerX(width: 8.0),
+                      MbxPinDot(
+                        on: controller.code.length >= 5,
+                        number: controller.code.length >= 5
+                            ? controller.code[4]
+                            : '',
+                        secure: secure,
+                      ),
+                      ContainerX(width: 8.0),
+                      MbxPinDot(
+                        on: controller.code.length >= 6,
+                        number: controller.code.length >= 6
+                            ? controller.code[5]
+                            : '',
+                        secure: secure,
+                      ),
+                    ],
                   ),
-                  ContainerX(width: 8.0),
-                  MbxPinDot(
-                    on: controller.code.length >= 2,
-                    number:
-                        controller.code.length >= 2 ? controller.code[1] : '',
-                    secure: secure,
-                  ),
-                  ContainerX(width: 8.0),
-                  MbxPinDot(
-                    on: controller.code.length >= 3,
-                    number:
-                        controller.code.length >= 3 ? controller.code[2] : '',
-                    secure: secure,
-                  ),
-                  ContainerX(width: 8.0),
-                  MbxPinDot(
-                    on: controller.code.length >= 4,
-                    number:
-                        controller.code.length >= 4 ? controller.code[3] : '',
-                    secure: secure,
-                  ),
-                  ContainerX(width: 8.0),
-                  MbxPinDot(
-                    on: controller.code.length >= 5,
-                    number:
-                        controller.code.length >= 5 ? controller.code[4] : '',
-                    secure: secure,
-                  ),
-                  ContainerX(width: 8.0),
-                  MbxPinDot(
-                    on: controller.code.length >= 6,
-                    number:
-                        controller.code.length >= 6 ? controller.code[5] : '',
-                    secure: secure,
-                  ),
-                ],
-              ),
-              Visibility(
-                visible: controller.error.isNotEmpty,
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      left: 48.0, top: 8.0, right: 48.0, bottom: 8.0),
-                  child: TextX(
-                    controller.error,
-                    color: ColorX.red,
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.w500,
-                    textAlign: TextAlign.center,
-                    maxLines: 3,
-                  ),
+                  error: controller.error,
+                  alignment: CrossAxisAlignment.center,
                 ),
               ),
               ContainerX(
