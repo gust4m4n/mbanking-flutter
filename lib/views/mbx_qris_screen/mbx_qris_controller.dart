@@ -38,7 +38,7 @@ class MbxQRISController extends GetxController {
         if (cap == null) {
           return;
         }
-        final List<Barcode> barcodes = cap!.barcodes;
+        final List<Barcode> barcodes = cap.barcodes;
         for (final barcode in barcodes) {
           QRDetected(barcode.rawValue!);
           break;
