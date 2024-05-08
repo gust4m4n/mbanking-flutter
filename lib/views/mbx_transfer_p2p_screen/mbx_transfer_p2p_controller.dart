@@ -20,7 +20,10 @@ class MbxTransfeP2PrController extends GetxController {
   final txtMessageController = TextEditingController();
   final txtMessageNode = FocusNode();
   var dest = MbxTransferP2PDestModel();
+  var destError = '';
   int amount = 0;
+  var amountError = '';
+  var messageError = '';
   var sof = MbxAccountModel();
 
   @override
@@ -87,6 +90,30 @@ class MbxTransfeP2PrController extends GetxController {
   }
 
   btnNextClicked() {
+    if (dest.account.isEmpty) {
+      destError = 'Pilih rekening tujuan terlebih dahulu.';
+      update();
+      return;
+    }
+    destError = '';
+
+    if (txtAmountController.text.isEmpty || amount <= 0) {
+      amountError = 'Masukkan nominal transfer.';
+      update();
+      txtAmountNode.requestFocus();
+      return;
+    }
+    amountError = '';
+
+    if (txtMessageController.text.isEmpty) {
+      messageError = 'Berita harus diisi.';
+      update();
+      txtMessageNode.requestFocus();
+      return;
+    }
+    messageError = '';
+    update();
+
     inquiry();
   }
 

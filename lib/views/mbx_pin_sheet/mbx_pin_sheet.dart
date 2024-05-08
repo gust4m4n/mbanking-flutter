@@ -119,7 +119,8 @@ class MbxPinSheet extends GetWidget<MbxPinSheetController> {
                     ],
                   ),
                   error: controller.error,
-                  alignment: CrossAxisAlignment.center,
+                  align: CrossAxisAlignment.center,
+                  textAlign: TextAlign.center,
                 ),
               ),
               ContainerX(

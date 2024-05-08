@@ -3,13 +3,15 @@ import 'all_widgets.dart';
 class ContainerError extends StatelessWidget {
   final Widget? child;
   final String? error;
-  final CrossAxisAlignment alignment;
+  final CrossAxisAlignment align;
+  final TextAlign? textAlign;
 
   const ContainerError(
       {Key? key,
       this.child,
       this.error,
-      this.alignment = CrossAxisAlignment.start})
+      this.align = CrossAxisAlignment.start,
+      this.textAlign = TextAlign.start})
       : super(key: key);
 
   @override
@@ -19,14 +21,14 @@ class ContainerError extends StatelessWidget {
       ContainerX(height: 4.0),
       Visibility(
           visible: error != null && error!.isNotEmpty,
-          child: Column(crossAxisAlignment: alignment, children: [
+          child: Column(crossAxisAlignment: align, children: [
             ContainerX(height: 4.0),
             TextX(
               error != null ? error! : '',
               color: ColorX.red,
               fontSize: 15.0,
               fontWeight: FontWeight.w400,
-              textAlign: TextAlign.center,
+              textAlign: textAlign,
               maxLines: 16,
             ),
           ]))
