@@ -23,8 +23,12 @@ class MbxTransfeP2BankController extends GetxController {
   final txtMessageController = TextEditingController();
   final txtMessageNode = FocusNode();
   var dest = MbxTransferP2BankDestModel();
+  var destError = '';
   int amount = 0;
+  var amountError = '';
+  var messageError = '';
   var service = MbxTransferP2BankServiceModel();
+  var serviceError = '';
   var sof = MbxAccountModel();
   final transferServiceListVM = MbxTransferP2BankServiceListVM();
 
@@ -106,8 +110,45 @@ class MbxTransfeP2BankController extends GetxController {
     update();
   }
 
+  bool validate() {
+    if (dest.account.isEmpty) {
+      destError = 'Pilih rekening tujuan terlebih dahulu.';
+      update();
+      return false;
+    }
+    destError = '';
+
+    if (txtAmountController.text.isEmpty || amount <= 0) {
+      amountError = 'Masukkan nominal transfer.';
+      update();
+      txtAmountNode.requestFocus();
+      return false;
+    }
+    amountError = '';
+
+    if (service.code.isEmpty) {
+      serviceError = 'Pilih layanan transfer yang diinginkan.';
+      update();
+      return false;
+    }
+    serviceError = '';
+
+    if (txtMessageController.text.isEmpty) {
+      messageError = 'Berita harus diisi.';
+      update();
+      txtMessageNode.requestFocus();
+      return false;
+    }
+    messageError = '';
+    update();
+
+    return true;
+  }
+
   btnNextClicked() {
-    inquiry();
+    if (validate() == true) {
+      inquiry();
+    }
   }
 
   inquiry() {
@@ -122,7 +163,7 @@ class MbxTransfeP2BankController extends GetxController {
             inquiry: inquiryVM.inquiry);
         sheet.show().then((value) {
           if (value == true) {
-            security(inquiry: inquiryVM.inquiry);
+            auauthenticate(inquiry: inquiryVM.inquiry);
           }
         });
       } else {
@@ -131,7 +172,7 @@ class MbxTransfeP2BankController extends GetxController {
     });
   }
 
-  security({required MbxInquiryModel inquiry}) {
+  auauthenticate({required MbxInquiryModel inquiry}) {
     final pinSheet = MbxPinSheet();
     pinSheet.show(
       title: 'PIN',
