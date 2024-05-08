@@ -18,7 +18,6 @@ class ContainerError extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       if (child != null) child!,
-      ContainerX(height: 4.0),
       Visibility(
           visible: error != null && error!.isNotEmpty,
           child: Column(crossAxisAlignment: align, children: [

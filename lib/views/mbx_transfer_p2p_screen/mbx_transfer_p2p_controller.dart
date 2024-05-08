@@ -89,11 +89,11 @@ class MbxTransfeP2PrController extends GetxController {
     update();
   }
 
-  btnNextClicked() {
+  bool validate() {
     if (dest.account.isEmpty) {
       destError = 'Pilih rekening tujuan terlebih dahulu.';
       update();
-      return;
+      return false;
     }
     destError = '';
 
@@ -101,7 +101,7 @@ class MbxTransfeP2PrController extends GetxController {
       amountError = 'Masukkan nominal transfer.';
       update();
       txtAmountNode.requestFocus();
-      return;
+      return false;
     }
     amountError = '';
 
@@ -109,12 +109,18 @@ class MbxTransfeP2PrController extends GetxController {
       messageError = 'Berita harus diisi.';
       update();
       txtMessageNode.requestFocus();
-      return;
+      return false;
     }
     messageError = '';
     update();
 
-    inquiry();
+    return true;
+  }
+
+  btnNextClicked() {
+    if (validate() == true) {
+      inquiry();
+    }
   }
 
   inquiry() {
@@ -129,7 +135,7 @@ class MbxTransfeP2PrController extends GetxController {
             inquiry: inquiryVM.inquiry);
         sheet.show().then((value) {
           if (value == true) {
-            security(inquiry: inquiryVM.inquiry);
+            auauthenticate(inquiry: inquiryVM.inquiry);
           }
         });
       } else {
@@ -138,7 +144,7 @@ class MbxTransfeP2PrController extends GetxController {
     });
   }
 
-  security({required MbxInquiryModel inquiry}) {
+  auauthenticate({required MbxInquiryModel inquiry}) {
     final pinSheet = MbxPinSheet();
     pinSheet.show(
       title: 'PIN',

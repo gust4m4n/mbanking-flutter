@@ -12,16 +12,12 @@
 		  "value": "IDR 150.000"
 		},
 		{
-		  "label": "NAMA PENERIMA",
-		  "value": "CAROLINE"
+		  "label": "PENERIMA",
+		  "value": "CAROLINE\n3888-111-2333"
 		},
 		{
-		  "label": "REKENING PENERIMA",
-		  "value": "3888-111-2333"
-		},
-		{
-		  "label": "REKENING PENGIRIM",
-		  "value": "8222-3833-4888"
+		  "label": "PENGIRIM",
+		  "value": "JULEHA\n8222-3833-4888"
 		}
 	  ],
 	  "transaction_id": "TRID-20210101-0001"
