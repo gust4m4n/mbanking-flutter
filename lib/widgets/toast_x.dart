@@ -40,6 +40,7 @@ class ToastX {
     ToastX.controller = await showFlash(
         context: Get.context!,
         duration: duration == 0 ? null : Duration(milliseconds: duration),
+        barrierDismissible: true,
         builder: (context, controller) {
           ToastX.controller = controller;
           return FlashBar(
