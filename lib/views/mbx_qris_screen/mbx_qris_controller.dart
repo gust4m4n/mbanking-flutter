@@ -34,16 +34,16 @@ class MbxQRISController extends GetxController {
         maxHeight: 1024.0,
         preferredCameraDevice: CameraDevice.front);
     if (pickedFile != null) {
-      scannerController?.analyzeImage(pickedFile.path).then((cap) {
-        if (cap == null) {
-          return;
-        }
-        final List<Barcode> barcodes = cap.barcodes;
-        for (final barcode in barcodes) {
-          QRDetected(barcode.rawValue!);
-          break;
-        }
-      });
+      final cap = await scannerController?.analyzeImage(pickedFile.path);
+      if (cap == null) {
+        ToastX.showError(msg: 'QR tidak terdeteksi.');
+        return;
+      }
+      final List<Barcode> barcodes = cap.barcodes;
+      for (final barcode in barcodes) {
+        QRDetected(barcode.rawValue!);
+        break;
+      }
     }
   }
 

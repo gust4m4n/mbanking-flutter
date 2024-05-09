@@ -1,6 +1,6 @@
-import 'package:mbankingflutter/viewmodels/mbx_device_info_vm.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
+import '../../viewmodels/mbx_device_info_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_qris_controller.dart';
 
@@ -14,21 +14,17 @@ class MbxQRISScreen extends StatelessWidget {
         builder: (controller) => MbxScreen(
             navigationBarHidden: true,
             body: Stack(children: [
-              MbxDeviceInfoVM.simulator == false
-                  ? MobileScanner(
-                      controller: controller.scannerController,
-                      onDetect: (cap) {
-                        final List<Barcode> barcodes = cap.barcodes;
-                        for (final barcode in barcodes) {
-                          controller.QRDetected(barcode.rawValue!);
-                          break;
-                        }
-                      },
-                    )
-                  : Expanded(
-                      child: ContainerX(
-                      backgroundColor: ColorX.black,
-                    )),
+              if (MbxDeviceInfoVM.simulator == false)
+                MobileScanner(
+                  controller: controller.scannerController,
+                  onDetect: (cap) {
+                    final List<Barcode> barcodes = cap.barcodes;
+                    for (final barcode in barcodes) {
+                      controller.QRDetected(barcode.rawValue!);
+                      break;
+                    }
+                  },
+                ),
               ContainerX(
                   child: Center(
                 child: ContainerX(

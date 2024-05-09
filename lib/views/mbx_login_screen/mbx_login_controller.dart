@@ -112,7 +112,7 @@ class MbLoginController extends GetxController {
       optionTitle: 'Kirim Ulang',
       onOption: () {
         pinSheet.clear('');
-        ToastX.show(msg: 'OTP telah dikirim ulang ke ponsel anda.');
+        ToastX.showSuccess(msg: 'OTP telah dikirim ulang ke ponsel anda.');
       },
     )
         .then((code) {
@@ -146,7 +146,7 @@ class MbLoginController extends GetxController {
       optionTitle: 'Lupa PIN',
       onOption: () {
         pinSheet.clear('');
-        ToastX.show(msg: 'PIN akan direset, silahkan hubungi CS kami.');
+        ToastX.showSuccess(msg: 'PIN akan direset, silahkan hubungi CS kami.');
       },
     );
   }

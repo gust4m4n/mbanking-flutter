@@ -116,7 +116,7 @@ class DemoController extends SuperController {
   }
 
   btnToastClicked() {
-    ToastX.show(msg: LoremIpsumX.medium());
+    ToastX.showSuccess(msg: LoremIpsumX.medium());
   }
 
   btnSnackBarClicked() {

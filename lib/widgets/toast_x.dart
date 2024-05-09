@@ -3,9 +3,18 @@ import 'all_widgets.dart';
 class ToastX {
   static FlashController? controller;
 
-  static show({required String msg}) {
+  static showSuccess({required String msg}) {
     ToastX.snackBarCustom(
-      widget: BasicToast(msg: msg),
+      widget: BasicToast(
+          backgroundColor: ColorX.green, textColor: ColorX.white, msg: msg),
+      duration: 4000,
+    );
+  }
+
+  static showError({required String msg}) {
+    ToastX.snackBarCustom(
+      widget: BasicToast(
+          backgroundColor: ColorX.red, textColor: ColorX.white, msg: msg),
       duration: 4000,
     );
   }
@@ -55,8 +64,13 @@ class ToastX {
 }
 
 class BasicToast extends StatelessWidget {
+  final Color backgroundColor;
+  final Color textColor;
   final String msg;
-  BasicToast({required this.msg});
+  BasicToast(
+      {required this.backgroundColor,
+      required this.textColor,
+      required this.msg});
 
   @override
   Widget build(BuildContext context) {
@@ -65,13 +79,14 @@ class BasicToast extends StatelessWidget {
       padding: EdgeInsets.all(32.0),
       child: Center(
         child: ContainerX(
-          backgroundColor: ColorX.theme.withOpacity(0.85),
-          padding: EdgeInsets.all(16.0),
-          cornerRadius: 12.0,
+          backgroundColor: backgroundColor,
+          padding:
+              EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
+          cornerRadius: 16.0,
           child: Wrap(children: [
             TextX(
               msg,
-              color: ColorX.white,
+              color: textColor,
               fontSize: 15.0,
               fontWeight: FontWeight.w500,
               textAlign: TextAlign.center,

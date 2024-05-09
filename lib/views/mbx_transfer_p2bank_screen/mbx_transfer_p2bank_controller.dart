@@ -185,7 +185,7 @@ class MbxTransfeP2BankController extends GetxController {
       optionTitle: 'Lupa PIN',
       onOption: () {
         pinSheet.clear('');
-        ToastX.show(msg: 'PIN akan direset, silahkan hubungi CS kami.');
+        ToastX.showSuccess(msg: 'PIN akan direset, silahkan hubungi CS kami.');
       },
     );
   }
