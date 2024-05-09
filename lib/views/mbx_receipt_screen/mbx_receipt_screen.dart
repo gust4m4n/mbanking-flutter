@@ -8,6 +8,9 @@ class MbxReceiptScreen extends StatelessWidget {
     return GetBuilder<MbxReceiptController>(
       init: MbxReceiptController(),
       builder: (controller) => MbxScreen(
+          backAction: () {
+            controller.btnBackClicked();
+          },
           body: ContainerX(
               child: controller.loading
                   ? Center(
