@@ -40,7 +40,7 @@ class MbxQRISAmountScreen extends StatelessWidget {
                             maxLines: 8,
                           ),
                           TextX(
-                            inquiry.merchant_code,
+                            'No. Transaksi: ${inquiry.transaction_id}',
                             fontSize: 13.0,
                             fontWeight: FontWeight.w400,
                             textAlign: TextAlign.center,
@@ -49,92 +49,6 @@ class MbxQRISAmountScreen extends StatelessWidget {
                           ),
                         ],
                       )),
-                  ContainerX(height: 12.0),
-                  ContainerX(
-                    backgroundColor: ColorX.theme.withOpacity(0.1),
-                    width: double.infinity,
-                    cornerRadius: 8.0,
-                    padding: EdgeInsets.all(
-                      12.0,
-                    ),
-                    child: Column(children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: TextX(
-                              'Pengakuisisi',
-                              color: ColorX.black,
-                              fontSize: 13.0,
-                              fontWeight: FontWeight.w500,
-                              textAlign: TextAlign.start,
-                              maxLines: 8,
-                            ),
-                          ),
-                          ContainerX(width: 24.0),
-                          Expanded(
-                              child: TextX(
-                            inquiry.acquirer,
-                            color: ColorX.black,
-                            fontSize: 13.0,
-                            fontWeight: FontWeight.w400,
-                            textAlign: TextAlign.end,
-                            maxLines: 8,
-                          )),
-                        ],
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: TextX(
-                              'Merchant PAN',
-                              color: ColorX.black,
-                              fontSize: 13.0,
-                              fontWeight: FontWeight.w500,
-                              textAlign: TextAlign.start,
-                              maxLines: 8,
-                            ),
-                          ),
-                          ContainerX(width: 24.0),
-                          Expanded(
-                              child: TextX(
-                            inquiry.mpan,
-                            color: ColorX.black,
-                            fontSize: 13.0,
-                            fontWeight: FontWeight.w400,
-                            textAlign: TextAlign.end,
-                            maxLines: 8,
-                          )),
-                        ],
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: TextX(
-                              'No. Referensi',
-                              color: ColorX.black,
-                              fontSize: 13.0,
-                              fontWeight: FontWeight.w500,
-                              textAlign: TextAlign.start,
-                              maxLines: 8,
-                            ),
-                          ),
-                          ContainerX(width: 24.0),
-                          Expanded(
-                              child: TextX(
-                            inquiry.ref,
-                            color: ColorX.black,
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.w400,
-                            textAlign: TextAlign.end,
-                            maxLines: 8,
-                          )),
-                        ],
-                      ),
-                    ]),
-                  ),
                   ContainerX(height: 12.0),
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

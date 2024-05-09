@@ -3,10 +3,10 @@
 	"data": {
 	  "acquirer": "PAYLINK",
 	  "merchant_code": "KLATEN, 12345, ID",
-	  "merchant_name": "NASI BEBEK X BUMBU HITAM",
+	  "merchant_name": "NASI BEBEK 444 BUMBU HITAM",
 	  "mpan": "1000000000000001",
 	  "ref": "209000333383333",
-	  "transaction_id": "50001234567890"
+	  "transaction_id": "0000000000000"
 	},
 	"status": 200
   }
