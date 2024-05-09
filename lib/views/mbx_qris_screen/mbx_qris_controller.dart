@@ -1,5 +1,4 @@
 import 'package:mbankingflutter/utils/all_utils.dart';
-import 'package:mbankingflutter/viewmodels/mbx_device_info_vm.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 import '../../viewmodels/mbx_qris_inquiry_vm.dart';
@@ -14,11 +13,9 @@ class MbxQRISController extends GetxController {
   @override
   Future<void> onReady() async {
     super.onReady();
-    if (MbxDeviceInfoVM.simulator == false) {
-      scannerController = MobileScannerController(
-          autoStart: false, detectionSpeed: DetectionSpeed.noDuplicates);
-      await scannerController?.start();
-    }
+    scannerController = MobileScannerController(
+        autoStart: false, detectionSpeed: DetectionSpeed.noDuplicates);
+    await scannerController?.start();
   }
 
   btnBackClicked() {
@@ -34,6 +31,7 @@ class MbxQRISController extends GetxController {
         maxHeight: 1024.0,
         preferredCameraDevice: CameraDevice.front);
     if (pickedFile != null) {
+      LoggerX.log("QR file: ${pickedFile.path}");
       final cap = await scannerController?.analyzeImage(pickedFile.path);
       if (cap == null) {
         ToastX.showError(msg: 'QR tidak terdeteksi.');
