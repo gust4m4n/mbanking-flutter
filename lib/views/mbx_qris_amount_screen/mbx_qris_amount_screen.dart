@@ -50,29 +50,31 @@ class MbxQRISAmountScreen extends StatelessWidget {
                         ],
                       )),
                   ContainerX(height: 12.0),
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TextX(
-                          'JUMLAH',
-                          color: ColorX.black,
-                          fontSize: 13.0,
-                          fontWeight: FontWeight.w500,
-                          textAlign: TextAlign.start,
-                        ),
-                        ContainerX(height: 4.0),
-                        TextFieldX(
-                          hint: 'Nominal transfer',
-                          obscureText: false,
-                          keyboardType: TextInputType.number,
-                          readOnly: false,
-                          controller: controller.txtAmountController,
-                          focusNode: controller.txtAmountNode,
-                          onChanged: (value) {
-                            controller.txtAmountChanged(value);
-                          },
-                        ),
-                      ]),
+                  ContainerError(
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextX(
+                              'JUMLAH',
+                              color: ColorX.black,
+                              fontSize: 13.0,
+                              fontWeight: FontWeight.w500,
+                              textAlign: TextAlign.start,
+                            ),
+                            ContainerX(height: 4.0),
+                            TextFieldX(
+                              hint: 'Nominal transfer',
+                              obscureText: false,
+                              keyboardType: TextInputType.number,
+                              readOnly: false,
+                              controller: controller.amountController,
+                              focusNode: controller.amountNode,
+                              onChanged: (value) {
+                                controller.txtAmountChanged(value);
+                              },
+                            ),
+                          ]),
+                      error: controller.amountError),
                   ContainerX(height: 12.0),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

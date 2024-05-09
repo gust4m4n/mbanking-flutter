@@ -12,10 +12,13 @@ import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
 class MbxQRISAmountController extends GetxController {
   final MbxQRISInquiryModel inquiry;
-  final txtAmountController = TextEditingController();
-  final txtAmountNode = FocusNode();
-  var receiptVM = MbxReceiptVM();
+
+  final amountController = TextEditingController();
+  final amountNode = FocusNode();
   int amount = 0;
+  var amountError = '';
+
+  var receiptVM = MbxReceiptVM();
   var sof = MbxAccountModel();
 
   MbxQRISAmountController({required this.inquiry});
@@ -27,7 +30,7 @@ class MbxQRISAmountController extends GetxController {
     update();
 
     update();
-    txtAmountNode.requestFocus();
+    amountNode.requestFocus();
   }
 
   btnBackClicked() {
@@ -55,44 +58,60 @@ class MbxQRISAmountController extends GetxController {
       amount = intValue;
       final formatter = NumberFormat('#,###');
       String formatted = formatter.format(intValue).replaceAll(',', '.');
-      txtAmountController.text = formatted;
-      txtAmountController.selection =
+      amountController.text = formatted;
+      amountController.selection =
           TextSelection.fromPosition(TextPosition(offset: formatted.length));
     } else {
       amount = 0;
-      txtAmountController.text = '';
+      amountController.text = '';
     }
     update();
   }
 
+  bool validate() {
+    if (amountController.text.isEmpty || amount <= 0) {
+      amountError = 'Masukkan nominal transfer.';
+      update();
+      amountNode.requestFocus();
+      return false;
+    }
+    amountError = '';
+    update();
+
+    return true;
+  }
+
   btnNextClicked() {
-    final pinSheet = MbxPinSheet();
-    pinSheet.show(
-      title: 'PIN',
-      message: 'Masukkan nomor pin m-banking atau ATM anda.',
-      secure: true,
-      biometric: true,
-      onSubmit: (code, biometric) async {
-        LoggerX.log('[PIN] entered: $code biometric; $biometric');
-        Get.loading();
-        final qrisPaymentVM = MbxQRISPaymentVM();
-        qrisPaymentVM
-            .request(transaction_i: inquiry.transaction_id)
-            .then((resp) {
-          Get.back();
-          if (resp.status == 200) {
-            Get.toNamed('/receipt', arguments: {
-              'receipt': qrisPaymentVM.receipt,
-              'backToHome': true
-            });
-          }
-        });
-      },
-      optionTitle: 'Lupa PIN',
-      onOption: () {
-        pinSheet.clear('');
-        ToastX.showSuccess(msg: 'PIN akan direset, silahkan hubungi CS kami.');
-      },
-    );
+    if (validate() == true) {
+      final pinSheet = MbxPinSheet();
+      pinSheet.show(
+        title: 'PIN',
+        message: 'Masukkan nomor pin m-banking atau ATM anda.',
+        secure: true,
+        biometric: true,
+        onSubmit: (code, biometric) async {
+          LoggerX.log('[PIN] entered: $code biometric; $biometric');
+          Get.loading();
+          final qrisPaymentVM = MbxQRISPaymentVM();
+          qrisPaymentVM
+              .request(transaction_i: inquiry.transaction_id)
+              .then((resp) {
+            Get.back();
+            if (resp.status == 200) {
+              Get.toNamed('/receipt', arguments: {
+                'receipt': qrisPaymentVM.receipt,
+                'backToHome': true
+              });
+            }
+          });
+        },
+        optionTitle: 'Lupa PIN',
+        onOption: () {
+          pinSheet.clear('');
+          ToastX.showSuccess(
+              msg: 'PIN akan direset, silahkan hubungi CS kami.');
+        },
+      );
+    }
   }
 }
