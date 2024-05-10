@@ -122,12 +122,6 @@ class MbxTransfeP2PrController extends GetxController {
     return true;
   }
 
-  btnNextClicked() {
-    if (validate() == true) {
-      inquiry();
-    }
-  }
-
   bool readyToSubmit() {
     if (dest.account.isNotEmpty &&
         amount > 0 &&
@@ -135,6 +129,12 @@ class MbxTransfeP2PrController extends GetxController {
       return true;
     } else {
       return false;
+    }
+  }
+
+  btnNextClicked() {
+    if (validate() == true) {
+      inquiry();
     }
   }
 

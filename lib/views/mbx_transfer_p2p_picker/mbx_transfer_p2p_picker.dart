@@ -81,7 +81,7 @@ class MbxTransferP2PPicker extends GetWidget<MbxTransferP2PPickerController> {
               padding: EdgeInsets.all(16.0),
               child: ButtonX(
                 backgroundColor: ColorX.theme,
-                title: 'Tutup',
+                title: 'Batal',
                 onClicked: () {
                   controller.btnCloseClicked();
                 },

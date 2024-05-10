@@ -146,6 +146,17 @@ class MbxTransfeP2BankController extends GetxController {
     return true;
   }
 
+  bool readyToSubmit() {
+    if (dest.account.isNotEmpty &&
+        amount > 0 &&
+        service.code.isNotEmpty &&
+        messageController.text.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   btnNextClicked() {
     if (validate() == true) {
       inquiry();
