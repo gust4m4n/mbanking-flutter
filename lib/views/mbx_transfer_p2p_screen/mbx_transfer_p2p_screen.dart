@@ -108,10 +108,10 @@ class MbxTransferP2PScreen extends StatelessWidget {
                         obscureText: false,
                         keyboardType: TextInputType.number,
                         readOnly: false,
-                        controller: controller.txtAmountController,
-                        focusNode: controller.txtAmountNode,
+                        controller: controller.amountController,
+                        focusNode: controller.amountNode,
                         onChanged: (value) {
-                          controller.txtAmountChanged(value);
+                          controller.amountChanged(value);
                         },
                       ),
                     ],
@@ -136,8 +136,11 @@ class MbxTransferP2PScreen extends StatelessWidget {
                           obscureText: false,
                           keyboardType: TextInputType.text,
                           readOnly: false,
-                          controller: controller.txtMessageController,
-                          focusNode: controller.txtMessageNode,
+                          controller: controller.messageController,
+                          focusNode: controller.messageNode,
+                          onChanged: (value) {
+                            controller.messageChanged(value);
+                          },
                         ),
                       ]),
                   error: controller.messageError,
@@ -208,6 +211,7 @@ class MbxTransferP2PScreen extends StatelessWidget {
                 ButtonX(
                   backgroundColor: ColorX.theme,
                   title: 'Lanjut',
+                  enabled: controller.readyToSubmit(),
                   onClicked: () {
                     controller.btnNextClicked();
                   },

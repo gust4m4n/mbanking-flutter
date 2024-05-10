@@ -15,8 +15,8 @@ class MbxQRISAmountController extends GetxController {
 
   final amountController = TextEditingController();
   final amountNode = FocusNode();
-  int amount = 0;
   var amountError = '';
+  int amount = 0;
 
   var receiptVM = MbxReceiptVM();
   var sof = MbxAccountModel();

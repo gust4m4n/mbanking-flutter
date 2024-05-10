@@ -16,17 +16,18 @@ import '../../widgets/all_widgets.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
 class MbxTransfeP2BankController extends GetxController {
-  final txtAccountController = TextEditingController();
-  final txtAccountNode = FocusNode();
-  final txtAmountController = TextEditingController();
-  final txtAmountNode = FocusNode();
-  final txtMessageController = TextEditingController();
-  final txtMessageNode = FocusNode();
   var dest = MbxTransferP2BankDestModel();
   var destError = '';
-  int amount = 0;
+
+  final amountController = TextEditingController();
+  final amountNode = FocusNode();
   var amountError = '';
+  int amount = 0;
+
+  final messageController = TextEditingController();
+  final messageNode = FocusNode();
   var messageError = '';
+
   var service = MbxTransferP2BankServiceModel();
   var serviceError = '';
   var sof = MbxAccountModel();
@@ -76,12 +77,12 @@ class MbxTransfeP2BankController extends GetxController {
       amount = intValue;
       final formatter = NumberFormat('#,###');
       String formatted = formatter.format(intValue).replaceAll(',', '.');
-      txtAmountController.text = formatted;
-      txtAmountController.selection =
+      amountController.text = formatted;
+      amountController.selection =
           TextSelection.fromPosition(TextPosition(offset: formatted.length));
     } else {
       amount = 0;
-      txtAmountController.text = '';
+      amountController.text = '';
     }
     update();
   }
@@ -118,10 +119,10 @@ class MbxTransfeP2BankController extends GetxController {
     }
     destError = '';
 
-    if (txtAmountController.text.isEmpty || amount <= 0) {
+    if (amountController.text.isEmpty || amount <= 0) {
       amountError = 'Masukkan nominal transfer.';
       update();
-      txtAmountNode.requestFocus();
+      amountNode.requestFocus();
       return false;
     }
     amountError = '';
@@ -133,10 +134,10 @@ class MbxTransfeP2BankController extends GetxController {
     }
     serviceError = '';
 
-    if (txtMessageController.text.isEmpty) {
+    if (messageController.text.isEmpty) {
       messageError = 'Berita harus diisi.';
       update();
-      txtMessageNode.requestFocus();
+      messageNode.requestFocus();
       return false;
     }
     messageError = '';

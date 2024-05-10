@@ -125,8 +125,8 @@ class MbxTransferP2BankScreen extends StatelessWidget {
                         obscureText: false,
                         keyboardType: TextInputType.number,
                         readOnly: false,
-                        controller: controller.txtAmountController,
-                        focusNode: controller.txtAmountNode,
+                        controller: controller.amountController,
+                        focusNode: controller.amountNode,
                         onChanged: (value) {
                           controller.txtAmountChanged(value);
                         },
@@ -201,8 +201,8 @@ class MbxTransferP2BankScreen extends StatelessWidget {
                           obscureText: false,
                           keyboardType: TextInputType.text,
                           readOnly: false,
-                          controller: controller.txtMessageController,
-                          focusNode: controller.txtMessageNode,
+                          controller: controller.messageController,
+                          focusNode: controller.messageNode,
                         ),
                       ]),
                   error: controller.messageError),

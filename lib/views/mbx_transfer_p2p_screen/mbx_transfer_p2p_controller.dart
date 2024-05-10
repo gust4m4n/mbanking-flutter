@@ -13,17 +13,18 @@ import '../../widgets/all_widgets.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
 class MbxTransfeP2PrController extends GetxController {
-  final txtAccountController = TextEditingController();
-  final txtAccountNode = FocusNode();
-  final txtAmountController = TextEditingController();
-  final txtAmountNode = FocusNode();
-  final txtMessageController = TextEditingController();
-  final txtMessageNode = FocusNode();
   var dest = MbxTransferP2PDestModel();
   var destError = '';
-  int amount = 0;
+
+  final amountController = TextEditingController();
+  final amountNode = FocusNode();
   var amountError = '';
+  int amount = 0;
+
+  final messageController = TextEditingController();
+  final messageNode = FocusNode();
   var messageError = '';
+
   var sof = MbxAccountModel();
 
   @override
@@ -58,20 +59,24 @@ class MbxTransfeP2PrController extends GetxController {
     update();
   }
 
-  txtAmountChanged(String value) {
+  amountChanged(String value) {
     String newValue = value.replaceAll('.', '');
     int? intValue = int.tryParse(newValue);
     if (intValue != null) {
       amount = intValue;
       final formatter = NumberFormat('#,###');
       String formatted = formatter.format(intValue).replaceAll(',', '.');
-      txtAmountController.text = formatted;
-      txtAmountController.selection =
+      amountController.text = formatted;
+      amountController.selection =
           TextSelection.fromPosition(TextPosition(offset: formatted.length));
     } else {
       amount = 0;
-      txtAmountController.text = '';
+      amountController.text = '';
     }
+    update();
+  }
+
+  messageChanged(String value) {
     update();
   }
 
@@ -97,18 +102,18 @@ class MbxTransfeP2PrController extends GetxController {
     }
     destError = '';
 
-    if (txtAmountController.text.isEmpty || amount <= 0) {
+    if (amountController.text.isEmpty || amount <= 0) {
       amountError = 'Masukkan nominal transfer.';
       update();
-      txtAmountNode.requestFocus();
+      amountNode.requestFocus();
       return false;
     }
     amountError = '';
 
-    if (txtMessageController.text.isEmpty) {
+    if (messageController.text.isEmpty) {
       messageError = 'Berita harus diisi.';
       update();
-      txtMessageNode.requestFocus();
+      messageNode.requestFocus();
       return false;
     }
     messageError = '';
@@ -120,6 +125,16 @@ class MbxTransfeP2PrController extends GetxController {
   btnNextClicked() {
     if (validate() == true) {
       inquiry();
+    }
+  }
+
+  bool readyToSubmit() {
+    if (dest.account.isNotEmpty &&
+        amount > 0 &&
+        messageController.text.isNotEmpty) {
+      return true;
+    } else {
+      return false;
     }
   }
 
