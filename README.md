@@ -1,6 +1,6 @@
 # mbanking-flutter
 
-[Download APK](https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.2.apk)
+[Download APK](https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.3.apk)
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_login.png" width="250">
@@ -20,6 +20,7 @@
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_transfer.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_receipt_share.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_qris.png" width="250">
+  <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_qris_inquiry.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_change_pin.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_transfer_p2p.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_transfer_p2p_dest.png" width="250">
