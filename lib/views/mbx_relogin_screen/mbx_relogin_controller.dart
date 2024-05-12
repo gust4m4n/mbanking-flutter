@@ -28,7 +28,7 @@ class MbxReloginController extends GetxController {
   btnThemeClicked() {
     MbxThemeVM.change().then((value) {
       if (value) {
-        Get.offAllNamed('/relogin');
+        Get.offAllNamed('/relogin', arguments: {'autologin': false});
       }
     });
   }
@@ -62,6 +62,40 @@ class MbxReloginController extends GetxController {
       },
     );
   }
+
+  btnQRISClicked() {
+    final pinSheet = MbxPinSheet();
+    pinSheet.show(
+      title: 'PIN',
+      message: 'Masukkan nomor pin m-banking atau ATM anda.',
+      secure: true,
+      biometric: true,
+      onSubmit: (code, biometric) async {
+        LoggerX.log('[PIN] entered: $code biometric; $biometric');
+        Get.loading();
+        final resp =
+            await MbxReloginVM.request(pin: code, biometric: biometric);
+        if (resp.status == 200) {
+          LoggerX.log('[PIN] verfied: $code');
+          MbxProfileVM.request().then((resp) {
+            Get.toNamed('/qris');
+          });
+        } else {
+          Get.back();
+          pinSheet.clear(resp.message);
+        }
+      },
+      optionTitle: 'Lupa PIN',
+      onOption: () {
+        pinSheet.clear('');
+        ToastX.showSuccess(msg: 'PIN akan direset, silahkan hubungi CS kami.');
+      },
+    );
+  }
+
+  btnCashWithdrawalClicked() {}
+
+  btnHelpClicked() {}
 
   btnSwitchAccountClicked() {
     SheetX.showMessage(

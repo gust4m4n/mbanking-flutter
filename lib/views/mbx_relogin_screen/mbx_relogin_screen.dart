@@ -1,5 +1,3 @@
-import 'package:mbankingflutter/utils/all_utils.dart';
-
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_home_page/mbx_launcher_cell.dart';
@@ -113,34 +111,46 @@ class MbxReloginScreen extends StatelessWidget {
                                                   title: 'QRIS',
                                                   titleColor: ColorX.black,
                                                   highlightColor: ColorX.theme
-                                                      .withOpacity(0.2)),
+                                                      .withOpacity(0.2),
+                                                  onClicked: () {
+                                                    controller.btnQRISClicked();
+                                                  }),
                                               MbxLauncherCell(
-                                                  color: ColorX.blue,
-                                                  faIcon: FontAwesomeIcons
-                                                      .sackDollar,
-                                                  title: 'Tarik Tunai',
-                                                  titleColor: ColorX.black,
-                                                  highlightColor: ColorX.theme
-                                                      .withOpacity(0.2)),
+                                                color: ColorX.blue,
+                                                faIcon:
+                                                    FontAwesomeIcons.sackDollar,
+                                                title: 'Tarik Tunai',
+                                                titleColor: ColorX.black,
+                                                highlightColor: ColorX.theme
+                                                    .withOpacity(0.2),
+                                                onClicked: () {
+                                                  controller
+                                                      .btnCashWithdrawalClicked();
+                                                },
+                                              ),
                                               MbxLauncherCell(
-                                                  color: ColorX.green,
-                                                  faIcon:
-                                                      FontAwesomeIcons.question,
-                                                  title: 'Bantuan',
-                                                  titleColor: ColorX.black,
-                                                  highlightColor: ColorX.theme
-                                                      .withOpacity(0.2)),
+                                                color: ColorX.green,
+                                                faIcon:
+                                                    FontAwesomeIcons.question,
+                                                title: 'Bantuan',
+                                                titleColor: ColorX.black,
+                                                highlightColor: ColorX.theme
+                                                    .withOpacity(0.2),
+                                                onClicked: () {
+                                                  controller.btnHelpClicked();
+                                                },
+                                              ),
                                             ],
                                           )),
                                     ],
                                   )),
-                              ContainerX(height: 8.0),
+                              ContainerX(height: 16.0),
                               ButtonX(
                                 width: 150.0,
                                 backgroundColor: ColorX.transparent,
-                                highlightColor: ColorX.theme.lighten(0.1),
+                                highlightColor: ColorX.theme.withOpacity(0.1),
                                 title: 'Ganti Akun',
-                                titleColor: ColorX.white,
+                                titleColor: ColorX.black,
                                 onClicked: () {
                                   controller.btnSwitchAccountClicked();
                                 },
