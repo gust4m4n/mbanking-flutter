@@ -1,17 +1,18 @@
 import 'package:intl/intl.dart';
-import '../../models/mbx_account_model.dart';
-import '../../models/mbx_inquiry_model.dart';
-import '../../models/mbx_transfer_p2p_dest_model.dart';
+import 'package:mbankingflutter/models/mbx_account_model.dart';
+import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
+import 'package:mbankingflutter/models/mbx_transfer_p2p_dest_model.dart';
+import 'package:mbankingflutter/views/mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
+import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
+import 'package:mbankingflutter/views/mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
+
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_transfer_p2p_inquiry_vm.dart';
 import '../../viewmodels/mbx_transfer_p2p_payment_vm.dart';
 import '../../widgets/all_widgets.dart';
-import '../mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
-import '../mbx_sof_sheet/mbx_sof_sheet.dart';
-import '../mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
 
-class MbxTransfeP2PController extends GetxController {
+class MbxCardlessController extends GetxController {
   var dest = MbxTransferP2PDestModel();
   var destError = '';
 

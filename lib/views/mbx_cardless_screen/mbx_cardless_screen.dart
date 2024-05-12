@@ -1,17 +1,17 @@
 import '../../viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_sof_sheet/mbx_sof_widget.dart';
-import 'mbx_transfer_p2p_controller.dart';
+import 'mbx_cardless_controller.dart';
 
-class MbxTransferP2PScreen extends StatelessWidget {
-  MbxTransferP2PScreen({Key? key}) : super(key: key);
+class MbxCardlessScreen extends StatelessWidget {
+  MbxCardlessScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxTransfeP2PController>(
-        init: MbxTransfeP2PController(),
+    return GetBuilder<MbxCardlessController>(
+        init: MbxCardlessController(),
         builder: (controller) => MbxScreen(
-            title: 'Transfer Antar Rekening',
+            title: 'Tarik Tunai',
             scrollingBody: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

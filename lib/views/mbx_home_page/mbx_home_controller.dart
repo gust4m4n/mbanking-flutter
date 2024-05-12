@@ -49,4 +49,8 @@ class MbxHomeController extends GetxController {
   btnTransferClicked() {
     Get.toNamed('/transfer');
   }
+
+  btnCardlessClicked() {
+    Get.toNamed('/cardless');
+  }
 }

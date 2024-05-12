@@ -192,6 +192,9 @@ class MbxHomePage extends StatelessWidget {
                                           titleColor: ColorX.white,
                                           highlightColor:
                                               ColorX.theme.lighten(0.1),
+                                          onClicked: () {
+                                            controller.btnCardlessClicked();
+                                          },
                                         ),
                                         MbxLauncherCell(
                                           color: ColorX.teal,

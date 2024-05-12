@@ -93,7 +93,35 @@ class MbxReloginController extends GetxController {
     );
   }
 
-  btnCashWithdrawalClicked() {}
+  btnCardlessClicked() {
+    final pinSheet = MbxPinSheet();
+    pinSheet.show(
+      title: 'PIN',
+      message: 'Masukkan nomor pin m-banking atau ATM anda.',
+      secure: true,
+      biometric: true,
+      onSubmit: (code, biometric) async {
+        LoggerX.log('[PIN] entered: $code biometric; $biometric');
+        Get.loading();
+        final resp =
+            await MbxReloginVM.request(pin: code, biometric: biometric);
+        if (resp.status == 200) {
+          LoggerX.log('[PIN] verfied: $code');
+          MbxProfileVM.request().then((resp) {
+            Get.toNamed('/cardless');
+          });
+        } else {
+          Get.back();
+          pinSheet.clear(resp.message);
+        }
+      },
+      optionTitle: 'Lupa PIN',
+      onOption: () {
+        pinSheet.clear('');
+        ToastX.showSuccess(msg: 'PIN akan direset, silahkan hubungi CS kami.');
+      },
+    );
+  }
 
   btnHelpClicked() {}
 

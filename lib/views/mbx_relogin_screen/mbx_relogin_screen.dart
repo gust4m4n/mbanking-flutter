@@ -125,7 +125,7 @@ class MbxReloginScreen extends StatelessWidget {
                                                     .withOpacity(0.2),
                                                 onClicked: () {
                                                   controller
-                                                      .btnCashWithdrawalClicked();
+                                                      .btnCardlessClicked();
                                                 },
                                               ),
                                               MbxLauncherCell(
