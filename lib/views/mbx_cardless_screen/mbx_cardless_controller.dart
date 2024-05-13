@@ -1,31 +1,22 @@
 import 'package:intl/intl.dart';
 import 'package:mbankingflutter/models/mbx_account_model.dart';
 import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
-import 'package:mbankingflutter/models/mbx_transfer_p2p_dest_model.dart';
 import 'package:mbankingflutter/views/mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
-import 'package:mbankingflutter/views/mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
 
+import '../../viewmodels/mbx_cardless_inquiry_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
-import '../../viewmodels/mbx_transfer_p2p_inquiry_vm.dart';
 import '../../viewmodels/mbx_transfer_p2p_payment_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
 class MbxCardlessController extends GetxController {
-  var dest = MbxTransferP2PDestModel();
-  var destError = '';
+  var sof = MbxAccountModel();
 
   final amountController = TextEditingController();
   final amountNode = FocusNode();
   var amountError = '';
   int amount = 0;
-
-  final messageController = TextEditingController();
-  final messageNode = FocusNode();
-  var messageError = '';
-
-  var sof = MbxAccountModel();
 
   @override
   void onInit() {
@@ -42,21 +33,6 @@ class MbxCardlessController extends GetxController {
 
   btnBackClicked() {
     Get.back();
-  }
-
-  btnPickDestinationClicked() {
-    final picker = MbxTransferP2PPicker();
-    picker.show().then((value) {
-      if (value != null) {
-        dest = value;
-        update();
-      }
-    });
-  }
-
-  btnClearClicked() {
-    dest = MbxTransferP2PDestModel();
-    update();
   }
 
   amountChanged(String value) {
@@ -76,7 +52,9 @@ class MbxCardlessController extends GetxController {
     update();
   }
 
-  messageChanged(String value) {
+  selectDenom(int value) {
+    amount = value;
+    amountController.text = value.toString();
     update();
   }
 
@@ -95,13 +73,6 @@ class MbxCardlessController extends GetxController {
   }
 
   bool validate() {
-    if (dest.account.isEmpty) {
-      destError = 'Pilih rekening tujuan terlebih dahulu.';
-      update();
-      return false;
-    }
-    destError = '';
-
     if (amountController.text.isEmpty || amount <= 0) {
       amountError = 'Masukkan nominal transfer.';
       update();
@@ -109,23 +80,13 @@ class MbxCardlessController extends GetxController {
       return false;
     }
     amountError = '';
-
-    if (messageController.text.isEmpty) {
-      messageError = 'Berita harus diisi.';
-      update();
-      messageNode.requestFocus();
-      return false;
-    }
-    messageError = '';
     update();
 
     return true;
   }
 
   bool readyToSubmit() {
-    if (dest.account.isNotEmpty &&
-        amount > 0 &&
-        messageController.text.isNotEmpty) {
+    if (amount > 0) {
       return true;
     } else {
       return false;
@@ -140,13 +101,13 @@ class MbxCardlessController extends GetxController {
 
   inquiry() {
     Get.loading();
-    final inquiryVM = MbxTransferP2PInquiryVM();
+    final inquiryVM = MbxCardlessInquiryVM();
     inquiryVM.request().then((resp) {
       Get.back();
       if (resp.status == 200) {
         final sheet = MbxInquirySheet(
             title: 'Konfirmasi',
-            confirmBtnTitle: 'Transfer',
+            confirmBtnTitle: 'Tarik',
             inquiry: inquiryVM.inquiry);
         sheet.show().then((value) {
           if (value == true) {

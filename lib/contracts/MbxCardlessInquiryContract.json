@@ -1,0 +1,21 @@
+{
+	"status": 200,
+	"message": "Cardless Inquiry Success",
+	"data": {
+	  "details": [
+		{
+		  "label": "TRANSAKSI",
+		  "value": "Tarik Tunai"
+		},
+		{
+		  "label": "SUMBER DANA",
+		  "value": "JULEHA\n3888-111-2333"
+		},
+		{
+		  "label": "NOMINAL",
+		  "value": "IDR 2.000.000"
+		}
+	  ],
+	  "transaction_id": "TRID-20210101-0001"
+	}
+  }
