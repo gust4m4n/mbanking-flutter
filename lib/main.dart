@@ -1,3 +1,4 @@
+import 'package:mbankingflutter/views/mbx_cardless_instructions_screen/mbx_cardless_instructions.dart';
 import 'package:mbankingflutter/views/mbx_cardless_screen/mbx_cardless_screen.dart';
 
 import 'viewmodels/mbx_anti_jailbreak_vm.dart';
@@ -133,6 +134,9 @@ class MyApp extends StatelessWidget {
             page: () => MbxQRISScreen(),
             transition: Transition.noTransition),
         GetPage(name: '/cardless', page: () => MbxCardlessScreen()),
+        GetPage(
+            name: '/cardless/instructions',
+            page: () => MbxCardlessInstructionsScreen()),
       ],
     );
   }

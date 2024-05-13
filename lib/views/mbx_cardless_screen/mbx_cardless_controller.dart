@@ -149,7 +149,7 @@ class MbxCardlessController extends GetxController {
         .then((resp) {
       if (resp.status == 200) {
         Get.back();
-        Get.offNamed('/receipt',
+        Get.offNamed('/cardless/instructions',
             arguments: {'receipt': paymentVM.receipt, 'backToHome': true});
       } else {
         // payment request failed
