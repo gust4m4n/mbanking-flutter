@@ -46,7 +46,7 @@ Future<void> main() async {
   String initialRoute = '/login';
   final token = await MbxUserPreferencesVM.getToken();
   if (token.isNotEmpty) {
-    initialRoute = '/home';
+    initialRoute = '/relogin';
   }
 
   SystemChrome.setPreferredOrientations([
