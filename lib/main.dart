@@ -135,8 +135,7 @@ class MyApp extends StatelessWidget {
             transition: Transition.noTransition),
         GetPage(name: '/cardless', page: () => MbxCardlessScreen()),
         GetPage(
-            name: '/cardless/payment',
-            page: () => MbxCardlessPaymentScreen()),
+            name: '/cardless/payment', page: () => MbxCardlessPaymentScreen()),
       ],
     );
   }

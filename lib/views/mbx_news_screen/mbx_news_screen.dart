@@ -3,9 +3,6 @@ import '../../widgets/all_widgets.dart';
 import 'mbx_news_controller.dart';
 
 class MbxNewsScreen extends StatelessWidget {
-//  final MbxNewsModel news;
-
-//MbxNewsScreen({required this.news});
 
   @override
   Widget build(BuildContext context) {
