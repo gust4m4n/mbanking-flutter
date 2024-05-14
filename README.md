@@ -1,5 +1,7 @@
 # mbanking-flutter
 
+Demo mobile banking application menggunakan flutter, lengkap dengan UI, mock api dan contracts.
+
 [Download APK](https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.4.apk)
 
 <p float="left">
