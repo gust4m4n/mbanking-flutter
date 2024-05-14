@@ -10,6 +10,7 @@ Fitur yang tersedia:
 + Transfer Antar Bank
 + Tarik Tunai
 + QRIS
++ Receipt: download dan share
 
 Untuk APK yang ready to install bisa didownload di sini:
 https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.4.apk
