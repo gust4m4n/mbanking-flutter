@@ -2,6 +2,15 @@
 
 Demo mobile banking application menggunakan flutter, lengkap dengan UI, mock api dan contracts.
 
+Fitur yang tersedia:
++ Login / Logout
++ PIN dan Biometric Login
++ Transfer Antar Rekening
++ Transfer Antar Bank
++ Tarik Tunai
++ QRIS
+
+Untuk APK yang ready to install bisa didownload dengan link dibawah ini:
 [Download APK](https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.4.apk)
 
 <p float="left">
