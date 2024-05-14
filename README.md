@@ -13,7 +13,7 @@ Fitur yang tersedia:
 
 Untuk APK yang ready to install bisa didownload dengan link dibawah ini:
 <p>
-[mbanking-flutter-1.0.4.apk](https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.4.apk)
+https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.4.apk
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_login.png" width="250">
