@@ -1,12 +1,12 @@
 import 'package:intl/intl.dart';
 import 'package:mbankingflutter/models/mbx_account_model.dart';
 import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
+import 'package:mbankingflutter/viewmodels/mbx_cardless_payment_vm.dart';
 import 'package:mbankingflutter/views/mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
 
 import '../../viewmodels/mbx_cardless_inquiry_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
-import '../../viewmodels/mbx_transfer_p2p_payment_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
@@ -143,14 +143,13 @@ class MbxCardlessController extends GetxController {
       required String pin,
       required bool biometric}) {
     Get.loading();
-    final paymentVM = MbxTransferP2PPaymentVM();
+    final paymentVM = MbxCardlessPaymentVM();
     paymentVM
         .request(transaction_id: transaction_id, pin: pin, biometric: biometric)
         .then((resp) {
       if (resp.status == 200) {
         Get.back();
-        Get.offNamed('/cardless/instructions',
-            arguments: {'receipt': paymentVM.receipt, 'backToHome': true});
+        Get.offNamed('/cardless/payment');
       } else {
         // payment request failed
       }

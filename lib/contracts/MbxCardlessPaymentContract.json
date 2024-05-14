@@ -1,0 +1,26 @@
+{
+	"status": 200,
+	"message": "Cardless payment success",
+	"data": {
+	  "steps": [
+		{
+		  "no": 1,
+		  "message": "Pilih menu Tarik Tunai di layar ATM."
+		},
+		{
+		  "no": 2,
+		  "message": "Masukkan 06111111111111 untk nomor handphone."
+		},
+		{
+		  "no": 3,
+		  "message": "Masukkan 123456 untk kode transaksi."
+		},
+		{
+		  "no": 4,
+		  "message": "Ambil uang tunai yang keluar dan struk transaksi dari mesin ATM."
+		}
+	  ],
+	  "title": "Tarik Tunai",
+	  "transaction_id": "500001111111111"
+	}
+  }

@@ -1,15 +1,18 @@
 import '../../widgets/all_widgets.dart';
-import 'mbx_cardless_instructions_controller.dart';
+import 'mbx_cardless_payment_controller.dart';
 
-class MbxCardlessInstructionsScreen extends StatelessWidget {
-  MbxCardlessInstructionsScreen({Key? key}) : super(key: key);
+class MbxCardlessPaymentScreen extends StatelessWidget {
+  MbxCardlessPaymentScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxCardlessInstructionsController>(
-        init: MbxCardlessInstructionsController(),
+    return GetBuilder<MbxCardlessPaymentController>(
+        init: MbxCardlessPaymentController(),
         builder: (controller) => MbxScreen(
             title: 'Tarik Tunai',
+            backAction: () {
+              controller.btnBackClicked();
+            },
             scrollingBody: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -160,7 +163,7 @@ class MbxCardlessInstructionsScreen extends StatelessWidget {
                   backgroundColor: ColorX.theme,
                   title: 'Selesai',
                   onClicked: () {
-                    controller.btnFinishClicked();
+                    controller.btnBackClicked();
                   },
                 ),
               ],
