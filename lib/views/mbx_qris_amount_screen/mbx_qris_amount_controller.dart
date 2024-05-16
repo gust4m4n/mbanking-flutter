@@ -82,6 +82,7 @@ class MbxQRISAmountController extends GetxController {
   }
 
   btnNextClicked() {
+    FocusManager.instance.primaryFocus?.unfocus();
     if (validate() == true) {
       final pinSheet = MbxPinSheet();
       pinSheet.show(

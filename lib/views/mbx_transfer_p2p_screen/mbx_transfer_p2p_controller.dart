@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+
 import '../../models/mbx_account_model.dart';
 import '../../models/mbx_inquiry_model.dart';
 import '../../models/mbx_transfer_p2p_dest_model.dart';
@@ -132,6 +133,7 @@ class MbxTransfeP2PController extends GetxController {
   }
 
   btnNextClicked() {
+    FocusManager.instance.primaryFocus?.unfocus();
     if (validate() == true) {
       inquiry();
     }

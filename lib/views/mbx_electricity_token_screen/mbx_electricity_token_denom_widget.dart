@@ -3,11 +3,13 @@ import 'package:mbankingflutter/viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxCardlessDenomWidget extends StatelessWidget {
+class MbxElectricityTokenDenomWidget extends StatelessWidget {
   final int nominal;
+  final bool selected;
   final GestureTapCallback? onClicked;
 
-  MbxCardlessDenomWidget({required this.nominal, this.onClicked = null});
+  MbxElectricityTokenDenomWidget(
+      {required this.nominal, required this.selected, this.onClicked = null});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +18,12 @@ class MbxCardlessDenomWidget extends StatelessWidget {
         cornerRadius: 8.0,
         onClicked: onClicked,
         child: ContainerX(
-            backgroundColor: ColorX.theme.withOpacity(0.1),
+            backgroundColor: selected
+                ? ColorX.theme.withOpacity(0.2)
+                : ColorX.theme.withOpacity(0.1),
             cornerRadius: 8.0,
+            borderWidth: selected ? 1.0 : 0.0,
+            borderColor: selected ? ColorX.theme : ColorX.transparent,
             child: Center(
               child: TextX(
                 MbxFormatVM.currencyRP(nominal,

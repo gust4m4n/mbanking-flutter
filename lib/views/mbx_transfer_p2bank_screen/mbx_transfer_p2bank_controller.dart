@@ -158,6 +158,7 @@ class MbxTransfeP2BankController extends GetxController {
   }
 
   btnNextClicked() {
+    FocusManager.instance.primaryFocus?.unfocus();
     if (validate() == true) {
       inquiry();
     }

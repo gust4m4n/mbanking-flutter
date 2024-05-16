@@ -1,25 +1,23 @@
-import 'package:intl/intl.dart';
 import 'package:mbankingflutter/models/mbx_account_model.dart';
 import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
-import 'package:mbankingflutter/viewmodels/mbx_cardless_payment_vm.dart';
 import 'package:mbankingflutter/views/mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
 
-import '../../viewmodels/mbx_cardless_denoms_vm.dart';
 import '../../viewmodels/mbx_cardless_inquiry_vm.dart';
+import '../../viewmodels/mbx_electricity_token_denoms_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
+import '../../viewmodels/mbx_transfer_p2p_payment_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
-class MbxCardlessController extends GetxController {
+class MbxElectricityTokenController extends GetxController {
   var sof = MbxAccountModel();
+  final customerIdController = TextEditingController();
+  final customerIdNode = FocusNode();
+  var customerIdError = '';
+  int denom = 0;
 
-  final amountController = TextEditingController();
-  final amountNode = FocusNode();
-  var amountError = '';
-  int amount = 0;
-
-  final denomsVM = MbxCardlessDenomsVM();
+  final denomsVM = MbxElectricityTokenDenomsVM();
 
   @override
   void onInit() {
@@ -40,26 +38,12 @@ class MbxCardlessController extends GetxController {
     Get.back();
   }
 
-  amountChanged(String value) {
-    String newValue = value.replaceAll('.', '');
-    int? intValue = int.tryParse(newValue);
-    if (intValue != null) {
-      amount = intValue;
-      final formatter = NumberFormat('#,###');
-      String formatted = formatter.format(intValue).replaceAll(',', '.');
-      amountController.text = formatted;
-      amountController.selection =
-          TextSelection.fromPosition(TextPosition(offset: formatted.length));
-    } else {
-      amount = 0;
-      amountController.text = '';
-    }
+  customerIdChanged(String value) {
     update();
   }
 
   selectDenom(int value) {
-    amount = value;
-    amountController.text = value.toString();
+    denom = value;
     update();
   }
 
@@ -78,20 +62,20 @@ class MbxCardlessController extends GetxController {
   }
 
   bool validate() {
-    if (amountController.text.isEmpty || amount <= 0) {
-      amountError = 'Masukkan nominal transfer.';
+    if (customerIdController.text.isEmpty || denom <= 0) {
+      customerIdError = 'Masukkan ID pelanggan.';
       update();
-      amountNode.requestFocus();
+      customerIdNode.requestFocus();
       return false;
     }
-    amountError = '';
+    customerIdError = '';
     update();
 
     return true;
   }
 
   bool readyToSubmit() {
-    if (amount > 0) {
+    if (customerIdController.text.isNotEmpty && denom > 0) {
       return true;
     } else {
       return false;
@@ -149,13 +133,14 @@ class MbxCardlessController extends GetxController {
       required String pin,
       required bool biometric}) {
     Get.loading();
-    final paymentVM = MbxCardlessPaymentVM();
+    final paymentVM = MbxTransferP2PPaymentVM();
     paymentVM
         .request(transaction_id: transaction_id, pin: pin, biometric: biometric)
         .then((resp) {
       if (resp.status == 200) {
         Get.back();
-        Get.offNamed('/cardless/payment', arguments: paymentVM.steps);
+        Get.offNamed('/receipt',
+            arguments: {'receipt': paymentVM.receipt, 'backToHome': true});
       } else {
         // payment request failed
       }

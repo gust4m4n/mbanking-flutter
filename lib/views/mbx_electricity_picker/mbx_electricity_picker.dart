@@ -22,16 +22,21 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                 children: [
                   ButtonX(
                     title: 'Token Listrik',
-                    onClicked: () {},
+                    backgroundColor: ColorX.theme,
+                    onClicked: () {
+                      controller.btnElectricityTokenClicked();
+                    },
                   ),
                   ContainerX(height: 8.0),
                   ButtonX(
                     title: 'Pascabayar',
+                    backgroundColor: ColorX.theme,
                     onClicked: () {},
                   ),
                   ContainerX(height: 8.0),
                   ButtonX(
                     title: 'Non-Tagihan Listrik',
+                    backgroundColor: ColorX.theme,
                     onClicked: () {},
                   ),
                   ContainerX(height: 16.0),
@@ -41,7 +46,9 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                     backgroundColor: ColorX.transparent,
                     borderWidth: 1.0,
                     borderColor: ColorX.gray,
-                    onClicked: () {},
+                    onClicked: () {
+                      controller.btnCloseClicked();
+                    },
                   ),
                 ],
               ),

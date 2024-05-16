@@ -1,5 +1,6 @@
 import 'package:mbankingflutter/views/mbx_cardless_payment_screen/mbx_cardless_payment_screen.dart';
 import 'package:mbankingflutter/views/mbx_cardless_screen/mbx_cardless_screen.dart';
+import 'package:mbankingflutter/views/mbx_electricity_token_screen/mbx_electricity_token_screen.dart';
 
 import 'viewmodels/mbx_anti_jailbreak_vm.dart';
 import 'viewmodels/mbx_device_info_vm.dart';
@@ -136,6 +137,9 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/cardless', page: () => MbxCardlessScreen()),
         GetPage(
             name: '/cardless/payment', page: () => MbxCardlessPaymentScreen()),
+        GetPage(
+            name: '/electricity/token',
+            page: () => MbxElectricityTokenScreen()),
       ],
     );
   }

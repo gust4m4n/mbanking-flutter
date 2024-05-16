@@ -1,17 +1,17 @@
 import '../../widgets/all_widgets.dart';
 import '../mbx_sof_sheet/mbx_sof_widget.dart';
-import 'mbx_cardless_controller.dart';
-import 'mbx_cardless_denom_widget.dart';
+import 'mbx_electricity_token_controller.dart';
+import 'mbx_electricity_token_denom_widget.dart';
 
-class MbxCardlessScreen extends StatelessWidget {
-  MbxCardlessScreen({Key? key}) : super(key: key);
+class MbxElectricityTokenScreen extends StatelessWidget {
+  MbxElectricityTokenScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxCardlessController>(
-        init: MbxCardlessController(),
+    return GetBuilder<MbxElectricityTokenController>(
+        init: MbxElectricityTokenController(),
         builder: (controller) => MbxScreen(
-            title: 'Tarik Tunai',
+            title: 'Token Listrik',
             scrollingBody: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -65,7 +65,7 @@ class MbxCardlessScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextX(
-                        'JUMLAH',
+                        'ID Pelanggan',
                         color: ColorX.black,
                         fontSize: 13.0,
                         fontWeight: FontWeight.w500,
@@ -73,19 +73,19 @@ class MbxCardlessScreen extends StatelessWidget {
                       ),
                       ContainerX(height: 4.0),
                       TextFieldX(
-                        hint: 'Nominal transfer',
+                        hint: 'Nomor ID Pelanggan',
                         obscureText: false,
                         keyboardType: TextInputType.number,
                         readOnly: false,
-                        controller: controller.amountController,
-                        focusNode: controller.amountNode,
+                        controller: controller.customerIdController,
+                        focusNode: controller.customerIdNode,
                         onChanged: (value) {
-                          controller.amountChanged(value);
+                          controller.customerIdChanged(value);
                         },
                       ),
                     ],
                   ),
-                  error: controller.amountError,
+                  error: controller.customerIdError,
                 ),
                 ContainerX(height: 12.0),
                 GridView.builder(
@@ -100,11 +100,13 @@ class MbxCardlessScreen extends StatelessWidget {
                     crossAxisCount: 3,
                   ),
                   itemBuilder: (BuildContext context, int index) {
-                    return MbxCardlessDenomWidget(
+                    return MbxElectricityTokenDenomWidget(
                       nominal: controller.denomsVM.list[index].nominal,
+                      selected: controller.denomsVM.list[index].nominal ==
+                          controller.denom,
                       onClicked: () {
-                        controller.amountChanged(
-                            '${controller.denomsVM.list[index].nominal}');
+                        controller.selectDenom(
+                            controller.denomsVM.list[index].nominal);
                       },
                     );
                   },
