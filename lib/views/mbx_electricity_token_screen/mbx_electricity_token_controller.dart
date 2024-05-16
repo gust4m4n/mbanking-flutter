@@ -97,7 +97,7 @@ class MbxElectricityTokenController extends GetxController {
       if (resp.status == 200) {
         final sheet = MbxInquirySheet(
             title: 'Konfirmasi',
-            confirmBtnTitle: 'Tarik',
+            confirmBtnTitle: 'Bayar',
             inquiry: inquiryVM.inquiry);
         sheet.show().then((value) {
           if (value == true) {

@@ -211,6 +211,7 @@ class MbxTransferP2PScreen extends StatelessWidget {
                 ButtonX(
                   backgroundColor: ColorX.theme,
                   title: 'Lanjut',
+                  disabledBackgroundColor: ColorX.theme.withOpacity(0.1),
                   enabled: controller.readyToSubmit(),
                   onClicked: () {
                     controller.btnNextClicked();

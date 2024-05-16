@@ -271,6 +271,7 @@ class MbxTransferP2BankScreen extends StatelessWidget {
               ContainerX(height: 16.0),
               ButtonX(
                 backgroundColor: ColorX.theme,
+                  disabledBackgroundColor: ColorX.theme.withOpacity(0.1),
                 title: 'Lanjut',
                 enabled: controller.readyToSubmit(),
                 onClicked: () {
