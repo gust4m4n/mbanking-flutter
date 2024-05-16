@@ -12,6 +12,7 @@ Fitur yang tersedia:
 + Transfer Antar Bank
 + Tarik Tunai
 + QRIS
++ PLN Prabayar/token listrik
 + Receipt: download dan share
 
 Platform yang didukung:
