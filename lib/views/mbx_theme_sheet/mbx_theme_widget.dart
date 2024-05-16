@@ -1,10 +1,10 @@
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxThemeCell extends StatelessWidget {
+class MbxThemeWidget extends StatelessWidget {
   final Color color;
 
-  MbxThemeCell({required this.color});
+  MbxThemeWidget({required this.color});
 
   @override
   Widget build(BuildContext context) {

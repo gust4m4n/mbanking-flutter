@@ -1,3 +1,5 @@
+import 'package:mbankingflutter/views/mbx_electricity_picker/mbx_electricity_picker.dart';
+
 import '../../viewmodels/mbx_foreign_exchange_list_vm.dart';
 import '../../viewmodels/mbx_news_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
@@ -52,5 +54,10 @@ class MbxHomeController extends GetxController {
 
   btnCardlessClicked() {
     Get.toNamed('/cardless');
+  }
+
+  btnElectricityClicked() async {
+    final picker = MbxElectricityPicker();
+    final value = await picker.show();
   }
 }
