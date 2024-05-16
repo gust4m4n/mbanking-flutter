@@ -54,4 +54,8 @@ Screenshots:
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_transfer_p2bank_picker.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_cardless.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_cardless_payment.png" width="250">
+  <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_electricity.png" width="250">
+  <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_electricity_token.png" width="250">
+  <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_electricity_token_inquiry.png" width="250">
+  <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_electricity_token_receipt.png" width="250">
 </p>
