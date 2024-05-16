@@ -1,0 +1,71 @@
+{
+	"status": 200,
+	"message": "Token listrik success.",
+	"data": {
+	  "amount": "IDR 103.000",
+	  "details": [
+		{
+		  "label": "JENIS TRANSAKSI",
+		  "value": "Token Listrik"
+		},
+		{
+		  "label": "WAKTU TRANSAKSI",
+		  "value": "10 Mei 2024 10:22:58"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "ID Pelanggan",
+		  "value": "0000000000"
+		},
+		{
+		  "label": "Nomor Meter",
+		  "value": "0000000000"
+		},
+		{
+		  "label": "Nama Pelanggan",
+		  "value": "JULEHA"
+		},
+		{
+		  "label": "Tarif / Daya",
+		  "value": "R1 / 900 VA"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NOMINAL",
+		  "value": "IDR 100.000"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 3.000"
+		},
+		{
+		  "label": "TOTAL",
+		  "value": "IDR 103.000"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NOMOR REFERENSI",
+		  "value": "0000000000"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "JUMLAH KWH",
+		  "value": "150.3"
+		},
+		{
+		  "label": "TOKEN",
+		  "value": "0000 0000 0000 0000 0000"
+		}
+	  ],
+	  "title": "Pembelian Berhasil",
+	  "transaction_id": "0000000000"
+	}
+  }

@@ -1,12 +1,12 @@
 import 'package:mbankingflutter/models/mbx_account_model.dart';
 import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
+import 'package:mbankingflutter/viewmodels/mbx_electricity_token_inquiry_vm.dart';
+import 'package:mbankingflutter/viewmodels/mbx_electricity_token_payment_vm.dart';
 import 'package:mbankingflutter/views/mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
 
-import '../../viewmodels/mbx_cardless_inquiry_vm.dart';
 import '../../viewmodels/mbx_electricity_token_denoms_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
-import '../../viewmodels/mbx_transfer_p2p_payment_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
@@ -91,7 +91,7 @@ class MbxElectricityTokenController extends GetxController {
 
   inquiry() {
     Get.loading();
-    final inquiryVM = MbxCardlessInquiryVM();
+    final inquiryVM = MbxElectricityTokenInquiryVM();
     inquiryVM.request().then((resp) {
       Get.back();
       if (resp.status == 200) {
@@ -133,7 +133,7 @@ class MbxElectricityTokenController extends GetxController {
       required String pin,
       required bool biometric}) {
     Get.loading();
-    final paymentVM = MbxTransferP2PPaymentVM();
+    final paymentVM = MbxElectricityTokenPaymentVM();
     paymentVM
         .request(transaction_id: transaction_id, pin: pin, biometric: biometric)
         .then((resp) {
