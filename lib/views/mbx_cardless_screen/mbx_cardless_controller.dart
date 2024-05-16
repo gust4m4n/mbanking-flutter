@@ -5,6 +5,7 @@ import 'package:mbankingflutter/viewmodels/mbx_cardless_payment_vm.dart';
 import 'package:mbankingflutter/views/mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
 
+import '../../viewmodels/mbx_cardless_denoms_vm.dart';
 import '../../viewmodels/mbx_cardless_inquiry_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
@@ -18,6 +19,8 @@ class MbxCardlessController extends GetxController {
   var amountError = '';
   int amount = 0;
 
+  final denomsVM = MbxCardlessDenomsVM();
+
   @override
   void onInit() {
     super.onInit();
@@ -27,8 +30,10 @@ class MbxCardlessController extends GetxController {
   void onReady() {
     super.onReady();
     sof = MbxProfileVM.profile.accounts[0];
-
     update();
+    denomsVM.request().then((resp) {
+      update();
+    });
   }
 
   btnBackClicked() {

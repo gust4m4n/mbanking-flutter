@@ -1,11 +1,13 @@
+import 'package:mbankingflutter/viewmodels/mbx_format_vm.dart';
+
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
 class MbxCardlessDenomWidget extends StatelessWidget {
-  final String title;
+  final int nominal;
   final GestureTapCallback? onClicked;
 
-  MbxCardlessDenomWidget({required this.title, this.onClicked = null});
+  MbxCardlessDenomWidget({required this.nominal, this.onClicked = null});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,8 @@ class MbxCardlessDenomWidget extends StatelessWidget {
             cornerRadius: 12.0,
             child: Center(
               child: TextX(
-                title,
+                MbxFormatVM.currencyRP(nominal,
+                    prefix: false, mutation: false, masked: false),
                 color: ColorX.black,
                 fontSize: 15.0,
                 fontWeight: FontWeight.w600,

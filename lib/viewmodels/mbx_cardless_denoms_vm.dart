@@ -1,14 +1,11 @@
-import '../models/mbx_cardless_step_model.dart';
+import '../models/mbx_cardless_denom_model.dart';
 import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
 class MbxCardlessDenomsVM {
-  List<MbxCardlessStepModel> steps = [];
+  List<MbxCardlessDenomModel> list = [];
 
-  Future<ApiXResponse> request(
-      {required String transaction_id,
-      required String pin,
-      required bool biometric}) {
+  Future<ApiXResponse> request() {
     return MbxApi.get(
             endpoint: '/cardless/denoms',
             params: {},
@@ -17,9 +14,9 @@ class MbxCardlessDenomsVM {
             contract: true)
         .then((resp) {
       if (resp.status == 200) {
-        steps = [];
+        list = [];
         for (var item in resp.jason['data'].jasonListValue) {
-          steps.add(MbxCardlessStepModel.fromJason(item));
+          list.add(MbxCardlessDenomModel.fromJason(item));
         }
       }
       return resp;

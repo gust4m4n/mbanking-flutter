@@ -88,70 +88,26 @@ class MbxCardlessScreen extends StatelessWidget {
                   error: controller.amountError,
                 ),
                 ContainerX(height: 12.0),
-                GridView.count(
-                  padding: EdgeInsets.zero,
+                GridView.builder(
                   shrinkWrap: true,
-                  mainAxisSpacing: 8.0,
-                  crossAxisSpacing: 8.0,
-                  childAspectRatio: 2.0,
-                  crossAxisCount: 3,
+                  padding: EdgeInsets.zero,
                   physics: ClampingScrollPhysics(),
-                  children: [
-                    MbxCardlessDenomWidget(
-                      title: '50.000',
+                  itemCount: controller.denomsVM.list.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisSpacing: 8.0,
+                    crossAxisSpacing: 8.0,
+                    childAspectRatio: 2.0,
+                    crossAxisCount: 3,
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    return MbxCardlessDenomWidget(
+                      nominal: controller.denomsVM.list[index].nominal,
                       onClicked: () {
-                        controller.amountChanged('50.000');
+                        controller.amountChanged(
+                            '${controller.denomsVM.list[index].nominal}');
                       },
-                    ),
-                    MbxCardlessDenomWidget(
-                      title: '100.000',
-                      onClicked: () {
-                        controller.amountChanged('100.000');
-                      },
-                    ),
-                    MbxCardlessDenomWidget(
-                      title: '250.000',
-                      onClicked: () {
-                        controller.amountChanged('250.000');
-                      },
-                    ),
-                    MbxCardlessDenomWidget(
-                      title: '500.000',
-                      onClicked: () {
-                        controller.amountChanged('500.000');
-                      },
-                    ),
-                    MbxCardlessDenomWidget(
-                      title: '750.000',
-                      onClicked: () {
-                        controller.amountChanged('750.000');
-                      },
-                    ),
-                    MbxCardlessDenomWidget(
-                      title: '1.000.000',
-                      onClicked: () {
-                        controller.amountChanged('1.000.000');
-                      },
-                    ),
-                    MbxCardlessDenomWidget(
-                      title: '1.500.000',
-                      onClicked: () {
-                        controller.amountChanged('1.500.000');
-                      },
-                    ),
-                    MbxCardlessDenomWidget(
-                      title: '2.000.000',
-                      onClicked: () {
-                        controller.amountChanged('2.000.000');
-                      },
-                    ),
-                    MbxCardlessDenomWidget(
-                      title: '2.500.000',
-                      onClicked: () {
-                        controller.amountChanged('2.500.000');
-                      },
-                    ),
-                  ],
+                    );
+                  },
                 ),
                 ContainerX(height: 16.0),
                 ButtonX(
