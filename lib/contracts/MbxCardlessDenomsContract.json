@@ -1,0 +1,33 @@
+{
+	"status": 200,
+	"message": "Get cardless denoms success",
+	"data": [
+	  {
+		"nominal": 50000
+	  },
+	  {
+		"nominal": 100000
+	  },
+	  {
+		"nominal": 250000
+	  },
+	  {
+		"nominal": 500000
+	  },
+	  {
+		"nominal": 750000
+	  },
+	  {
+		"nominal": 1000000
+	  },
+	  {
+		"nominal": 1500000
+	  },
+	  {
+		"nominal": 2000000
+	  },
+	  {
+		"nominal": 2500000
+	  }
+	]
+  }
