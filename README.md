@@ -1,6 +1,27 @@
 # mbanking-flutter
 
-[Download APK](https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.4.apk)
+Demo mobile banking/e-money/digital application menggunakan flutter, lengkap dengan UI, mock api dan contracts.
+Untuk APK yang ready to install bisa didownload di sini:
+https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.4.apk
+
+Fitur yang tersedia:
++ Login / Logout
++ PIN dan Biometric Login
++ Ganti theme/warna
++ Transfer Antar Rekening
++ Transfer Antar Bank
++ Tarik Tunai
++ QRIS
++ Receipt: download dan share
+
+Platform yang didukung:
++ Android
++ iOS
+
+
+<p>
+
+Screenshots:
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_login.png" width="250">
