@@ -73,7 +73,7 @@ class MbxElectricityTokenScreen extends StatelessWidget {
                       ),
                       ContainerX(height: 4.0),
                       TextFieldX(
-                        hint: 'Nomor ID Pelanggan',
+                        hint: '0000000000',
                         obscureText: false,
                         keyboardType: TextInputType.number,
                         readOnly: false,

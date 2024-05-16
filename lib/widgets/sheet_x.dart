@@ -51,7 +51,7 @@ class SheetX {
                                           child: Center(
                                               child: ImageX(
                                             backgroundColor:
-                                                ColorX.black.withOpacity(0.2),
+                                                ColorX.theme.withOpacity(0.2),
                                             faIcon: FontAwesomeIcons.xmark,
                                             width: 32.0,
                                             height: 32.0,
