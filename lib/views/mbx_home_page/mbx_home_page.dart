@@ -382,7 +382,7 @@ class MbxHomePage extends StatelessWidget {
                                             left: 16.0, right: 16.0),
                                         child: ContainerX(
                                             backgroundColor: ColorX.white,
-                                            borderColor: ColorX.theme,
+                                            borderColor: ColorX.gray,
                                             borderWidth: 0.5,
                                             cornerRadius: 12.0,
                                             child: Column(
