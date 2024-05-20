@@ -80,6 +80,7 @@ class MbxSofWidget extends StatelessWidget {
                       : FontAwesomeIcons.eye,
                   faWidth: 20.0,
                   faHeight: 16.0,
+                  title: '',
                   width: 38.0,
                   height: 38.0,
                   backgroundColor: ColorX.transparent,

@@ -84,6 +84,7 @@ class MbxHomePage extends StatelessWidget {
                                 backgroundColor: ColorX.transparent,
                                 faIcon: FontAwesomeIcons.powerOff,
                                 faColor: ColorX.white,
+                                title: '',
                                 width: 42.0,
                                 height: 42.0,
                                 onClicked: () {

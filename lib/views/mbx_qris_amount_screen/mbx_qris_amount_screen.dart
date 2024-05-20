@@ -110,6 +110,7 @@ class MbxQRISAmountScreen extends StatelessWidget {
                             backgroundColor: ColorX.transparent,
                             faWidth: 16.0,
                             faHeight: 16.0,
+                                title: '',
                             width: 40.0,
                             height: 40.0,
                             borderWidth: 0.5,

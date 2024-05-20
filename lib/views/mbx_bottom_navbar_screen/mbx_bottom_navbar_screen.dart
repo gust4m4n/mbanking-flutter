@@ -45,6 +45,7 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                       cornerRadius: 30.0,
                       faIcon: FontAwesomeIcons.qrcode,
                       faColor: ColorX.white,
+                      title: '',
                       onClicked: () {
                         controller.btnQRISClicked();
                       },

@@ -69,21 +69,32 @@ class ButtonX extends StatelessWidget {
                 ),
               ),
               child: Center(
-                  child: faIcon != null
-                      ? ImageX(
-                          faIcon: faIcon,
-                          color: faColor,
-                          width: faWidth,
-                          height: faHeight)
-                      : TextX(
-                          title,
-                          color:
-                              enabled == true ? titleColor : disabledTitleColor,
-                          fontSize: fontSize,
-                          fontWeight: fontWeight,
-                          textAlign: TextAlign.start,
-                          maxLines: 2048,
-                        )),
+                  child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Visibility(
+                      visible: faIcon != null,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ImageX(
+                              faIcon: faIcon,
+                              color: faColor,
+                              width: faWidth,
+                              height: faHeight),
+                          ContainerX(width: 4.0),
+                        ],
+                      )),
+                  TextX(
+                    title,
+                    color: enabled == true ? titleColor : disabledTitleColor,
+                    fontSize: fontSize,
+                    fontWeight: fontWeight,
+                    textAlign: TextAlign.start,
+                    maxLines: 2048,
+                  )
+                ],
+              )),
             )));
   }
 }

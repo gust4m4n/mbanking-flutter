@@ -62,7 +62,8 @@
 		},
 		{
 		  "label": "TOKEN",
-		  "value": "0000 0000 0000 0000 0000"
+		  "value": "0000 0000 0000 0000 0000",
+		  "copyable": true
 		}
 	  ],
 	  "title": "Pembelian Berhasil",

@@ -36,14 +36,42 @@ class MbxReceiptWidget extends StatelessWidget {
                       ),
                       ContainerX(width: 16.0),
                       Expanded(
-                          child: TextX(
-                        row.value,
-                        color: ColorX.black,
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w600,
-                        textAlign: TextAlign.end,
-                        maxLines: 8,
-                      )),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                            TextX(
+                              row.value,
+                              color: ColorX.black,
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.w600,
+                              textAlign: TextAlign.end,
+                              maxLines: 8,
+                            ),
+                            Visibility(
+                              visible: row.copyable,
+                              child: ButtonX(
+                                faIcon: FontAwesomeIcons.copy,
+                                faWidth: 16.0,
+                                faHeight: 16.0,
+                                title: 'SALIN',
+                                titleColor: ColorX.black,
+                                fontSize: 11.0,
+                                fontWeight: FontWeight.w700,
+                                backgroundColor: ColorX.white,
+                                cornerRadius: 6.0,
+                                width: 90.0,
+                                height: 26.0,
+                                borderWidth: 0.5,
+                                borderColor: ColorX.gray,
+                                onClicked: () {
+                                  Clipboard.setData(
+                                      ClipboardData(text: row.value));
+                                  ToastX.showSuccess(
+                                      msg: 'Token berhasil disalin.');
+                                },
+                              ),
+                            ),
+                          ])),
                     ],
                   ),
                 ),

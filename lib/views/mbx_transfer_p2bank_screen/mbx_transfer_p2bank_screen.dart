@@ -92,10 +92,11 @@ class MbxTransferP2BankScreen extends StatelessWidget {
                             ),
                             ContainerX(width: 8.0),
                             ButtonX(
-                                faIcon: FontAwesomeIcons.chevronDown,
                                 backgroundColor: ColorX.transparent,
+                                faIcon: FontAwesomeIcons.chevronDown,
                                 faWidth: 16.0,
                                 faHeight: 16.0,
+                                title: '',
                                 width: 40.0,
                                 height: 40.0,
                                 borderWidth: 0.5,
@@ -172,6 +173,7 @@ class MbxTransferP2BankScreen extends StatelessWidget {
                                 backgroundColor: ColorX.transparent,
                                 faWidth: 16.0,
                                 faHeight: 16.0,
+                                title: '',
                                 width: 40.0,
                                 height: 40.0,
                                 borderWidth: 0.5,
@@ -241,6 +243,7 @@ class MbxTransferP2BankScreen extends StatelessWidget {
                             backgroundColor: ColorX.transparent,
                             faWidth: 16.0,
                             faHeight: 16.0,
+                                title: '',
                             width: 40.0,
                             height: 40.0,
                             borderWidth: 0.5,
@@ -271,7 +274,7 @@ class MbxTransferP2BankScreen extends StatelessWidget {
               ContainerX(height: 16.0),
               ButtonX(
                 backgroundColor: ColorX.theme,
-                  disabledBackgroundColor: ColorX.theme.withOpacity(0.1),
+                disabledBackgroundColor: ColorX.theme.withOpacity(0.1),
                 title: 'Lanjut',
                 enabled: controller.readyToSubmit(),
                 onClicked: () {
