@@ -1,0 +1,41 @@
+{
+	"status": 200,
+	"message": "Non-Tagihan Listrik payment success.",
+	"data": {
+	  "amount": "IDR 503.000",
+	  "details": [
+		{
+		  "label": "JENIS TRANSAKSI",
+		  "value": "Non-Tagihan Listrik"
+		},
+		{
+		  "label": "WAKTU TRANSAKSI",
+		  "value": "10 Mei 2024 10:22:58"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NOMINAL",
+		  "value": "IDR 500.000"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 3.000"
+		},
+		{
+		  "label": "TOTAL",
+		  "value": "IDR 503.000"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NOMOR REFERENSI",
+		  "value": "0000000000"
+		}
+	  ],
+	  "title": "Pembayaran Berhasil",
+	  "transaction_id": "0000000000"
+	}
+  }

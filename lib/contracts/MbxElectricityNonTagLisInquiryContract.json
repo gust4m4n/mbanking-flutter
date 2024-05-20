@@ -1,0 +1,29 @@
+{
+	"status": 200,
+	"message": "Non-Tagihan Listrik inquiry success.",
+	"data": {
+	  "details": [
+		{
+		  "label": "TRANSAKSI",
+		  "value": "Non-Tagihan Listrik"
+		},
+		{
+		  "label": "Nomor Registrasi",
+		  "value": "0000000000"
+		},
+		{
+		  "label": "NOMINAL",
+		  "value": "IDR 500.000"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 3.000"
+		},
+		{
+		  "label": "SUMBER DANA",
+		  "value": "000000000"
+		}
+	  ],
+	  "transaction_id": "0000000000"
+	}
+  }

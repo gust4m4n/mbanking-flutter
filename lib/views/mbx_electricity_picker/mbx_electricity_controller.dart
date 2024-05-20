@@ -17,6 +17,6 @@ class MbxElectricityController extends GetxController {
 
   btnNonTagLisClicked() {
     Get.back();
-    Get.toNamed('/electricity/postpaid');
+    Get.toNamed('/electricity/nontaglis');
   }
 }
