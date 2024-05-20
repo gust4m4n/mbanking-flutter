@@ -2,7 +2,7 @@ import '../models/mbx_inquiry_model.dart';
 import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
-class MbxElectricityPrepaidInquiryVM {
+class MbxElectricityPostpaidInquiryVM {
   var loading = false;
   var inquiry = MbxInquiryModel();
 
@@ -13,7 +13,7 @@ class MbxElectricityPrepaidInquiryVM {
             params: {},
             headers: {},
             contractFile:
-                'lib/contracts/MbxElectricityPrepaidInquiryContract.json',
+                'lib/contracts/MbxElectricityPostpaidInquiryContract.json',
             contract: true)
         .then((resp) {
       loading = false;

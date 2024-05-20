@@ -1,6 +1,6 @@
 {
 	"status": 200,
-	"message": "Electricity token inquiry success.",
+	"message": "Prepaid electricity inquiry success.",
 	"data": {
 	  "details": [
 		{

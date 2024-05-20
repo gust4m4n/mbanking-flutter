@@ -10,6 +10,7 @@ import 'viewmodels/mbx_profile_vm.dart';
 import 'viewmodels/mbx_reachability_vm.dart';
 import 'viewmodels/mbx_theme_vm.dart';
 import 'views/mbx_bottom_navbar_screen/mbx_bottom_navbar_screen.dart';
+import 'views/mbx_electricity_postpaid_screen/mbx_electricity_postpaid_screen.dart';
 import 'views/mbx_login_screen/mbx_login_screen.dart';
 import 'views/mbx_news_screen/mbx_news_screen.dart';
 import 'views/mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
@@ -141,8 +142,8 @@ class MyApp extends StatelessWidget {
             name: '/electricity/prepaid',
             page: () => MbxElectricityPrepaidScreen()),
         GetPage(
-            name: '/electricity/prepaid',
-            page: () => MbxElectricityPrepaidScreen()),
+            name: '/electricity/postpaid',
+            page: () => MbxElectricityPostpaidScreen()),
       ],
     );
   }

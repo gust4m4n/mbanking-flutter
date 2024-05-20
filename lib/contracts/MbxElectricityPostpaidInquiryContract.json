@@ -1,0 +1,41 @@
+{
+	"status": 200,
+	"message": "Prepaid electricity inquiry success.",
+	"data": {
+	  "details": [
+		{
+		  "label": "TRANSAKSI",
+		  "value": "Listrik Pascabayar"
+		},
+		{
+		  "label": "ID Pelanggan",
+		  "value": "0000000000"
+		},
+		{
+		  "label": "Nomor Meter",
+		  "value": "0000000000"
+		},
+		{
+		  "label": "Nama Pelanggan",
+		  "value": "JULEHA"
+		},
+		{
+		  "label": "Tarif / Daya",
+		  "value": "R1 / 900 VA"
+		},
+		{
+		  "label": "NOMINAL",
+		  "value": "IDR 100.000"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 3.000"
+		},
+		{
+		  "label": "SUMBER DANA",
+		  "value": "000000000"
+		}
+	  ],
+	  "transaction_id": "0000000000"
+	}
+  }

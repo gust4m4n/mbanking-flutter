@@ -1,6 +1,6 @@
 {
 	"status": 200,
-	"message": "Get electricity token denoms success",
+	"message": "Get prepaid electricity denoms success",
 	"data": [
 	  {
 		"nominal": 5000
