@@ -1,23 +1,23 @@
 import 'package:mbankingflutter/models/mbx_account_model.dart';
 import 'package:mbankingflutter/models/mbx_inquiry_model.dart';
-import 'package:mbankingflutter/viewmodels/mbx_electricity_token_inquiry_vm.dart';
-import 'package:mbankingflutter/viewmodels/mbx_electricity_token_payment_vm.dart';
+import 'package:mbankingflutter/viewmodels/mbx_electricity_prepaid_inquiry_vm.dart';
+import 'package:mbankingflutter/viewmodels/mbx_electricity_prepaid_payment_vm.dart';
 import 'package:mbankingflutter/views/mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_sheet.dart';
 
-import '../../viewmodels/mbx_electricity_token_denoms_vm.dart';
+import '../../viewmodels/mbx_electricity_prepaid_denoms_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
-class MbxElectricityTokenController extends GetxController {
+class MbxElectricityPrepaidController extends GetxController {
   var sof = MbxAccountModel();
   final customerIdController = TextEditingController();
   final customerIdNode = FocusNode();
   var customerIdError = '';
   int denom = 0;
 
-  final denomsVM = MbxElectricityTokenDenomsVM();
+  final denomsVM = MbxElectricityPrepaidDenomsVM();
 
   @override
   void onInit() {
@@ -93,7 +93,7 @@ class MbxElectricityTokenController extends GetxController {
 
   inquiry() {
     Get.loading();
-    final inquiryVM = MbxElectricityTokenInquiryVM();
+    final inquiryVM = MbxElectricityPrepaidInquiryVM();
     inquiryVM.request().then((resp) {
       Get.back();
       if (resp.status == 200) {
@@ -135,7 +135,7 @@ class MbxElectricityTokenController extends GetxController {
       required String pin,
       required bool biometric}) {
     Get.loading();
-    final paymentVM = MbxElectricityTokenPaymentVM();
+    final paymentVM = MbxElectricityPrepaidPaymentVM();
     paymentVM
         .request(transaction_id: transaction_id, pin: pin, biometric: biometric)
         .then((resp) {

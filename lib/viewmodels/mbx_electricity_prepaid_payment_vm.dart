@@ -2,7 +2,7 @@ import '../models/mbx_receipt_model.dart';
 import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
-class MbxElectricityTokenPaymentVM {
+class MbxElectricityPrepaidPaymentVM {
   var receipt = MbxReceiptModel();
 
   Future<ApiXResponse> request(
@@ -10,11 +10,11 @@ class MbxElectricityTokenPaymentVM {
       required String pin,
       required bool biometric}) {
     return MbxApi.post(
-            endpoint: '/electricity/token/payment',
+            endpoint: '/electricity/prepaid/payment',
             params: {},
             headers: {},
             contractFile:
-                'lib/contracts/MbxElectricityTokenPaymentContract.json',
+                'lib/contracts/MbxElectricityPrepaidPaymentContract.json',
             contract: true)
         .then((resp) {
       if (resp.status == 200) {

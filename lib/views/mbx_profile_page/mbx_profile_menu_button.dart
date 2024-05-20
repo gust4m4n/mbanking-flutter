@@ -66,10 +66,10 @@ class MbaxProfileMenuButton extends StatelessWidget {
                           inactiveTrackColor: ColorX.lightGray,
                           inactiveThumbColor: ColorX.gray,
                           trackOutlineColor:
-                              MaterialStateProperty.resolveWith<Color?>(
+                              WidgetStateProperty.resolveWith<Color?>(
                                   (_) => ColorX.transparent),
                           trackOutlineWidth:
-                              MaterialStateProperty.resolveWith<double?>(
+                              WidgetStateProperty.resolveWith<double?>(
                                   (_) => 0.0),
                         )
                       : ImageX(

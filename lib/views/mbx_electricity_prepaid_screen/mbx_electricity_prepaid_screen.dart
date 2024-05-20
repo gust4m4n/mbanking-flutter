@@ -1,15 +1,15 @@
 import '../../widgets/all_widgets.dart';
 import '../mbx_sof_sheet/mbx_sof_widget.dart';
-import 'mbx_electricity_token_controller.dart';
-import 'mbx_electricity_token_denom_widget.dart';
+import 'mbx_electricity_prepaid_controller.dart';
+import 'mbx_electricity_prepaid_denom_widget.dart';
 
-class MbxElectricityTokenScreen extends StatelessWidget {
-  MbxElectricityTokenScreen({Key? key}) : super(key: key);
+class MbxElectricityPrepaidScreen extends StatelessWidget {
+  MbxElectricityPrepaidScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxElectricityTokenController>(
-        init: MbxElectricityTokenController(),
+    return GetBuilder<MbxElectricityPrepaidController>(
+        init: MbxElectricityPrepaidController(),
         builder: (controller) => MbxScreen(
             title: 'Token Listrik',
             scrollingBody: Column(
@@ -100,7 +100,7 @@ class MbxElectricityTokenScreen extends StatelessWidget {
                     crossAxisCount: 3,
                   ),
                   itemBuilder: (BuildContext context, int index) {
-                    return MbxElectricityTokenDenomWidget(
+                    return MbxElectricityPrepaidDenomWidget(
                       nominal: controller.denomsVM.list[index].nominal,
                       selected: controller.denomsVM.list[index].nominal ==
                           controller.denom,

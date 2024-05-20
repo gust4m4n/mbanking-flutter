@@ -35,7 +35,9 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                     titleColor: ColorX.black,
                     backgroundColor: ColorX.theme.withOpacity(0.1),
                     highlightColor: ColorX.theme.withOpacity(0.1),
-                    onClicked: () {},
+                    onClicked: () {
+                      controller.btnPascabayarClicked();
+                    },
                   ),
                   ContainerX(height: 4.0),
                   ButtonX(
@@ -43,7 +45,9 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                     titleColor: ColorX.black,
                     backgroundColor: ColorX.theme.withOpacity(0.1),
                     highlightColor: ColorX.theme.withOpacity(0.1),
-                    onClicked: () {},
+                    onClicked: () {
+                      controller.btnNonTagLisClicked();
+                    },
                   ),
                   ContainerX(height: 16.0),
                   ButtonX(

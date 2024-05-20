@@ -2,7 +2,7 @@ name: mbankingflutter
 description: MBanking-flutter.
 version: 1.0.5+5
 environment: 
-  sdk: '>=2.19.0 <=3.3.4'
+  sdk: '>=3.0.0 <=3.4.0'
 dependencies: 
   flutter: 
     sdk: flutter
@@ -37,7 +37,6 @@ dependencies:
   carousel_slider: ^4.2.1
   sqflite: ^2.3.0
   fl_chart: ^0.66.2
-  screenshot: ^2.3.0
   local_auth: ^2.1.8
   barcode_widget: ^2.0.4
   pdfx: ^2.6.0
@@ -47,6 +46,8 @@ dependencies:
   permission_handler: ^11.3.1
   image_gallery_saver: ^2.0.3
   mobile_scanner: ^5.1.0
+  remove: ^1.0.10
+  screenshot: ^3.0.0
 
 
 dev_dependencies: 

@@ -7,6 +7,16 @@ class MbxElectricityController extends GetxController {
 
   btnElectricityTokenClicked() {
     Get.back();
-    Get.toNamed('/electricity/token');
+    Get.toNamed('/electricity/prepaid');
+  }
+
+  btnPascabayarClicked() {
+    Get.back();
+    Get.toNamed('/electricity/prepaid');
+  }
+
+  btnNonTagLisClicked() {
+    Get.back();
+    Get.toNamed('/electricity/prepaid');
   }
 }

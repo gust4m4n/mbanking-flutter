@@ -2,16 +2,16 @@ import '../models/mbx_cardless_denom_model.dart';
 import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
-class MbxElectricityTokenDenomsVM {
+class MbxElectricityPrepaidDenomsVM {
   List<MbxCardlessDenomModel> list = [];
 
   Future<ApiXResponse> request() {
     return MbxApi.get(
-            endpoint: '/electricity/token/denoms',
+            endpoint: '/electricity/prepaid/denoms',
             params: {},
             headers: {},
             contractFile:
-                'lib/contracts/MbxElectricityTokenDenomsContract.json',
+                'lib/contracts/MbxElectricityPrepaidDenomsContract.json',
             contract: true)
         .then((resp) {
       if (resp.status == 200) {

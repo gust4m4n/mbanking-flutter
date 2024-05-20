@@ -3,12 +3,12 @@ import 'package:mbankingflutter/viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxElectricityTokenDenomWidget extends StatelessWidget {
+class MbxElectricityPrepaidDenomWidget extends StatelessWidget {
   final int nominal;
   final bool selected;
   final GestureTapCallback? onClicked;
 
-  MbxElectricityTokenDenomWidget(
+  MbxElectricityPrepaidDenomWidget(
       {required this.nominal, required this.selected, this.onClicked = null});
 
   @override

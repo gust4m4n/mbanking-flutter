@@ -58,6 +58,6 @@ class MbxHomeController extends GetxController {
 
   btnElectricityClicked() async {
     final picker = MbxElectricityPicker();
-    final value = await picker.show();
+    await picker.show();
   }
 }
