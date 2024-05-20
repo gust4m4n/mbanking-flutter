@@ -3,6 +3,7 @@ import 'all_widgets.dart';
 extension Loading on GetInterface {
   void loading() {
     Get.dialog(
+        barrierDismissible: false,
         AlertDialog(
           elevation: 0.0,
           contentPadding: EdgeInsets.zero,
@@ -23,6 +24,7 @@ extension Loading on GetInterface {
                                 AlwaysStoppedAnimation<Color>(ColorX.black))))),
           ),
         ),
+        useSafeArea: false,
         transitionDuration: Duration.zero,
         transitionCurve: null);
   }
