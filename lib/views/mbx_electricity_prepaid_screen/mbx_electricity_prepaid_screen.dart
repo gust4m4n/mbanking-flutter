@@ -11,7 +11,7 @@ class MbxElectricityPrepaidScreen extends StatelessWidget {
     return GetBuilder<MbxElectricityPrepaidController>(
         init: MbxElectricityPrepaidController(),
         builder: (controller) => MbxScreen(
-            title: 'Token Listrik',
+            title: 'Listrik Prabayar',
             scrollingBody: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

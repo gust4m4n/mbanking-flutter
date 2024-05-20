@@ -1,12 +1,12 @@
 {
 	"status": 200,
-	"message": "Token listrik success.",
+	"message": "Postpaid electricity payment success.",
 	"data": {
 	  "amount": "IDR 103.000",
 	  "details": [
 		{
 		  "label": "JENIS TRANSAKSI",
-		  "value": "Listrik Prabayar"
+		  "value": "Listrik Pascabayar"
 		},
 		{
 		  "label": "WAKTU TRANSAKSI",
@@ -52,20 +52,9 @@
 		{
 		  "label": "NOMOR REFERENSI",
 		  "value": "0000000000"
-		},
-		{
-		  "label": "-"
-		},
-		{
-		  "label": "JUMLAH KWH",
-		  "value": "150.3"
-		},
-		{
-		  "label": "TOKEN",
-		  "value": "0000 0000 0000 0000 0000"
 		}
 	  ],
-	  "title": "Pembelian Berhasil",
+	  "title": "Pembayaran Berhasil",
 	  "transaction_id": "0000000000"
 	}
   }

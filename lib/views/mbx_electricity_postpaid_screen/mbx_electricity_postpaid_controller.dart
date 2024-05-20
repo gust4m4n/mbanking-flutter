@@ -1,7 +1,7 @@
 import '../../models/mbx_account_model.dart';
 import '../../models/mbx_inquiry_model.dart';
 import '../../viewmodels/mbx_electricity_postpaid_inquiry_vm.dart';
-import '../../viewmodels/mbx_electricity_prepaid_payment_vm.dart';
+import '../../viewmodels/mbx_electricity_postpaid_payment_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
@@ -122,7 +122,7 @@ class MbxElectricityPostpaidController extends GetxController {
       required String pin,
       required bool biometric}) {
     Get.loading();
-    final paymentVM = MbxElectricityPrepaidPaymentVM();
+    final paymentVM = MbxElectricityPostpaidPaymentVM();
     paymentVM
         .request(transaction_id: transaction_id, pin: pin, biometric: biometric)
         .then((resp) {

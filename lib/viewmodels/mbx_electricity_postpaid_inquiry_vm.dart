@@ -9,7 +9,7 @@ class MbxElectricityPostpaidInquiryVM {
   Future<ApiXResponse> request() {
     loading = true;
     return MbxApi.post(
-            endpoint: '/electricity/prepaid/inquiry',
+            endpoint: '/electricity/postpaid/inquiry',
             params: {},
             headers: {},
             contractFile:

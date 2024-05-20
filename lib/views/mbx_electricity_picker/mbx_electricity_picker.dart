@@ -21,7 +21,7 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                 physics: ClampingScrollPhysics(),
                 children: [
                   ButtonX(
-                    title: 'Token Listrik',
+                    title: 'Prabayar',
                     titleColor: ColorX.black,
                     backgroundColor: ColorX.theme.withOpacity(0.1),
                     highlightColor: ColorX.theme.withOpacity(0.1),
