@@ -1,8 +1,8 @@
 import '../../widgets/all_widgets.dart';
-import 'mbx_electricity_controller.dart';
+import 'mbx_launcher_controller.dart';
 
 // ignore: must_be_immutable
-class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
+class MbxLauncherPicker extends GetWidget<MbxLauncherController> {
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
     return SheetX.showCustom(widget: this, title: 'Listrik PLN');
@@ -10,8 +10,8 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxElectricityController>(
-        init: MbxElectricityController(),
+    return GetBuilder<MbxLauncherController>(
+        init: MbxLauncherController(),
         builder: (controller) => ContainerX(
                 child: Wrap(children: [
               ListView(

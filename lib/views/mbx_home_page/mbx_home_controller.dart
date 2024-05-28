@@ -1,4 +1,4 @@
-import 'package:mbankingflutter/views/mbx_electricity_picker/mbx_electricity_picker.dart';
+import 'package:mbankingflutter/views/mbx_launcher_picker/mbx_launcher_picker.dart';
 
 import '../../viewmodels/mbx_foreign_exchange_list_vm.dart';
 import '../../viewmodels/mbx_news_list_vm.dart';
@@ -57,7 +57,7 @@ class MbxHomeController extends GetxController {
   }
 
   btnElectricityClicked() async {
-    final picker = MbxElectricityPicker();
+    final picker = MbxLauncherPicker();
     await picker.show();
   }
 

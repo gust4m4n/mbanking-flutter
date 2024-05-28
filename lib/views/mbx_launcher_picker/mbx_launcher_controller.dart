@@ -1,6 +1,6 @@
 import '../../widgets/all_widgets.dart';
 
-class MbxElectricityController extends GetxController {
+class MbxLauncherController extends GetxController {
   btnCloseClicked() {
     Get.back();
   }

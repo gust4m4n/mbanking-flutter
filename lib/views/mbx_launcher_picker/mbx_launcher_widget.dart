@@ -1,10 +1,10 @@
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxElectricityWidget extends StatelessWidget {
+class MbxLauncherWidget extends StatelessWidget {
   final String title;
 
-  MbxElectricityWidget({required this.title});
+  MbxLauncherWidget({required this.title});
 
   @override
   Widget build(BuildContext context) {
