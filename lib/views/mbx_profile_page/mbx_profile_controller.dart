@@ -171,6 +171,6 @@ class MbxProfileController extends GetxController {
 
   btnChangeAvatarClicked() async {
     final sheet = MbxAvatarSheet();
-    final value = await sheet.show();
+    await sheet.show();
   }
 }

@@ -4,7 +4,7 @@ PODS:
     - SAMKeychain
   - connectivity_plus (0.0.1):
     - Flutter
-    - ReachabilitySwift
+    - FlutterMacOS
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
@@ -85,7 +85,6 @@ PODS:
   - permission_handler_apple (9.3.0):
     - Flutter
   - PromisesObjC (2.4.0)
-  - ReachabilitySwift (5.2.2)
   - SAMKeychain (1.5.3)
   - share_plus (0.0.1):
     - Flutter
@@ -101,7 +100,7 @@ PODS:
 
 DEPENDENCIES:
   - client_information (from `.symlinks/plugins/client_information/ios`)
-  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
+  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/darwin`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - flutter_jailbreak_detection (from `.symlinks/plugins/flutter_jailbreak_detection/ios`)
@@ -135,7 +134,6 @@ SPEC REPOS:
     - MLKitVision
     - nanopb
     - PromisesObjC
-    - ReachabilitySwift
     - SAMKeychain
     - Toast
 
@@ -143,7 +141,7 @@ EXTERNAL SOURCES:
   client_information:
     :path: ".symlinks/plugins/client_information/ios"
   connectivity_plus:
-    :path: ".symlinks/plugins/connectivity_plus/ios"
+    :path: ".symlinks/plugins/connectivity_plus/darwin"
   device_info_plus:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
@@ -181,7 +179,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   client_information: cd2088b683015ea782082d6562d17e0320ae7097
-  connectivity_plus: bf0076dd84a130856aa636df1c71ccaff908fa1d
+  connectivity_plus: ddd7f30999e1faaef5967c23d5b6d503d10434db
   device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_jailbreak_detection: c5bf66ff6c0c4230769b6ba0bd63eb6ac4148a76
@@ -203,14 +201,13 @@ SPEC CHECKSUMS:
   MLKitVision: e858c5f125ecc288e4a31127928301eaba9ae0c1
   mobile_scanner: 8564358885a9253c43f822435b70f9345c87224f
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
-  package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
+  package_info_plus: 58f0028419748fad15bf008b270aaa8e54380b1c
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   pdfx: 7b876b09de8b7a0bf444a4f82b439ffcff4ee1ec
   permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
-  ReachabilitySwift: 2128f3a8c9107e1ad33574c6e58e8285d460b149
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
-  share_plus: c3fef564749587fc939ef86ffb283ceac0baf9f5
+  share_plus: 8875f4f2500512ea181eef553c3e27dba5135aad
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   sqflite: 673a0e54cc04b7d6dba8d24fb8095b31c3a99eec
   Toast: 1f5ea13423a1e6674c4abdac5be53587ae481c4e

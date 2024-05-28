@@ -1,10 +1,12 @@
 import 'dart:async';
-import '../utils/logger_x.dart';
+
 import 'package:connectivity_plus/connectivity_plus.dart';
+
+import '../utils/logger_x.dart';
 
 class ReachabilityX {
   static bool internetConnected = true;
-  static late StreamSubscription<ConnectivityResult> subscription;
+  static late StreamSubscription<List<ConnectivityResult>> subscription;
 
   static Future<bool> checkInternetConnectivity() async {
     final result = await Connectivity().checkConnectivity();
@@ -21,9 +23,10 @@ class ReachabilityX {
   static Future<void> startListening(
       {required Function(bool connected)? handler}) async {
     await checkInternetConnectivity();
+
     subscription = Connectivity()
         .onConnectivityChanged
-        .listen((ConnectivityResult result) {
+        .listen((List<ConnectivityResult> result) {
       var connected = true;
       if (result == ConnectivityResult.mobile ||
           result == ConnectivityResult.wifi) {

@@ -13,14 +13,14 @@ dependencies:
   http: ^1.2.0
   webview_flutter: ^4.4.4
   qr_flutter: ^4.0.0
-  share_plus: ^7.2.2
+  share_plus: ^9.0.0
   image_picker: ^1.0.7
   flutter_secure_storage: ^9.0.0
   crypto: ^3.0.2
   encrypt: ^5.0.1
   xor_cipher: ^1.0.0+1
   crclib: ^3.0.0
-  connectivity_plus: ^5.0.1
+  connectivity_plus: ^6.0.3
   get: ^4.6.5
   flash: ^3.0.5+1
   image: ^4.0.17
@@ -36,11 +36,11 @@ dependencies:
   flutter_jailbreak_detection: ^1.10.0
   carousel_slider: ^4.2.1
   sqflite: ^2.3.0
-  fl_chart: ^0.66.2
+  fl_chart: ^0.68.0
   local_auth: ^2.1.8
   barcode_widget: ^2.0.4
   pdfx: ^2.6.0
-  package_info_plus: ^4.2.0
+  package_info_plus: ^8.0.0
   client_information: ^2.1.4
   uuid: ^4.4.0
   permission_handler: ^11.3.1
