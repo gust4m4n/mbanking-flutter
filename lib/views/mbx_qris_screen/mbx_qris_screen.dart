@@ -46,6 +46,7 @@ class MbxQRISScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         ButtonX(
+                          title: '',
                           backgroundColor: ColorX.theme,
                           width: 40.0,
                           height: 40.0,
@@ -60,6 +61,7 @@ class MbxQRISScreen extends StatelessWidget {
                         ),
                         ContainerX(width: 8.0),
                         ButtonX(
+                          title: '',
                           backgroundColor: ColorX.theme,
                           width: 40.0,
                           height: 40.0,
@@ -74,6 +76,7 @@ class MbxQRISScreen extends StatelessWidget {
                         ),
                         ContainerX(width: 8.0),
                         ButtonX(
+                          title: '',
                           backgroundColor: controller.flashlight
                               ? ColorX.white
                               : ColorX.theme,

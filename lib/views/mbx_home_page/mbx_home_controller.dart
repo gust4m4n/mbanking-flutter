@@ -60,4 +60,8 @@ class MbxHomeController extends GetxController {
     final picker = MbxElectricityPicker();
     await picker.show();
   }
+
+  btnQRISClicked() {
+    Get.toNamed('/qris');
+  }
 }

@@ -82,7 +82,7 @@ class ButtonX extends StatelessWidget {
                               color: faColor,
                               width: faWidth,
                               height: faHeight),
-                          ContainerX(width: 4.0),
+                          ContainerX(width: title.isNotEmpty ? 4.0 : 0.0),
                         ],
                       )),
                   TextX(

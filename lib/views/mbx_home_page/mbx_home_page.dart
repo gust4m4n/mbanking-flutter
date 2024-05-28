@@ -198,6 +198,37 @@ class MbxHomePage extends StatelessWidget {
                                           },
                                         ),
                                         MbxLauncherCell(
+                                          color: ColorX.red,
+                                          faIcon: FontAwesomeIcons.qrcode,
+                                          title: 'QRIS',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                          onClicked: () {
+                                            controller.btnQRISClicked();
+                                          },
+                                        ),
+                                        MbxLauncherCell(
+                                          color: ColorX.yellow,
+                                          faIcon:
+                                              FontAwesomeIcons.solidLightbulb,
+                                          title: 'Listrik PLN',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                          onClicked: () {
+                                            controller.btnElectricityClicked();
+                                          },
+                                        ),
+                                        MbxLauncherCell(
+                                          color: ColorX.red,
+                                          faIcon: FontAwesomeIcons.mobile,
+                                          title: 'Pulsa',
+                                          titleColor: ColorX.white,
+                                          highlightColor:
+                                              ColorX.theme.lighten(0.1),
+                                        ),
+                                        MbxLauncherCell(
                                           color: ColorX.teal,
                                           faIcon: FontAwesomeIcons.landmark,
                                           title: 'Deposito',
@@ -210,31 +241,6 @@ class MbxHomePage extends StatelessWidget {
                                           faIcon: FontAwesomeIcons
                                               .handHoldingDollar,
                                           title: 'Paylater',
-                                          titleColor: ColorX.white,
-                                          highlightColor:
-                                              ColorX.theme.lighten(0.1),
-                                        ),
-                                        MbxLauncherCell(
-                                          color: ColorX.red,
-                                          faIcon: FontAwesomeIcons.qrcode,
-                                          title: 'QRIS',
-                                          titleColor: ColorX.white,
-                                          highlightColor:
-                                              ColorX.theme.lighten(0.1),
-                                        ),
-                                        MbxLauncherCell(
-                                          color: ColorX.green,
-                                          faIcon: FontAwesomeIcons.houseFlag,
-                                          title: 'Bayar',
-                                          titleColor: ColorX.white,
-                                          highlightColor:
-                                              ColorX.theme.lighten(0.1),
-                                        ),
-                                        MbxLauncherCell(
-                                          color: ColorX.blue,
-                                          faIcon: FontAwesomeIcons
-                                              .circleDollarToSlot,
-                                          title: 'Top Up',
                                           titleColor: ColorX.white,
                                           highlightColor:
                                               ColorX.theme.lighten(0.1),
@@ -281,21 +287,18 @@ class MbxHomePage extends StatelessWidget {
                                       physics: ClampingScrollPhysics(),
                                       children: [
                                         MbxLauncherCell(
-                                          color: ColorX.yellow,
-                                          faIcon:
-                                              FontAwesomeIcons.solidLightbulb,
-                                          title: 'Listrik PLN',
+                                          color: ColorX.blue,
+                                          faIcon: FontAwesomeIcons
+                                              .circleDollarToSlot,
+                                          title: 'Top Up',
                                           titleColor: ColorX.white,
                                           highlightColor:
                                               ColorX.theme.lighten(0.1),
-                                          onClicked: () {
-                                            controller.btnElectricityClicked();
-                                          },
                                         ),
                                         MbxLauncherCell(
-                                          color: ColorX.red,
-                                          faIcon: FontAwesomeIcons.mobile,
-                                          title: 'Pulsa',
+                                          color: ColorX.green,
+                                          faIcon: FontAwesomeIcons.houseFlag,
+                                          title: 'Bayar',
                                           titleColor: ColorX.white,
                                           highlightColor:
                                               ColorX.theme.lighten(0.1),
