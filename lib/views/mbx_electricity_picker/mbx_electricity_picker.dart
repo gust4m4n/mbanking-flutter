@@ -42,7 +42,7 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                             titleColor: ColorX.white,
                             highlightColor: ColorX.theme.lighten(0.1),
                             onClicked: () {
-                              controller.btnElectricityTokenClicked();
+                              controller.btnPrepaidClicked();
                             }),
                         MbxLauncherCell(
                           color: ColorX.yellow,
@@ -51,7 +51,7 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                           titleColor: ColorX.white,
                           highlightColor: ColorX.theme.lighten(0.1),
                           onClicked: () {
-                            controller.btnPascabayarClicked();
+                            controller.btnPostpaidClicked();
                           },
                         ),
                         MbxLauncherCell(

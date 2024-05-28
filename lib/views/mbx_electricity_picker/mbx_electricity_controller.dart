@@ -5,12 +5,12 @@ class MbxElectricityController extends GetxController {
     Get.back();
   }
 
-  btnElectricityTokenClicked() {
+  btnPrepaidClicked() {
     Get.back();
     Get.toNamed('/electricity/prepaid');
   }
 
-  btnPascabayarClicked() {
+  btnPostpaidClicked() {
     Get.back();
     Get.toNamed('/electricity/postpaid');
   }

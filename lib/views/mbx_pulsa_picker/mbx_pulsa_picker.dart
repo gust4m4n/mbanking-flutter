@@ -42,7 +42,7 @@ class MbxPulsaPicker extends GetWidget<MbxPulsaController> {
                             titleColor: ColorX.white,
                             highlightColor: ColorX.theme.lighten(0.1),
                             onClicked: () {
-                              controller.btnElectricityTokenClicked();
+                              controller.btnPrepaidClicked();
                             }),
                         MbxLauncherCell(
                           color: ColorX.teal,

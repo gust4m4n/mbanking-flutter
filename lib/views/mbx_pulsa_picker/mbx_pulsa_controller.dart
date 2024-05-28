@@ -5,9 +5,9 @@ class MbxPulsaController extends GetxController {
     Get.back();
   }
 
-  btnElectricityTokenClicked() {
+  btnPrepaidClicked() {
     Get.back();
-    Get.toNamed('/electricity/prepaid');
+    Get.toNamed('/pulsa/prepaid');
   }
 
   btnPascabayarClicked() {
