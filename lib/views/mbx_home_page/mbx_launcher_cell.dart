@@ -46,7 +46,7 @@ class MbxLauncherCell extends StatelessWidget {
                       fontSize: 11.0,
                       fontWeight: FontWeight.w600,
                       textAlign: TextAlign.center,
-                      maxLines: 1,
+                      maxLines: 2,
                     ),
                     Spacer()
                   ],
