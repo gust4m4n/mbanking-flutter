@@ -30,7 +30,7 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                       shrinkWrap: true,
                       mainAxisSpacing: 0.0,
                       crossAxisSpacing: 0.0,
-                      childAspectRatio: 1.05,
+                      childAspectRatio: 0.95,
                       crossAxisCount: 3,
                       padding: EdgeInsets.all(12.0),
                       physics: ClampingScrollPhysics(),
@@ -69,7 +69,7 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                   ),
                   ContainerX(height: 16.0),
                   ButtonX(
-                    title: 'Batal',
+                    title: 'Kembali',
                     titleColor: ColorX.black,
                     backgroundColor: ColorX.transparent,
                     borderWidth: 1.0,

@@ -170,7 +170,7 @@ class MbxHomePage extends StatelessWidget {
                                       shrinkWrap: true,
                                       mainAxisSpacing: 0.0,
                                       crossAxisSpacing: 0.0,
-                                      childAspectRatio: 0.9,
+                                      childAspectRatio: 0.8,
                                       crossAxisCount: 4,
                                       padding: EdgeInsets.all(12.0),
                                       physics: ClampingScrollPhysics(),
@@ -257,109 +257,7 @@ class MbxHomePage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                      left: 16.0,
-                                      top: 8.0,
-                                      right: 16.0,
-                                      bottom: 4.0),
-                                  child: TextX(
-                                    'FAVORIT',
-                                    fontSize: 13.0,
-                                    fontWeight: FontWeight.w700,
-                                    color: ColorX.black,
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(left: 16.0, right: 16.0),
-                                  child: ContainerX(
-                                    backgroundColor: ColorX.theme.darken(0.03),
-                                    cornerRadius: 12.0,
-                                    child: GridView.count(
-                                      shrinkWrap: true,
-                                      mainAxisSpacing: 0.0,
-                                      crossAxisSpacing: 0.0,
-                                      childAspectRatio: 0.9,
-                                      crossAxisCount: 4,
-                                      padding: EdgeInsets.all(12.0),
-                                      physics: ClampingScrollPhysics(),
-                                      children: [
-                                        MbxLauncherCell(
-                                          color: ColorX.blue,
-                                          faIcon: FontAwesomeIcons
-                                              .circleDollarToSlot,
-                                          title: 'Top Up',
-                                          titleColor: ColorX.white,
-                                          highlightColor:
-                                              ColorX.theme.lighten(0.1),
-                                        ),
-                                        MbxLauncherCell(
-                                          color: ColorX.green,
-                                          faIcon: FontAwesomeIcons.houseFlag,
-                                          title: 'Bayar',
-                                          titleColor: ColorX.white,
-                                          highlightColor:
-                                              ColorX.theme.lighten(0.1),
-                                        ),
-                                        MbxLauncherCell(
-                                          color: ColorX.blue,
-                                          faIcon: FontAwesomeIcons.water,
-                                          title: 'PAM',
-                                          titleColor: ColorX.white,
-                                          highlightColor:
-                                              ColorX.theme.lighten(0.1),
-                                        ),
-                                        MbxLauncherCell(
-                                          color: ColorX.teal,
-                                          faIcon: FontAwesomeIcons.shield,
-                                          title: 'BPJS',
-                                          titleColor: ColorX.white,
-                                          highlightColor:
-                                              ColorX.theme.lighten(0.1),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Visibility(
-                                  visible: MbxNewsListVM.list.length > 0,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 16.0,
-                                            top: 8.0,
-                                            right: 16.0,
-                                            bottom: 4.0),
-                                        child: TextX(
-                                          'BERITA',
-                                          fontSize: 13.0,
-                                          fontWeight: FontWeight.w700,
-                                          color: ColorX.black,
-                                          textAlign: TextAlign.start,
-                                        ),
-                                      ),
-                                      CarouselSlider.builder(
-                                          options: CarouselOptions(
-                                            padEnds: false,
-                                            autoPlay: true,
-                                            viewportFraction: 0.70,
-                                            height: 150.0,
-                                            onPageChanged: (index, reason) {},
-                                          ),
-                                          itemCount: MbxNewsListVM.list.length,
-                                          itemBuilder: (BuildContext context,
-                                              int index, int pageViewIndex) {
-                                            return MbxNewsCell(
-                                                MbxNewsListVM.list[index]);
-                                          }),
-                                    ],
-                                  ),
-                                ),
+                                SizedBox(height: 8.0),
                                 Visibility(
                                   visible: !controller
                                       .foreignExchangeListVM.list.isEmpty,
@@ -451,6 +349,44 @@ class MbxHomePage extends StatelessWidget {
                                               ],
                                             )),
                                       ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(height: 8.0),
+                                Visibility(
+                                  visible: MbxNewsListVM.list.length > 0,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 16.0,
+                                            top: 8.0,
+                                            right: 16.0,
+                                            bottom: 4.0),
+                                        child: TextX(
+                                          'BERITA',
+                                          fontSize: 13.0,
+                                          fontWeight: FontWeight.w700,
+                                          color: ColorX.black,
+                                          textAlign: TextAlign.start,
+                                        ),
+                                      ),
+                                      CarouselSlider.builder(
+                                          options: CarouselOptions(
+                                            padEnds: false,
+                                            autoPlay: true,
+                                            viewportFraction: 0.70,
+                                            height: 150.0,
+                                            onPageChanged: (index, reason) {},
+                                          ),
+                                          itemCount: MbxNewsListVM.list.length,
+                                          itemBuilder: (BuildContext context,
+                                              int index, int pageViewIndex) {
+                                            return MbxNewsCell(
+                                                MbxNewsListVM.list[index]);
+                                          }),
                                     ],
                                   ),
                                 ),
