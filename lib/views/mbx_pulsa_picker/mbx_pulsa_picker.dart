@@ -30,7 +30,7 @@ class MbxPulsaPicker extends GetWidget<MbxPulsaController> {
                       shrinkWrap: true,
                       mainAxisSpacing: 0.0,
                       crossAxisSpacing: 0.0,
-                      childAspectRatio: 0.95,
+                      childAspectRatio: 1.2,
                       crossAxisCount: 3,
                       padding: EdgeInsets.all(12.0),
                       physics: ClampingScrollPhysics(),

@@ -170,7 +170,7 @@ class MbxHomePage extends StatelessWidget {
                                       shrinkWrap: true,
                                       mainAxisSpacing: 0.0,
                                       crossAxisSpacing: 0.0,
-                                      childAspectRatio: 0.8,
+                                      childAspectRatio: 1.0,
                                       crossAxisCount: 4,
                                       padding: EdgeInsets.all(12.0),
                                       physics: ClampingScrollPhysics(),
