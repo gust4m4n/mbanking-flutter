@@ -221,15 +221,18 @@ class MbxHomePage extends StatelessWidget {
                                           },
                                         ),
                                         MbxLauncherCell(
-                                          color: ColorX.red,
+                                          color: ColorX.teal,
                                           faIcon: FontAwesomeIcons.mobile,
                                           title: 'Pulsa',
                                           titleColor: ColorX.white,
                                           highlightColor:
                                               ColorX.theme.lighten(0.1),
+                                          onClicked: () {
+                                            controller.btnPulsaClicked();
+                                          },
                                         ),
                                         MbxLauncherCell(
-                                          color: ColorX.teal,
+                                          color: ColorX.red,
                                           faIcon: FontAwesomeIcons.landmark,
                                           title: 'Deposito',
                                           titleColor: ColorX.white,

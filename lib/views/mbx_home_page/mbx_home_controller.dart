@@ -1,4 +1,5 @@
 import 'package:mbankingflutter/views/mbx_electricity_picker/mbx_electricity_picker.dart';
+import 'package:mbankingflutter/views/mbx_pulsa_picker/mbx_pulsa_picker.dart';
 
 import '../../viewmodels/mbx_foreign_exchange_list_vm.dart';
 import '../../viewmodels/mbx_news_list_vm.dart';
@@ -63,5 +64,10 @@ class MbxHomeController extends GetxController {
 
   btnQRISClicked() {
     Get.toNamed('/qris');
+  }
+
+  btnPulsaClicked() async {
+    final picker = MbxPulsaPicker();
+    await picker.show();
   }
 }
