@@ -79,6 +79,16 @@ class MbxPulsaPostpaidScreen extends StatelessWidget {
                         readOnly: false,
                         controller: controller.customerIdController,
                         focusNode: controller.customerIdNode,
+                        rightIcon:
+                            controller.customerIdController.text.isNotEmpty
+                                ? ImageX(
+                                    url: 'lib/images/mbx_operator_im3.png',
+                                    width: 32.0,
+                                    height: 32.0,
+                                    padding: EdgeInsets.all(4.0),
+                                    cornerRadius: 4.0,
+                                  )
+                                : null,
                         onChanged: (value) {
                           controller.customerIdChanged(value);
                         },
