@@ -1,0 +1,37 @@
+{
+	"status": 200,
+	"message": "Pulsa prepaid inquiry success.",
+	"data": {
+	  "details": [
+		{
+		  "label": "TRANSAKSI",
+		  "value": "Pulsa Prabayar"
+		},
+		{
+		  "label": "NO. HANDPHONE",
+		  "value": "0000000000"
+		},
+		{
+		  "label": "PAKET",
+		  "value": "Pulsa 100.000"
+		},
+		{
+		  "label": "HARGA",
+		  "value": "IDR 101.000"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 1.000"
+		},
+		{
+		  "label": "TOTAL",
+		  "value": "IDR 102.000"
+		},
+		{
+		  "label": "SUMBER DANA",
+		  "value": "000000000"
+		}
+	  ],
+	  "transaction_id": "0000000000"
+	}
+  }
