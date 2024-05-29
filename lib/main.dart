@@ -15,6 +15,7 @@ import 'views/mbx_electricity_postpaid_screen/mbx_electricity_postpaid_screen.da
 import 'views/mbx_login_screen/mbx_login_screen.dart';
 import 'views/mbx_news_screen/mbx_news_screen.dart';
 import 'views/mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
+import 'views/mbx_pulsa_postpaid_screen/mbx_pulsa_postpaid_screen.dart';
 import 'views/mbx_pulsa_prepaid_screen/mbx_pulsa_prepaid_screen.dart';
 import 'views/mbx_qris_screen/mbx_qris_screen.dart';
 import 'views/mbx_receipt_screen/mbx_receipt_screen.dart';
@@ -150,6 +151,7 @@ class MyApp extends StatelessWidget {
             name: '/electricity/nontaglis',
             page: () => MbxElectricityNonTagLisScreen()),
         GetPage(name: '/pulsa/prepaid', page: () => MbxPulsaPrepaidScreen()),
+        GetPage(name: '/pulsa/postpaid', page: () => MbxPulsaPostpaidScreen()),
       ],
     );
   }

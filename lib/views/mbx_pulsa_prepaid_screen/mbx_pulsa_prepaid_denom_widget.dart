@@ -1,15 +1,16 @@
+import 'package:mbankingflutter/models/mbx_pulsa_prepaid_denom_model.dart';
 import 'package:mbankingflutter/viewmodels/mbx_format_vm.dart';
 
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
 class MbxPulsaPrepaidDenomWidget extends StatelessWidget {
-  final int nominal;
+  final MbxPulsaPrepaidDenomModel denom;
   final bool selected;
   final GestureTapCallback? onClicked;
 
   MbxPulsaPrepaidDenomWidget(
-      {required this.nominal, required this.selected, this.onClicked = null});
+      {required this.denom, required this.selected, this.onClicked = null});
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +25,30 @@ class MbxPulsaPrepaidDenomWidget extends StatelessWidget {
             cornerRadius: 8.0,
             borderWidth: selected ? 1.0 : 0.0,
             borderColor: selected ? ColorX.theme : ColorX.transparent,
-            child: Center(
-              child: TextX(
-                MbxFormatVM.currencyRP(nominal,
-                    prefix: false, mutation: false, masked: false),
-                color: ColorX.black,
-                fontSize: 15.0,
-                fontWeight: FontWeight.w600,
-                textAlign: TextAlign.center,
-                maxLines: 1,
-              ),
+            padding:
+                EdgeInsets.only(left: 12.0, top: 4.0, right: 12.0, bottom: 4.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextX(
+                  denom.name,
+                  color: ColorX.black,
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.w600,
+                  textAlign: TextAlign.start,
+                  maxLines: 1,
+                ),
+                TextX(
+                  MbxFormatVM.currencyRP(denom.price,
+                      prefix: true, mutation: false, masked: false),
+                  color: ColorX.black,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w400,
+                  textAlign: TextAlign.start,
+                  maxLines: 1,
+                ),
+              ],
             )));
   }
 }

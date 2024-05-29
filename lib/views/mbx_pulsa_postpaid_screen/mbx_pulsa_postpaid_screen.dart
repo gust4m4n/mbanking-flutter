@@ -1,17 +1,16 @@
 import '../../widgets/all_widgets.dart';
 import '../mbx_sof_sheet/mbx_sof_widget.dart';
-import 'mbx_pulsa_prepaid_controller.dart';
-import 'mbx_pulsa_prepaid_denom_widget.dart';
+import 'mbx_pulsa_postpaid_controller.dart';
 
-class MbxPulsaPrepaidScreen extends StatelessWidget {
-  MbxPulsaPrepaidScreen({Key? key}) : super(key: key);
+class MbxPulsaPostpaidScreen extends StatelessWidget {
+  MbxPulsaPostpaidScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxPulsaPrepaidController>(
-        init: MbxPulsaPrepaidController(),
+    return GetBuilder<MbxPulsaPostpaidController>(
+        init: MbxPulsaPostpaidController(),
         builder: (controller) => MbxScreen(
-            title: 'Pulsa Prabayar',
+            title: 'Pulsa Pascabayar',
             scrollingBody: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -80,16 +79,6 @@ class MbxPulsaPrepaidScreen extends StatelessWidget {
                         readOnly: false,
                         controller: controller.customerIdController,
                         focusNode: controller.customerIdNode,
-                        rightIcon:
-                            controller.customerIdController.text.isNotEmpty
-                                ? ImageX(
-                                    url: 'lib/images/mbx_operator_im3.png',
-                                    width: 32.0,
-                                    height: 32.0,
-                                    padding: EdgeInsets.all(4.0),
-                                    cornerRadius: 4.0,
-                                  )
-                                : null,
                         onChanged: (value) {
                           controller.customerIdChanged(value);
                         },
@@ -97,30 +86,6 @@ class MbxPulsaPrepaidScreen extends StatelessWidget {
                     ],
                   ),
                   error: controller.customerIdError,
-                ),
-                ContainerX(height: 12.0),
-                GridView.builder(
-                  shrinkWrap: true,
-                  padding: EdgeInsets.zero,
-                  physics: ClampingScrollPhysics(),
-                  itemCount: controller.denomsVM.list.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: 4.0,
-                    crossAxisSpacing: 4.0,
-                    childAspectRatio: 2.2,
-                    crossAxisCount: 2,
-                  ),
-                  itemBuilder: (BuildContext context, int index) {
-                    final denom = controller.denomsVM.list[index];
-                    return MbxPulsaPrepaidDenomWidget(
-                      denom: denom,
-                      selected: denom.name == controller.selectedDenom.name &&
-                          denom.price == controller.selectedDenom.price,
-                      onClicked: () {
-                        controller.selectDenom(controller.denomsVM.list[index]);
-                      },
-                    );
-                  },
                 ),
                 ContainerX(height: 16.0),
                 ButtonX(
