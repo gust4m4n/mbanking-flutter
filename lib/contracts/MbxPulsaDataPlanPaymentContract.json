@@ -1,0 +1,52 @@
+{
+	"status": 200,
+	"message": "Pulsa data plan payment success.",
+	"data": {
+	  "amount": "IDR 102.000",
+	  "details": [
+		{
+		  "label": "JENIS TRANSAKSI",
+		  "value": "Paket Data"
+		},
+		{
+		  "label": "WAKTU TRANSAKSI",
+		  "value": "10 Mei 2024 10:22:58"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NO. HANDPHONE",
+		  "value": "0000000000"
+		},
+		{
+		  "label": "PAKET",
+		  "value": "Internet 100GB/30hari"
+		},
+		{
+		  "label": "HARGA",
+		  "value": "IDR 101.0000"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 1.000"
+		},
+		{
+		  "label": "TOTAL",
+		  "value": "IDR 102.000"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NOMOR REFERENSI",
+		  "value": "0000000000"
+		}
+	  ],
+	  "title": "Pembelian Berhasil",
+	  "transaction_id": "0000000000"
+	}
+  }

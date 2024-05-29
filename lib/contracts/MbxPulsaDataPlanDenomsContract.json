@@ -1,0 +1,34 @@
+{
+	"status": 200,
+	"message": "Get phone data plan denoms success",
+	"data": [
+	  {
+		"name": "Internet 10GB/30hari",
+		"price": 10500
+	  },
+	  {
+		"name": "Internet 25GB/30hari",
+		"price": 25500
+	  },
+	  {
+		"name": "Internet 50GB/30hari",
+		"price": 51000
+	  },
+	  {
+		"name": "Internet 75GB/30hari",
+		"price": 76000
+	  },
+	  {
+		"name": "Internet 100GB/30hari",
+		"price": 102000
+	  },
+	  {
+		"name": "Internet 125GB/30hari",
+		"price": 127000
+	  },
+	  {
+		"name": "Internet 150GB/30hari",
+		"price": 153000
+	  }
+	]
+  }

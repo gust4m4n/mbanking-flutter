@@ -1,6 +1,7 @@
 import 'package:mbankingflutter/views/mbx_cardless_payment_screen/mbx_cardless_payment_screen.dart';
 import 'package:mbankingflutter/views/mbx_cardless_screen/mbx_cardless_screen.dart';
 import 'package:mbankingflutter/views/mbx_electricity_prepaid_screen/mbx_electricity_prepaid_screen.dart';
+import 'package:mbankingflutter/views/mbx_pulsa_dataplan_screen/mbx_pulsa_dataplan_screen.dart';
 
 import 'viewmodels/mbx_anti_jailbreak_vm.dart';
 import 'viewmodels/mbx_device_info_vm.dart';
@@ -152,6 +153,7 @@ class MyApp extends StatelessWidget {
             page: () => MbxElectricityNonTagLisScreen()),
         GetPage(name: '/pulsa/prepaid', page: () => MbxPulsaPrepaidScreen()),
         GetPage(name: '/pulsa/postpaid', page: () => MbxPulsaPostpaidScreen()),
+        GetPage(name: '/pulsa/dataplan', page: () => MbxPulsaDataPlanScreen()),
       ],
     );
   }

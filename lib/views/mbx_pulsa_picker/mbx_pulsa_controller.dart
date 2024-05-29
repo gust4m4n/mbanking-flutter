@@ -15,8 +15,8 @@ class MbxPulsaController extends GetxController {
     Get.toNamed('/pulsa/postpaid');
   }
 
-  btnNonTagLisClicked() {
+  btnDataPlanClicked() {
     Get.back();
-    Get.toNamed('/electricity/nontaglis');
+    Get.toNamed('/pulsa/dataplan');
   }
 }

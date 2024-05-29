@@ -1,17 +1,17 @@
 import '../../widgets/all_widgets.dart';
 import '../mbx_sof_sheet/mbx_sof_widget.dart';
-import 'mbx_pulsa_prepaid_controller.dart';
-import 'mbx_pulsa_prepaid_denom_widget.dart';
+import 'mbx_pulsa_dataplan_controller.dart';
+import 'mbx_pulsa_dataplan_denom_widget.dart';
 
-class MbxPulsaPrepaidScreen extends StatelessWidget {
-  MbxPulsaPrepaidScreen({Key? key}) : super(key: key);
+class MbxPulsaDataPlanScreen extends StatelessWidget {
+  MbxPulsaDataPlanScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxPulsaPrepaidController>(
-        init: MbxPulsaPrepaidController(),
+    return GetBuilder<MbxPulsaDataPlanController>(
+        init: MbxPulsaDataPlanController(),
         builder: (controller) => MbxScreen(
-            title: 'Pulsa Prabayar',
+            title: 'Paket Data',
             scrollingBody: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -107,12 +107,12 @@ class MbxPulsaPrepaidScreen extends StatelessWidget {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 4.0,
                     crossAxisSpacing: 4.0,
-                    childAspectRatio: 2.2,
+                    childAspectRatio: 1.9,
                     crossAxisCount: 2,
                   ),
                   itemBuilder: (BuildContext context, int index) {
                     final denom = controller.denomsVM.list[index];
-                    return MbxPulsaPrepaidDenomWidget(
+                    return MbxPulsaDataPlanDenomWidget(
                       denom: denom,
                       selected: denom.name == controller.selectedDenom.name &&
                           denom.price == controller.selectedDenom.price,

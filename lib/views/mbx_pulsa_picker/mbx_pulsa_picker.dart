@@ -61,7 +61,7 @@ class MbxPulsaPicker extends GetWidget<MbxPulsaController> {
                           titleColor: ColorX.white,
                           highlightColor: ColorX.theme.lighten(0.1),
                           onClicked: () {
-                            controller.btnNonTagLisClicked();
+                            controller.btnDataPlanClicked();
                           },
                         ),
                       ],

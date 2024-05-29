@@ -1,22 +1,22 @@
-import '../models/mbx_pulsa_prepaid_denom_model.dart';
+import '../models/mbx_pulsa_dataplan_denom_model.dart';
 import '../utils/all_utils.dart';
 import 'mbx_apis.dart';
 
-class MbxPulsaPrepaidDenomsVM {
-  List<MbxPulsaPrepaidDenomModel> list = [];
+class MbxPulsaDataPlanDenomsVM {
+  List<MbxPulsaDataPlanDenomModel> list = [];
 
   Future<ApiXResponse> request({required String phone}) {
     return MbxApi.get(
-            endpoint: '/pulsa/prepaid/denoms',
+            endpoint: '/pulsa/dataplan/denoms',
             params: {},
             headers: {},
-            contractFile: 'lib/contracts/MbxPulsaPrepaidDenomsContract.json',
+            contractFile: 'lib/contracts/MbxPulsaDataPlanDenomsContract.json',
             contract: true)
         .then((resp) {
       if (resp.status == 200) {
         clear();
         for (var item in resp.jason['data'].jasonListValue) {
-          list.add(MbxPulsaPrepaidDenomModel.fromJason(item));
+          list.add(MbxPulsaDataPlanDenomModel.fromJason(item));
         }
       }
       return resp;

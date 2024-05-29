@@ -65,7 +65,7 @@ class MbxPulsaPostpaidScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextX(
-                        'No. Handphone',
+                        'NO. HANDPHONE',
                         color: ColorX.black,
                         fontSize: 13.0,
                         fontWeight: FontWeight.w500,
