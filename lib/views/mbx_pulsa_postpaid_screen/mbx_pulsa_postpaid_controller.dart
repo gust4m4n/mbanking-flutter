@@ -1,8 +1,8 @@
 import '../../models/mbx_account_model.dart';
 import '../../models/mbx_inquiry_model.dart';
-import '../../viewmodels/mbx_electricity_postpaid_inquiry_vm.dart';
-import '../../viewmodels/mbx_electricity_postpaid_payment_vm.dart';
+import '../../viewmodels/mbx_pulsa_postpaid_payment_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
+import '../../viewmodels/mbx_pulsa_postpaid_inquiry_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
@@ -52,7 +52,7 @@ class MbxPulsaPostpaidController extends GetxController {
 
   bool validate() {
     if (customerIdController.text.isEmpty) {
-      customerIdError = 'Masukkan ID pelanggan.';
+      customerIdError = 'Masukkan nomor handphone.';
       update();
       customerIdNode.requestFocus();
       return false;
@@ -80,7 +80,7 @@ class MbxPulsaPostpaidController extends GetxController {
 
   inquiry() {
     Get.loading();
-    final inquiryVM = MbxElectricityPostpaidInquiryVM();
+    final inquiryVM = MbxPulsaPostpaidInquiryVM();
     inquiryVM.request().then((resp) {
       Get.back();
       if (resp.status == 200) {
@@ -90,7 +90,7 @@ class MbxPulsaPostpaidController extends GetxController {
             inquiry: inquiryVM.inquiry);
         sheet.show().then((value) {
           if (value == true) {
-            auauthenticate(inquiry: inquiryVM.inquiry);
+            authenticate(inquiry: inquiryVM.inquiry);
           }
         });
       } else {
@@ -99,7 +99,7 @@ class MbxPulsaPostpaidController extends GetxController {
     });
   }
 
-  auauthenticate({required MbxInquiryModel inquiry}) {
+  authenticate({required MbxInquiryModel inquiry}) {
     final pinSheet = MbxPinSheet();
     pinSheet.show(
       title: 'PIN',
@@ -122,7 +122,7 @@ class MbxPulsaPostpaidController extends GetxController {
       required String pin,
       required bool biometric}) {
     Get.loading();
-    final paymentVM = MbxElectricityPostpaidPaymentVM();
+    final paymentVM = MbxPulsaPostpaidPaymentVM();
     paymentVM
         .request(transaction_id: transaction_id, pin: pin, biometric: biometric)
         .then((resp) {

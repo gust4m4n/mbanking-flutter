@@ -176,7 +176,7 @@ class MbxTransfeP2BankController extends GetxController {
             inquiry: inquiryVM.inquiry);
         sheet.show().then((value) {
           if (value == true) {
-            auauthenticate(inquiry: inquiryVM.inquiry);
+            authenticate(inquiry: inquiryVM.inquiry);
           }
         });
       } else {
@@ -185,7 +185,7 @@ class MbxTransfeP2BankController extends GetxController {
     });
   }
 
-  auauthenticate({required MbxInquiryModel inquiry}) {
+  authenticate({required MbxInquiryModel inquiry}) {
     final pinSheet = MbxPinSheet();
     pinSheet.show(
       title: 'PIN',

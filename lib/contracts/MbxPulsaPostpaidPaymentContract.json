@@ -1,0 +1,52 @@
+{
+	"status": 200,
+	"message": "Postpaid electricity payment success.",
+	"data": {
+	  "amount": "IDR 103.000",
+	  "details": [
+		{
+		  "label": "JENIS TRANSAKSI",
+		  "value": "Pulsa Pascabayar"
+		},
+		{
+		  "label": "WAKTU TRANSAKSI",
+		  "value": "10 Mei 2024 10:22:58"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NO. HANDPHONE",
+		  "value": "0000000000"
+		},
+		{
+		  "label": "NAMA PELANGGAN",
+		  "value": "JULEHA"
+		},
+		{
+		  "label": "TAGIHAN",
+		  "value": "IDR 150.000"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 3.000"
+		},
+		{
+		  "label": "TOTAL",
+		  "value": "IDR 103.000"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NOMOR REFERENSI",
+		  "value": "0000000000"
+		}
+	  ],
+	  "title": "Pembayaran Berhasil",
+	  "transaction_id": "0000000000"
+	}
+  }

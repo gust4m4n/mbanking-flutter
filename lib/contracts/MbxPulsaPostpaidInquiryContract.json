@@ -1,0 +1,37 @@
+{
+	"status": 200,
+	"message": "Pulsa postpaid inquiry success.",
+	"data": {
+	  "details": [
+		{
+		  "label": "TRANSAKSI",
+		  "value": "Pulsa Pascabayar"
+		},
+		{
+		  "label": "NO. HANDPHONE",
+		  "value": "0000000000"
+		},
+		{
+		  "label": "NAMA PELANGGAN",
+		  "value": "JULEHA"
+		},
+		{
+		  "label": "TAGIHAN",
+		  "value": "IDR 150.000"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 3.000"
+		},
+		{
+		  "label": "TOTAL",
+		  "value": "IDR 153.000"
+		},
+		{
+		  "label": "SUMBER DANA",
+		  "value": "000000000"
+		}
+	  ],
+	  "transaction_id": "0000000000"
+	}
+  }

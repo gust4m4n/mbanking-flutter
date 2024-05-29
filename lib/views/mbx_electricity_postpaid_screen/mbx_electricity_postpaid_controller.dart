@@ -90,7 +90,7 @@ class MbxElectricityPostpaidController extends GetxController {
             inquiry: inquiryVM.inquiry);
         sheet.show().then((value) {
           if (value == true) {
-            auauthenticate(inquiry: inquiryVM.inquiry);
+            authenticate(inquiry: inquiryVM.inquiry);
           }
         });
       } else {
@@ -99,7 +99,7 @@ class MbxElectricityPostpaidController extends GetxController {
     });
   }
 
-  auauthenticate({required MbxInquiryModel inquiry}) {
+  authenticate({required MbxInquiryModel inquiry}) {
     final pinSheet = MbxPinSheet();
     pinSheet.show(
       title: 'PIN',
