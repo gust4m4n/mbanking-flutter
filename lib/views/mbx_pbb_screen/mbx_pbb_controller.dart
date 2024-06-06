@@ -1,18 +1,31 @@
+import 'package:intl/intl.dart';
+
 import '../../models/mbx_account_model.dart';
 import '../../models/mbx_inquiry_model.dart';
-import '../../viewmodels/mbx_pulsa_postpaid_payment_vm.dart';
+import '../../models/mbx_transfer_p2p_dest_model.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
-import '../../viewmodels/mbx_pulsa_postpaid_inquiry_vm.dart';
+import '../../viewmodels/mbx_transfer_p2p_inquiry_vm.dart';
+import '../../viewmodels/mbx_transfer_p2p_payment_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 import '../mbx_sof_sheet/mbx_sof_sheet.dart';
+import '../mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
 
 class MbxPBBController extends GetxController {
+  var dest = MbxTransferP2PDestModel();
+  var destError = '';
+
+  final amountController = TextEditingController();
+  final amountNode = FocusNode();
+  var amountError = '';
+  int amount = 0;
+
+  final messageController = TextEditingController();
+  final messageNode = FocusNode();
+  var messageError = '';
+
   var sof = MbxAccountModel();
-  final customerIdController = TextEditingController();
-  final customerIdNode = FocusNode();
-  var customerIdError = '';
 
   @override
   void onInit() {
@@ -23,6 +36,7 @@ class MbxPBBController extends GetxController {
   void onReady() {
     super.onReady();
     sof = MbxProfileVM.profile.accounts[0];
+
     update();
   }
 
@@ -30,9 +44,39 @@ class MbxPBBController extends GetxController {
     Get.back();
   }
 
-  customerIdChanged(String value) {
-    String newValue = value.replaceAll(new RegExp(r"\D"), "");
-    customerIdController.text = newValue;
+  btnPickDestinationClicked() {
+    final picker = MbxTransferP2PPicker();
+    picker.show().then((value) {
+      if (value != null) {
+        dest = value;
+        update();
+      }
+    });
+  }
+
+  btnClearClicked() {
+    dest = MbxTransferP2PDestModel();
+    update();
+  }
+
+  amountChanged(String value) {
+    String newValue = value.replaceAll('.', '');
+    int? intValue = int.tryParse(newValue);
+    if (intValue != null) {
+      amount = intValue;
+      final formatter = NumberFormat('#,###');
+      String formatted = formatter.format(intValue).replaceAll(',', '.');
+      amountController.text = formatted;
+      amountController.selection =
+          TextSelection.fromPosition(TextPosition(offset: formatted.length));
+    } else {
+      amount = 0;
+      amountController.text = '';
+    }
+    update();
+  }
+
+  messageChanged(String value) {
     update();
   }
 
@@ -51,20 +95,37 @@ class MbxPBBController extends GetxController {
   }
 
   bool validate() {
-    if (customerIdController.text.isEmpty) {
-      customerIdError = 'Masukkan nomor handphone.';
+    if (dest.account.isEmpty) {
+      destError = 'Pilih rekening tujuan terlebih dahulu.';
       update();
-      customerIdNode.requestFocus();
       return false;
     }
-    customerIdError = '';
+    destError = '';
+
+    if (amountController.text.isEmpty || amount <= 0) {
+      amountError = 'Masukkan nominal transfer.';
+      update();
+      amountNode.requestFocus();
+      return false;
+    }
+    amountError = '';
+
+    if (messageController.text.isEmpty) {
+      messageError = 'Berita harus diisi.';
+      update();
+      messageNode.requestFocus();
+      return false;
+    }
+    messageError = '';
     update();
 
     return true;
   }
 
   bool readyToSubmit() {
-    if (customerIdController.text.isNotEmpty) {
+    if (dest.account.isNotEmpty &&
+        amount > 0 &&
+        messageController.text.isNotEmpty) {
       return true;
     } else {
       return false;
@@ -80,13 +141,13 @@ class MbxPBBController extends GetxController {
 
   inquiry() {
     Get.loading();
-    final inquiryVM = MbxPulsaPostpaidInquiryVM();
+    final inquiryVM = MbxTransferP2PInquiryVM();
     inquiryVM.request().then((resp) {
       Get.back();
       if (resp.status == 200) {
         final sheet = MbxInquirySheet(
             title: 'Konfirmasi',
-            confirmBtnTitle: 'Bayar',
+            confirmBtnTitle: 'Transfer',
             inquiry: inquiryVM.inquiry);
         sheet.show().then((value) {
           if (value == true) {
@@ -122,7 +183,7 @@ class MbxPBBController extends GetxController {
       required String pin,
       required bool biometric}) {
     Get.loading();
-    final paymentVM = MbxPulsaPostpaidPaymentVM();
+    final paymentVM = MbxTransferP2PPaymentVM();
     paymentVM
         .request(transaction_id: transaction_id, pin: pin, biometric: biometric)
         .then((resp) {

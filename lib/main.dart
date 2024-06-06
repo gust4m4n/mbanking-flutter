@@ -1,7 +1,6 @@
 import 'package:mbankingflutter/views/mbx_cardless_payment_screen/mbx_cardless_payment_screen.dart';
 import 'package:mbankingflutter/views/mbx_cardless_screen/mbx_cardless_screen.dart';
 import 'package:mbankingflutter/views/mbx_electricity_prepaid_screen/mbx_electricity_prepaid_screen.dart';
-import 'package:mbankingflutter/views/mbx_pbb_screen/mbx_pbb_screen.dart';
 import 'package:mbankingflutter/views/mbx_pulsa_dataplan_screen/mbx_pulsa_dataplan_screen.dart';
 
 import 'viewmodels/mbx_anti_jailbreak_vm.dart';
@@ -16,6 +15,7 @@ import 'views/mbx_electricity_nontaglis_screen/mbx_electricity_nontaglis_screen.
 import 'views/mbx_electricity_postpaid_screen/mbx_electricity_postpaid_screen.dart';
 import 'views/mbx_login_screen/mbx_login_screen.dart';
 import 'views/mbx_news_screen/mbx_news_screen.dart';
+import 'views/mbx_pbb_screen/mbx_pbb_screen.dart';
 import 'views/mbx_privacy_policy_screen/mbx_privacy_policy_screen.dart';
 import 'views/mbx_pulsa_postpaid_screen/mbx_pulsa_postpaid_screen.dart';
 import 'views/mbx_pulsa_prepaid_screen/mbx_pulsa_prepaid_screen.dart';
