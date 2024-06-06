@@ -26,6 +26,8 @@ class MbxPBBController extends GetxController {
 
   var sof = MbxAccountModel();
 
+  var selectedYear = '';
+
   @override
   void onInit() {
     super.onInit();
@@ -44,10 +46,15 @@ class MbxPBBController extends GetxController {
   }
 
   btnPickYearClicked() {
-    final picker = MbxStringPicker();
-    picker.show().then((value) {
-      if (value != null) {
-        dest = value;
+    List<String> years = [];
+    for (int i = 1990; i <= DateTime.now().year; i++) {
+      years.insert(0, i.toString());
+    }
+
+    final picker = MbxStringPicker(title: 'Pilih Tahun', list: years);
+    picker.show().then((selectedIndex) {
+      if (selectedIndex != null) {
+        selectedYear = years[selectedIndex];
         update();
       }
     });

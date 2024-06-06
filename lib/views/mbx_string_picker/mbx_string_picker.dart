@@ -4,16 +4,19 @@ import 'mbx_string_picker_widget.dart';
 
 // ignore: must_be_immutable
 class MbxStringPicker extends GetWidget<MbxStringPickerController> {
+  final String title;
+  final List<String> list;
+  MbxStringPicker({required this.title, required this.list});
+
   Future<T?> show<T>() {
     FocusManager.instance.primaryFocus?.unfocus();
-    return SheetX.showCustom(
-        title: 'String Picker', widget: this, percentHeight: 1.0);
+    return SheetX.showCustom(title: title, widget: this, percentHeight: 1.0);
   }
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxStringPickerController>(
-      init: MbxStringPickerController(),
+      init: MbxStringPickerController(list: list),
       builder: (controller) => ContainerX(
           backgroundColor: ColorX.white,
           child: Column(children: [
@@ -32,45 +35,33 @@ class MbxStringPicker extends GetWidget<MbxStringPickerController> {
               ),
             ),
             Expanded(
-                child: controller.loading
-                    ? Center(
-                        child: CircularProgressIndicator(
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(ColorX.gray)),
-                      )
-                    : Scrollbar(
-                        child: ListView.separated(
-                        padding: EdgeInsets.zero,
-                        physics: ClampingScrollPhysics(),
-                        separatorBuilder: (context, index) {
-                          return Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16.0),
-                              child: ContainerX(
-                                height: 0.5,
-                                width: double.infinity,
-                                backgroundColor: ColorX.lightGray,
-                              ));
+                child: Scrollbar(
+                    child: ListView.separated(
+              padding: EdgeInsets.zero,
+              physics: ClampingScrollPhysics(),
+              separatorBuilder: (context, index) {
+                return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    child: ContainerX(
+                      height: 0.5,
+                      width: double.infinity,
+                      backgroundColor: ColorX.lightGray,
+                    ));
+              },
+              itemCount: controller.filtered.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Material(
+                    color: ColorX.transparent,
+                    child: InkWell(
+                        highlightColor: ColorX.highlight,
+                        onTap: () {
+                          Get.back(result: index);
                         },
-                        itemCount: controller.destListVM.filtered.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Material(
-                              color: ColorX.transparent,
-                              child: InkWell(
-                                  highlightColor: ColorX.highlight,
-                                  onTap: () {
-                                    Get.back(
-                                        result: controller
-                                            .destListVM.filtered[index]);
-                                  },
-                                  child: MbxStringPickerWidget(
-                                    dest: controller.destListVM.filtered[index],
-                                    onDeleteClicked: () {
-                                      controller.onDeleteClicked(controller
-                                          .destListVM.filtered[index]);
-                                    },
-                                  )));
-                        },
-                      ))),
+                        child: MbxStringPickerWidget(
+                          title: controller.filtered[index],
+                        )));
+              },
+            ))),
             Padding(
               padding: EdgeInsets.all(16.0),
               child: ButtonX(

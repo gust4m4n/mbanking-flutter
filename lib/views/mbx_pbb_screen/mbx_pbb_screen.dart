@@ -111,8 +111,8 @@ class MbxPBBScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   TextX(
-                                    controller.dest.name.isNotEmpty
-                                        ? controller.dest.name
+                                    controller.selectedYear.isNotEmpty
+                                        ? controller.selectedYear
                                         : '-',
                                     color: ColorX.black,
                                     fontSize: 17.0,
