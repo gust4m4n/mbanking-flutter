@@ -65,55 +65,25 @@ class MbxPBBScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextX(
-                        'PROVINSI',
+                        'NOMOR OBJEK PAJAK',
                         color: ColorX.black,
                         fontSize: 13.0,
                         fontWeight: FontWeight.w500,
                         textAlign: TextAlign.start,
                       ),
                       ContainerX(height: 4.0),
-                      ContainerX(
-                          width: double.infinity,
-                          padding: EdgeInsets.only(
-                              left: 12.0, top: 8.0, right: 12.0, bottom: 8.0),
-                          borderWidth: 1.0,
-                          borderColor: ColorX.lightGray,
-                          cornerRadius: 8.0,
-                          child: Row(children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  TextX(
-                                    controller.dest.name.isNotEmpty
-                                        ? controller.dest.name
-                                        : '-',
-                                    color: ColorX.black,
-                                    fontSize: 17.0,
-                                    fontWeight: FontWeight.w500,
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            ContainerX(width: 8.0),
-                            ButtonX(
-                                faIcon: FontAwesomeIcons.chevronDown,
-                                backgroundColor: ColorX.transparent,
-                                faWidth: 16.0,
-                                faHeight: 16.0,
-                                title: '',
-                                width: 40.0,
-                                height: 40.0,
-                                borderWidth: 0.5,
-                                borderColor: ColorX.gray,
-                                onClicked: () {
-                                  controller.btnPickYearClicked();
-                                })
-                          ])),
+                      TextFieldX(
+                        hint: 'Masukkan nomor objek pajak',
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
+                        readOnly: false,
+                        controller: controller.amountController,
+                        focusNode: controller.amountNode,
+                        onChanged: (value) {},
+                      ),
                     ],
                   ),
-                  error: controller.destError,
+                  error: controller.amountError,
                 ),
                 ContainerX(height: 12.0),
                 ContainerError(
@@ -170,32 +140,6 @@ class MbxPBBScreen extends StatelessWidget {
                     ],
                   ),
                   error: controller.destError,
-                ),
-                ContainerX(height: 12.0),
-                ContainerError(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TextX(
-                        'NOMOR OBJEK PAJAK',
-                        color: ColorX.black,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.w500,
-                        textAlign: TextAlign.start,
-                      ),
-                      ContainerX(height: 4.0),
-                      TextFieldX(
-                        hint: 'Masukkan nomor objek pajak',
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                        readOnly: false,
-                        controller: controller.amountController,
-                        focusNode: controller.amountNode,
-                        onChanged: (value) {},
-                      ),
-                    ],
-                  ),
-                  error: controller.amountError,
                 ),
                 ContainerX(height: 16.0),
                 ButtonX(
