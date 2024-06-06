@@ -1,4 +1,4 @@
-import 'package:intl/intl.dart';
+import 'package:mbankingflutter/views/mbx_string_picker/mbx_string_picker.dart';
 
 import '../../models/mbx_account_model.dart';
 import '../../models/mbx_inquiry_model.dart';
@@ -10,7 +10,6 @@ import '../../widgets/all_widgets.dart';
 import '../mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 import '../mbx_sof_sheet/mbx_sof_sheet.dart';
-import '../mbx_transfer_p2p_picker/mbx_transfer_p2p_picker.dart';
 
 class MbxPBBController extends GetxController {
   var dest = MbxTransferP2PDestModel();
@@ -44,8 +43,8 @@ class MbxPBBController extends GetxController {
     Get.back();
   }
 
-  btnPickDestinationClicked() {
-    final picker = MbxTransferP2PPicker();
+  btnPickYearClicked() {
+    final picker = MbxStringPicker();
     picker.show().then((value) {
       if (value != null) {
         dest = value;
@@ -56,23 +55,6 @@ class MbxPBBController extends GetxController {
 
   btnClearClicked() {
     dest = MbxTransferP2PDestModel();
-    update();
-  }
-
-  amountChanged(String value) {
-    String newValue = value.replaceAll('.', '');
-    int? intValue = int.tryParse(newValue);
-    if (intValue != null) {
-      amount = intValue;
-      final formatter = NumberFormat('#,###');
-      String formatted = formatter.format(intValue).replaceAll(',', '.');
-      amountController.text = formatted;
-      amountController.selection =
-          TextSelection.fromPosition(TextPosition(offset: formatted.length));
-    } else {
-      amount = 0;
-      amountController.text = '';
-    }
     update();
   }
 
