@@ -44,7 +44,7 @@ class MbxStringPicker extends GetWidget<MbxStringPickerController> {
                         physics: ClampingScrollPhysics(),
                         separatorBuilder: (context, index) {
                           return Padding(
-                              padding: EdgeInsets.only(left: 16.0),
+                              padding: EdgeInsets.symmetric(horizontal: 16.0),
                               child: ContainerX(
                                 height: 0.5,
                                 width: double.infinity,
@@ -75,7 +75,7 @@ class MbxStringPicker extends GetWidget<MbxStringPickerController> {
               padding: EdgeInsets.all(16.0),
               child: ButtonX(
                 backgroundColor: ColorX.theme,
-                title: 'Batal',
+                title: 'Kembali',
                 onClicked: () {
                   controller.btnCloseClicked();
                 },
