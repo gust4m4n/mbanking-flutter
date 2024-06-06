@@ -234,10 +234,13 @@ class MbxHomePage extends StatelessWidget {
                                         MbxLauncherCell(
                                           color: ColorX.red,
                                           faIcon: FontAwesomeIcons.landmark,
-                                          title: 'Deposito',
+                                          title: 'PBB',
                                           titleColor: ColorX.white,
                                           highlightColor:
                                               ColorX.theme.lighten(0.1),
+                                          onClicked: () {
+                                            controller.btnPBBClicked();
+                                          },
                                         ),
                                         MbxLauncherCell(
                                           color: ColorX.yellow,

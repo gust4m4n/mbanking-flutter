@@ -70,4 +70,8 @@ class MbxHomeController extends GetxController {
     final picker = MbxPulsaPicker();
     await picker.show();
   }
+
+  btnPBBClicked() async {
+    Get.toNamed('/pbb');
+  }
 }
