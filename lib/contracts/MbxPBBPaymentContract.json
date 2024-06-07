@@ -1,0 +1,60 @@
+{
+	"status": 200,
+	"message": "PBB payment success.",
+	"data": {
+	  "amount": "IDR 103.000",
+	  "details": [
+		{
+		  "label": "JENIS TRANSAKSI",
+		  "value": "PBB"
+		},
+		{
+		  "label": "WAKTU TRANSAKSI",
+		  "value": "10 Mei 2024 10:22:58"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NO. OBJEK PAJAK",
+		  "value": "00000000000000"
+		},
+		{
+		  "label": "NAMA",
+		  "value": "JULEHA"
+		},
+		{
+		  "label": "KELURAHAN",
+		  "value": "KECAMATAN CIPAYUNG - JAKARTA TIMUR"
+		},
+		{
+		  "label": "TAHUN",
+		  "value": "2024"
+		},
+		{
+		  "label": "TAGIHAN",
+		  "value": "IDR 200.000"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 2.000"
+		},
+		{
+		  "label": "TOTAL",
+		  "value": "IDR 202.000"
+		},
+		{
+		  "label": "-"
+		},
+		{
+		  "label": "NOMOR REFERENSI",
+		  "value": "0000000000"
+		}
+	  ],
+	  "title": "Pembayaran Berhasil",
+	  "transaction_id": "0000000000"
+	}
+  }

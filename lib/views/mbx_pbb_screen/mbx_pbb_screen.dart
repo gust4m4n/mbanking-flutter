@@ -77,13 +77,13 @@ class MbxPBBScreen extends StatelessWidget {
                         obscureText: false,
                         keyboardType: TextInputType.number,
                         readOnly: false,
-                        controller: controller.amountController,
-                        focusNode: controller.amountNode,
+                        controller: controller.nopController,
+                        focusNode: controller.nopNode,
                         onChanged: (value) {},
                       ),
                     ],
                   ),
-                  error: controller.amountError,
+                  error: controller.nopError,
                 ),
                 ContainerX(height: 12.0),
                 ContainerError(
@@ -111,8 +111,8 @@ class MbxPBBScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   TextX(
-                                    controller.selectedYear.isNotEmpty
-                                        ? controller.selectedYear
+                                    controller.yearSelected.isNotEmpty
+                                        ? controller.yearSelected
                                         : '-',
                                     color: ColorX.black,
                                     fontSize: 17.0,
@@ -139,7 +139,7 @@ class MbxPBBScreen extends StatelessWidget {
                           ])),
                     ],
                   ),
-                  error: controller.destError,
+                  error: controller.yearError,
                 ),
                 ContainerX(height: 16.0),
                 ButtonX(

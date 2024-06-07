@@ -1,0 +1,45 @@
+{
+	"status": 200,
+	"message": "PBB inquiry Success",
+	"data": {
+	  "details": [
+		{
+		  "label": "TRANSAKSI",
+		  "value": "PBB"
+		},
+		{
+		  "label": "NO. OBJEK PAJAK",
+		  "value": "00000000000000"
+		},
+		{
+		  "label": "NAMA",
+		  "value": "JULEHA"
+		},
+		{
+		  "label": "KELURAHAN",
+		  "value": "KECAMATAN CIPAYUNG - JAKARTA TIMUR"
+		},
+		{
+		  "label": "TAHUN",
+		  "value": "2024"
+		},
+		{
+		  "label": "TAGIHAN",
+		  "value": "IDR 200.000"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 2.000"
+		},
+		{
+		  "label": "TOTAL",
+		  "value": "IDR 202.000"
+		},
+		{
+		  "label": "SUMBER DANA",
+		  "value": "000000000"
+		}
+	  ],
+	  "transaction_id": "TRID-20210101-0001"
+	}
+  }

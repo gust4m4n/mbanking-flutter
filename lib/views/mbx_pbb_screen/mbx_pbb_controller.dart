@@ -1,32 +1,24 @@
-import 'package:mbankingflutter/views/mbx_string_picker/mbx_string_picker.dart';
+import 'package:mbankingflutter/viewmodels/mbx_pbb_inquiry_vm.dart';
+import 'package:mbankingflutter/viewmodels/mbx_pbb_payment_vm.dart';
 
 import '../../models/mbx_account_model.dart';
 import '../../models/mbx_inquiry_model.dart';
-import '../../models/mbx_transfer_p2p_dest_model.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
-import '../../viewmodels/mbx_transfer_p2p_inquiry_vm.dart';
-import '../../viewmodels/mbx_transfer_p2p_payment_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 import '../mbx_sof_sheet/mbx_sof_sheet.dart';
+import '../mbx_string_picker/mbx_string_picker.dart';
 
 class MbxPBBController extends GetxController {
-  var dest = MbxTransferP2PDestModel();
-  var destError = '';
-
-  final amountController = TextEditingController();
-  final amountNode = FocusNode();
-  var amountError = '';
-  int amount = 0;
-
-  final messageController = TextEditingController();
-  final messageNode = FocusNode();
-  var messageError = '';
-
   var sof = MbxAccountModel();
 
-  var selectedYear = '';
+  final nopController = TextEditingController();
+  final nopNode = FocusNode();
+  var nopError = '';
+
+  var yearSelected = '';
+  var yearError = '';
 
   @override
   void onInit() {
@@ -54,19 +46,10 @@ class MbxPBBController extends GetxController {
     final picker = MbxStringPicker(title: 'Pilih Tahun', list: years);
     picker.show().then((selectedIndex) {
       if (selectedIndex != null) {
-        selectedYear = years[selectedIndex];
+        yearSelected = years[selectedIndex];
         update();
       }
     });
-  }
-
-  btnClearClicked() {
-    dest = MbxTransferP2PDestModel();
-    update();
-  }
-
-  messageChanged(String value) {
-    update();
   }
 
   btnSofClicked() {
@@ -84,37 +67,27 @@ class MbxPBBController extends GetxController {
   }
 
   bool validate() {
-    if (dest.account.isEmpty) {
-      destError = 'Pilih rekening tujuan terlebih dahulu.';
+    if (nopController.text.isEmpty) {
+      nopError = 'Masukkan nomor objek pajak.';
       update();
+      nopNode.requestFocus();
       return false;
     }
-    destError = '';
+    nopError = '';
 
-    if (amountController.text.isEmpty || amount <= 0) {
-      amountError = 'Masukkan nominal transfer.';
+    if (yearSelected.isEmpty) {
+      yearError = 'Pilih tahun';
       update();
-      amountNode.requestFocus();
       return false;
     }
-    amountError = '';
+    yearError = '';
 
-    if (messageController.text.isEmpty) {
-      messageError = 'Berita harus diisi.';
-      update();
-      messageNode.requestFocus();
-      return false;
-    }
-    messageError = '';
     update();
-
     return true;
   }
 
   bool readyToSubmit() {
-    if (dest.account.isNotEmpty &&
-        amount > 0 &&
-        messageController.text.isNotEmpty) {
+    if (nopController.text.isNotEmpty && yearSelected.isNotEmpty) {
       return true;
     } else {
       return false;
@@ -130,13 +103,13 @@ class MbxPBBController extends GetxController {
 
   inquiry() {
     Get.loading();
-    final inquiryVM = MbxTransferP2PInquiryVM();
+    final inquiryVM = MbxPBBInquiryVM();
     inquiryVM.request().then((resp) {
       Get.back();
       if (resp.status == 200) {
         final sheet = MbxInquirySheet(
             title: 'Konfirmasi',
-            confirmBtnTitle: 'Transfer',
+            confirmBtnTitle: 'Bayar',
             inquiry: inquiryVM.inquiry);
         sheet.show().then((value) {
           if (value == true) {
@@ -172,7 +145,7 @@ class MbxPBBController extends GetxController {
       required String pin,
       required bool biometric}) {
     Get.loading();
-    final paymentVM = MbxTransferP2PPaymentVM();
+    final paymentVM = MbxPBBPaymentVM();
     paymentVM
         .request(transaction_id: transaction_id, pin: pin, biometric: biometric)
         .then((resp) {
