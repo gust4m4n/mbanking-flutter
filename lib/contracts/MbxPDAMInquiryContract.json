@@ -1,0 +1,37 @@
+{
+	"status": 200,
+	"message": "PBB inquiry Success",
+	"data": {
+	  "details": [
+		{
+		  "label": "TRANSAKSI",
+		  "value": "PDAM"
+		},
+		{
+		  "label": "WILAYAH",
+		  "value": "KAB. KLATEN"
+		},
+		{
+		  "label": "NO. PELANGGAN",
+		  "value": "JULEHA"
+		},
+		{
+		  "label": "TAGIHAN",
+		  "value": "IDR 100.000"
+		},
+		{
+		  "label": "BIAYA ADMIN",
+		  "value": "IDR 2.000"
+		},
+		{
+		  "label": "TOTAL",
+		  "value": "IDR 102.000"
+		},
+		{
+		  "label": "SUMBER DANA",
+		  "value": "000000000"
+		}
+	  ],
+	  "transaction_id": "TRID-20210101-0001"
+	}
+  }

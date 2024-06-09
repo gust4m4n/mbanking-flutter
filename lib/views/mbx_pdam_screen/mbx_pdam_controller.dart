@@ -2,9 +2,9 @@ import 'package:mbankingflutter/models/mbx_pdam_area_model.dart';
 
 import '../../models/mbx_account_model.dart';
 import '../../models/mbx_inquiry_model.dart';
-import '../../viewmodels/mbx_pbb_inquiry_vm.dart';
 import '../../viewmodels/mbx_pbb_payment_vm.dart';
 import '../../viewmodels/mbx_pdam_area_list_vm.dart';
+import '../../viewmodels/mbx_pdam_inquiry_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
@@ -110,7 +110,7 @@ class MbxPDAMController extends GetxController {
 
   inquiry() {
     Get.loading();
-    final inquiryVM = MbxPBBInquiryVM();
+    final inquiryVM = MbxPDAMInquiryVM();
     inquiryVM.request().then((resp) {
       Get.back();
       if (resp.status == 200) {
