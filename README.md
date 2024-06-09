@@ -2,7 +2,7 @@
 
 Demo mobile banking/e-money/digital application menggunakan flutter, lengkap dengan UI, mock api dan contracts.
 Untuk APK yang ready to install bisa didownload di sini:
-https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.7.apk
+https://github.com/gust4m4n/mbanking-flutter/raw/main/distrib/mbanking-flutter-1.0.8.apk
 
 Authors:<br>
 gust4m4n@gmail.com<br>
