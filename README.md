@@ -19,6 +19,7 @@ Fitur yang tersedia:
 + PLN Prabayar/token listrik
 + Pulsa
 + PBB
++ PDAM
 + Receipt: download dan share
 
 Platform yang didukung:
@@ -70,4 +71,5 @@ Screenshots:
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_pulsa_dataplan.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_pulsa_postpaid_inquiry.png" width="250">
   <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_pbb.png" width="250">
+  <img src="https://raw.githubusercontent.com/gust4m4n/mbanking-flutter/main/readme/mbx_pdam.png" width="250">
 </p>
