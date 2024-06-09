@@ -1,16 +1,16 @@
 import '../../widgets/all_widgets.dart';
 import '../mbx_sof_sheet/mbx_sof_widget.dart';
-import 'mbx_pbb_controller.dart';
+import 'mbx_pdam_controller.dart';
 
-class MbxPBBScreen extends StatelessWidget {
-  MbxPBBScreen({Key? key}) : super(key: key);
+class MbxPDAMScreen extends StatelessWidget {
+  MbxPDAMScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MbxPBBController>(
-        init: MbxPBBController(),
+    return GetBuilder<MbxPDAMController>(
+        init: MbxPDAMController(),
         builder: (controller) => MbxScreen(
-            title: 'PBB',
+            title: 'PDAM',
             scrollingBody: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -65,35 +65,7 @@ class MbxPBBScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextX(
-                        'NO. OBJEK PAJAK',
-                        color: ColorX.black,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.w500,
-                        textAlign: TextAlign.start,
-                      ),
-                      ContainerX(height: 4.0),
-                      TextFieldX(
-                        hint: 'xxxxxxxxxxxxxxx',
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                        readOnly: false,
-                        controller: controller.nopController,
-                        focusNode: controller.nopNode,
-                        onChanged: (value) {
-                          controller.nopChanged(value);
-                        },
-                      ),
-                    ],
-                  ),
-                  error: controller.nopError,
-                ),
-                ContainerX(height: 12.0),
-                ContainerError(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TextX(
-                        'TAHUN',
+                        'WILAYAH',
                         color: ColorX.black,
                         fontSize: 13.0,
                         fontWeight: FontWeight.w500,
@@ -113,8 +85,8 @@ class MbxPBBScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   TextX(
-                                    controller.yearSelected.isNotEmpty
-                                        ? controller.yearSelected
+                                    controller.areaSelected.id.isNotEmpty
+                                        ? controller.areaSelected.name
                                         : '-',
                                     color: ColorX.black,
                                     fontSize: 17.0,
@@ -136,12 +108,40 @@ class MbxPBBScreen extends StatelessWidget {
                                 borderWidth: 0.5,
                                 borderColor: ColorX.gray,
                                 onClicked: () {
-                                  controller.btnPickYearClicked();
+                                  controller.btnAreaClicked();
                                 })
                           ])),
                     ],
                   ),
-                  error: controller.yearError,
+                  error: controller.areaError,
+                ),
+                ContainerX(height: 12.0),
+                ContainerError(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextX(
+                        'NO. PELANGGAN',
+                        color: ColorX.black,
+                        fontSize: 13.0,
+                        fontWeight: FontWeight.w500,
+                        textAlign: TextAlign.start,
+                      ),
+                      ContainerX(height: 4.0),
+                      TextFieldX(
+                        hint: 'xxxxxxxxxxxxxxxxx',
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
+                        readOnly: false,
+                        controller: controller.customerIdController,
+                        focusNode: controller.customerIdNode,
+                        onChanged: (value) {
+                          controller.customerIdChanged(value);
+                        },
+                      ),
+                    ],
+                  ),
+                  error: controller.customerIdError,
                 ),
                 ContainerX(height: 16.0),
                 ButtonX(

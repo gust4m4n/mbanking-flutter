@@ -74,4 +74,8 @@ class MbxHomeController extends GetxController {
   btnPBBClicked() async {
     Get.toNamed('/pbb');
   }
+
+  btnPDAMClicked() async {
+    Get.toNamed('/pdam');
+  }
 }

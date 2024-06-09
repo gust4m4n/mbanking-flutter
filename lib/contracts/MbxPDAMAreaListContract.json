@@ -1,0 +1,14 @@
+{
+	"status": 200,
+	"message": "Get transfer P2P destination success",
+	"data": [
+	  {
+		"id": "1",
+		"name": "DKI Jakarta - PAM JAYA"
+	  },
+	  {
+		"id": "2",
+		"name": "Tangerang Selatan - PT PITS"
+	  }
+	]
+  }

@@ -1,8 +1,10 @@
-import 'package:mbankingflutter/viewmodels/mbx_pbb_inquiry_vm.dart';
-import 'package:mbankingflutter/viewmodels/mbx_pbb_payment_vm.dart';
+import 'package:mbankingflutter/models/mbx_pdam_area_model.dart';
 
 import '../../models/mbx_account_model.dart';
 import '../../models/mbx_inquiry_model.dart';
+import '../../viewmodels/mbx_pbb_inquiry_vm.dart';
+import '../../viewmodels/mbx_pbb_payment_vm.dart';
+import '../../viewmodels/mbx_pdam_area_list_vm.dart';
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import '../mbx_inquiry_sheet/mbx_inquiry_sheet.dart';
@@ -10,20 +12,15 @@ import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 import '../mbx_sof_sheet/mbx_sof_sheet.dart';
 import '../mbx_string_picker/mbx_string_picker.dart';
 
-class MbxPBBController extends GetxController {
+class MbxPDAMController extends GetxController {
   var sof = MbxAccountModel();
 
-  final nopController = TextEditingController();
-  final nopNode = FocusNode();
-  var nopError = '';
+  var areaSelected = MbxPDAMAreaModel();
+  var areaError = '';
 
-  var yearSelected = '';
-  var yearError = '';
-
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  final customerIdController = TextEditingController();
+  final customerIdNode = FocusNode();
+  var customerIdError = '';
 
   @override
   void onReady() {
@@ -37,23 +34,29 @@ class MbxPBBController extends GetxController {
     Get.back();
   }
 
-  nopChanged(String value) {
-    update();
-  }
-
-  btnPickYearClicked() {
-    List<String> years = [];
-    for (int i = 1990; i <= DateTime.now().year; i++) {
-      years.insert(0, i.toString());
-    }
-
-    final picker = MbxStringPicker(title: 'Pilih Tahun', list: years);
-    picker.show().then((selectedIndex) {
-      if (selectedIndex != null) {
-        yearSelected = years[selectedIndex];
-        update();
+  btnAreaClicked() {
+    Get.loading();
+    final pdamAreaListVM = MbxPDAMAreaListVM();
+    pdamAreaListVM.request().then((resp) {
+      Get.back();
+      if (resp.status == 200) {
+        List<String> list = [];
+        for (final item in pdamAreaListVM.list) {
+          list.add(item.name);
+        }
+        final picker = MbxStringPicker(title: 'Wilayah', list: list);
+        picker.show().then((selectedIndex) {
+          if (selectedIndex != null) {
+            areaSelected = pdamAreaListVM.list[selectedIndex];
+            update();
+          }
+        });
       }
     });
+  }
+
+  customerIdChanged(String value) {
+    update();
   }
 
   btnSofClicked() {
@@ -71,27 +74,27 @@ class MbxPBBController extends GetxController {
   }
 
   bool validate() {
-    if (nopController.text.isEmpty) {
-      nopError = 'Masukkan NOP.';
+    if (areaSelected.id.isEmpty) {
+      areaError = 'Pilih wilayah';
       update();
-      nopNode.requestFocus();
       return false;
     }
-    nopError = '';
+    areaError = '';
 
-    if (yearSelected.isEmpty) {
-      yearError = 'Pilih tahun';
+    if (customerIdController.text.isEmpty) {
+      customerIdError = 'Masukkan nomor pelanggan.';
       update();
+      customerIdNode.requestFocus();
       return false;
     }
-    yearError = '';
+    customerIdError = '';
 
     update();
     return true;
   }
 
   bool readyToSubmit() {
-    if (nopController.text.isNotEmpty && yearSelected.isNotEmpty) {
+    if (areaSelected.id.isNotEmpty && customerIdController.text.isNotEmpty) {
       return true;
     } else {
       return false;

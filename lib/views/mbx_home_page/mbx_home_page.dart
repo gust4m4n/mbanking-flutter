@@ -243,14 +243,15 @@ class MbxHomePage extends StatelessWidget {
                                           },
                                         ),
                                         MbxLauncherCell(
-                                          color: ColorX.yellow,
-                                          faIcon: FontAwesomeIcons
-                                              .handHoldingDollar,
-                                          title: 'Paylater',
-                                          titleColor: ColorX.white,
-                                          highlightColor:
-                                              ColorX.theme.lighten(0.1),
-                                        ),
+                                            color: ColorX.yellow,
+                                            faIcon: FontAwesomeIcons.water,
+                                            title: 'PDAM',
+                                            titleColor: ColorX.white,
+                                            highlightColor:
+                                                ColorX.theme.lighten(0.1),
+                                            onClicked: () {
+                                              controller.btnPDAMClicked();
+                                            }),
                                         MbxLauncherCell(
                                           color: ColorX.gray,
                                           faIcon: FontAwesomeIcons.ellipsis,
