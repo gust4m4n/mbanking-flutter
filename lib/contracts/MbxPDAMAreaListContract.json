@@ -4,11 +4,79 @@
 	"data": [
 	  {
 		"id": "1",
-		"name": "DKI Jakarta - PAM JAYA"
+		"name": "DKI Jakarta"
 	  },
 	  {
 		"id": "2",
-		"name": "Tangerang Selatan - PT PITS"
+		"name": "Tangerang Selatan"
+	  },
+	  {
+		"id": "3",
+		"name": "Kota Tangerang"
+	  },
+	  {
+		"id": "4",
+		"name": "Kab. Tangerang"
+	  },
+	  {
+		"id": "5",
+		"name": "Kab. Bogor"
+	  },
+	  {
+		"id": "6",
+		"name": "Kota Bogor"
+	  },
+	  {
+		"id": "7",
+		"name": "Kab. Bandung"
+	  },
+	  {
+		"id": "8",
+		"name": "Kota Bandung"
+	  },
+	  {
+		"id": "9",
+		"name": "Kab. Aceh Jaya"
+	  },
+	  {
+		"id": "10",
+		"name": "Kab. Klaten"
+	  },
+	  {
+		"id": "10",
+		"name": "Kota Surabaya"
+	  },
+	  {
+		"id": "10",
+		"name": "Kota Surakarta"
+	  },
+	  {
+		"id": "10",
+		"name": "Kota Denpasar"
+	  },
+	  {
+		"id": "10",
+		"name": "Kota Depok"
+	  },
+	  {
+		"id": "10",
+		"name": "Kab. Pandeglang"
+	  },
+	  {
+		"id": "10",
+		"name": "Kab. Bantul"
+	  },
+	  {
+		"id": "10",
+		"name": "Kota Yogyakarta"
+	  },
+	  {
+		"id": "10",
+		"name": "Kab. Kulon Progo"
+	  },
+	  {
+		"id": "10",
+		"name": "Kab. Sleman"
 	  }
 	]
   }
