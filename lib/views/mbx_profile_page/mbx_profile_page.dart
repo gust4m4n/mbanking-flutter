@@ -42,6 +42,7 @@ class MbxProfilePage extends StatelessWidget {
                                   right: 0.0,
                                   bottom: 0.0,
                                   child: ButtonX(
+                                    title: '',
                                     onClicked: () {
                                       controller.btnChangeAvatarClicked();
                                     },
