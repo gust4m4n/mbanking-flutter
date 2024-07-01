@@ -76,7 +76,9 @@ class ImageX extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
             child: url.isNotEmpty
-                ? imageAsset(context, url)
+                ? url.startsWith('/')
+                    ? imageFile(context)
+                    : imageAsset(context, url)
                 : faIcon != null
                     ? imageAwesome(context, faIcon!)
                     : imagePlaceholder(context),
@@ -112,19 +114,17 @@ class ImageX extends StatelessWidget {
   Widget imageFile(BuildContext context) {
     var localPath = url.trim();
     const prefixLen = 'file:'.length;
-    if (localPath.length > prefixLen) {
+    if (localPath.startsWith('file:')) {
       localPath = localPath.substring(prefixLen, localPath.length);
-      return Image.file(File(localPath),
-          color: color,
-          width: width - (padding.left + padding.right),
-          height: height - (padding.top + padding.bottom),
-          fit: fit, errorBuilder:
-              (BuildContext context, Object exception, StackTrace? stackTrace) {
-        return imagePlaceholder(context);
-      });
-    } else {
-      return imagePlaceholder(context);
     }
+    return Image.file(File(localPath),
+        color: color,
+        width: width - (padding.left + padding.right),
+        height: height - (padding.top + padding.bottom),
+        fit: fit, errorBuilder:
+            (BuildContext context, Object exception, StackTrace? stackTrace) {
+      return imagePlaceholder(context);
+    });
   }
 
   Widget imageAsset(BuildContext context, String name) {
