@@ -4,6 +4,7 @@ import '../../viewmodels/mbx_profile_vm.dart';
 import '../../viewmodels/mbx_relogin_vm.dart';
 import '../../viewmodels/mbx_theme_vm.dart';
 import '../../widgets/all_widgets.dart';
+import '../mbx_help_sheet/mbx_help_sheet.dart';
 import '../mbx_pin_sheet/mbx_pin_sheet.dart';
 
 class MbxReloginController extends GetxController {
@@ -123,7 +124,11 @@ class MbxReloginController extends GetxController {
     );
   }
 
-  btnHelpClicked() {}
+  btnHelpClicked() {
+    MbxHelpSheet.show().then((sof) {
+      if (sof != null) {}
+    });
+  }
 
   btnSwitchAccountClicked() {
     SheetX.showMessage(

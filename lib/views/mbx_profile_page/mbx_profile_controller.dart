@@ -1,4 +1,5 @@
 import 'package:mbankingflutter/views/mbx_avatar_sheet/mbx_avatar_sheet.dart';
+import 'package:mbankingflutter/views/mbx_help_sheet/mbx_help_sheet.dart';
 
 import '../../utils/all_utils.dart';
 import '../../viewmodels/mbx_change_pin_vm.dart';
@@ -149,6 +150,10 @@ class MbxProfileController extends GetxController {
 
   btnPrivacyPolicyClicked() {
     Get.toNamed('/privacy');
+  }
+
+  btnHelpClicked() {
+    MbxHelpSheet.show();
   }
 
   btnLogoutClicked() {

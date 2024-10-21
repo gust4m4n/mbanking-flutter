@@ -123,6 +123,13 @@ class MbxProfilePage extends StatelessWidget {
                                 },
                               ),
                               MbaxProfileMenuButton(
+                                title: 'Bantuan',
+                                faIcon: FontAwesomeIcons.circleQuestion,
+                                onClicked: () {
+                                  controller.btnHelpClicked();
+                                },
+                              ),
+                              MbaxProfileMenuButton(
                                 title: 'Keluar',
                                 faIcon: FontAwesomeIcons.powerOff,
                                 onClicked: () {
