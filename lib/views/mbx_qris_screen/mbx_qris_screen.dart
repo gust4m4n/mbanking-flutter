@@ -52,8 +52,8 @@ class MbxQRISScreen extends StatelessWidget {
                           height: 40.0,
                           cornerRadius: 20.0,
                           faIcon: FontAwesomeIcons.arrowLeft,
-                          faWidth: 18.0,
-                          faHeight: 18.0,
+                          iconWidth: 18.0,
+                          iconHeight: 18.0,
                           faColor: ColorX.white,
                           onClicked: () {
                             controller.btnBackClicked();
@@ -67,8 +67,8 @@ class MbxQRISScreen extends StatelessWidget {
                           height: 40.0,
                           cornerRadius: 20.0,
                           faIcon: FontAwesomeIcons.fileImage,
-                          faWidth: 18.0,
-                          faHeight: 18.0,
+                          iconWidth: 18.0,
+                          iconHeight: 18.0,
                           faColor: ColorX.white,
                           onClicked: () {
                             controller.btnImageClicked();
@@ -84,8 +84,8 @@ class MbxQRISScreen extends StatelessWidget {
                           height: 40.0,
                           cornerRadius: 20.0,
                           faIcon: FontAwesomeIcons.bolt,
-                          faWidth: 18.0,
-                          faHeight: 18.0,
+                          iconWidth: 18.0,
+                          iconHeight: 18.0,
                           faColor: controller.flashlight
                               ? ColorX.theme
                               : ColorX.white,

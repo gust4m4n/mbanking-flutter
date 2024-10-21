@@ -64,8 +64,8 @@ class MbxTransferP2BankPickerWidget extends StatelessWidget {
             ButtonX(
                 title: '',
                 faIcon: FontAwesomeIcons.trashCan,
-                faWidth: 20.0,
-                faHeight: 16.0,
+                iconWidth: 20.0,
+                iconHeight: 16.0,
                 width: 40.0,
                 height: 40.0,
                 backgroundColor: ColorX.transparent,

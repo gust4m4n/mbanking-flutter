@@ -26,8 +26,8 @@ class DemoPhotoPicker extends GetWidget<AppxPhotoPickerController> {
                 ButtonX(
                   backgroundColor: ColorX.transparent,
                   faIcon: FontAwesomeIcons.xmark,
-                  faWidth: 16.0,
-                  faHeight: 16.0,
+                  iconWidth: 16.0,
+                  iconHeight: 16.0,
                   faColor: ColorX.gray,
                   width: 32.0,
                   height: 32.0,

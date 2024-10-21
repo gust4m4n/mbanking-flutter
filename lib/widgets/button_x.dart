@@ -2,8 +2,9 @@ import 'all_widgets.dart';
 
 class ButtonX extends StatelessWidget {
   final IconData? faIcon;
-  final double faWidth;
-  final double faHeight;
+  final String iconUrl;
+  final double iconWidth;
+  final double iconHeight;
   final Color? faColor;
   final String title;
   final Color backgroundColor;
@@ -22,12 +23,13 @@ class ButtonX extends StatelessWidget {
   final bool enabled;
   final GestureTapCallback? onClicked;
 
-  ButtonX({
+  const ButtonX({
     Key? key,
-    this.faIcon = null,
-    this.faWidth = 24.0,
-    this.faHeight = 24.0,
-    this.faColor = null,
+    this.faIcon,
+    this.iconUrl = '',
+    this.iconWidth = 24.0,
+    this.iconHeight = 24.0,
+    this.faColor,
     this.title = 'Button',
     this.backgroundColor = ColorX.blue,
     this.disabledBackgroundColor = ColorX.lightGray,
@@ -40,8 +42,8 @@ class ButtonX extends StatelessWidget {
     this.width = double.infinity,
     this.height = 48.0,
     this.horizontalPadding = 8.0,
-    this.fontSize = 17.0,
-    this.fontWeight = FontWeight.w600,
+    this.fontSize = 16.0,
+    this.fontWeight = FontWeight.w700,
     this.enabled = true,
     this.onClicked,
   }) : super(key: key);
@@ -55,7 +57,8 @@ class ButtonX extends StatelessWidget {
         ),
         color: enabled == true ? backgroundColor : disabledBackgroundColor,
         child: InkWellX(
-            highlightColor: highlightColor,
+            highlightColor:
+                enabled == true ? highlightColor : ColorX.transparent,
             onClicked: enabled == true ? onClicked : null,
             child: Container(
               width: width,
@@ -73,15 +76,18 @@ class ButtonX extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Visibility(
-                      visible: faIcon != null,
+                      visible: (faIcon != null || iconUrl.isNotEmpty),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           ImageX(
-                              faIcon: faIcon,
-                              color: faColor,
-                              width: faWidth,
-                              height: faHeight),
+                            url: iconUrl,
+                            faIcon: faIcon,
+                            color: faColor,
+                            width: iconWidth,
+                            height: iconHeight,
+                            fit: BoxFit.contain,
+                          ),
                           ContainerX(width: title.isNotEmpty ? 4.0 : 0.0),
                         ],
                       )),

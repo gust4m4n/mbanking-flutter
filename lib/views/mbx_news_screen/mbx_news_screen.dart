@@ -3,7 +3,6 @@ import '../../widgets/all_widgets.dart';
 import 'mbx_news_controller.dart';
 
 class MbxNewsScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MbxNewsController>(
@@ -29,8 +28,8 @@ class MbxNewsScreen extends StatelessWidget {
                         height: 40.0,
                         cornerRadius: 20.0,
                         faIcon: FontAwesomeIcons.arrowLeft,
-                        faWidth: 18.0,
-                        faHeight: 18.0,
+                        iconWidth: 18.0,
+                        iconHeight: 18.0,
                         faColor: ColorX.white,
                         onClicked: () {
                           controller.btnBackClicked();

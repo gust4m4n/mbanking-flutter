@@ -148,8 +148,8 @@ class MbxReceiptScreen extends StatelessWidget {
                                       children: [
                                         ButtonX(
                                           faIcon: FontAwesomeIcons.shareNodes,
-                                          faWidth: 16.0,
-                                          faHeight: 16.0,
+                                          iconWidth: 16.0,
+                                          iconHeight: 16.0,
                                           title: '',
                                           backgroundColor: ColorX.transparent,
                                           borderWidth: 0.5,
@@ -162,8 +162,8 @@ class MbxReceiptScreen extends StatelessWidget {
                                         ContainerX(width: 8.0),
                                         ButtonX(
                                           faIcon: FontAwesomeIcons.download,
-                                          faWidth: 16.0,
-                                          faHeight: 16.0,
+                                          iconWidth: 16.0,
+                                          iconHeight: 16.0,
                                           title: '',
                                           backgroundColor: ColorX.transparent,
                                           borderWidth: 0.5,

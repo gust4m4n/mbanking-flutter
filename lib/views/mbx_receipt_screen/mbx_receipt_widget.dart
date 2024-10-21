@@ -51,8 +51,8 @@ class MbxReceiptWidget extends StatelessWidget {
                               visible: row.copyable,
                               child: ButtonX(
                                 faIcon: FontAwesomeIcons.copy,
-                                faWidth: 16.0,
-                                faHeight: 16.0,
+                                iconWidth: 16.0,
+                                iconHeight: 16.0,
                                 title: 'SALIN',
                                 titleColor: ColorX.black,
                                 fontSize: 11.0,

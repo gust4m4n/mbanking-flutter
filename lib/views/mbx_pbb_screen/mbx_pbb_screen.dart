@@ -46,8 +46,8 @@ class MbxPBBScreen extends StatelessWidget {
                           ButtonX(
                               faIcon: FontAwesomeIcons.chevronDown,
                               backgroundColor: ColorX.transparent,
-                              faWidth: 16.0,
-                              faHeight: 16.0,
+                              iconWidth: 16.0,
+                              iconHeight: 16.0,
                               title: '',
                               width: 40.0,
                               height: 40.0,
@@ -128,8 +128,8 @@ class MbxPBBScreen extends StatelessWidget {
                             ButtonX(
                                 faIcon: FontAwesomeIcons.chevronDown,
                                 backgroundColor: ColorX.transparent,
-                                faWidth: 16.0,
-                                faHeight: 16.0,
+                                iconWidth: 16.0,
+                                iconHeight: 16.0,
                                 title: '',
                                 width: 40.0,
                                 height: 40.0,
