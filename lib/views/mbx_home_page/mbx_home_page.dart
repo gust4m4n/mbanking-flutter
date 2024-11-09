@@ -2,14 +2,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:mbankingflutter/utils/all_utils.dart';
 import 'package:mbankingflutter/viewmodels/mbx_news_list_vm.dart';
 import 'package:mbankingflutter/views/mbx_home_page/mbx_foreign_exchange_widget.dart';
-import 'package:mbankingflutter/views/mbx_home_page/mbx_news_cell.dart';
+import 'package:mbankingflutter/views/mbx_home_page/mbx_news_widget.dart';
 import 'package:mbankingflutter/views/mbx_home_page/mbx_theme_button.dart';
 import 'package:mbankingflutter/views/mbx_sof_sheet/mbx_sof_widget.dart';
 
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
 import 'mbx_home_controller.dart';
-import 'mbx_launcher_cell.dart';
+import 'mbx_launcher_widget.dart';
 
 class MbxHomePage extends StatelessWidget {
   MbxHomePage({Key? key}) : super(key: key);
@@ -175,7 +175,7 @@ class MbxHomePage extends StatelessWidget {
                                       padding: EdgeInsets.all(12.0),
                                       physics: ClampingScrollPhysics(),
                                       children: [
-                                        MbxLauncherCell(
+                                        MbxLauncherWidget(
                                             color: ColorX.green,
                                             faIcon: FontAwesomeIcons
                                                 .arrowRightArrowLeft,
@@ -186,7 +186,7 @@ class MbxHomePage extends StatelessWidget {
                                             onClicked: () {
                                               controller.btnTransferClicked();
                                             }),
-                                        MbxLauncherCell(
+                                        MbxLauncherWidget(
                                           color: ColorX.blue,
                                           faIcon: FontAwesomeIcons.sackDollar,
                                           title: 'Tarik Tunai',
@@ -197,7 +197,7 @@ class MbxHomePage extends StatelessWidget {
                                             controller.btnCardlessClicked();
                                           },
                                         ),
-                                        MbxLauncherCell(
+                                        MbxLauncherWidget(
                                           color: ColorX.red,
                                           faIcon: FontAwesomeIcons.qrcode,
                                           title: 'QRIS',
@@ -208,7 +208,7 @@ class MbxHomePage extends StatelessWidget {
                                             controller.btnQRISClicked();
                                           },
                                         ),
-                                        MbxLauncherCell(
+                                        MbxLauncherWidget(
                                           color: ColorX.yellow,
                                           faIcon:
                                               FontAwesomeIcons.solidLightbulb,
@@ -220,7 +220,7 @@ class MbxHomePage extends StatelessWidget {
                                             controller.btnElectricityClicked();
                                           },
                                         ),
-                                        MbxLauncherCell(
+                                        MbxLauncherWidget(
                                           color: ColorX.teal,
                                           faIcon: FontAwesomeIcons.mobile,
                                           title: 'Pulsa',
@@ -231,7 +231,7 @@ class MbxHomePage extends StatelessWidget {
                                             controller.btnPulsaClicked();
                                           },
                                         ),
-                                        MbxLauncherCell(
+                                        MbxLauncherWidget(
                                           color: ColorX.red,
                                           faIcon: FontAwesomeIcons.landmark,
                                           title: 'PBB',
@@ -242,7 +242,7 @@ class MbxHomePage extends StatelessWidget {
                                             controller.btnPBBClicked();
                                           },
                                         ),
-                                        MbxLauncherCell(
+                                        MbxLauncherWidget(
                                             color: ColorX.yellow,
                                             faIcon: FontAwesomeIcons.water,
                                             title: 'PDAM',
@@ -252,7 +252,7 @@ class MbxHomePage extends StatelessWidget {
                                             onClicked: () {
                                               controller.btnPDAMClicked();
                                             }),
-                                        MbxLauncherCell(
+                                        MbxLauncherWidget(
                                           color: ColorX.gray,
                                           faIcon: FontAwesomeIcons.ellipsis,
                                           title: 'Lainnya',
@@ -391,7 +391,7 @@ class MbxHomePage extends StatelessWidget {
                                           itemCount: MbxNewsListVM.list.length,
                                           itemBuilder: (BuildContext context,
                                               int index, int pageViewIndex) {
-                                            return MbxNewsCell(
+                                            return MbxNewsWidget(
                                                 MbxNewsListVM.list[index]);
                                           }),
                                     ],

@@ -1,7 +1,7 @@
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxLauncherCell extends StatelessWidget {
+class MbxLauncherWidget extends StatelessWidget {
   final Color color;
   final IconData faIcon;
   final String title;
@@ -9,7 +9,7 @@ class MbxLauncherCell extends StatelessWidget {
   final Color highlightColor;
   final GestureTapCallback? onClicked;
 
-  MbxLauncherCell(
+  MbxLauncherWidget(
       {required this.color,
       required this.faIcon,
       required this.title,

@@ -1,6 +1,6 @@
 import '../../viewmodels/mbx_profile_vm.dart';
 import '../../widgets/all_widgets.dart';
-import '../mbx_home_page/mbx_launcher_cell.dart';
+import '../mbx_home_page/mbx_launcher_widget.dart';
 import '../mbx_home_page/mbx_theme_button.dart';
 import 'mbx_relogin_controller.dart';
 
@@ -104,7 +104,7 @@ class MbxReloginScreen extends StatelessWidget {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
-                                              MbxLauncherCell(
+                                              MbxLauncherWidget(
                                                   color: ColorX.red,
                                                   faIcon:
                                                       FontAwesomeIcons.qrcode,
@@ -115,7 +115,7 @@ class MbxReloginScreen extends StatelessWidget {
                                                   onClicked: () {
                                                     controller.btnQRISClicked();
                                                   }),
-                                              MbxLauncherCell(
+                                              MbxLauncherWidget(
                                                 color: ColorX.blue,
                                                 faIcon:
                                                     FontAwesomeIcons.sackDollar,
@@ -128,7 +128,7 @@ class MbxReloginScreen extends StatelessWidget {
                                                       .btnCardlessClicked();
                                                 },
                                               ),
-                                              MbxLauncherCell(
+                                              MbxLauncherWidget(
                                                 color: ColorX.green,
                                                 faIcon:
                                                     FontAwesomeIcons.question,

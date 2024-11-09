@@ -1,7 +1,7 @@
 import 'package:mbankingflutter/utils/all_utils.dart';
 
 import '../../widgets/all_widgets.dart';
-import '../mbx_home_page/mbx_launcher_cell.dart';
+import '../mbx_home_page/mbx_launcher_widget.dart';
 import 'mbx_pulsa_controller.dart';
 
 // ignore: must_be_immutable
@@ -35,7 +35,7 @@ class MbxPulsaPicker extends GetWidget<MbxPulsaController> {
                       padding: EdgeInsets.all(12.0),
                       physics: ClampingScrollPhysics(),
                       children: [
-                        MbxLauncherCell(
+                        MbxLauncherWidget(
                             color: ColorX.teal,
                             faIcon: FontAwesomeIcons.mobile,
                             title: 'Prabayar',
@@ -44,7 +44,7 @@ class MbxPulsaPicker extends GetWidget<MbxPulsaController> {
                             onClicked: () {
                               controller.btnPrepaidClicked();
                             }),
-                        MbxLauncherCell(
+                        MbxLauncherWidget(
                           color: ColorX.teal,
                           faIcon: FontAwesomeIcons.mobile,
                           title: 'Pascabayar',
@@ -54,7 +54,7 @@ class MbxPulsaPicker extends GetWidget<MbxPulsaController> {
                             controller.btnPascabayarClicked();
                           },
                         ),
-                        MbxLauncherCell(
+                        MbxLauncherWidget(
                           color: ColorX.teal,
                           faIcon: FontAwesomeIcons.mobile,
                           title: 'Paket Data',

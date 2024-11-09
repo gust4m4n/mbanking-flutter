@@ -2,9 +2,9 @@ import '../../models/mbx_news_model.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxNewsCell extends StatelessWidget {
+class MbxNewsWidget extends StatelessWidget {
   final MbxNewsModel news;
-  MbxNewsCell(this.news);
+  MbxNewsWidget(this.news);
 
   @override
   Widget build(BuildContext context) {

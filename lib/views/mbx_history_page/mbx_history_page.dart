@@ -1,6 +1,6 @@
 import '../../models/mbx_receipt_model.dart';
 import '../../widgets/all_widgets.dart';
-import 'mbx_history_cell.dart';
+import 'mbx_history_widget.dart';
 import 'mbx_history_controller.dart';
 
 class MbxHistoryPage extends StatelessWidget {
@@ -50,7 +50,7 @@ class MbxHistoryPage extends StatelessWidget {
                               'backToHome': false
                             });
                           },
-                          child: MbxHistoryCell(history));
+                          child: MbxHistoryWidget(history));
                     })),
           )),
     );

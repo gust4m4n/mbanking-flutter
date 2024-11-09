@@ -5,9 +5,9 @@ import '../../viewmodels/mbx_format_vm.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxHistoryCell extends StatelessWidget {
+class MbxHistoryWidget extends StatelessWidget {
   final MbxHistoryModel history;
-  MbxHistoryCell(this.history);
+  MbxHistoryWidget(this.history);
 
   @override
   Widget build(BuildContext context) {

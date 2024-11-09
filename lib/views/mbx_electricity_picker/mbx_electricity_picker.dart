@@ -1,7 +1,7 @@
 import 'package:mbankingflutter/utils/all_utils.dart';
 
 import '../../widgets/all_widgets.dart';
-import '../mbx_home_page/mbx_launcher_cell.dart';
+import '../mbx_home_page/mbx_launcher_widget.dart';
 import 'mbx_electricity_controller.dart';
 
 // ignore: must_be_immutable
@@ -35,7 +35,7 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                       padding: EdgeInsets.all(12.0),
                       physics: ClampingScrollPhysics(),
                       children: [
-                        MbxLauncherCell(
+                        MbxLauncherWidget(
                             color: ColorX.yellow,
                             faIcon: FontAwesomeIcons.solidLightbulb,
                             title: 'Prabayar',
@@ -44,7 +44,7 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                             onClicked: () {
                               controller.btnPrepaidClicked();
                             }),
-                        MbxLauncherCell(
+                        MbxLauncherWidget(
                           color: ColorX.yellow,
                           faIcon: FontAwesomeIcons.solidLightbulb,
                           title: 'Pascabayar',
@@ -54,7 +54,7 @@ class MbxElectricityPicker extends GetWidget<MbxElectricityController> {
                             controller.btnPostpaidClicked();
                           },
                         ),
-                        MbxLauncherCell(
+                        MbxLauncherWidget(
                           color: ColorX.yellow,
                           faIcon: FontAwesomeIcons.solidLightbulb,
                           title: 'Non-Tagihan Listrik',

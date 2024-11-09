@@ -2,9 +2,9 @@ import '../../models/demo_movie_model.dart';
 import '../../widgets/all_widgets.dart';
 
 // ignore: must_be_immutable
-class MbxPromoCell extends StatelessWidget {
+class MbxPromoWidget extends StatelessWidget {
   final DemoMovieModel movie;
-  MbxPromoCell(this.movie);
+  MbxPromoWidget(this.movie);
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +12,7 @@ class MbxPromoCell extends StatelessWidget {
         padding: EdgeInsets.only(left: 12.0),
         child: InkWellX(
           cornerRadius: 12.0,
-          onClicked: () {
-          },
+          onClicked: () {},
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             ImageX(
