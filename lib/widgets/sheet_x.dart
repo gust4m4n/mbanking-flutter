@@ -41,7 +41,7 @@ class SheetX {
                                   child: Row(
                                     children: [
                                       InkWellX(
-                                        cornerRadius: 8.0,
+                                        cornerRadius: 20.0,
                                         onClicked: () {
                                           Get.back();
                                         },
