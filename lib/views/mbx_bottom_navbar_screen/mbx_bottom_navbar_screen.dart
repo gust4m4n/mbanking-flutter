@@ -28,14 +28,14 @@ class MbxBottomNavBarScreen extends StatelessWidget {
               ),
               floatingActionButton: Stack(children: [
                 ContainerX(
-                    width: 70.0,
-                    height: 70.0,
-                    cornerRadius: 35.0,
+                    width: MbxButtonNavBarButton.buttonWidth,
+                    height: MbxButtonNavBarButton.buttonWidth,
+                    cornerRadius: MbxButtonNavBarButton.buttonWidth / 2.0,
                     backgroundColor: ColorX.white),
                 ContainerX(
-                    width: 70.0,
-                    height: 70.0,
-                    cornerRadius: 35.0,
+                    width: MbxButtonNavBarButton.buttonWidth,
+                    height: MbxButtonNavBarButton.buttonWidth,
+                    cornerRadius: MbxButtonNavBarButton.buttonWidth / 2.0,
                     backgroundColor: ColorX.theme.withOpacity(0.1),
                     child: Center(
                         child: ButtonX(
@@ -62,44 +62,48 @@ class MbxBottomNavBarScreen extends StatelessWidget {
                       height: 60.0 + MediaQuery.of(Get.context!).padding.bottom,
                       backgroundColor: ColorX.theme.withOpacity(0.1)),
                   BottomAppBar(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 0.0),
                     height: 60.0,
                     elevation: 0.0,
                     color: ColorX.transparent,
                     child: Row(
-                      mainAxisSize: MainAxisSize.max,
                       children: [
-                        MbxButtonNavBarButton(
-                            title: 'Beranda',
-                            faIcon: FontAwesomeIcons.house,
-                            selected: controller.tabBarIndex == 0,
-                            onClicked: () {
-                              controller.btnHomeClicked();
-                            }),
-                        MbxButtonNavBarButton(
-                            title: 'Riwayat',
-                            faIcon: FontAwesomeIcons.clockRotateLeft,
-                            selected: controller.tabBarIndex == 1,
-                            onClicked: () {
-                              controller.btnHistoryClicked();
-                            }),
-                        ContainerX(
+                        Expanded(
+                            child: MbxButtonNavBarButton(
+                                title: 'Beranda',
+                                faIcon: FontAwesomeIcons.house,
+                                selected: controller.tabBarIndex == 0,
+                                onClicked: () {
+                                  controller.btnHomeClicked();
+                                })),
+                        Expanded(
+                            child: MbxButtonNavBarButton(
+                                title: 'Riwayat',
+                                faIcon: FontAwesomeIcons.clockRotateLeft,
+                                selected: controller.tabBarIndex == 1,
+                                onClicked: () {
+                                  controller.btnHistoryClicked();
+                                })),
+                        Expanded(
+                            child: ContainerX(
                           width: MbxButtonNavBarButton.buttonWidth,
-                        ),
-                        MbxButtonNavBarButton(
-                            title: 'Notifikasi',
-                            faIcon: FontAwesomeIcons.bell,
-                            selected: controller.tabBarIndex == 3,
-                            onClicked: () {
-                              controller.btnNotificationsClicked();
-                            }),
-                        MbxButtonNavBarButton(
-                            title: 'Akun',
-                            faIcon: FontAwesomeIcons.user,
-                            selected: controller.tabBarIndex == 4,
-                            onClicked: () {
-                              controller.btnAccountClicked();
-                            }),
+                        )),
+                        Expanded(
+                            child: MbxButtonNavBarButton(
+                                title: 'Notifikasi',
+                                faIcon: FontAwesomeIcons.bell,
+                                selected: controller.tabBarIndex == 3,
+                                onClicked: () {
+                                  controller.btnNotificationsClicked();
+                                })),
+                        Expanded(
+                            child: MbxButtonNavBarButton(
+                                title: 'Akun',
+                                faIcon: FontAwesomeIcons.user,
+                                selected: controller.tabBarIndex == 4,
+                                onClicked: () {
+                                  controller.btnAccountClicked();
+                                })),
                       ],
                     ),
                   )

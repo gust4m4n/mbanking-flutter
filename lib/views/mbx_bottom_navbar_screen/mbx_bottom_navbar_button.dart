@@ -3,7 +3,7 @@ import '../../widgets/media_x.dart';
 
 // ignore: must_be_immutable
 class MbxButtonNavBarButton extends StatelessWidget {
-  static final buttonWidth = (MediaX.width - 24.0) / 5.0;
+  static final buttonWidth = MediaX.width / 5.0;
 
   final String title;
   final IconData faIcon;
@@ -29,29 +29,29 @@ class MbxButtonNavBarButton extends StatelessWidget {
             onClicked!();
           },
           child: ContainerX(
-              width: buttonWidth,
+              //width: double.infinity,
               child: Center(
-                child: Wrap(
-                  direction: Axis.vertical,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    ImageX(
-                      faIcon: faIcon,
-                      height: 20.0,
-                      width: 20.0,
-                      color: selected ? ColorX.black : ColorX.gray,
-                    ),
-                    SizedBox(height: 2.0),
-                    TextX(
-                      title,
-                      fontSize: 13.0,
-                      fontWeight: FontWeight.w500,
-                      color: selected ? ColorX.black : ColorX.gray,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+            child: Wrap(
+              direction: Axis.vertical,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                ImageX(
+                  faIcon: faIcon,
+                  height: 20.0,
+                  width: 20.0,
+                  color: selected ? ColorX.black : ColorX.gray,
                 ),
-              ))),
+                SizedBox(height: 2.0),
+                TextX(
+                  title,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.w500,
+                  color: selected ? ColorX.black : ColorX.gray,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ))),
     );
   }
 }
