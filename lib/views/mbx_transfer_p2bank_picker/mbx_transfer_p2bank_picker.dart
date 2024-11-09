@@ -60,22 +60,20 @@ class MbxTransferP2BankPicker
                         },
                         itemCount: controller.destListVM.filtered.length,
                         itemBuilder: (BuildContext context, int index) {
-                          return Material(
-                              color: ColorX.transparent,
-                              child: InkWell(
-                                  highlightColor: ColorX.highlight,
-                                  onTap: () {
-                                    Get.back(
-                                        result: controller
-                                            .destListVM.filtered[index]);
-                                  },
-                                  child: MbxTransferP2BankPickerWidget(
-                                    dest: controller.destListVM.filtered[index],
-                                    onDeleteClicked: () {
-                                      controller.onDeleteClicked(controller
-                                          .destListVM.filtered[index]);
-                                    },
-                                  )));
+                          return InkWellX(
+                              highlightColor: ColorX.theme.withOpacity(0.1),
+                              onClicked: () {
+                                Get.back(
+                                    result:
+                                        controller.destListVM.filtered[index]);
+                              },
+                              child: MbxTransferP2BankPickerWidget(
+                                dest: controller.destListVM.filtered[index],
+                                onDeleteClicked: () {
+                                  controller.onDeleteClicked(
+                                      controller.destListVM.filtered[index]);
+                                },
+                              ));
                         },
                       ))),
             Padding(
