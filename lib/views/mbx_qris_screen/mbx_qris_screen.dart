@@ -2,6 +2,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 
 import '../../viewmodels/mbx_device_info_vm.dart';
 import '../../widgets/all_widgets.dart';
+import '../../widgets/media_x.dart';
 import 'mbx_qris_controller.dart';
 
 class MbxQRISScreen extends StatelessWidget {
@@ -28,8 +29,8 @@ class MbxQRISScreen extends StatelessWidget {
               ContainerX(
                   child: Center(
                 child: ContainerX(
-                    width: MediaQuery.of(Get.context!).size.width - 32.0,
-                    height: MediaQuery.of(Get.context!).size.width - 32.0,
+                    width: MediaX.width - 32.0,
+                    height: MediaX.width - 32.0,
                     borderWidth: 1.0,
                     borderColor: ColorX.white),
               )),
