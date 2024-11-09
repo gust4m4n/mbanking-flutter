@@ -76,13 +76,14 @@ class MbxReloginController extends GetxController {
         Get.loading();
         final resp =
             await MbxReloginVM.request(pin: code, biometric: biometric);
+        Get.back();
         if (resp.status == 200) {
+          Get.back();
           LoggerX.log('[PIN] verfied: $code');
           MbxProfileVM.request().then((resp) {
             Get.toNamed('/qris');
           });
         } else {
-          Get.back();
           pinSheet.clear(resp.message);
         }
       },

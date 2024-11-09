@@ -63,8 +63,8 @@ Future<void> main() async {
   ]).then((value) {
     runApp(
       ContainerX(
-        gradientColorBegin: ColorX.gray,
-        gradientColorEnd: ColorX.black,
+        gradientColorBegin: ColorX.black,
+        gradientColorEnd: ColorX.gray,
         child: Center(
           child: ClipRRect(
               child: Container(
