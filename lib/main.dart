@@ -99,7 +99,7 @@ class MyApp extends StatelessWidget {
       locale: Get.deviceLocale,
       fallbackLocale: Locale('en', 'US'),
       scrollBehavior: AppScrollBehavior(),
-      title: 'MBanking-flutter',
+      title: 'MBankingFlutter',
       theme: ThemeData(
           bottomSheetTheme:
               BottomSheetThemeData(surfaceTintColor: Colors.white),

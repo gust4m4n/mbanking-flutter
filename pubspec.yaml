@@ -1,5 +1,5 @@
 name: mbankingflutter
-description: MBanking-flutter.
+description: MBankingFlutter.
 version: 1.0.8+8
 environment: 
   sdk: '>=3.4.3 <4.0.0'
