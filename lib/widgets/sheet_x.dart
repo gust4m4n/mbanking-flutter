@@ -73,7 +73,7 @@ class SheetX {
                                       ContainerX(width: 8.0),
                                       onAddClicked != null
                                           ? InkWellX(
-                                              cornerRadius: 8.0,
+                                              cornerRadius: 20.0,
                                               onClicked: (() {
                                                 onAddClicked();
                                               }),

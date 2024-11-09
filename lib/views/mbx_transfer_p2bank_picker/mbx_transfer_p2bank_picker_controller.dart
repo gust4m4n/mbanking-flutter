@@ -46,7 +46,5 @@ class MbxTransferP2BankPickerController extends GetxController {
   }
 
   onAddClicked() {
-    LoggerX.log('test');
-    //Get.toNamed('/mbx_transfer_p2p_dest_add');
   }
 }
