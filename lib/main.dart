@@ -28,6 +28,7 @@ import 'views/mbx_transfer_p2bank_screen/mbx_transfer_p2bank_screen.dart';
 import 'views/mbx_transfer_p2p_screen/mbx_transfer_p2p_screen.dart';
 import 'views/mbx_transfer_screen/mbx_transfer_screen.dart';
 import 'widgets/all_widgets.dart';
+import 'widgets/media_x.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -62,10 +63,11 @@ Future<void> main() async {
   ]).then((value) {
     runApp(
       ContainerX(
-        backgroundColor: ColorX.white,
+        gradientColorBegin: ColorX.gray,
+        gradientColorEnd: ColorX.black,
         child: Center(
           child: Container(
-            width: kIsWeb ? 400.0 : double.infinity,
+            width: kIsWeb ? MediaX.width : double.infinity,
             child: MyApp(initialRoute),
           ),
         ),

@@ -1,9 +1,9 @@
 import '../../widgets/all_widgets.dart';
+import '../../widgets/media_x.dart';
 
 // ignore: must_be_immutable
 class MbxButtonNavBarButton extends StatelessWidget {
-  static final buttonWidth =
-      (MediaQuery.of(Get.context!).size.width - 24.0) / 5.0;
+  static final buttonWidth = (MediaX.width - 24.0) / 5.0;
 
   final String title;
   final IconData faIcon;
