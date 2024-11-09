@@ -38,15 +38,20 @@ class MbxNotificationPage extends StatelessWidget {
                         controller.nextPage();
                       }
                       final history = controller.notificationListVM.list[index];
-                      return InkWellX(
-                          highlightColor: ColorX.theme.withOpacity(0.1),
-                          onClicked: () {
-                            Get.toNamed('/receipt', arguments: {
-                              'receipt': MbxReceiptModel(),
-                              'backToHome': false
-                            });
-                          },
-                          child: MbxNotificationWidget(history));
+                      return Padding(
+                          padding: EdgeInsets.only(
+                              left: 16.0, top: 4.0, right: 16.0, bottom: 4.0),
+                          child: InkWellX(
+                              backgroundColor: ColorX.white,
+                              highlightColor: ColorX.theme.withOpacity(0.1),
+                              cornerRadius: 16.0,
+                              onClicked: () {
+                                Get.toNamed('/receipt', arguments: {
+                                  'receipt': MbxReceiptModel(),
+                                  'backToHome': false
+                                });
+                              },
+                              child: MbxNotificationWidget(history)));
                     })),
           )),
     );

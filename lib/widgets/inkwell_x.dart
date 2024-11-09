@@ -9,7 +9,7 @@ class InkWellX extends StatelessWidget {
 
   const InkWellX({
     Key? key,
-    this.backgroundColor,
+    this.backgroundColor = ColorX.transparent,
     this.highlightColor,
     this.cornerRadius = 0.0,
     this.onClicked,
@@ -19,7 +19,11 @@ class InkWellX extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: ColorX.transparent,
+        color: backgroundColor,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+          Radius.circular(cornerRadius),
+        )),
         child: InkWell(
             splashFactory: NoSplash.splashFactory,
             customBorder: RoundedRectangleBorder(
