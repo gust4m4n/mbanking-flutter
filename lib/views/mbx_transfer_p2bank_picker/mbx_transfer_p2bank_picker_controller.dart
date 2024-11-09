@@ -1,5 +1,3 @@
-import 'package:mbankingflutter/utils/all_utils.dart';
-
 import '../../models/mbx_transfer_p2bank_dest_model.dart';
 import '../../viewmodels/mbx_transfer_p2bank_dest_list_vm.dart';
 import '../../widgets/all_widgets.dart';

@@ -115,8 +115,8 @@ class MbxLoginScreen extends StatelessWidget {
                           TextX(
                             controller.version,
                             fontSize: 13.0,
-                            fontWeight: FontWeight.w500,
-                            color: ColorX.black,
+                            fontWeight: FontWeight.w400,
+                            color: ColorX.gray,
                           ),
                           ContainerX(
                               height:
