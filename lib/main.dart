@@ -66,10 +66,11 @@ Future<void> main() async {
         gradientColorBegin: ColorX.gray,
         gradientColorEnd: ColorX.black,
         child: Center(
-          child: Container(
+          child: ClipRRect(
+              child: Container(
             width: kIsWeb ? MediaX.width : double.infinity,
             child: MyApp(initialRoute),
-          ),
+          )),
         ),
       ),
     );
