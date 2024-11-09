@@ -18,7 +18,9 @@ class MbxQRISController extends GetxController {
     await scannerController?.start();
   }
 
-  btnBackClicked() {
+  btnBackClicked() async {
+    await scannerController?.stop();
+    await scannerController?.dispose();
     Get.back();
   }
 

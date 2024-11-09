@@ -18,6 +18,7 @@ class MbxQRISScreen extends StatelessWidget {
               ContainerX(backgroundColor: Colors.black),
               if (MbxDeviceInfoVM.simulator == false)
                 MobileScanner(
+                  
                   controller: controller.scannerController,
                   onDetect: (cap) {
                     final List<Barcode> barcodes = cap.barcodes;
