@@ -15,6 +15,7 @@ class MbxQRISScreen extends StatelessWidget {
         builder: (controller) => MbxScreen(
             navigationBarHidden: true,
             body: Stack(children: [
+              ContainerX(backgroundColor: Colors.black),
               if (MbxDeviceInfoVM.simulator == false)
                 MobileScanner(
                   controller: controller.scannerController,
