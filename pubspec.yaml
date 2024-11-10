@@ -48,6 +48,7 @@ dependencies:
   remove: ^1.0.10
   screenshot: ^3.0.0
   carousel_slider: ^5.0.0
+  flutter_widget_from_html: ^0.15.2
 
 
 dev_dependencies: 

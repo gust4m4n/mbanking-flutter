@@ -1,3 +1,5 @@
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+
 import '../../widgets/all_widgets.dart';
 import 'mbx_privacy_policy_controller.dart';
 
@@ -15,7 +17,15 @@ class MbxPrivacyPolicyScreen extends StatelessWidget {
                           valueColor:
                               AlwaysStoppedAnimation<Color>(ColorX.gray)),
                     )
-                  : WebViewWidget(controller: controller.webController),
+                  : kIsWeb
+                      ? SingleChildScrollView(
+                          physics: ClampingScrollPhysics(),
+                          child: Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: HtmlWidget(controller.html)))
+                      : controller.webController != null
+                          ? WebViewWidget(controller: controller.webController!)
+                          : ContainerX(),
             )));
   }
 }

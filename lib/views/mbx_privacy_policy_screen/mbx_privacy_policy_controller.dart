@@ -3,7 +3,8 @@ import '../../widgets/all_widgets.dart';
 
 class MbxPrivacyPolicyController extends GetxController {
   final privacyPolicyVM = MbxPrivacyPolicyVM();
-  final webController = WebViewController();
+  WebViewController? webController;
+  var html = '';
 
   @override
   void onReady() {
@@ -16,7 +17,11 @@ class MbxPrivacyPolicyController extends GetxController {
           <br><br>
           <span style="font-family: 'Roboto'; font-weight: normal; font-size: 15pt; color: #343a40">${privacyPolicyVM.privacy_policy.content}</span>
         ''').then((value) {
-        webController.loadHtmlString(value);
+        html = value;
+        if (!kIsWeb) {
+          webController = WebViewController();
+          webController?.loadHtmlString(html);
+        }
       });
     });
   }
