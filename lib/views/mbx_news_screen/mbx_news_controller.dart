@@ -6,7 +6,8 @@ import '../../widgets/all_widgets.dart';
 class MbxNewsController extends GetxController {
   var news = MbxNewsModel();
   final newsDetailVM = MbxNewsDetailVM();
-  final webController = WebViewController();
+  WebViewController? webController;
+  var html = '';
 
   @override
   void onReady() {
@@ -30,7 +31,11 @@ class MbxNewsController extends GetxController {
           <br><br>
           <span style="font-family: 'Roboto'; font-weight: normal; font-size: 15pt; color: #343a40">${news.content}</span>
         ''').then((value) {
-      webController.loadHtmlString(value);
+      html = value;
+      if (!kIsWeb) {
+        webController = WebViewController();
+        webController?.loadHtmlString(html);
+      }
     });
   }
 
