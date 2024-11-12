@@ -36,8 +36,6 @@ class MbxPulsaPrepaidController extends GetxController {
   }
 
   customerIdChanged(String value) {
-    String newValue = value.replaceAll(new RegExp(r"\D"), "");
-    customerIdController.text = newValue;
     update();
     if (value.isNotEmpty) {
       denomsVM.request(phone: value).then((resp) {

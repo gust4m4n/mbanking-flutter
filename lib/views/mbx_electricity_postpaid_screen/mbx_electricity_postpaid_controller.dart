@@ -31,8 +31,6 @@ class MbxElectricityPostpaidController extends GetxController {
   }
 
   customerIdChanged(String value) {
-    String newValue = value.replaceAll(new RegExp(r"\D"), "");
-    customerIdController.text = newValue;
     update();
   }
 
